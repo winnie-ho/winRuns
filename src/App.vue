@@ -2,15 +2,18 @@
   <div id="app">
     <router-view/>
     <nav-bar></nav-bar>
+    <stat-total></stat-total>
   </div>
 </template>
 
 <script>
 import navBar from './components/navBar.vue'
+import statTotal from './components/statTotal.vue'
 
 export default {
   components: {
-    'nav-bar': navBar
+    'nav-bar': navBar,
+    'stat-total': statTotal
   },
   name: 'App'
 }
@@ -19,11 +22,7 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  background-color: slategrey;
+  margin: -8px;
 }
 </style>
