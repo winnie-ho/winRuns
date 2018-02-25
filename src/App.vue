@@ -1,19 +1,15 @@
 <template>
   <div id="app">
     <router-view/>
-    <nav-bar></nav-bar>
-    <stat-total></stat-total>
   </div>
 </template>
 
 <script>
-import navBar from './components/navBar.vue'
-import statTotal from './components/statTotal.vue'
+import home from './pages/home.vue'
 
 export default {
   components: {
-    'nav-bar': navBar,
-    'stat-total': statTotal
+    'home': home,
   },
   name: 'App'
 }

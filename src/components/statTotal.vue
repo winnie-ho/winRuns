@@ -24,7 +24,7 @@ export default {
       title: 'Distance',
       statValue: '',
       unit: 'km',
-      expandToggle: true,
+      expandToggle: false,
       ytdDistances: [
         { month: 'Jan', distance: 20 },
         { month: 'Feb', distance: 30 },

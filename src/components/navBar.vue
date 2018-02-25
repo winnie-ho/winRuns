@@ -1,15 +1,29 @@
 <template>
   <div id='navBar'>
-    <div class='data hover nav-button' id='home-button'  v-on:click='handleNavButton(`home`)'>WIN RUNS</div>
-      <div class='data hover nav-button' id='run-club-button' v-on:click='handleNavButton(`run-club-home`)'>
-      <img src='../assets/icon_run4it.png' class='nav-icon'/>
-    </div>
-    <div class='data hover nav-button' id='park-run-home-button' v-on:click='handleNavButton(`park-run-home`)'>
-      <img src='../assets/icon_park_run.png' class='nav-icon'/>
-    </div>
-    <div class='data hover nav-button' id='runs-button' v-on:click='handleNavButton(`runs`)'>
-      <img src='../assets/icon_runs.png' class='nav-icon'/>
-    </div>
+    <router-link to="/" exact>
+      <div class='data hover nav-button' id='home-button'>
+        WIN RUNS
+      </div>
+    </router-link>
+
+    <router-link to="/runclub" exact>
+      <div class='data hover nav-button' id='run-club-button'>
+        <img src='../assets/icon_run4it.png' class='nav-icon'/>
+      </div>
+    </router-link>
+
+    <router-link to="/parkrun" exact>
+      <div class='data hover nav-button' id='park-run-home-button'>
+        <img src='../assets/icon_park_run.png' class='nav-icon'/>
+      </div>
+    </router-link>
+
+    <router-link to="/runs" exact>
+      <div class='data hover nav-button' id='runs-button'>
+        <img src='../assets/icon_runs.png' class='nav-icon'/>
+      </div>
+    </router-link>
+    
   </div>
 </template>
 
