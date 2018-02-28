@@ -23,7 +23,6 @@
         <img src='../assets/icon_runs.png' class='nav-icon'/>
       </div>
     </router-link>
-    
   </div>
 </template>
 
@@ -32,82 +31,9 @@ export default {
   name: 'navBar',
   data () {
     return {
-      pages: [
-        'auth',
-        'home',
-        'weather-now',
-        'run-club-home',
-        'park-run-home',
-        'park-run-splits',
-        'park-run-graphs',
-        'runs',
-        'weather-forecast',
-        'view-run'
-      ],
-      detailedViews: [
-        'laps',
-        'photos',
-        'comments',
-        'kudos'
-      ]
     }
   },
-
   methods: {
-    resetPages: function (navId) {
-      this.pages.forEach(page => {
-        if (page !== navId) {
-          document.getElementById(page).style.display = 'none'
-        }
-      })
-    },
-    handleNavButton: function (navId) {
-      this.resetPages(navId)
-      document.getElementById(navId).style.display = 'block'
-      switch (navId) {
-        case 'home':
-          document.getElementById('weather-now').style.display = 'flex'
-          break
-        case 'park-run-home':
-          initParkRun()
-          break
-        case 'run-club-home':
-          fetchRunClub()
-          fetchRunClubMembers()
-          computeRunClubRuns(responseRuns)
-          renderRunClubHome(runClubRuns)
-          break
-        case 'runs':
-          showRun(responseRuns)
-          break
-        case 'park-run-graphs':
-          kmChart(parkRuns)
-          break
-      }
-    },
-
-    handleToggleButton: function (toggleId, id) {
-      let idTarget = document.getElementById(id)
-      let target = document.getElementById(toggleId)
-      if (target.style.display === 'flex' || target.style.display === 'grid') {
-        target.style.display = 'none'
-        idTarget.classList.remove('button-active')
-      } else if (target.style.display === 'none') {
-        this.detailedViews.forEach(detailedView => {
-        document.getElementById(detailedView + '-detail').style.display = 'none'
-        document.getElementById(detailedView + '-button').classList.remove('button-active')
-      })
-        if (target.style.display === 'none') {
-          target.style.display = 'flex'
-          idTarget.classList.add('button-active')
-        }
-
-        if (toggleId === 'kudos-detail') {
-          target.style.display = 'grid'
-          idTarget.classList.add('button-active')
-        }
-      }
-    }
   }
 }
 </script>

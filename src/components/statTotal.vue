@@ -1,10 +1,10 @@
 <template>
   <div class='main-stat' v-bind:class='{ expanded: expandToggle }' v-on:click='expandToggle = !expandToggle'>
     <div class='main-stat--title'>{{ title }}</div>
-    <div class='main-stat--value'>{{ statValue }}{{ unit }}</div>
+    <div class='main-stat--value'>{{ stats.count }} {{ unit }}</div>
 
     <div v-show='expandToggle' class='expanded-stat'>
-      <div class='main-stat--title' v-for='month in ytdDistances'>
+      <div class='main-stat--title' v-for='month in ytdDistances' :key='month.month'>
         {{ month.month }}: {{ month.distance }}km
       </div>
       <div id='last-year-bar' class='bar'>
@@ -21,32 +21,35 @@ export default {
   name: 'statTotal',
   data () {
     return {
-      title: 'Distance',
       statValue: '',
-      unit: 'km',
       expandToggle: false,
       ytdDistances: [
         { month: 'Jan', distance: 20 },
         { month: 'Feb', distance: 30 },
         { month: 'March', distance: 15 }
       ],
-      lastYear: 510,
-      statDataResponse: {},
-      
+      lastYear: 510
+    }
+  },
+  props: {
+    stats: {
+      type: Object,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    unit: {
+      type: String,
+      required: true
     }
   },
   mounted () {
     this.thisYear = document.getElementById('last-year-bar').offsetWidth
   },
-
   created () {
-    this.$http.get('https://www.strava.com/api/v3/athletes/3752965/stats?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(function(data){
-      console.log("DATA", data)
-      this.statDataResponse = data.body.ytd_run_totals
-      this.statValue = (this.statDataResponse.distance/1000).toFixed(0)
-    })
   },
-
   methods: {
   },
   computed: {
@@ -66,6 +69,7 @@ export default {
     justify-content: flex-start;
     border: dashed lightslategray 1px;
     max-width: 200px;
+    min-width: 100px;
     text-align: center;
     font-size: 16px;
   }

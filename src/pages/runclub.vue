@@ -5,14 +5,13 @@
   </div>
 </template>
 
-
 <script>
 import navBar from '../components/navBar.vue'
 
 export default {
   name: 'runclub',
   components: {
-    'nav-bar': navBar,
+    'nav-bar': navBar
   },
   data () {
     return {
