@@ -6,8 +6,8 @@
     <div class='main-stat--value'>{{ statType.count }}</div>
 
     <div v-show='expandToggle' class='expanded-stat'>
-      <div>Distance: {{ (statType.distance/1000).toFixed(0) }} km</div>
-      <div>Time: {{ (statType.elapsed_time/3600).toFixed(0) }} hours</div>
+      <div>{{ (statType.distance/1000).toFixed(0) }} km</div>
+      <div>{{ (statType.elapsed_time/3600).toFixed(0) }} hours</div>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: dashed lightslategray 1px;
+  background-color: rgb(212, 217, 221);
   max-width: 200px;
   min-width: 100px;
   text-align: center;
@@ -71,10 +71,11 @@ export default {
 }
 
 .main-stat--value {
+  font-size: 24px;
 }
 
 .expanded {
-  background-color: white;
+  background-color: rgb(212, 217, 221, 0.5);
 }
 
 .expanded-stat {
