@@ -6,12 +6,22 @@
 
 <script>
 import home from './pages/home.vue'
+import runclub from './pages/runclub.vue'
+import parkrun from './pages/parkrun.vue'
+import runs from './pages/runs.vue'
 
 export default {
   components: {
-    'home': home
+    'home': home,
+    'runclub': parkrun,
+    'parkrun': parkrun,
+    'runs': runs
   },
-  name: 'App'
+  name: 'App',
+  methods: {
+  },
+  computed: {
+  }
 }
 </script>
 

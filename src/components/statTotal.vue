@@ -1,96 +1,88 @@
 <template>
   <div class='main-stat' v-bind:class='{ expanded: expandToggle }' v-on:click='expandToggle = !expandToggle'>
-    <div class='main-stat--title'>{{ title }}</div>
-    <div class='main-stat--value'>{{ stats.count }} {{ unit }}</div>
+    <div class='main-stat--title'>
+      {{ title }}
+      </div>
+    <div class='main-stat--value'>{{ statType.count }}</div>
 
     <div v-show='expandToggle' class='expanded-stat'>
-      <div class='main-stat--title' v-for='month in ytdDistances' :key='month.month'>
-        {{ month.month }}: {{ month.distance }}km
-      </div>
-      <div id='last-year-bar' class='bar'>
-        {{ lastYear }}
-      </div>
-      <div v-bind:style='_computeThisYearBar' class='this-year-bar bar'>
-      </div>
+      <div>Distance: {{ (statType.distance/1000).toFixed(0) }} km</div>
+      <div>Time: {{ (statType.elapsed_time/3600).toFixed(0) }} hours</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'statTotal',
-  data () {
+  name: "statTotal",
+  data() {
     return {
-      statValue: '',
       expandToggle: false,
-      ytdDistances: [
-        { month: 'Jan', distance: 20 },
-        { month: 'Feb', distance: 30 },
-        { month: 'March', distance: 15 }
-      ],
       lastYear: 510
-    }
+    };
   },
   props: {
-    stats: {
-      type: Object,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    unit: {
+    type: {
       type: String,
       required: true
     }
   },
-  mounted () {
-    this.thisYear = document.getElementById('last-year-bar').offsetWidth
+  mounted() {
+    // this.thisYear = document.getElementById('last-year-bar').offsetWidth
   },
-  created () {
+  created() {
   },
-  methods: {
-  },
+  methods: {},
   computed: {
-    _computeThisYearBar: function () {
-      return {
-        width: (this.statValue / this.lastYear * this.thisYear) + 'px'
+    title: function() {
+      return (this.type + 's').toUpperCase();
+    },
+    statType: function() {
+      switch(this.type) {
+        case 'run':
+          return this.$store.state.runStats
+          break;
+        case 'ride':
+          return this.$store.state.rideStats
+          break;
+        case 'swim':
+          return this.$store.state.swimStats
+          break;
       }
     }
+
   }
-}
+};
 </script>
 
 <style scoped>
-  .main-stat {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border: dashed lightslategray 1px;
-    max-width: 200px;
-    min-width: 100px;
-    text-align: center;
-    font-size: 16px;
-  }
+.main-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: dashed lightslategray 1px;
+  max-width: 200px;
+  min-width: 100px;
+  text-align: center;
+  font-size: 16px;
+}
 
-  .main-stat--title {
+.main-stat--title {
+}
 
-  }
+.main-stat--value {
+}
 
-  .main-stat--value {
-  }
+.expanded {
+  background-color: white;
+}
 
-  .expanded {
-    background-color: white;
-  }
-
-  .expanded-stat {
-    margin-top: 10px;
-    animation-name: expand-vertical;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  }
+.expanded-stat {
+  margin-top: 10px;
+  animation-name: expand-vertical;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
 
 @keyframes expand-vertical {
   from {
