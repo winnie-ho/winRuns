@@ -29,11 +29,22 @@
     </div>
     <div id='burger' v-on:click='expandBurger = !expandBurger'>
       <img src='../assets/icon_burger.png' class='nav-icon'/>
-      <div class='expanded-burger' v-bind:hidden=expandBurger>
-        <p>Home</p>
-        <p>Run Club</p>
-        <p>Park Run</p>
-        <p>Runs</p>
+      <div class='expanded-burger' v-bind:hidden=!expandBurger>
+        <div class='burger-item hover row'>
+          <router-link to="/" exact>Home</router-link>
+        </div>
+        <div class='burger-item hover row'>
+          <img src='../assets/icon_run4it.png' class='burger-icon'/>
+          <router-link to="/runclub" exact>Run Club</router-link>
+        </div>
+        <div class='burger-item hover row'>
+          <img src='../assets/icon_park_run_logo.png' class='burger-icon'/>
+          <router-link to="/parkrun" exact>Park Run</router-link>
+        </div>
+        <div class='burger-item hover row'>
+          <img src='../assets/icon_runs.png' class='burger-icon'/>
+          <router-link to="/runs" exact>Runs</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +55,7 @@ export default {
   name: 'navBar',
   data () {
     return {
-      expandBurger: true
+      expandBurger: false
     }
   },
   methods: {
@@ -53,23 +64,54 @@ export default {
 </script>
 
 <style scoped>
-  #burger {
+
+  [hidden] {
+    display: none !important;
+  }
+
+#burger {
     visibility: hidden;
     position: absolute;
     top: 7px;
     right: 10px;
     z-index: 1px;
+    cursor: pointer;
+  }
+
+  #burger img {
+    pointer-events: none;
   }
 
   .expanded-burger {
+    display: flex;
+    flex-direction: column;
     visibility: visible;
     position: absolute;
-    top: 2px;  
+    top: 30px;  
     right: 2px;
-    width: 100px;
+    width: 300px;
     text-align: right;  
-    background-color: rgba(212, 217, 221, 0.8);
+    background-color: rgba(212, 217, 221, 0.9);
     padding: 10px;
+    border-radius: 2px;
+  }
+
+  .burger-item {
+    padding-left: 10px;
+    height: 40px;
+    margin: auto 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .burger-item a {
+    color: #2c3e50;
+    text-decoration: none;
+  }
+
+  .burger-item:hover {
+    border-left: 3px solid slategray;
+    background-color: rgba(62, 159, 223, 0.527);
   }
 
   #openNavBar {
@@ -89,10 +131,12 @@ export default {
   }
 
   .row {
+    display: flex;
     flex-direction: row;
   }
 
   .col {
+    display: flex;
     flex-direction: column;  
   }
 
@@ -104,6 +148,13 @@ export default {
 
   .nav-icon:hover {
     transform: scale(1.1);
+  }
+
+  .burger-icon {
+    width: 30px;
+    height: auto;
+    margin: 0 5px;
+    filter: invert(60%)
   }
 
   .nav-button {
