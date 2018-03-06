@@ -69,7 +69,16 @@ export default {
     display: none !important;
   }
 
-#burger {
+  @keyframes expand-vertical {
+    from {
+      height: 30px;
+    }
+    to {
+      height: 200px;
+    }
+  }
+
+  #burger {
     visibility: hidden;
     position: absolute;
     top: 7px;
@@ -94,6 +103,11 @@ export default {
     background-color: rgba(212, 217, 221, 0.9);
     padding: 10px;
     border-radius: 2px;
+
+    animation-name: expand-vertical;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
   }
 
   .burger-item {
