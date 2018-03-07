@@ -25,24 +25,26 @@
 <script>
 export default {
   name: "statTotal",
+
   data() {
     return {
       expandToggle: false,
       lastYear: 510
     };
   },
+
   props: {
     type: {
       type: String,
       required: true
     }
   },
-  mounted() {
-    // this.thisYear = document.getElementById('last-year-bar').offsetWidth
-  },
+
   created() {
   },
+
   methods: {},
+
   computed: {
     title: function() {
       return (this.type + 's').toUpperCase();
@@ -75,9 +77,6 @@ export default {
   text-align: center;
   font-size: 16px;
   cursor: pointer;
-}
-
-.main-stat--title {
 }
 
 .main-stat--value {
