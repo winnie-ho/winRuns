@@ -9,13 +9,15 @@ export const store = new Vuex.Store({
   state: {
     runStats: {},
     rideStats: {},
-    swimStats: {}
+    swimStats: {},
+    activities: {}
   },
   getters: {},
   mutations: {
     setRunStats: (state, payload) => (state.runStats = payload),
     setRideStats: (state, payload) => (state.rideStats = payload),
-    setSwimStats: (state, payload) => (state.swimStats = payload)
+    setSwimStats: (state, payload) => (state.swimStats = payload),
+    setActivities: (state, payload) => (state.activities = payload)
   },
   actions: {
     fetchStats: (context) => {
@@ -25,6 +27,13 @@ export const store = new Vuex.Store({
           context.commit('setRunStats', response.data.ytd_run_totals)
           context.commit('setRideStats', response.data.ytd_ride_totals)
           context.commit('setSwimStats', response.data.ytd_swim_totals)
+        })
+    },
+    fetchActivities: (context) => {
+      console.log('FETCH ACTIVITIES ACTION')
+      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
+        function (response) {
+          context.commit('setActivities', response.data)
         })
     }
   }

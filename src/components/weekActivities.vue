@@ -16,6 +16,9 @@
         </div>
       </div>
     </div>
+    <div v-for="activity in activities" :key="activity">
+      {{ activity.name }}
+    </div>
   </div>
 </template>
 
@@ -39,10 +42,14 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("fetchActivities")
   },
   methods: {
   },
   computed: {
+    activities: function() {
+      return this.$store.state.activities;
+    }
   }
 }
 </script>
@@ -70,7 +77,7 @@ export default {
     flex-direction: row;
     width: 90vw;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
   }
 
   .day-title {
