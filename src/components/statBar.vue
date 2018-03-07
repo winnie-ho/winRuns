@@ -35,6 +35,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    padding: 5px;
+    width: calc(100% - 10px);
   }
 </style>

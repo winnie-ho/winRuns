@@ -69,12 +69,12 @@ export default {
 .main-stat {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background-color: rgb(212, 217, 221);
+  justify-content: flex-end;
   max-width: 200px;
   min-width: 100px;
   text-align: center;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .main-stat--title {
