@@ -7,22 +7,22 @@
           {{ activity.name }}
         </div>
         <div class='date date-metric'>
-          {{ activity.start_date }}
+          {{ renderDate(activity.start_date) }}
         </div>
 
       </div>
       <div class='run-box__detail'>
         <div class='data-metric'>
           <img src='../assets/icon_distance.png' class='icon'/>
-          {{ activity.distance/1000 + 'km' }}
+          {{ renderDistance(activity.distance) }}
         </div>
         <div class='data-metric'>
           <img src="../assets/icon_time.png" class="icon">
-          {{ activity.moving_time/60 }}
+          {{ renderTime(activity.moving_time) }}
         </div>
         <div class='data-metric'>
           <img src="../assets/icon_pace.png" class="icon">
-          {{ activity.moving_time/60 }}
+          {{ renderPace(activity.moving_time, activity.distance) }}
         </div>
       </div>
     </div>
@@ -31,6 +31,7 @@
 
 <script>
 import navBar from '../components/navBar.vue'
+import renderData from '../mixins/renderData.js'
 
 export default {
   name: 'runs',
@@ -54,7 +55,8 @@ export default {
     activities: function() {
       return this.$store.state.activities;
     }
-  }
+  },
+  mixins: [ renderData ]
 }
 </script>
 

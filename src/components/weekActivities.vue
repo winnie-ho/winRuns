@@ -1,9 +1,9 @@
 <template>
   <div id='week-activities'>
     <div id="week-header">
-      <div onclick="changeWeek(1)" ><strong><</strong></div>
+      <!-- <div onclick="changeWeek(1)" ><strong><</strong></div>
         <div class="heading" id="dateInView"></div>
-      <div onclick="changeWeek(-1)" id="previous"><strong>></strong></div>
+      <div onclick="changeWeek(-1)" id="previous"><strong>></strong></div> -->
     </div>
 
     <div id='week-container'>
@@ -15,9 +15,6 @@
           something
         </div>
       </div>
-    </div>
-    <div v-for="activity in activities" :key="activity">
-      {{ activity.name }}
     </div>
   </div>
 </template>
@@ -42,14 +39,10 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch("fetchActivities")
   },
   methods: {
   },
   computed: {
-    activities: function() {
-      return this.$store.state.activities;
-    }
   }
 }
 </script>
