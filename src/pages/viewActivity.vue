@@ -13,7 +13,7 @@
         <div id="primary-stats__pace" class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
       </div>
       
-      <!-- <div id="activity-info__secondary-stats" class="row sa">
+      <div id="activity-info__secondary-stats" class="row sa">
         <div id="laps-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('laps-detail', 'laps-button')"> 
           <img class="activity-icon nav-icon" src="../assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ activity.laps.length }}</div>
@@ -26,33 +26,32 @@
       <div id="activity-info__tertiary-stats" class="row sa">
         <div id="comments-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('comments-detail', 'comments-button')" >
           <img class="activity-icon nav-icon" src="../assets/icon_comment.png"/>
-          <div id="secondary-stats__comments" class="data-metric"></div>
+          <div id="secondary-stats__comments" class="data-metric">{{ comments.length }}</div>
         </div>
 
         <div id="kudos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('kudos-detail', 'kudos-button')" >
           <img class="activity-icon nav-icon" src="../assets/icon_like.png"/>
-          <div id="secondary-stats__kudos" class="data-metric"></div>
+          <div id="secondary-stats__kudos" class="data-metric">{{ kudos.length }}</div>
         </div>
         
-        <div id="photos-button" style="display: none" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('photos-detail', 'photos-button')"> 
+        <div id="photos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('photos-detail', 'photos-button')"> 
           <img class="activity-icon nav-icon" src="../assets/icon_picture.png"/>
-          <div id="photos" class="data-metric"></div>
+          <div id="photos" class="data-metric">{{ photos.length }}</div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <div id="kudos-detail" style="display: none">
+      <div id="kudos-detail" style="display: none">
       </div>
       <div id="comments-detail" class="col sb" style="display: none"></div>
       <div id="photos-detail" class="col sb" style="display: none"></div>
       <div id="laps-detail" class="col sb" style="display: none">
         <div id="laps-calc-result" class="row sa"></div>
         <div id="laps-list" class="col sb"></div>
-      </div> -->
+      </div>
 
-    <!-- </div> -->
-
-    <!-- <div id="map"></div> -->
     </div>
+
+    <div id="map"></div>
   </div>
 </template>
 
@@ -79,7 +78,16 @@ export default {
   },
   computed: {
     activity: function() {
-      return this.$store.state.activity;
+      return this.$store.state.activity
+    },
+    comments: function() {
+      return this.$store.state.comments
+    },
+    kudos: function() {
+      return this.$store.state.kudos
+    },
+    photos: function() {
+      return this.$store.state.photos
     }
   },
   mixins: [ renderData ]
