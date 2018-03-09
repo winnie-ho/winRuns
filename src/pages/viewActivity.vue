@@ -1,7 +1,58 @@
 <template>
   <div id='viewActivity'>
     <nav-bar></nav-bar>
-    VIEW ACTIVITY
+    <div id="activity-info" class="run-box__detail" >
+      <div id="header" class="row sb">
+        <div class="title">{{ activity.name }}</div>
+        <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
+      </div>
+
+      <div id="activity-info__primary-stats" class="row sa">
+        <div id="primary-stats__distance" class="data-metric">{{ renderDistance(activity.distance) }}</div>
+        <div id="primary-stats__time" class="data-metric">{{ renderTime(activity.moving_time) }}</div>
+        <div id="primary-stats__pace" class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
+      </div>
+      
+      <!-- <div id="activity-info__secondary-stats" class="row sa">
+        <div id="laps-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('laps-detail', 'laps-button')"> 
+          <img class="activity-icon nav-icon" src="../assets/icon_laps.png"/>
+          <div id="laps" class="data-metric">{{ activity.laps.length }}</div>
+        </div>
+        <div id="secondary-stats__heartrate" class="data-metric">{{ activity.average_heartrate }}</div>
+        <div id="secondary-stats__cadence" class="data-metric">{{ activity.average_cadence }}</div>
+      </div>
+      
+      
+      <div id="activity-info__tertiary-stats" class="row sa">
+        <div id="comments-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('comments-detail', 'comments-button')" >
+          <img class="activity-icon nav-icon" src="../assets/icon_comment.png"/>
+          <div id="secondary-stats__comments" class="data-metric"></div>
+        </div>
+
+        <div id="kudos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('kudos-detail', 'kudos-button')" >
+          <img class="activity-icon nav-icon" src="../assets/icon_like.png"/>
+          <div id="secondary-stats__kudos" class="data-metric"></div>
+        </div>
+        
+        <div id="photos-button" style="display: none" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('photos-detail', 'photos-button')"> 
+          <img class="activity-icon nav-icon" src="../assets/icon_picture.png"/>
+          <div id="photos" class="data-metric"></div>
+        </div>
+      </div> -->
+
+      <!-- <div id="kudos-detail" style="display: none">
+      </div>
+      <div id="comments-detail" class="col sb" style="display: none"></div>
+      <div id="photos-detail" class="col sb" style="display: none"></div>
+      <div id="laps-detail" class="col sb" style="display: none">
+        <div id="laps-calc-result" class="row sa"></div>
+        <div id="laps-list" class="col sb"></div>
+      </div> -->
+
+    <!-- </div> -->
+
+    <!-- <div id="map"></div> -->
+    </div>
   </div>
 </template>
 
@@ -22,17 +73,13 @@ export default {
   },
 
   created() {
-    this.$store.dispatch('fetchActivities')
   },
 
   methods: {
-    viewRun: function() {
-      console.log("viewRun clicked")
-    }
   },
   computed: {
-    activities: function() {
-      return this.$store.state.activities;
+    activity: function() {
+      return this.$store.state.activity;
     }
   },
   mixins: [ renderData ]
@@ -40,28 +87,41 @@ export default {
 </script>
 
 <style scoped>
-  .run-box{
-    background-color: rgba(31, 97, 141, 0.7);
+  #activity-info{
+    position: absolute;
+    display: block;
     flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 2px;
-    margin: 1px 2px;;
-    padding: 5px;
-    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(31, 97, 141, 0.9);
+    box-shadow: 0 0 80px 50px rgba(31, 97, 141, 0.9);
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    max-height: 92%; 
   }
 
-  .run-box__detail{
+  .header{
+    padding: 0 10px;
+  }
+
+  .title{
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    align-content: center;
+    align-items: center;
   }
 
-  .activity-summary__heading{
-    font-size: 14px;
-    font-weight: bold;
+  .sb{
+    justify-content: space-between;
+  }
+
+  .sa{
+    justify-content: space-around;
   }
 
   .date{
@@ -76,6 +136,12 @@ export default {
   .icon{
     height: 20px;
     width: auto;
+    margin: 0 5px;
+  }
+
+  .nav-icon{
+    width: auto;
+    height: 30px;
     margin: 0 5px;
   }
 </style>

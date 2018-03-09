@@ -1,7 +1,7 @@
 <template>
   <div id='activities'>
     <nav-bar></nav-bar>
-    <div v-for="(activity, index) in activities" v-bind:key='index' class='run-box'>
+    <div v-for="(activity, index) in activities" v-bind:key='index' class='run-box' v-on:click='viewActivity(activity.id)'>
       <router-link v-bind:to="'/activity/' + activity.id">
 
         <div class='run-box__detail'>
@@ -53,8 +53,11 @@ export default {
   },
 
   methods: {
-    viewRun: function() {
-      console.log("viewRun clicked")
+    viewActivity: function (activityId) {
+      this.$store.dispatch('fetchActivity', activityId)
+      this.$store.dispatch('fetchKudos', activityId)
+      this.$store.dispatch('fetchPhotos', activityId)
+      this.$store.dispatch('fetchComments', activityId)
     }
   },
   computed: {
