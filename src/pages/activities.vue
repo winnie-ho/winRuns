@@ -1,30 +1,33 @@
 <template>
-  <div id='runs'>
+  <div id='activities'>
     <nav-bar></nav-bar>
     <div v-for="(activity, index) in activities" v-bind:key='index' class='run-box'>
-      <div class='run-box__detail'>
-        <div class='activity-summary__heading'>
-          {{ activity.name }}
-        </div>
-        <div class='date date-metric'>
-          {{ renderDate(activity.start_date) }}
-        </div>
+      <router-link v-bind:to="'/activity/' + activity.id">
 
-      </div>
-      <div class='run-box__detail'>
-        <div class='data-metric'>
-          <img src='../assets/icon_distance.png' class='icon'/>
-          {{ renderDistance(activity.distance) }}
+        <div class='run-box__detail'>
+          <div class='activity-summary__heading'>
+            {{ activity.name }}
+          </div>
+          <div class='date date-metric'>
+            {{ renderDate(activity.start_date) }}
+          </div>
+
         </div>
-        <div class='data-metric'>
-          <img src="../assets/icon_time.png" class="icon">
-          {{ renderTime(activity.moving_time) }}
+        <div class='run-box__detail'>
+          <div class='data-metric'>
+            <img src='../assets/icon_distance.png' class='icon'/>
+            {{ renderDistance(activity.distance) }}
+          </div>
+          <div class='data-metric'>
+            <img src="../assets/icon_time.png" class="icon">
+            {{ renderTime(activity.moving_time) }}
+          </div>
+          <div class='data-metric'>
+            <img src="../assets/icon_pace.png" class="icon">
+            {{ renderPace(activity.moving_time, activity.distance) }}
+          </div>
         </div>
-        <div class='data-metric'>
-          <img src="../assets/icon_pace.png" class="icon">
-          {{ renderPace(activity.moving_time, activity.distance) }}
-        </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -34,7 +37,7 @@ import navBar from '../components/navBar.vue'
 import renderData from '../mixins/renderData.js'
 
 export default {
-  name: 'runs',
+  name: 'activities',
   components: {
     'nav-bar': navBar
   },
@@ -50,6 +53,9 @@ export default {
   },
 
   methods: {
+    viewRun: function() {
+      console.log("viewRun clicked")
+    }
   },
   computed: {
     activities: function() {

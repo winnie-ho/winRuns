@@ -8,14 +8,14 @@
 import home from './pages/home.vue'
 import runclub from './pages/runclub.vue'
 import parkrun from './pages/parkrun.vue'
-import runs from './pages/runs.vue'
+import activities from './pages/activities.vue'
 
 export default {
   components: {
     'home': home,
     'runclub': parkrun,
     'parkrun': parkrun,
-    'runs': runs
+    'activities': activities
   },
   name: 'App',
   methods: {
