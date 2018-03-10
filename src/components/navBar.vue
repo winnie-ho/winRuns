@@ -22,7 +22,7 @@
 
         <router-link to="/activities" exact>
           <div class='data hover nav-button' id='runs-button'>
-            <img src='../assets/icon_runs.png' class='nav-icon'/>
+            <img src='../assets/icon_activities.png' class='nav-icon'/>
           </div>
         </router-link>
       </div>
@@ -42,7 +42,7 @@
           <router-link to="/parkrun" exact>Park Run</router-link>
         </div>
         <div class='burger-item hover row'>
-          <img src='../assets/icon_runs.png' class='burger-icon'/>
+          <img src='../assets/icon_activities.png' class='burger-icon'/>
           <router-link to="/activities" exact>Runs</router-link>
         </div>
       </div>
