@@ -42,17 +42,20 @@
         </div>
       </div>
 
-      <div id="kudos-detail" class="col sb" v-show='openKudos' v-for='kudo in kudos' v-bind:key='kudo.index'>
-        <img v-bind:src='kudo.profile' class='avatar'/>
-      </div>
-      <div id="comments-detail" class="col sb" v-show='openComments' v-for='comment in comments' v-bind:key='comment.index'>
-        <div class='row'>
-          <img v-bind:src='comment.athlete.profile' class='avatar'/>
-          <p>{{ comment.text }}</p>
+      <div id="kudos-detail" v-show='openKudos'>
+        <div class='col' v-for='kudo in kudos' v-bind:key='kudo.index'>
+          <img v-bind:src='kudo.profile' class='avatar' />
+          {{ kudo.firstname }}
         </div>
       </div>
-      <div id="photos-detail" class="col sb" v-show='openPhotos' v-for='photo in photos' v-bind:key='photo.index'>
-        <img v-bind:src="photo.urls['1000']"/>
+      <div id="comments-detail" class="col sb" v-show='openComments'>
+        <div class='row' v-for='comment in comments' v-bind:key='comment.index'>
+          <img v-bind:src='comment.athlete.profile' class='avatar'/>
+          {{ comment.text }}
+        </div>
+      </div>
+      <div id="photos-detail" class="col sb" v-show='openPhotos'>
+        <img v-bind:src="photo.urls['1000']" v-for='photo in photos' v-bind:key='photo.index'/>
       </div>
       <div id="laps-detail" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
         <div id="laps-calc-result" class="row sa">
@@ -145,5 +148,20 @@ export default {
 
   .lap {
     width: 100vw;
+  }
+
+  #kudos-detail{
+    margin-top: 20px;  
+    display: grid;
+    align-items: center;
+    grid-template-rows: 38% 100px auto;
+    justify-content: center;
+    grid-template-columns: 110px 110px 110px 110px;
+  }
+
+  #comments-detail{
+    align-items: unset;
+    margin: 10px;
+    padding: 20px;
   }
 </style>

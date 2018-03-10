@@ -104,9 +104,10 @@ export default {
 }
 
 .avatar{
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 10%;
+  margin: 10px;
 }
 
 /* BUTTONS */
