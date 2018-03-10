@@ -2,7 +2,6 @@
   <div id='activities'>
     <nav-bar></nav-bar>
     <div v-for="(activity, index) in activities" v-bind:key='index' class='run-box' v-on:click='viewActivity(activity.id)'>
-      <router-link v-bind:to="'/activity/' + activity.id">
 
         <div class='run-box__detail'>
           <div class='activity-summary__heading'>
@@ -27,7 +26,6 @@
             {{ renderPace(activity.moving_time, activity.distance) }}
           </div>
         </div>
-      </router-link>
     </div>
   </div>
 </template>
@@ -54,10 +52,12 @@ export default {
 
   methods: {
     viewActivity: function (activityId) {
-      this.$store.dispatch('fetchActivity', activityId)
-      this.$store.dispatch('fetchKudos', activityId)
-      this.$store.dispatch('fetchPhotos', activityId)
-      this.$store.dispatch('fetchComments', activityId)
+      this.$store.dispatch('fetchActivity', activityId).then(() => {
+        this.$store.dispatch('fetchKudos', activityId)
+        this.$store.dispatch('fetchPhotos', activityId)
+        this.$store.dispatch('fetchComments', activityId)
+        this.$router.push('/activity/' + activityId)
+      })
     }
   },
   computed: {

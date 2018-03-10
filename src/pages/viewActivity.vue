@@ -2,52 +2,51 @@
   <div id='viewActivity'>
     <nav-bar></nav-bar>
     <div id="activity-info" class="run-box__detail" >
-      <div id="header" class="row sb">
+      <div class="row sb header">
         <div class="title">{{ activity.name }}</div>
         <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
       </div>
 
-      <div id="activity-info__primary-stats" class="row sa">
-        <div id="primary-stats__distance" class="data-metric">{{ renderDistance(activity.distance) }}</div>
-        <div id="primary-stats__time" class="data-metric">{{ renderTime(activity.moving_time) }}</div>
-        <div id="primary-stats__pace" class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
+      <div class="row sa">
+        <div class="data-metric">{{ renderDistance(activity.distance) }}</div>
+        <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
+        <div class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
       </div>
       
-      <div id="activity-info__secondary-stats" class="row sa">
+      <div class="row sa">
         <div id="laps-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('laps-detail', 'laps-button')"> 
           <img class="activity-icon nav-icon" src="../assets/icon_laps.png"/>
-          <div id="laps" class="data-metric">{{ activity.laps.length }}</div>
+          <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
-        <div id="secondary-stats__heartrate" class="data-metric">{{ activity.average_heartrate }}</div>
-        <div id="secondary-stats__cadence" class="data-metric">{{ activity.average_cadence }}</div>
+        <div class="data-metric">{{ activity.average_heartrate }}</div>
+        <div class="data-metric">{{ activity.average_cadence }}</div>
       </div>
       
       
-      <div id="activity-info__tertiary-stats" class="row sa">
+      <div class="row sa">
         <div id="comments-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('comments-detail', 'comments-button')" >
           <img class="activity-icon nav-icon" src="../assets/icon_comment.png"/>
-          <div id="secondary-stats__comments" class="data-metric">{{ comments.length }}</div>
+          <div class="data-metric">{{ comments.length }}</div>
         </div>
 
         <div id="kudos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('kudos-detail', 'kudos-button')" >
           <img class="activity-icon nav-icon" src="../assets/icon_like.png"/>
-          <div id="secondary-stats__kudos" class="data-metric">{{ kudos.length }}</div>
+          <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
         <div id="photos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('photos-detail', 'photos-button')"> 
           <img class="activity-icon nav-icon" src="../assets/icon_picture.png"/>
-          <div id="photos" class="data-metric">{{ photos.length }}</div>
+          <div class="data-metric">{{ photos.length }}</div>
         </div>
       </div>
 
-      <div id="kudos-detail" style="display: none">
-      </div>
+      <!-- <div id="kudos-detail" style="display: none"></div>
       <div id="comments-detail" class="col sb" style="display: none"></div>
       <div id="photos-detail" class="col sb" style="display: none"></div>
       <div id="laps-detail" class="col sb" style="display: none">
         <div id="laps-calc-result" class="row sa"></div>
         <div id="laps-list" class="col sb"></div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -69,13 +68,13 @@ export default {
     }
   },
   mounted () {
-  },
+    },
 
   created() {
-  },
+    },
 
   methods: {
-  },
+    },
   computed: {
     activity: function() {
       return this.$store.state.activity
@@ -88,6 +87,10 @@ export default {
     },
     photos: function() {
       return this.$store.state.photos
+    },
+    lapsCount: function() {
+      if (!this.$store.state.activity.laps) return
+      return this.$store.state.activity.laps.length
     }
   },
   mixins: [ renderData ]
@@ -109,11 +112,11 @@ export default {
   }
 
   .header{
-    padding: 0 10px;
+    padding: 20px;
   }
 
   .title{
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
   }
 

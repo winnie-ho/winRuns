@@ -42,9 +42,11 @@ export default {
   },
   methods: {
     renderDistance: function (rawDistance) {
+      if (!rawDistance) return
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
     renderTime: function (rawTime) {
+      if (!rawTime) return
       const totalMinutes = (rawTime / 60).toFixed(2)
       const hours = Math.floor(totalMinutes / 60)
       const rawMinutes = (Math.floor(totalMinutes - (hours * 60))).toFixed(0)
@@ -64,6 +66,7 @@ export default {
       }
     },
     renderPace: function (rawTime, rawDistance) {
+      if (!rawTime) return
       const totalMinutes = (rawTime / 60).toFixed(2)
       const paceMinutes = (Math.floor(totalMinutes / (rawDistance / 1000))).toFixed(0)
       let rawPaceSeconds = (((totalMinutes / (rawDistance / 1000)) - paceMinutes) * 60).toFixed(0)
@@ -74,6 +77,7 @@ export default {
       return paceMinutes + ':' + paceSeconds + '/km'
     },
     renderDate: function (rawDate, format) {
+      if (!rawDate) return
       const convertedRawDate = new Date(rawDate)
       const today = new Date()
       const yesterday = new Date(today - 86400000)
@@ -92,6 +96,7 @@ export default {
       return rawDate.substr(8, 2) + ' ' + this.monthLookUpShort[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(2, 2)
     },
     ordinalSuffixOf: function (num) {
+      if (!num) return
       let digit = num
       let j = num % 10
       let k = num % 100
