@@ -109,6 +109,7 @@ export default {
     overflow-y: scroll;
     overflow-x: hidden; 
     max-height: 92%; 
+    color: white;
   }
 
   .header{
@@ -154,5 +155,19 @@ export default {
     width: auto;
     height: 30px;
     margin: 0 5px;
+  }
+
+  .icon-stat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 27px;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .activity-icon{
+    height: 13px;
+    width: auto;
   }
 </style>
