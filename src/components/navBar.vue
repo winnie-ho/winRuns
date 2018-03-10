@@ -30,19 +30,19 @@
       <img src='../assets/icon_burger.png' class='nav-icon'/>
       <div class='expanded-burger' v-bind:hidden=!expandBurger>
         <div class='burger-item row'>
-          <router-link to="/" exact>Home</router-link>
+          <router-link to="/" exact>HOME</router-link>
         </div>
         <div class='burger-item row'>
           <img src='../assets/icon_run4it.png' class='burger-icon'/>
-          <router-link to="/runclub" exact>Run Club</router-link>
+          <router-link to="/runclub" exact>RUN CLUB</router-link>
         </div>
         <div class='burger-item row'>
           <img src='../assets/icon_park_run_logo.png' class='burger-icon'/>
-          <router-link to="/parkrun" exact>Park Run</router-link>
+          <router-link to="/parkrun" exact>PARK RUN</router-link>
         </div>
         <div class='burger-item row'>
           <img src='../assets/icon_activities.png' class='burger-icon'/>
-          <router-link to="/activities" exact>Activities</router-link>
+          <router-link to="/activities" exact>ACTIVITIES</router-link>
         </div>
       </div>
     </div>
@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style scoped>
-
   [hidden] {
     display: none !important;
   }
@@ -82,7 +81,6 @@ export default {
     position: absolute;
     top: 7px;
     right: 10px;
-    z-index: 1px;
     cursor: pointer;
   }
 
@@ -95,13 +93,14 @@ export default {
     flex-direction: column;
     visibility: visible;
     position: absolute;
-    top: 30px;  
-    right: 2px;
-    width: 300px;
+    top: 0px;  
+    right: -3px;
+    width: 80vw;
     text-align: right;  
-    background-color: rgba(212, 217, 221, 0.9);
+    background-color: rgba(212, 217, 221, 0.95);
     padding: 10px;
     border-radius: 2px;
+    z-index: 2;
 
     animation-name: expand-vertical;
     animation-duration: 0.3s;
