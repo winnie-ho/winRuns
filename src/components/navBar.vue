@@ -2,48 +2,47 @@
   <div id='navBar'>
     <div id='openNavBar' class='row'>
       <router-link to="/" exact>
-        <div class='data hover nav-button' id='home-button'>
-          WIN RUNS
-        </div>
+        <div class='data nav-button' id='home-button'>WIN RUNS</div>
       </router-link>
 
       <div id='pagesBar' class='row'>
         <router-link to="/runclub" exact>
-          <div class='data hover nav-button' id='run-club-button'>
+          <div class='data nav-button'>
             <img src='../assets/icon_run4it.png' class='nav-icon'/>
           </div>
         </router-link>
 
         <router-link to="/parkrun" exact>
-          <div class='data hover nav-button' id='park-run-home-button'>
+          <div class='data nav-button'>
             <img src='../assets/icon_park_run.png' class='nav-icon'/>
           </div>
         </router-link>
 
         <router-link to="/activities" exact>
-          <div class='data hover nav-button' id='runs-button'>
+          <div class='data nav-button'>
             <img src='../assets/icon_activities.png' class='nav-icon'/>
           </div>
         </router-link>
       </div>
     </div>
+
     <div id='burger' v-on:click='expandBurger = !expandBurger'>
       <img src='../assets/icon_burger.png' class='nav-icon'/>
       <div class='expanded-burger' v-bind:hidden=!expandBurger>
-        <div class='burger-item hover row'>
+        <div class='burger-item row'>
           <router-link to="/" exact>Home</router-link>
         </div>
-        <div class='burger-item hover row'>
+        <div class='burger-item row'>
           <img src='../assets/icon_run4it.png' class='burger-icon'/>
           <router-link to="/runclub" exact>Run Club</router-link>
         </div>
-        <div class='burger-item hover row'>
+        <div class='burger-item row'>
           <img src='../assets/icon_park_run_logo.png' class='burger-icon'/>
           <router-link to="/parkrun" exact>Park Run</router-link>
         </div>
-        <div class='burger-item hover row'>
+        <div class='burger-item row'>
           <img src='../assets/icon_activities.png' class='burger-icon'/>
-          <router-link to="/activities" exact>Runs</router-link>
+          <router-link to="/activities" exact>Activities</router-link>
         </div>
       </div>
     </div>
@@ -111,7 +110,6 @@ export default {
   }
 
   .burger-item {
-    padding-left: 10px;
     height: 40px;
     margin: auto 0;
     align-items: center;
@@ -144,30 +142,10 @@ export default {
     padding: 0 20px;
   }
 
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .col {
-    display: flex;
-    flex-direction: column;  
-  }
-
-  .nav-icon {
-    width: auto;
-    height: 30px;
-    margin: 0 5px;
-  }
-
-  .nav-icon:hover {
-    transform: scale(1.1);
-  }
-
   .burger-icon {
     width: 30px;
     height: auto;
-    margin: 0 5px;
+    margin: 0 10px;
     filter: invert(60%)
   }
 
@@ -180,10 +158,6 @@ export default {
     transform: scale(1.1);
     padding: 0 7px;
     border-radius: 5px;
-  }
-
-  .hover:hover {
-    color: #3E9FDF;
   }
 
   #home-button {

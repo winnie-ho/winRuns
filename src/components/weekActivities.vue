@@ -7,7 +7,7 @@
     </div>
 
     <div id='week-container'>
-      <div v-for="day in daysOfWeek" :key="day" class='day-bar'>
+      <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
         <div class='day-title'>
           {{ (day.substr(0, 3)).toUpperCase() }}
         </div>
@@ -20,22 +20,15 @@
 </template>
 
 <script>
+import renderData from '../mixins/renderData.js'
 
 export default {
   name: 'weekActivities',
   components: {
   },
+  mixins: [ renderData ],
   data () {
     return {
-      daysOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ]
     }
   },
   created() {

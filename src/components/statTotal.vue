@@ -7,15 +7,15 @@
 
     <div v-show='expandToggle' class='expanded-stat'>
       <div class='expanded-stat-item'>
-        <img class='stat-icon' src='../assets/icon_distance.png'/>
+        <img class='icon' src='../assets/icon_distance.png'/>
         {{ (statType.distance/1000).toFixed(0) }} km
       </div>
       <div class='expanded-stat-item'>
-        <img class='stat-icon' src='../assets/icon_time.png'/>
+        <img class='icon' src='../assets/icon_time.png'/>
         {{ (statType.moving_time/3600).toFixed(0) }} hours
       </div>
       <div class='expanded-stat-item'>
-        <img class='stat-icon' src='../assets/icon_elevation.png'/>
+        <img class='icon' src='../assets/icon_elevation.png'/>
         {{ (statType.elevation_gain/1000).toFixed(0) }} m
       </div>
     </div>
@@ -136,12 +136,5 @@ export default {
   to {
     background-color: rgba(31, 97, 141, 0.7);
   }
-}
-
-.stat-icon {
-  height: 20px;
-  width: auto;
-  filter: invert(60%);
-  padding: 5px;
 }
 </style>

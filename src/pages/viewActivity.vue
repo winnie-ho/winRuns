@@ -1,9 +1,9 @@
 <template>
   <div id='viewActivity'>
     <nav-bar></nav-bar>
-    <div id="activity-info" class="run-box__detail" >
-      <div class="row sb header">
-        <div class="title">{{ activity.name }}</div>
+    <div id="activity-info" class="run-box__detail">
+      <div id="activity-info__header" class="row sb">
+        <div class="heading">{{ activity.name }}</div>
         <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
       </div>
 
@@ -15,7 +15,7 @@
       
       <div class="row sa">
         <div id="laps-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('laps-detail', 'laps-button')"> 
-          <img class="activity-icon nav-icon" src="../assets/icon_laps.png"/>
+          <img class="icon" src="../assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
         <div class="data-metric">{{ activity.average_heartrate }}</div>
@@ -24,29 +24,38 @@
       
       
       <div class="row sa">
-        <div id="comments-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('comments-detail', 'comments-button')" >
-          <img class="activity-icon nav-icon" src="../assets/icon_comment.png"/>
+        <div class="stat-icon-button" v-on:click='openComments = !openComments'>
+          <img class="icon" src="../assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
 
-        <div id="kudos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('kudos-detail', 'kudos-button')" >
-          <img class="activity-icon nav-icon" src="../assets/icon_like.png"/>
+        <div class="stat-icon-button" v-on:click='openKudos = !openKudos'>
+          <img class="icon" src="../assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
-        <div id="photos-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('photos-detail', 'photos-button')"> 
-          <img class="activity-icon nav-icon" src="../assets/icon_picture.png"/>
+        <div class="stat-icon-button" v-on:click='openPhotos = !openPhotos'> 
+          <img class="icon" src="../assets/icon_picture.png"/>
           <div class="data-metric">{{ photos.length }}</div>
         </div>
       </div>
 
-      <!-- <div id="kudos-detail" style="display: none"></div>
-      <div id="comments-detail" class="col sb" style="display: none"></div>
-      <div id="photos-detail" class="col sb" style="display: none"></div>
+      <div id="kudos-detail" class="col sb" v-show='openKudos' v-for='kudo in kudos' v-bind:key='kudo.index'>
+        <img v-bind:src='kudo.profile' class='avatar'/>
+      </div>
+      <div id="comments-detail" class="col sb" v-show='openComments' v-for='comment in comments' v-bind:key='comment.index'>
+        <div class='row'>
+          <img v-bind:src='comment.athlete.profile' class='avatar'/>
+          <p>{{ comment.text }}</p>
+        </div>
+      </div>
+      <div id="photos-detail" class="col sb" v-show='openPhotos' v-for='photo in photos' v-bind:key='photo.index'>
+        <img v-bind:src="photo.urls['1000']"/>
+      </div>
       <div id="laps-detail" class="col sb" style="display: none">
         <div id="laps-calc-result" class="row sa"></div>
         <div id="laps-list" class="col sb"></div>
-      </div> -->
+      </div>
 
     </div>
 
@@ -57,14 +66,20 @@
 <script>
 import navBar from '../components/navBar.vue'
 import renderData from '../mixins/renderData.js'
+import sharedContainersStyle from '../sharedStyles/containerStyle.vue'
 
 export default {
   name: 'viewActivity',
   components: {
-    'nav-bar': navBar
+    'nav-bar': navBar,
+    
   },
+  mixins: [ renderData ],
   data () {
     return {
+      openComments: false,
+      openKudos: false,
+      openPhotos: false
     }
   },
   mounted () {
@@ -93,7 +108,6 @@ export default {
       return this.$store.state.activity.laps.length
     }
   },
-  mixins: [ renderData ]
 }
 </script>
 
@@ -112,62 +126,7 @@ export default {
     color: white;
   }
 
-  .header{
-    padding: 20px;
-  }
-
-  .title{
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .row{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-  }
-
-  .sb{
-    justify-content: space-between;
-  }
-
-  .sa{
-    justify-content: space-around;
-  }
-
-  .date{
-    width: 200px;
-    text-align: right;
-  }
-
-  .date-metric{
-    font-size: 12px;
-  }
-
-  .icon{
-    height: 20px;
-    width: auto;
-    margin: 0 5px;
-  }
-
-  .nav-icon{
-    width: auto;
-    height: 30px;
-    margin: 0 5px;
-  }
-
-  .icon-stat{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 27px;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-
-  .activity-icon{
-    height: 13px;
-    width: auto;
+  #activity-info__header {
+    padding: 10px;
   }
 </style>
