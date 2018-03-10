@@ -26,17 +26,17 @@
       
       
       <div class="row sa">
-        <div class="row" v-on:click='openComments = !openComments'>
+        <div class="row" v-show='comments.length !== 0' v-on:click='openComments = !openComments'>
           <img class="icon" src="../assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
 
-        <div class="row" v-on:click='openKudos = !openKudos'>
+        <div class="row" v-show='kudos.length !== 0' v-on:click='openKudos = !openKudos'>
           <img class="icon" src="../assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
-        <div class="row" v-on:click='openPhotos = !openPhotos'> 
+        <div class="row" v-show='photos.length !== 0' v-on:click='openPhotos = !openPhotos'> 
           <img class="icon" src="../assets/icon_picture.png"/>
           <div class="data-metric">{{ photos.length }}</div>
         </div>
@@ -71,7 +71,7 @@
 
     </div>
 
-    <google-map name='view-activity'></google-map>
+    <google-map name='view-activity' v-bind:mapActivity='activity'></google-map>
   </div>
 </template>
 
@@ -136,11 +136,11 @@ export default {
     z-index: 1;
     width: 100%;
     background-color: rgba(31, 97, 141, 0.9);
-    box-shadow: 0 0 80px 50px rgba(31, 97, 141, 0.9);
     overflow-y: scroll;
     overflow-x: hidden; 
     max-height: 92%; 
     color: white;
+    padding-bottom: 20px;
   }
 
   #activity-info__header {
