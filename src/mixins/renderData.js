@@ -10,7 +10,7 @@ export default {
         6: 'Saturday',
         0: 'Sunday'
       },
-      monthLookUpLong: {
+      monthLookUp: {
         1: 'January',
         2: 'February',
         3: 'March',
@@ -23,20 +23,6 @@ export default {
         10: 'October',
         11: 'November',
         12: 'December'
-      },
-      monthLookUpShort: {
-        1: 'Jan',
-        2: 'Feb',
-        3: 'Mar',
-        4: 'Apr',
-        5: 'May',
-        6: 'Jun',
-        7: 'Jul',
-        8: 'Aug',
-        9: 'Sep',
-        10: 'Oct',
-        11: 'Nov',
-        12: 'Dec'
       }
     }
   },
@@ -91,9 +77,9 @@ export default {
       if (rawDateOnly === yesterdayDateOnly) return 'Yesterday'
       if (convertedRawDate > lastWeek) return this.dayLookUp[convertedRawDate.getDay()]
       if (format === 'long') {
-        return this.ordinalSuffixOf(rawDate.substr(8, 2)) + ' ' + this.monthLookUpLong[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(0, 4)
+        return this.ordinalSuffixOf(rawDate.substr(8, 2)) + ' ' + this.monthLookUp[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(0, 4)
       }
-      return rawDate.substr(8, 2) + ' ' + this.monthLookUpShort[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(2, 2)
+      return rawDate.substr(8, 2) + ' ' + (this.monthLookUp[parseInt(rawDate.substr(5, 2))]).substr(0, 3) + ' ' + rawDate.substr(2, 2)
     },
     ordinalSuffixOf: function (num) {
       if (!num) return
