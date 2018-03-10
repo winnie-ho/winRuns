@@ -7,15 +7,15 @@
 
     <div v-show='expandToggle' class='expanded-stat'>
       <div class='expanded-stat-item'>
-        <img class='icon' src='../assets/icon_distance.png'/>
+        <img class='icon dark-icon' src='../assets/icon_distance.png'/>
         {{ (statType.distance/1000).toFixed(0) }} km
       </div>
       <div class='expanded-stat-item'>
-        <img class='icon' src='../assets/icon_time.png'/>
+        <img class='icon dark-icon' src='../assets/icon_time.png'/>
         {{ (statType.moving_time/3600).toFixed(0) }} hours
       </div>
       <div class='expanded-stat-item'>
-        <img class='icon' src='../assets/icon_elevation.png'/>
+        <img class='icon dark-icon' src='../assets/icon_elevation.png'/>
         {{ (statType.elevation_gain/1000).toFixed(0) }} m
       </div>
     </div>

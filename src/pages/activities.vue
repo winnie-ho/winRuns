@@ -8,15 +8,15 @@
       </div>
       <div class='run-box__detail'>
         <div class='data-metric'>
-          <img src='../assets/icon_distance.png' class='icon'/>
+          <img src='../assets/icon_distance.png' class='icon dark-icon'/>
           {{ renderDistance(activity.distance) }}
         </div>
         <div class='data-metric'>
-          <img src="../assets/icon_time.png" class="icon">
+          <img src="../assets/icon_time.png" class="icon dark-icon">
           {{ renderTime(activity.moving_time) }}
         </div>
         <div class='data-metric'>
-          <img src="../assets/icon_pace.png" class="icon">
+          <img src="../assets/icon_pace.png" class="icon dark-icon">
           {{ renderPace(activity.moving_time, activity.distance) }}
         </div>
       </div>

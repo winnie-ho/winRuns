@@ -97,6 +97,9 @@ export default {
   width: auto;
   margin: 0 5px;
   cursor: pointer;
+}
+
+.dark-icon {
   filter: invert(60%);
 }
 

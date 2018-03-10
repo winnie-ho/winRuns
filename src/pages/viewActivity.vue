@@ -14,27 +14,29 @@
       </div>
       
       <div class="row sa">
-        <div id="laps-button" class="icon-stat" onclick="page.$refs.navBar.handleToggleButton('laps-detail', 'laps-button')"> 
+        <div class="row" v-on:click='openLaps =!openLaps'> 
           <img class="icon" src="../assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
-        <div class="data-metric">{{ activity.average_heartrate }}</div>
-        <div class="data-metric">{{ activity.average_cadence }}</div>
+        <div class="data-metric">
+          ♡ {{ activity.average_heartrate }}</div>
+        <div class="data-metric">
+          ↻ {{ activity.average_cadence }}</div>
       </div>
       
       
       <div class="row sa">
-        <div class="stat-icon-button" v-on:click='openComments = !openComments'>
+        <div class="row" v-on:click='openComments = !openComments'>
           <img class="icon" src="../assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
 
-        <div class="stat-icon-button" v-on:click='openKudos = !openKudos'>
+        <div class="row" v-on:click='openKudos = !openKudos'>
           <img class="icon" src="../assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
-        <div class="stat-icon-button" v-on:click='openPhotos = !openPhotos'> 
+        <div class="row" v-on:click='openPhotos = !openPhotos'> 
           <img class="icon" src="../assets/icon_picture.png"/>
           <div class="data-metric">{{ photos.length }}</div>
         </div>
@@ -52,9 +54,16 @@
       <div id="photos-detail" class="col sb" v-show='openPhotos' v-for='photo in photos' v-bind:key='photo.index'>
         <img v-bind:src="photo.urls['1000']"/>
       </div>
-      <div id="laps-detail" class="col sb" style="display: none">
-        <div id="laps-calc-result" class="row sa"></div>
-        <div id="laps-list" class="col sb"></div>
+      <div id="laps-detail" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
+        <div id="laps-calc-result" class="row sa">
+          
+        </div>
+        <div id="laps-list" class="col sb">
+          <div class='row sa lap'>
+            <div>{{ lap.lap_index }}</div>
+            <div>{{ renderTime(lap.moving_time) }}</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -77,6 +86,7 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
+      openLaps: false,
       openComments: false,
       openKudos: false,
       openPhotos: false
@@ -106,6 +116,9 @@ export default {
     lapsCount: function() {
       if (!this.$store.state.activity.laps) return
       return this.$store.state.activity.laps.length
+    },
+    laps: function() {
+      return this.$store.state.activity.laps
     }
   },
 }
@@ -128,5 +141,9 @@ export default {
 
   #activity-info__header {
     padding: 10px;
+  }
+
+  .lap {
+    width: 100vw;
   }
 </style>
