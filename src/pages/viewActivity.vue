@@ -55,13 +55,13 @@
         </div>
       </div>
       <div id="photos-detail" class="col sb" v-show='openPhotos'>
-        <img v-bind:src="photo.urls['1000']" v-for='photo in photos' v-bind:key='photo.index'/>
+        <img class='photo' v-bind:src="photo.urls['1000']" v-for='photo in photos' v-bind:key='photo.index'/>
       </div>
-      <div id="laps-detail" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
-        <div id="laps-calc-result" class="row sa">
-          
-        </div>
-        <div id="laps-list" class="col sb">
+
+      <div id="laps-detail" class="col sb">
+        <div id="laps-calc-result" class="row sa"></div>
+
+        <div id="laps-list" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
           <div class='row sa lap'>
             <div>{{ lap.lap_index }}</div>
             <div>{{ renderTime(lap.moving_time) }}</div>
@@ -71,20 +71,20 @@
 
     </div>
 
-    <div id="map"></div>
+    <google-map name='test'></google-map>
   </div>
 </template>
 
 <script>
 import navBar from '../components/navBar.vue'
 import renderData from '../mixins/renderData.js'
-import sharedContainersStyle from '../sharedStyles/containerStyle.vue'
+import googleMap from '../components/googleMap.vue'
 
 export default {
   name: 'viewActivity',
   components: {
     'nav-bar': navBar,
-    
+    'google-map': googleMap
   },
   mixins: [ renderData ],
   data () {
@@ -96,13 +96,14 @@ export default {
     }
   },
   mounted () {
-    },
+  },
 
   created() {
-    },
+
+  },
 
   methods: {
-    },
+  },
   computed: {
     activity: function() {
       return this.$store.state.activity
@@ -156,12 +157,22 @@ export default {
     align-items: center;
     grid-template-rows: 38% 100px auto;
     justify-content: center;
-    grid-template-columns: 110px 110px 110px 110px;
+    grid-template-columns: 100px 100px 100px 100px;
   }
 
   #comments-detail{
     align-items: unset;
     margin: 10px;
     padding: 20px;
+  }
+
+  #photos-detail{
+    margin-top: 10px;
+  }
+
+  .photo{
+    height: auto;
+    width: 98%;
+    margin: 2px;
   }
 </style>
