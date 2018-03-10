@@ -18,10 +18,15 @@
           <img class="icon" src="../assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
-        <div class="data-metric">
-          ♡ {{ activity.average_heartrate }}</div>
-        <div class="data-metric">
-          ↻ {{ activity.average_cadence }}</div>
+        <div class="row">
+          <img class="icon" src="../assets/icon_heartrate.png"/>
+          <div class="data-metric">{{ activity.average_heartrate }}</div>
+        </div>
+
+        <div class='row'>
+          <img class="icon" src="../assets/icon_cadence.png"/>
+          <div class="data-metric">{{ activity.average_cadence }}</div>
+        </div>
       </div>
       
       
