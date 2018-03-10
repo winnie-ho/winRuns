@@ -71,7 +71,7 @@
 
     </div>
 
-    <google-map name='test'></google-map>
+    <google-map name='view-activity'></google-map>
   </div>
 </template>
 

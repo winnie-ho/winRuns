@@ -6,27 +6,48 @@
 <script>
 export default {
   name: 'googleMap',
-  props: [ 'name' ],
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
   components: {
   },
   data () {
     return {
-      mapName: this.name + "-map",
+      mapName: this.name + "-map"
     }
   },
   created() {
   },
   mounted: function () {
-    const element = document.getElementById(this.mapName)
+    const mapContainer = document.getElementById(this.mapName)
     const options = {
-      zoom: 14,
-      center: new google.maps.LatLng(51.501527,-0.1921837)
+      zoom: 13,
+      center: new google.maps.LatLng(this.activity.start_latlng[0], this.activity.start_latlng[1])
     }
-    const map = new google.maps.Map(element, options);
+    const map = new google.maps.Map(mapContainer, options);
+
+    const line = new google.maps.Polyline({
+      path: google.maps.geometry.encoding.decodePath(this.activity.map.polyline),
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2,
+      map: map
+    });
+
+    line.setMap(null);
+    line.setMap(map);
+    // map.setCenter(); 
   },
   methods: {
   },
   computed: {
+    activity: function () {
+      return this.$store.state.activity;
+    }
   }
 }
 </script>
