@@ -47,10 +47,10 @@ export default {
 
   methods: {
     viewActivity: function (activityId) {
-      this.$store.dispatch('fetchActivity', activityId).then(() => {
-        this.$store.dispatch('fetchKudos', activityId)
-        this.$store.dispatch('fetchPhotos', activityId)
-        this.$store.dispatch('fetchComments', activityId)
+      this.$store.dispatch('fetchActivity', activityId)
+      this.$store.dispatch('fetchKudos', activityId)
+      this.$store.dispatch('fetchPhotos', activityId)
+      this.$store.dispatch('fetchComments', activityId).then(() => {
         this.$router.push('/activity/' + activityId)
       })
     }
