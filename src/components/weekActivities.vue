@@ -69,7 +69,7 @@ export default {
   .day-title {
     background-color: rgba(31, 97, 141, 0.7);
     padding: 10px 0;
-    margin-left: 0px;
+    margin-right: 10px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     display: flex;
@@ -79,10 +79,11 @@ export default {
     animation-name: day-settle;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    width: 50px;
+    width: 60px;
     height: 25px;
     align-content: center;
     align-items: center;
+    justify-content: center;
   }
 
 
