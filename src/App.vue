@@ -18,6 +18,9 @@ export default {
     'activities': activities
   },
   name: 'App',
+  created () {
+    this.$store.dispatch('fetchActivities')
+  },
   methods: {
   },
   computed: {

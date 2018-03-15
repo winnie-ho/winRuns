@@ -42,7 +42,6 @@ export default {
   },
 
   created() {
-    this.$store.dispatch('fetchActivities')
   },
 
   methods: {
