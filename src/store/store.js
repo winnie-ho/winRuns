@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
     kudos: {},
     photos: {},
     comments: {},
-    parkRuns: []
+    selectedParkRun: {}
   },
   mutations: {
     setRunStats: (state, payload) => (state.runStats = payload),
@@ -26,9 +26,16 @@ export const store = new Vuex.Store({
     setKudos: (state, payload) => (state.kudos = payload),
     setPhotos: (state, payload) => (state.photos = payload),
     setComments: (state, payload) => (state.comments = payload),
-    setParkRuns: (state, payload) => (state.parkRuns = payload)
+    setParkRuns: (state, payload) => (state.parkRuns = payload),
+    setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload)
   },
   getters: {
+    parkRuns: (state) => {
+      if (!state.selectedParkRun.startCoords) return
+      return state.activities.filter(activity => {
+        return activity.start_latitude === state.selectedParkRun.startCoords[0] && activity.start_longitude === state.selectedParkRun.startCoords[1]
+      })
+    }
   },
   actions: {
     fetchStats: (context) => {
@@ -40,13 +47,9 @@ export const store = new Vuex.Store({
         })
     },
     fetchActivities: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=100&access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
+      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
         function (response) {
-          let parkRuns = response.data.filter(activity => {
-            return activity.start_latitude === 55.98 && activity.start_longitude === -3.29
-          })
           context.commit('setActivities', response.data)
-          context.commit('setParkRuns', parkRuns)
         })
     },
     fetchActivity: (context, activityId) => {
@@ -72,6 +75,9 @@ export const store = new Vuex.Store({
         function (response) {
           context.commit('setComments', response.data)
         })
+    },
+    setSelectedParkRun: (context, selectedParkRun) => {
+      context.commit('setSelectedParkRun', selectedParkRun)
     }
   }
 })
