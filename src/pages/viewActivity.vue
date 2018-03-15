@@ -1,6 +1,7 @@
 <template>
   <div id='viewActivity'>
     <nav-bar></nav-bar>
+
     <div id="activity-info" class="run-box__detail">
       <div id="activity-info__header" class="row sb">
         <div class="heading">{{ activity.name }}</div>
@@ -73,10 +74,14 @@
           </div>
         </div>
       </div>
-
     </div>
 
-    <google-map name='view-activity' v-bind:mapActivity='activity'></google-map>
+    <google-map name='view-activity' 
+      v-bind:lat='lat'
+      v-bind:lng='lng'
+      v-bind:polyline='polyline'
+    ></google-map>
+
   </div>
 </template>
 
@@ -104,7 +109,6 @@ export default {
   },
 
   created() {
-
   },
 
   methods: {
@@ -128,8 +132,20 @@ export default {
     },
     laps: function() {
       return this.$store.state.activity.laps
+    },
+    lat: function () {
+      if (!this.$store.state.activity.start_latlng) return
+      return this.$store.state.activity.start_latlng[0]
+    },
+    lng: function () {
+      if (!this.$store.state.activity.start_latlng) return
+      return this.$store.state.activity.start_latlng[1]
+    },
+    polyline: function () {
+      if (!this.$store.state.activity.map) return
+      return this.$store.state.activity.map.polyline
     }
-  },
+  }
 }
 </script>
 
