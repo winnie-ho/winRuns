@@ -21,13 +21,13 @@
           <div id="last-pr__pace">{{ renderPace(latestParkRun.time, latestParkRun.distance) }}</div>
         </div>
         <div class="last-pr__summary">
-          <div id="last-pr__context">{{ computeLatestContext() }}</div>
-          <div id="year-best">{{ fastestParkRun.name }} {{ renderTime(fastestParkRun.moving_time) }}</div>
-          <div id="pb"></div>
+          <div id="last-pr__context">{{ computeLastPRContext() }}</div>
+          <div id="year-best">{{ computeYBContext() }}</div>
+          <div id="pb">{{ computePBContext() }}</div>
         </div>
       </div>
     </div>
-      <div id='pr-list' v-for='parkRun in parkRuns' v-bind:key='parkRun.index'>
+      <div id='pr-list' v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index'>
         <div class='row sb'>
           {{ renderDate(parkRun.start_date) }}
           {{ parkRun.name }}
@@ -77,12 +77,32 @@ export default {
     setParkRunLocation: function() {
       this.$store.dispatch('setSelectedParkRun', this.selectedParkRun)
     },
-    computeLatestContext: function () {
+    computeYBContext: function () {
       if (!this.latestParkRun || !this.fastestParkRun) return
       if (this.latestParkRun.moving_time < this.fastestParkRun && this.latestParkRun.distance >= 5000) {
         return "Fastest time this year! " + this.renderTime(this.latestParkRun.moving_time);
       }
       return "Year best " + this.renderTime(this.fastestParkRun.moving_time);
+    },
+    computeLastPRContext: function () {
+      const latestPRRank = this.timeOrderedParkRuns.indexOf(this.latestParkRun);
+
+      if (latestPRRank === 0 && this.latestParkRun.distance >= 5000) {
+        return "Fastest this year!"
+      }
+
+      if (this.latestParkRun.distance < 5000) {
+        return "RUN INCOMPLETE! " + this.renderDistance(this.latestParkRun.distance) + " of 5km in " + this.renderTime(this.latestParkRun.moving_time);
+      }
+      
+      return this.ordinalSuffixOf(latestPRRank) + " fastest this year";
+    },
+    computePBContext: function () {
+      let pb = 1374
+      if (this.latestParkRun.moving_time < pb && this.latestParkRun.distance >= 5000) {
+        return "NEW PB! " + this.renderTime(this.latestParkRun.moving_time);
+      }
+      return "PB remains at " + this.renderTime(pb);
     }
   },
   computed: {
@@ -98,6 +118,10 @@ export default {
     completeParkRuns: function () {
       if (!this.parkRuns) return
       return this.parkRuns.filter(parkRun => parkRun.distance > 5000)
+    },
+    timeOrderedParkRuns: function () {
+      if (!this.parkRuns) return []
+      return this.parkRuns.slice().sort((a, b) => a.moving_time - b.moving_time)
     },
     fastestParkRun: function () {
       if (!this.completeParkRuns) {
