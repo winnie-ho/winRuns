@@ -2,16 +2,13 @@
   <div id='parkrun'>
     <nav-bar></nav-bar>
     <div id="park-run-latest" class="row">
-
       <div id='last-pr'>
         <img id="park-run-logo" class='dark-icon' src="../assets/icon_park_run_logo.png"/>
-
         <select 
           id="park-run-select" 
-          v-model='selectedParkRun'
-          v-on:change='setParkRunLocation()'
-          placeholder='select Park Run'>
-          <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun'>{{ parkRun.name }}</option>
+          v-model='selectedParkRunName'
+          v-on:change='setParkRunLocation()'>
+          <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
         </select>
 
         <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date) }}</div>
@@ -54,7 +51,7 @@ export default {
   },
   data () {
     return {
-      selectedParkRun: {},
+      selectedParkRunName: 'Edinburgh Cramond',
       defaultParkRun: {
         "name": "",
         "distance": 0,
@@ -71,11 +68,13 @@ export default {
   },
 
   created () {
+    this.setParkRunLocation()
   },
 
   methods: {
     setParkRunLocation: function() {
-      this.$store.dispatch('setSelectedParkRun', this.selectedParkRun)
+      const selectedParkRun = this.parkRunDict.find(parkRun => parkRun.name === this.selectedParkRunName)
+      this.$store.dispatch('setSelectedParkRun', selectedParkRun)
     },
     computeYBContext: function () {
       if (!this.latestParkRun || !this.fastestParkRun) return
@@ -165,7 +164,6 @@ export default {
 
   #last-pr{
     font-size: 14px;
-    width: 100%;
     padding: 20px;
   }
 
