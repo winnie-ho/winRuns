@@ -36,6 +36,7 @@ export const store = new Vuex.Store({
         return activity.start_latitude === state.selectedParkRun.startCoords[0] && activity.start_longitude === state.selectedParkRun.startCoords[1]
       })
     }
+
   },
   actions: {
     fetchStats: (context) => {
