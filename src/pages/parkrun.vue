@@ -51,7 +51,7 @@ export default {
   },
   data () {
     return {
-      selectedParkRunName: 'Edinburgh Cramond',
+      selectedParkRunName: '',
       defaultParkRun: {
         "name": "",
         "distance": 0,
@@ -60,7 +60,7 @@ export default {
         "start_date": "",
         "start_latlng": null,
         "end_latlng": null,
-      }
+      },
     }
   },
   mixins: [ parkRunDict, renderData ],
@@ -68,10 +68,14 @@ export default {
   },
 
   created () {
+    this.setDefaultParkRunName()
     this.setParkRunLocation()
   },
 
   methods: {
+    setDefaultParkRunName: function () {
+      this.selectedParkRunName = this.parkRunDict.find(parkRun => parkRun.default === true).name
+    },
     setParkRunLocation: function() {
       const selectedParkRun = this.parkRunDict.find(parkRun => parkRun.name === this.selectedParkRunName)
       this.$store.dispatch('setSelectedParkRun', selectedParkRun)
