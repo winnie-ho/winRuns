@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
+    <div id='pr-chart'></div>
       <div id='pr-list' v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index'>
         <div class='row sb'>
           {{ renderDate(parkRun.start_date) }}
@@ -65,6 +66,7 @@ export default {
   },
   mixins: [ parkRunDict, renderData ],
   mounted () {
+    this.createParkRunChart(this.parkRuns)
   },
 
   created () {
