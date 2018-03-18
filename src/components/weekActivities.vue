@@ -12,13 +12,10 @@
           {{ (day.substr(0, 3)).toUpperCase() }}
         </div>
         <div class='day-content'>
-          something
+          {{ renderDay(day) }}
         </div>
       </div>
     </div>
-    <div v-for='day in weekInView' :key='day.index'>
-          {{ day.name }}
-      </div>
   </div>
 </template>
 
@@ -43,6 +40,13 @@ export default {
       if (this.weekInViewIndex < 0) {
         this.weekInViewIndex = 0
       }
+    },
+    renderDay: function (day) {
+      if (!this.weekInView) return
+      const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
+      let result = this.weekInView.find(activity => new Date(activity.start_date).getDay() == dayIndex)
+      if (!result) return
+      return result.name
     }
   },
   computed: {
