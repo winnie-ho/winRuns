@@ -2,7 +2,7 @@
   <div id='week-activities'>
     <div id="week-header">
       <div v-on:click='changeWeek(1)'><strong><</strong></div>
-        <div class="heading" id="dateInView"></div>
+        <div class="heading" id="dateInView">{{ weekInViewString }}</div>
       <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
     </div>
 
@@ -48,6 +48,17 @@ export default {
   computed: {
     activities: function () {
       return this.$store.state.activities
+    },
+    weekInViewString: function () {
+      if (this.weekInViewIndex <= 0) {
+        return "THIS WEEK";
+      }
+      if (this.weekInViewIndex === 1 ) {
+        return "LAST WEEK";
+      } 
+      if (this.weekInViewIndex > 1) {
+        return this.renderDate(this.weekInView[0].start_date, "long");
+      }
     },
     weekInView: function () {
       if (!this.activities.length) return
