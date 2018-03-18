@@ -1,5 +1,5 @@
 export default {
-  data() {
+  data () {
     return {
       parkRunDict: [
         {
@@ -37,7 +37,6 @@ export default {
   methods: {
     createParkRunChart: function (dataArray) {
       const container = document.querySelector('#pr-chart')
-
       const distanceCheck = dataArray.slice().filter(run => run.distance > 5000)
       const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
       const dataArrayTime = sortedDataArray.map(run => run.moving_time * 1000)
