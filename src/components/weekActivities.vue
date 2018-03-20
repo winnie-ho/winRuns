@@ -44,7 +44,12 @@ export default {
     renderDay: function (day) {
       if (!this.weekInView) return
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
-      let result = this.weekInView.find(activity => new Date(activity.start_date).getDay() == dayIndex)
+
+      let realIndex = parseInt(dayIndex) + 1
+      if (dayIndex == 6) {
+        realIndex = 0
+      }
+      let result = this.weekInView.find(activity => new Date(activity.start_date).getDay() === realIndex)
       if (!result) return
       return result.name
     }
