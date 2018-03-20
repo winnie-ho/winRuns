@@ -11,8 +11,13 @@
         <div class='day-title'>
           {{ (day.substr(0, 3)).toUpperCase() }}
         </div>
-        <div class='day-content'>
-          {{ renderDay(day) }}
+        <div class='day'>
+          <strong>{{ renderDay(day, 'name') }}</strong>
+          <div class='row'>
+            {{ renderDistance(renderDay(day, 'distance')) }}  
+            {{ renderTime(renderDay(day, 'moving_time')) }}  
+            {{ renderPace(renderDay(day, 'moving_time'), renderDay(day, 'distance')) }}
+          </div>
         </div>
       </div>
     </div> 
@@ -41,7 +46,7 @@ export default {
         this.weekInViewIndex = 0
       }
     },
-    renderDay: function (day) {
+    renderDay: function (day, prop) {
       if (!this.weekInView) return
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
 
@@ -51,7 +56,7 @@ export default {
       }
       let result = this.weekInView.find(activity => new Date(activity.start_date).getDay() === realIndex)
       if (!result) return
-      return result.name
+      return result[prop]
     }
   },
   computed: {
@@ -133,15 +138,15 @@ export default {
   .day-bar {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 90vw;
     align-items: center;
-    padding: 5px 0;
+    margin: 10px 0;
   }
 
   .day-title {
     background-color: rgba(31, 97, 141, 0.7);
-    padding: 10px 0;
-    margin-right: 10px;
+    padding: 10px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     display: flex;
@@ -152,10 +157,20 @@ export default {
     animation-duration: 1s;
     animation-fill-mode: forwards;
     width: 60px;
-    height: 25px;
+    height: 30px;
     align-content: center;
     align-items: center;
     justify-content: center;
+  }
+
+  .day{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0 10px;
+    width: 100%;
+    pointer-events: none;
+    font-size: 16px;
   }
 
 
