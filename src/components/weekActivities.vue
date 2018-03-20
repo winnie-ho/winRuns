@@ -15,7 +15,7 @@
           {{ renderDay(day) }}
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
@@ -95,11 +95,9 @@ export default {
           lastMonday = timeNowZeroed - (5 * msInDay);
           break;
       }
-      
-      let marker1 = lastMonday + (7 * msInDay) - (this.weekInViewIndex * msInDay * 7)
+      let marker1 = lastMonday - ((this.weekInViewIndex - 1) * msInDay * 7)
       let marker2 = lastMonday - (this.weekInViewIndex * msInDay * 7)
-
-      let weekActivities = this.activities.filter(activity => {
+      let weekActivities = this.activities.slice().filter(activity => {
         return (new Date(activity.start_date).getTime() < marker1) && (new Date(activity.start_date).getTime() >= marker2);
       });
       
