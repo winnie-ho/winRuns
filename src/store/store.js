@@ -15,7 +15,9 @@ export const store = new Vuex.Store({
     kudos: {},
     photos: {},
     comments: {},
-    selectedParkRun: {}
+    selectedParkRun: {},
+    weatherNow: {},
+    weatherForecast: {}
   },
   mutations: {
     setRunStats: (state, payload) => (state.runStats = payload),
@@ -27,7 +29,9 @@ export const store = new Vuex.Store({
     setPhotos: (state, payload) => (state.photos = payload),
     setComments: (state, payload) => (state.comments = payload),
     setParkRuns: (state, payload) => (state.parkRuns = payload),
-    setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload)
+    setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
+    setWeatherNow: (state, payload) => (state.weatherNow = payload),
+    setWeatherForecast: (state, payload) => (state.weatherForecast = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -78,6 +82,18 @@ export const store = new Vuex.Store({
     },
     setSelectedParkRun: (context, selectedParkRun) => {
       context.commit('setSelectedParkRun', selectedParkRun)
+    },
+    fetchWeatherNow: (context) => {
+      Vue.http.get('http://api.openweathermap.org/data/2.5/weather?q=Edinburgh,uk&appid=b7114aca731d927ad002d0a518f38dfe').then(
+        function (response) {
+          context.commit('setWeatherNow', response.data)
+        })
+    },
+    fetchWeatherForecast: (context) => {
+      Vue.http.get('http://api.openweathermap.org/data/2.5/forecast?id=2650225&appid=b7114aca731d927ad002d0a518f38dfe').then(
+        function (response) {
+          context.commit('setWeatherForecast', response.data)
+        })
     }
   }
 })
