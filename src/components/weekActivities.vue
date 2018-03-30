@@ -6,6 +6,10 @@
       <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
     </div>
 
+    <div id='week-totals'>
+      <img class='icon dark-icon' src='../assets/icon_distance.png'/>
+      {{ renderDistance(weekDistance) }}
+    </div>
     <div id='week-container'>
       <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
         <div class='day-title'>
@@ -34,7 +38,7 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
-      weekInViewIndex: 0,
+      weekInViewIndex: 0
     }
   },
   created() {
@@ -110,8 +114,11 @@ export default {
       let weekActivities = this.activities.slice().filter(activity => {
         return (new Date(activity.start_date).getTime() < marker1) && (new Date(activity.start_date).getTime() >= marker2);
       });
-      
       return weekActivities
+    },
+    weekDistance: function() {
+      if (!this.weekInView) return;
+      return this.weekInView.reduce((acc, activity ) => acc + activity.distance, 0);
     }
   }
 }
