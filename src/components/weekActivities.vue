@@ -9,9 +9,26 @@
     </div>
 
     <div id="week-totals" class="row sb">
-      <div id='weather-now'>
+      <!-- <div id='weather-now'>
         {{ weatherNowMain }}
         {{ renderDegTemp(weatherNowTemp) }}
+      </div> -->
+      <div class='row week-total-stat'>
+        <h1>{{ weekInView.length }}</h1>
+        <div class='col'>
+          <div class='row substat'>
+            <img class='icon' src='../assets/icon_bike.png'/>
+            <h4>{{ weekInView.filter(activity => activity.type === 'Ride').length }}</h4>
+          </div>
+          <div class='row substat'>
+            <img class='icon' src='../assets/icon_pace.png'/>
+            <h4>{{ weekInView.filter(activity => activity.type === 'Run').length }}</h4>
+          </div>
+          <div class='row substat'>
+            <img class='icon' src='../assets/icon_graph.png'/>
+            <h4>{{ weekInView.filter(activity => activity.type === 'Swim').length }}</h4>
+          </div>
+        </div>
       </div>
       <div class='row week-total-stat'>
         <img class='icon' src='../assets/icon_distance.png'/>
@@ -172,10 +189,12 @@ export default {
     border-radius: 3px;
   }
 
-  .week-total-stat{
-    border-right: #AEECEF 1px solid;
-    width: 120px;
-    padding: 15px 0;
+  .week-total-stat h1{
+    margin: 10px;
+  }
+
+  .substat h4{
+    margin: 0px;
   }
 
   .day-bar {

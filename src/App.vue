@@ -134,7 +134,7 @@ export default {
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric{
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 </style>
