@@ -2,25 +2,34 @@
   <div id='week-activities'>
     <div id="week-header">
       <div v-on:click='changeWeek(1)'><strong><</strong></div>
-        <div class="heading" id="dateInView">{{ weekInViewString }}</div>
+        <div class='col'>
+          <div class="heading" id="dateInView">{{ weekInViewString }}</div>
+        </div>
       <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
     </div>
 
-    <div id='week-totals'>
-      <img class='icon dark-icon' src='../assets/icon_distance.png'/>
-      {{ renderDistance(weekDistance) }}
+    <div id='week-totals' class='heading-stat row sa'>
+      <div class='row'>
+        <img class='icon dark-icon' src='../assets/icon_distance.png'/>
+        {{ weekDistance }}
+      </div>
+      <div class='row'>
+        <img class='icon dark-icon' src='../assets/icon_time.png'/>
+        {{ renderTime(weekTime) }}
+        </div>
     </div>
+
     <div id='week-container'>
       <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
         <div class='day-title'>
           {{ (day.substr(0, 3)).toUpperCase() }}
         </div>
-        <div class='day'>
-          <strong>{{ renderDay(day, 'name') }}</strong>
+        <div class='day' v-for='activity in dayActivities(day)' :key='activity.index'>
+          {{ activity.name }}
           <div class='row'>
-            {{ renderDistance(renderDay(day, 'distance')) }}  
-            {{ renderTime(renderDay(day, 'moving_time')) }}  
-            {{ renderPace(renderDay(day, 'moving_time'), renderDay(day, 'distance')) }}
+            {{ renderDistance(activity.distance) }}  
+            {{ renderTime(activity.moving_time) }}  
+            {{ renderPace(activity.moving_time, activity.distance) }}
           </div>
         </div>
       </div>
@@ -50,7 +59,7 @@ export default {
         this.weekInViewIndex = 0
       }
     },
-    renderDay: function (day, prop) {
+    dayActivities: function (day) {
       if (!this.weekInView) return
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
 
@@ -58,9 +67,8 @@ export default {
       if (dayIndex == 6) {
         realIndex = 0
       }
-      let result = this.weekInView.find(activity => new Date(activity.start_date).getDay() === realIndex)
-      if (!result) return
-      return result[prop]
+      if (!this.weekInView) return
+      return this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex).sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
     }
   },
   computed: {
@@ -118,7 +126,12 @@ export default {
     },
     weekDistance: function() {
       if (!this.weekInView) return;
-      return this.weekInView.reduce((acc, activity ) => acc + activity.distance, 0);
+      let weekDistance = this.weekInView.reduce((acc, activity ) => acc + activity.distance, 0);
+      return (weekDistance/1000).toFixed(0) + "km"
+    },
+    weekTime: function() {
+      if (!this.weekInView) return;
+      return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
     }
   }
 }
@@ -142,14 +155,34 @@ export default {
     height: 40px;
   }
 
+  #week-totals{
+    background-color: rgb(212, 217, 221, 0.5);
+    padding: 20px;
+    margin: 5px;
+  }
+
   .day-bar {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 90vw;
     align-items: center;
     margin: 10px 0;
+
+    color: transparent;
+    animation-name: day-settle--active;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    align-content: center;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+  } 
+
+  .day-title--active > div{
+    margin-left: 20px;
   }
+  
 
   .day-title {
     background-color: rgba(31, 97, 141, 0.7);
@@ -158,7 +191,6 @@ export default {
     border-bottom-right-radius: 2px;
     display: flex;
     flex-direction: row;
-    color: white;
 
     animation-name: day-settle;
     animation-duration: 1s;
@@ -175,11 +207,19 @@ export default {
     justify-content: flex-start;
     flex-direction: column;
     padding: 0 10px;
-    width: 100%;
     pointer-events: none;
     font-size: 16px;
+    color: #2c3e50;
   }
 
+  @keyframes day-settle {
+    from {
+      width: 0px; 
+    }
+    to {
+      width: 50px;
+    }
+  }
 
   @keyframes day-settle--active {
     from {
@@ -187,8 +227,15 @@ export default {
       color: transparent
     }
     to {
-      width: 79%;
+      width: 100%;
       color: white;
     }
   }
+
+  /* .activity-name{
+    white-space: nowrap;
+    width: 200px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+  } */
 </style>
