@@ -80,7 +80,6 @@ export default {
     width: 100%;
     position: absolute;
     display: flex;
-    color: white;
   }
 
   @keyframes expand-vertical {
@@ -98,6 +97,7 @@ export default {
     top: 7px;
     right: 10px;
     cursor: pointer;
+    filter: invert(60%);
   }
 
   #burger img {
@@ -121,7 +121,6 @@ export default {
     animation-name: expand-vertical;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
-
   }
 
   .burger-item {
@@ -143,7 +142,6 @@ export default {
 
   #openNavBar {
     display: flex;
-    background-color: lightslategrey;
     justify-content: flex-end;
     padding: 5px 0;
     position: relative;

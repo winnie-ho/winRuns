@@ -2,21 +2,18 @@
   <div id='home'>
     <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <week-activities></week-activities>
-    <stat-bar></stat-bar>
   </div>
 </template>
 
 <script>
 import navBar from "../components/navBar.vue";
 import weekActivities from "../components/weekActivities.vue";
-import statBar from "../components/statBar.vue";
 
 export default {
   name: "home",
   components: {
     "nav-bar": navBar,
     "week-activities": weekActivities,
-    "stat-bar": statBar
   },
   data() {
     return {

@@ -1,14 +1,7 @@
 <template>
   <div id='week-activities'>
-    <div id="week-header">
-      <div v-on:click='changeWeek(1)'><strong><</strong></div>
-        <div class='col'>
-          <div class="heading" id="dateInView">{{ weekInViewString }}</div>
-        </div>
-      <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
-    </div>
-
-    <div id='week-totals' class='heading-stat row sa'>
+    <div id="week-totals" class="row sb">
+      <div class="heading" id="dateInView">{{ weekInViewString }}</div>
       <div class='row'>
         <img class='icon dark-icon' src='../assets/icon_distance.png'/>
         {{ weekDistance }}
@@ -16,7 +9,9 @@
       <div class='row'>
         <img class='icon dark-icon' src='../assets/icon_time.png'/>
         {{ renderTime(weekTime) }}
-        </div>
+      </div>
+      <div v-on:click='changeWeek(1)'><strong><</strong></div>
+      <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
     </div>
 
     <div id='week-container'>
@@ -25,8 +20,8 @@
           {{ (day.substr(0, 3)).toUpperCase() }}
         </div>
         <div class='day' v-for='activity in dayActivities(day)' :key='activity.index'>
-          {{ activity.name }}
-          <div class='row'>
+          <div class='heading'>{{ activity.name }}</div>
+          <div class='row data-metric'>
             {{ renderDistance(activity.distance) }}  
             {{ renderTime(activity.moving_time) }}  
             {{ renderPace(activity.moving_time, activity.distance) }}
@@ -83,7 +78,7 @@ export default {
         return "LAST WEEK";
       } 
       if (this.weekInViewIndex > 1) {
-        return this.renderDate(this.weekInView[0].start_date, "long");
+        return this.renderDate(this.weekInView[0].start_date, "short");
       }
     },
     weekInView: function () {
@@ -143,7 +138,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 5px;
   }
 
   #week-header{
@@ -156,47 +151,39 @@ export default {
   }
 
   #week-totals{
-    background-color: rgb(212, 217, 221, 0.5);
-    padding: 20px;
+    padding: 20px 5px;
     margin: 5px;
   }
 
   .day-bar {
+    border: rgba(212, 217, 221) solid 1px;
+    border-radius: 3px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px 0;
+    margin: 5px 0;
+    box-shadow: 2px 5px 10px rgba(212, 217, 221);
+    height: calc(100vh /10);
+    width: 100vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
 
-    color: transparent;
     animation-name: day-settle--active;
     animation-duration: 2s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
     align-content: center;
     align-items: center;
-    padding-right: 10px;
     cursor: pointer;
-  } 
-
-  .day-title--active > div{
-    margin-left: 20px;
   }
-  
 
   .day-title {
+    display: flex;
     background-color: rgba(31, 97, 141, 0.7);
     padding: 10px;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    display: flex;
-    flex-direction: row;
-
-    animation-name: day-settle;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    width: 60px;
-    height: 30px;
+    height: 100%;
+    min-width: 45px;
     align-content: center;
     align-items: center;
     justify-content: center;
@@ -208,7 +195,6 @@ export default {
     flex-direction: column;
     padding: 0 10px;
     pointer-events: none;
-    font-size: 16px;
     color: #2c3e50;
   }
 
@@ -232,10 +218,4 @@ export default {
     }
   }
 
-  /* .activity-name{
-    white-space: nowrap;
-    width: 200px;
-    font-weight: 600;
-    text-overflow: ellipsis;
-  } */
 </style>

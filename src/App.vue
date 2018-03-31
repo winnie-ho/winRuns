@@ -72,7 +72,7 @@ export default {
   font-weight: bold;
   font-size: 18px;
   margin: 2px;
-  /* color: white; */
+  white-space: nowrap;
 }
 
 .subheading {
@@ -129,5 +129,12 @@ export default {
 
 .nav-icon:hover {
   transform: scale(1.1);
+}
+
+/* responsive css  */
+@media all and (max-width: 700px) {
+  .heading, .date, .data-metric{
+    font-size: 14px;
+  }
 }
 </style>
