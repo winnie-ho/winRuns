@@ -1,6 +1,6 @@
 <template>
   <div id='home'>
-    <nav-bar></nav-bar>
+    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <week-activities></week-activities>
     <stat-bar></stat-bar>
   </div>
@@ -19,7 +19,9 @@ export default {
     "stat-bar": statBar
   },
   data() {
-    return {};
+    return {
+      pageTitle: 'HOME'
+    };
   },
   mounted() {
   }

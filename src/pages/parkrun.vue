@@ -1,6 +1,6 @@
 <template>
   <div id='parkrun'>
-    <nav-bar></nav-bar>
+    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <div id="park-run-latest" class="row">
       <div id='last-pr'>
         <img id="park-run-logo" class='dark-icon' src="../assets/icon_park_run_logo.png"/>
@@ -52,6 +52,7 @@ export default {
   },
   data () {
     return {
+      pageTitle: 'PARK RUNS',
       selectedParkRunName: '',
       defaultParkRun: {
         "name": "",

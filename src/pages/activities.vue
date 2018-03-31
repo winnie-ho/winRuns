@@ -1,6 +1,6 @@
 <template>
   <div id='activities'>
-    <nav-bar></nav-bar>
+    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <div class='run-box' v-for='activity in activities' v-bind:key='activity.index' v-on:click='viewActivity(activity.id)'>
       <div class='run-box__detail'>
         <div class='heading'>{{ activity.name }}</div>
@@ -36,6 +36,7 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
+      pageTitle: 'ACTIVITIES'
     }
   },
   mounted () {

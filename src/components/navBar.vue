@@ -5,6 +5,8 @@
         <div class='data nav-button' id='home-button'>WIN RUNS</div>
       </router-link>
 
+      <div id='page-title'>{{ pageTitle }}</div>
+
       <div id='pagesBar' class='row'>
         <router-link to="/runclub" exact>
           <div class='data nav-button'>
@@ -57,6 +59,12 @@ export default {
       expandBurger: false
     }
   },
+  props: {
+    pageTitle: {
+      type: String,
+      required: true
+    }
+  },
   methods: {
   }
 }
@@ -65,6 +73,14 @@ export default {
 <style scoped>
   [hidden] {
     display: none !important;
+  }
+
+  #page-title {
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    color: white;
   }
 
   @keyframes expand-vertical {
@@ -127,7 +143,7 @@ export default {
 
   #openNavBar {
     display: flex;
-    background-color: slategrey;
+    background-color: lightslategrey;
     justify-content: flex-end;
     padding: 5px 0;
     position: relative;
@@ -214,11 +230,7 @@ export default {
   }
 
 /* responsive css  */
-@media all and (max-width: 600px) {
-  #title {
-     font-size: 16px;
-  }
-
+@media all and (max-width: 1000px) {
   #burger {
     visibility: visible;
   }

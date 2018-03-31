@@ -1,6 +1,6 @@
 <template>
   <div id='runclub'>
-    <nav-bar></nav-bar>
+    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     RUN CLUB PAGE
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
   },
   data () {
     return {
+      pageTitle: 'RUN CLUB'
     }
   },
   mounted () {

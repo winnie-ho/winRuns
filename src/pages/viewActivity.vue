@@ -1,6 +1,6 @@
 <template>
   <div id='viewActivity'>
-    <nav-bar></nav-bar>
+    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
 
     <div id="activity-info" class="run-box__detail">
       <div id="activity-info__header" class="row sb">
@@ -99,6 +99,7 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
+      pageTitle: 'ACTIVITY',
       openLaps: false,
       openComments: false,
       openKudos: false,
