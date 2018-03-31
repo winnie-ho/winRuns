@@ -1,17 +1,26 @@
 <template>
   <div id='week-activities'>
-    <div id="week-totals" class="row sb">
+    <div id='week' class='row sb'>
       <div class="heading" id="dateInView">{{ weekInViewString }}</div>
       <div class='row'>
+        <div v-on:click='changeWeek(1)' class='arrow'><strong><</strong></div>
+        <div v-on:click='changeWeek(-1)' class='arrow'><strong>></strong></div>
+      </div>
+    </div>
+
+    <div id="week-totals" class="row sb">
+      <div id='weather-now'>
+        {{ weatherNowMain }}
+        {{ renderDegTemp(weatherNowTemp) }}
+      </div>
+      <div class='row week-total-stat'>
         <img class='icon dark-icon' src='../assets/icon_distance.png'/>
         {{ weekDistance }}
       </div>
-      <div class='row'>
+      <div class='row week-total-stat'>
         <img class='icon dark-icon' src='../assets/icon_time.png'/>
         {{ renderTime(weekTime) }}
       </div>
-      <div v-on:click='changeWeek(1)'><strong><</strong></div>
-      <div v-on:click="changeWeek(-1)" id="previous"><strong>></strong></div>
     </div>
 
     <div id='week-container'>
@@ -127,6 +136,14 @@ export default {
     weekTime: function() {
       if (!this.weekInView) return;
       return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
+    },
+    weatherNowTemp: function() {
+      if (!this.$store.state.weatherNow.main) return
+      return this.$store.state.weatherNow.main.temp
+    },
+    weatherNowMain: function (){
+      if (!this.$store.state.weatherNow.weather) return
+      return this.$store.state.weatherNow.weather[0].main
     }
   }
 }
@@ -151,19 +168,25 @@ export default {
   }
 
   #week-totals{
-    padding: 20px 5px;
-    margin: 5px;
+    margin: 1px;
+    border-radius: 3px;
+  }
+
+  .week-total-stat{
+    border-right: gray 1px solid;
+    width: 120px;
+    padding: 15px 0;
   }
 
   .day-bar {
-    border: rgba(212, 217, 221) solid 1px;
+    background-color: white;
     border-radius: 3px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin: 5px 0;
-    box-shadow: 2px 5px 10px rgba(212, 217, 221);
+    box-shadow: 2px 5px 30px rgb(156, 159, 161);
     height: calc(100vh /10);
     width: 100vw;
     overflow-x: scroll;
@@ -196,6 +219,10 @@ export default {
     padding: 0 10px;
     pointer-events: none;
     color: #2c3e50;
+  }
+
+  .arrow{
+    padding: 0 10px;
   }
 
   @keyframes day-settle {

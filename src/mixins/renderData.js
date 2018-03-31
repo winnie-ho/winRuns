@@ -100,6 +100,9 @@ export default {
         return digit + 'rd'
       }
       return digit + 'th'
+    },
+    renderDegTemp: function (rawTemp) {
+      return (rawTemp - 273).toFixed(0) + '°C'
     }
   }
 }

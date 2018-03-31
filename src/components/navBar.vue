@@ -113,7 +113,7 @@ export default {
     right: -3px;
     width: 80vw;
     text-align: right;  
-    background-color: rgba(212, 217, 221, 0.95);
+    background-color: white;
     padding: 10px;
     border-radius: 2px;
     z-index: 2;
