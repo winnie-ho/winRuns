@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
   #home {
-    background-color: rgb(232, 235, 240);
+    background-color: #6D9DC5;
     height: 100vh;
     width: 100vw;
   }

@@ -14,11 +14,11 @@
         {{ renderDegTemp(weatherNowTemp) }}
       </div>
       <div class='row week-total-stat'>
-        <img class='icon dark-icon' src='../assets/icon_distance.png'/>
+        <img class='icon' src='../assets/icon_distance.png'/>
         {{ weekDistance }}
       </div>
       <div class='row week-total-stat'>
-        <img class='icon dark-icon' src='../assets/icon_time.png'/>
+        <img class='icon' src='../assets/icon_time.png'/>
         {{ renderTime(weekTime) }}
       </div>
     </div>
@@ -173,7 +173,7 @@ export default {
   }
 
   .week-total-stat{
-    border-right: gray 1px solid;
+    border-right: #AEECEF 1px solid;
     width: 120px;
     padding: 15px 0;
   }
@@ -186,7 +186,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     margin: 5px 0;
-    box-shadow: 2px 5px 30px rgb(156, 159, 161);
+    box-shadow: 2px 5px 30px #355c86;
     height: calc(100vh /10);
     width: 100vw;
     overflow-x: scroll;
@@ -203,7 +203,8 @@ export default {
 
   .day-title {
     display: flex;
-    background-color: rgba(31, 97, 141, 0.7);
+    background-color:#3066BE;
+    color: #AEECEF;
     padding: 10px;
     height: 100%;
     min-width: 45px;
@@ -218,7 +219,7 @@ export default {
     flex-direction: column;
     padding: 0 10px;
     pointer-events: none;
-    color: #2c3e50;
+    color: #3066BE;
   }
 
   .arrow{

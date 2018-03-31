@@ -97,7 +97,6 @@ export default {
     top: 7px;
     right: 10px;
     cursor: pointer;
-    filter: invert(60%);
   }
 
   #burger img {
@@ -174,15 +173,16 @@ export default {
   }
 
   #home-button {
+    background-color: #AEECEF;
     font-family: sans-serif;
-    color: transparent;
+    color: #3066BE;
     font-weight: lighter;
     position: absolute;
     padding: 3px;
     padding-left: 10px;
     top: 4px;
     left: -5px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 90%;
     word-spacing: 100vw;
 
@@ -199,8 +199,6 @@ export default {
     }
     to {
       width: 60px;
-      color: white;
-      background-color: rgba(31, 97, 141, 0.7);
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
     }
