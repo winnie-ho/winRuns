@@ -1,5 +1,5 @@
 #activities{
-  background-color: rgb(232, 235, 240);
+  background-color: #6D9DC5;
 }
 
 .run-box{
@@ -14,8 +14,8 @@
 }
 
 .run-box:hover{
-  background-color: rgba(31, 97, 141, 0.8);
-  color: white;
+  background-color: #3066BE;
+  color: #AEECEF;
 }
 
 .run-box:hover .icon {

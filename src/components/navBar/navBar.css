@@ -2,6 +2,7 @@
   display: none !important;
 }
 #navBar {
+  background-color: #6D9DC5;
 }
 
 #page-title {
@@ -105,16 +106,16 @@
 }
 
 #home-button {
-  background-color: #AEECEF;
+  background-color: #3066BE;
+  color: #AEECEF;
   font-family: sans-serif;
-  color: #3066BE;
   font-weight: lighter;
   position: absolute;
   padding: 3px;
   padding-left: 10px;
   top: 4px;
   left: -5px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 90%;
   word-spacing: 100vw;
 

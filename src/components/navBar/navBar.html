@@ -30,18 +30,18 @@
   <img id='burger' src='../../assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
     <div class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
       <img class='close-icon' src='../../assets/icon_cross.png'/>
-      <div class='burger-item row'>
+      <div class='burger-item col'>
         <router-link to="/" exact>HOME</router-link>
       </div>
-      <div class='burger-item row'>
+      <div class='burger-item col'>
         <img src='../../assets/icon_run4it.png' class='burger-icon'/>
         <router-link to="/runclub" exact>RUN CLUB</router-link>
       </div>
-      <div class='burger-item row'>
+      <div class='burger-item col'>
         <img src='../../assets/icon_park_run_logo.png' class='burger-icon'/>
         <router-link to="/parkrun" exact>PARK RUN</router-link>
       </div>
-      <div class='burger-item row'>
+      <div class='burger-item col'>
         <img src='../../assets/icon_activities.png' class='burger-icon'/>
         <router-link to="/activities" exact>ACTIVITIES</router-link>
       </div>

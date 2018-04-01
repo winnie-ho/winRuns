@@ -157,7 +157,7 @@ export default {
     flex-direction: column;
     z-index: 1;
     width: 100%;
-    background-color: rgba(31, 97, 141, 0.9);
+    background-color: #6D9DC5;
     overflow-y: scroll;
     overflow-x: hidden; 
     max-height: 92%; 
