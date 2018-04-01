@@ -1,5 +1,5 @@
 <template src="./navBar.html"></template>
-<style src='./navBar-style.css'></style>
+<style scoped src='./navBar.css'></style>
 
 <script src>
   export default {
