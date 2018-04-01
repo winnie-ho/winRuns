@@ -7,7 +7,7 @@
 
 <script>
 import navBar from "../components/navBar/navBar.vue";
-import weekActivities from "../components/weekActivities.vue";
+import weekActivities from "../components/weekActivities/weekActivities.vue";
 
 export default {
   name: "home",

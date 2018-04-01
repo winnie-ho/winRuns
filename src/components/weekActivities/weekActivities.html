@@ -1,0 +1,57 @@
+<div id='week-activities'>
+  <div id='week' class='row sb'>
+    <div class="heading" id="dateInView">{{ weekInViewString }}</div>
+    <div class='row'>
+      <div v-on:click='changeWeek(1)' class='arrow'><strong><</strong></div>
+      <div v-on:click='changeWeek(-1)' class='arrow'><strong>></strong></div>
+    </div>
+  </div>
+
+  <div id="week-totals" class="row sb">
+    <!-- <div id='weather-now'>
+      {{ weatherNowMain }}
+      {{ renderDegTemp(weatherNowTemp) }}
+    </div> -->
+    <div class='row week-total-stat'>
+      <h1>{{ weekActivitiesCount }}</h1>
+      <div class='col'>
+        <div class='row substat'>
+          <img class='icon' src='../../assets/icon_pace.png'/>
+          <h4>{{ countActivityType('Run') }}</h4>
+        </div>
+        <div class='row substat'>
+          <img class='icon' src='../../assets/icon_bike.png'/>
+          <h4>{{ countActivityType('Ride') }}</h4>
+        </div>
+        <div class='row substat'>
+          <img class='icon' src='../../assets/icon_graph.png'/>
+          <h4>{{ countActivityType('Swim') }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class='row week-total-stat'>
+      <img class='icon' src='../../assets/icon_distance.png'/>
+      {{ weekDistance }}
+    </div>
+    <div class='row week-total-stat'>
+      <img class='icon' src='../../assets/icon_time.png'/>
+      {{ renderTime(weekTime) }}
+    </div>
+  </div>
+
+  <div id='week-container'>
+    <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
+      <div class='day-title'>
+        {{ (day.substr(0, 3)).toUpperCase() }}
+      </div>
+      <div class='day' v-for='activity in dayActivities(day)' :key='activity.index'>
+        <div class='heading'>{{ activity.name }}</div>
+        <div class='row data-metric'>
+          {{ renderDistance(activity.distance) }}  
+          {{ renderTime(activity.moving_time) }}  
+          {{ renderPace(activity.moving_time, activity.distance) }}
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
