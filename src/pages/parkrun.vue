@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue'
+import navBar from '../components/navBar/navBar.vue'
 import parkRunDict from '../mixins/parkRunDict.js'
 import renderData from '../mixins/renderData.js'
 

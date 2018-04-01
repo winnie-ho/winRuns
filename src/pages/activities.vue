@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue'
+import navBar from '../components/navBar/navBar.vue'
 import renderData from '../mixins/renderData.js'
 
 export default {

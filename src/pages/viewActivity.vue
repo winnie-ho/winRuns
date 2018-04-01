@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import navBar from '../components/navBar.vue'
+import navBar from '../components/navBar/navBar.vue'
 import renderData from '../mixins/renderData.js'
 import googleMap from '../components/googleMap.vue'
 

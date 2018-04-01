@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import navBar from "../components/navBar.vue";
+import navBar from "../components/navBar/navBar.vue";
 import weekActivities from "../components/weekActivities.vue";
 
 export default {

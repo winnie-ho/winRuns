@@ -1,0 +1,50 @@
+<div id='navBar'>
+  <div id='openNavBar' class='row'>
+    <router-link to="/" exact>
+      <div class='data nav-button' id='home-button'>WIN RUNS</div>
+    </router-link>
+
+    <div id='page-title'>{{ pageTitle }}</div>
+
+    <div id='pagesBar' class='row'>
+      <router-link to="/runclub" exact>
+        <div class='data nav-button'>
+          <img src='../../assets/icon_run4it.png' class='nav-icon'/>
+        </div>
+      </router-link>
+
+      <router-link to="/parkrun" exact>
+        <div class='data nav-button'>
+          <img src='../../assets/icon_park_run.png' class='nav-icon'/>
+        </div>
+      </router-link>
+
+      <router-link to="/activities" exact>
+        <div class='data nav-button'>
+          <img src='../../assets/icon_activities.png' class='nav-icon'/>
+        </div>
+      </router-link>
+    </div>
+  </div>
+
+  <div id='burger' v-on:click='expandBurger = !expandBurger'>
+    <img src='../../assets/icon_burger.png' class='nav-icon'/>
+    <div class='expanded-burger' v-bind:hidden=!expandBurger>
+      <div class='burger-item row'>
+        <router-link to="/" exact>HOME</router-link>
+      </div>
+      <div class='burger-item row'>
+        <img src='../../assets/icon_run4it.png' class='burger-icon'/>
+        <router-link to="/runclub" exact>RUN CLUB</router-link>
+      </div>
+      <div class='burger-item row'>
+        <img src='../../assets/icon_park_run_logo.png' class='burger-icon'/>
+        <router-link to="/parkrun" exact>PARK RUN</router-link>
+      </div>
+      <div class='burger-item row'>
+        <img src='../../assets/icon_activities.png' class='burger-icon'/>
+        <router-link to="/activities" exact>ACTIVITIES</router-link>
+      </div>
+    </div>
+  </div>
+</div>
