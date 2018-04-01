@@ -27,9 +27,9 @@
     </div>
   </div>
 
-  <div id='burger' v-on:click='expandBurger = !expandBurger'>
-    <img src='../../assets/icon_burger.png' class='nav-icon'/>
-    <div class='expanded-burger' v-bind:hidden=!expandBurger>
+  <img id='burger' src='../../assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
+    <div class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
+      <img class='close-icon' src='../../assets/icon_cross.png'/>
       <div class='burger-item row'>
         <router-link to="/" exact>HOME</router-link>
       </div>
@@ -46,5 +46,4 @@
         <router-link to="/activities" exact>ACTIVITIES</router-link>
       </div>
     </div>
-  </div>
 </div>
