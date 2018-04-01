@@ -1,0 +1,30 @@
+#activities{
+  background-color: rgb(232, 235, 240);
+}
+
+.run-box{
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+  margin: 1px 2px;;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.run-box:hover{
+  background-color: rgba(31, 97, 141, 0.8);
+  color: white;
+}
+
+.run-box:hover .icon {
+  filter: invert(0%);
+}
+
+.run-box__detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}

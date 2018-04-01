@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import home from './pages/home.vue'
+import home from './pages/home/home.vue'
 import runclub from './pages/runclub.vue'
 import parkrun from './pages/parkrun.vue'
-import activities from './pages/activities.vue'
+import activities from './pages/activities/activities.vue'
 
 export default {
   components: {
