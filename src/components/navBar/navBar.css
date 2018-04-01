@@ -1,6 +1,8 @@
 [hidden] {
   display: none !important;
 }
+#navBar {
+}
 
 #page-title {
   justify-content: center;
@@ -39,7 +41,7 @@
   right: -3px;
   width: 80vw;
   text-align: right;  
-  background-color: white;
+  background-color: #3066bef0;
   padding: 10px;
   border-radius: 2px;
   z-index: 2;
@@ -57,13 +59,12 @@
 }
 
 .burger-item a {
-  color: #2c3e50;
+  color: #AEECEF;
   text-decoration: none;
 }
 
 .burger-item:hover {
-  border-left: 3px solid slategray;
-  background-color: rgba(62, 159, 223, 0.527);
+  border-left: 3px solid #AEECEF;
 }
 
 #openNavBar {
@@ -85,7 +86,7 @@
   width: 30px;
   height: auto;
   margin: 0 10px;
-  filter: invert(60%)
+  filter: invert(0%)
 }
 
 .nav-button {
@@ -93,7 +94,7 @@
 }
 
 .button-active {
-  background-color: #3E9FDF;
+  background-color: #AEECEF;
   transform: scale(1.1);
   padding: 0 7px;
   border-radius: 5px;
