@@ -68,10 +68,10 @@ export default {
           {
             name: 'Time',
             data: dataArrayTime,
-            color: '#2c3e50',
+            color: '#AEECEF',
             style: {
               'fontSize': '12px',
-              'color': '#2c3e50'
+              'color': '#AEECEF'
             }
           }
         ],
@@ -81,13 +81,13 @@ export default {
             text: 'Date',
             style: {
               'fontSize': '12px',
-              'color': '#2c3e50'
+              'color': '#AEECEF'
             }
           },
           categories: dateFormatted,
           labels: {
             style: {
-              color: '#2c3e50'
+              color: '#AEECEF'
             }
           },
           startOnTick: true,
@@ -100,15 +100,15 @@ export default {
           title: {
             enabled: true,
             text: 'Time (s)',
-            color: '#2c3e50',
+            color: '#AEECEF',
             style: {
               'fontSize': '12px',
-              'color': '#2c3e50'
+              'color': '#AEECEF'
             }
           },
           labels: {
             style: {
-              color: '#2c3e50'
+              color: '#AEECEF'
             }
           },
           startOnTick: true,
@@ -116,7 +116,7 @@ export default {
           showLastLabel: true
         },
         legend: {
-          itemStyle: { 'color': '#2c3e50' }
+          itemStyle: { 'color': '#AEECEF' }
         }
       })
     }

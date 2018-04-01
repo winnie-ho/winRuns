@@ -3,7 +3,7 @@
     <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <div id="park-run-latest" class="row">
       <div id='last-pr'>
-        <img id="park-run-logo" class='dark-icon' src="../assets/icon_park_run_logo.png"/>
+        <img id="park-run-logo" src="../assets/icon_park_run_logo.png"/>
         <select 
           id="park-run-select" 
           v-model='selectedParkRunName'
@@ -11,7 +11,7 @@
           <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
         </select>
 
-        <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date) }}</div>
+        <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
         <div id="last-pr__name" class="last-pr__metric">{{ latestParkRun.name }}</div>
         <div class="last-pr__metric row sb">
           <div id="last-pr__time">{{ renderTime(latestParkRun.time) }}</div>
@@ -143,7 +143,7 @@ export default {
   #parkrun {
     display: flex;
     flex-direction: column;
-    background-color: rgb(232, 235, 240); 
+    background-color: #6D9DC5; 
     font-size: 16px;
     height: 85%;
     overflow-x: hidden;
