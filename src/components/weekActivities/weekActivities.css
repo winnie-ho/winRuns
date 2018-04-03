@@ -28,17 +28,22 @@
   margin: 0px;
 }
 
-.day-bar {
+.active {
+  color: #6D9DC5;
   background-color: white;
-  border-radius: 3px;
+  box-shadow: 2px 5px 30px #355c86;
+  width: 100vw;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.day-bar {
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin: 5px 0;
-  box-shadow: 2px 5px 30px #355c86;
-  height: calc(100vh /10);
-  width: 100vw;
   overflow-x: scroll;
   overflow-y: hidden;
 
@@ -56,7 +61,7 @@
   background-color:#3066BE;
   color: #AEECEF;
   padding: 10px;
-  height: 100%;
+  height: 45px;
   min-width: 45px;
   align-content: center;
   align-items: center;
@@ -65,9 +70,10 @@
 
 .day{
   display: flex;
+  height: 45px;
   justify-content: flex-start;
   flex-direction: column;
-  padding: 0 10px;
+  padding: 10px;
   pointer-events: none;
   color: #3066BE;
 }

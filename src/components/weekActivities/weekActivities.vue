@@ -11,7 +11,8 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
-      weekInViewIndex: 0
+      weekInViewIndex: 0,
+      dayHasActivities: false
     }
   },
   created() {
@@ -32,7 +33,12 @@ export default {
         realIndex = 0
       }
       if (!this.weekInView) return
-      return this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex).sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
+      let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex).sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
+
+      if (dayActivities.length === 0) {
+        this.dayHasActivities = true
+      }
+      return dayActivities
     },
     countActivityType: function (type) {
       if (!this.weekInView) return
