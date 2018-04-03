@@ -66,6 +66,8 @@
   align-content: center;
   align-items: center;
   justify-content: center;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 
 .day{
