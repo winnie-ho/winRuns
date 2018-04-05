@@ -7,6 +7,7 @@ Vue.use(VueResource)
 
 export const store = new Vuex.Store({
   state: {
+    athlete: {},
     runStats: {},
     rideStats: {},
     swimStats: {},
@@ -20,6 +21,7 @@ export const store = new Vuex.Store({
     weatherForecast: {}
   },
   mutations: {
+    setAthlete: (state, payload) => (state.athlete = payload),
     setRunStats: (state, payload) => (state.runStats = payload),
     setRideStats: (state, payload) => (state.rideStats = payload),
     setSwimStats: (state, payload) => (state.swimStats = payload),
@@ -42,6 +44,12 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
+    fetchAthlete: (context) => {
+      Vue.http.get('https://www.strava.com/api/v3/athlete\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
+        function (response) {
+          context.commit('setAthlete', response.data)
+        })
+    },
     fetchStats: (context) => {
       Vue.http.get('https://www.strava.com/api/v3/athletes/3752965/stats?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
         function (response) {
