@@ -7,14 +7,14 @@
 <script>
 import home from './pages/home/home.vue'
 import runClub from './pages/runClub/runClub.vue'
-import parkrun from './pages/parkrun.vue'
+import parkRun from './pages/parkRun/parkRun.vue'
 import activities from './pages/activities/activities.vue'
 
 export default {
   components: {
     'home': home,
     'runClub': runClub,
-    'parkrun': parkrun,
+    'parkRun': parkRun,
     'activities': activities
   },
   name: 'App',

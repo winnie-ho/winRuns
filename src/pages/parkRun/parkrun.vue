@@ -1,52 +1,13 @@
-<template>
-  <div id='parkrun'>
-    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
-    <div id="park-run-latest" class="row">
-      <div id='last-pr'>
-        <img id="park-run-logo" src="../assets/icon_park_run_logo.png"/>
-        <select 
-          id="park-run-select" 
-          v-model='selectedParkRunName'
-          v-on:change='setParkRunLocation()'>
-          <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
-        </select>
-
-        <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
-        <div id="last-pr__name" class="last-pr__metric">{{ latestParkRun.name }}</div>
-        <div class="last-pr__metric row sb">
-          <div id="last-pr__time">{{ renderTime(latestParkRun.time) }}</div>
-          <div id="last-pr__pace">{{ renderPace(latestParkRun.time, latestParkRun.distance) }}</div>
-        </div>
-        <div class="last-pr__summary">
-          <div id="last-pr__context">{{ computeLastPRContext() }}</div>
-          <div id="year-best">{{ computeYBContext() }}</div>
-          <div id="pb">{{ computePBContext() }}</div>
-        </div>
-      </div>
-    </div>
-    <div id='pr-chart'></div>
-      <div id='pr-list' v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index'>
-        <div class='row sb'>
-          {{ renderDate(parkRun.start_date) }}
-          {{ parkRun.name }}
-        </div>
-
-        <div class='row sb'>
-          {{ renderTime(parkRun.moving_time) }}
-          {{ renderPace(parkRun.moving_time, parkRun.distance) }}
-        </div>
-      </div>
-      
-  </div>
-</template>
+<template src="./parkRun.html"></template>
+<style scoped src='./parkRun.css'></style>
 
 <script>
-import navBar from '../components/navBar/navBar.vue'
-import parkRunDict from '../mixins/parkRunDict.js'
-import renderData from '../mixins/renderData.js'
+import navBar from '../../components/navBar/navBar.vue'
+import parkRunDict from '../../mixins/parkRunDict.js'
+import renderData from '../../mixins/renderData.js'
 
 export default {
-  name: 'parkrun',
+  name: 'parkRun',
   components: {
     'nav-bar': navBar
   },
@@ -138,72 +99,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  #parkrun {
-    display: flex;
-    flex-direction: column;
-    background-color: #6D9DC5; 
-    font-size: 16px;
-    height: 85%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
-  #park-run-logo{
-    height: 65px;
-    width: auto;
-  }
-
-  #park-run-latest{
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  #park-run-select {
-    position: absolute;
-    margin: 10px 0;
-    height: 30px;
-    cursor: pointer;
-    border: none;
-    text-transform: uppercase;
-  }
-
-  #last-pr{
-    font-size: 14px;
-    padding: 20px;
-  }
-
-  .last-pr__summary{
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  #park-run-latest{
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  #last-pr__date{
-    margin-bottom: 10px;
-  }
-
-  #last-pr__name{
-    width: 100%;
-  }
-
-  .last-pr__metric{
-    width: 225px;
-    font-size: 25px;
-  }
-
-  #last-pr__pace{
-    margin-right: 10px;
-  }
-
-  #pr-list {
-    margin: 0 20px;
-  }
-</style>

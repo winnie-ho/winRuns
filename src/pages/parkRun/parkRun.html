@@ -1,0 +1,38 @@
+<div id='parkrun'>
+  <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
+  <div id="park-run-latest" class="row">
+    <div id='last-pr'>
+      <img id="park-run-logo" src="../../assets/icon_park_run_logo.png"/>
+      <select 
+        id="park-run-select" 
+        v-model='selectedParkRunName'
+        v-on:change='setParkRunLocation()'>
+        <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
+      </select>
+
+      <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
+      <div id="last-pr__name" class="last-pr__metric">{{ latestParkRun.name }}</div>
+      <div class="last-pr__metric row sb">
+        <div id="last-pr__time">{{ renderTime(latestParkRun.time) }}</div>
+        <div id="last-pr__pace">{{ renderPace(latestParkRun.time, latestParkRun.distance) }}</div>
+      </div>
+      <div class="last-pr__summary">
+        <div id="last-pr__context">{{ computeLastPRContext() }}</div>
+        <div id="year-best">{{ computeYBContext() }}</div>
+        <div id="pb">{{ computePBContext() }}</div>
+      </div>
+    </div>
+  </div>
+  <div id='pr-chart'></div>
+  <div id='pr-list' v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index'>
+    <div class='row sb'>
+      {{ renderDate(parkRun.start_date) }}
+      {{ parkRun.name }}
+    </div>
+
+    <div class='row sb'>
+      {{ renderTime(parkRun.moving_time) }}
+      {{ renderPace(parkRun.moving_time, parkRun.distance) }}
+    </div>
+  </div>
+</div>
