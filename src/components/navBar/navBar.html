@@ -30,6 +30,13 @@
   <img id='burger' src='../../assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
     <div class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
       <img class='close-icon' src='../../assets/icon_cross.png'/>
+
+      <div class='col athlete'>
+        <img class='avatar' :src='athlete.profile_medium'/>
+        <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
+        <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
+      </div>  
+
       <div class='burger-item col'>
         <router-link to="/" exact>HOME</router-link>
       </div>

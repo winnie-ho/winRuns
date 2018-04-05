@@ -38,7 +38,7 @@
   position: absolute;
   top: 0px;  
   right: 0px;
-  width: 100vw;
+  width: 95vw;
   height: 100vh;
   background-color: #3066be;
   padding: 10px;
@@ -70,6 +70,10 @@
   width: auto;
   right: 10px;
   filter: invert(100%);
+}
+
+.athlete {
+  margin-top: 50px;
 }
 
 #openNavBar {

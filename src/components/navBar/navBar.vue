@@ -16,6 +16,12 @@
       }
     },
     methods: {
+    },
+    computed: {
+      athlete: function() {
+        if (!this.$store.state.athlete) return
+        return this.$store.state.athlete
+      }
     }
   }
 </script>
