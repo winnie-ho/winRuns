@@ -108,14 +108,6 @@ export default {
       if (!this.weekInView) return;
       return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
     },
-    weatherNowTemp: function() {
-      if (!this.$store.state.weatherNow.main) return
-      return this.$store.state.weatherNow.main.temp
-    },
-    weatherNowMain: function (){
-      if (!this.$store.state.weatherNow.weather) return
-      return this.$store.state.weatherNow.weather[0].main
-    },
     weekActivitiesCount: function () {
       if (!this.weekInView) return
       return this.weekInView.length
