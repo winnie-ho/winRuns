@@ -1,15 +1,11 @@
-<template>
-  <div id='runclub'>
-    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
-    RUN CLUB PAGE
-  </div>
-</template>
+<template src='./runClub.html'></template>
+<style scoped src='./runClub.css'></style>
 
 <script>
-import navBar from '../components/navBar/navBar.vue'
+import navBar from '../../components/navBar/navBar.vue'
 
 export default {
-  name: 'runclub',
+  name: 'runClub',
   components: {
     'nav-bar': navBar
   },
@@ -30,7 +26,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
