@@ -1,5 +1,4 @@
-<template>
-  <div id='viewActivity'>
+<div id='viewActivity'>
     <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
 
     <div id="activity-info" class="run-box__detail">
@@ -16,16 +15,16 @@
       
       <div class="row sa">
         <div class="row" v-on:click='openLaps =!openLaps'> 
-          <img class="icon" src="../assets/icon_laps.png"/>
+          <img class="icon" src="../../assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
         <div class="row">
-          <img class="icon" src="../assets/icon_heartrate.png"/>
+          <img class="icon" src="../../assets/icon_heartrate.png"/>
           <div class="data-metric">{{ activity.average_heartrate }}</div>
         </div>
 
         <div class='row'>
-          <img class="icon" src="../assets/icon_cadence.png"/>
+          <img class="icon" src="../../assets/icon_cadence.png"/>
           <div class="data-metric">{{ activity.average_cadence }}</div>
         </div>
       </div>
@@ -33,17 +32,17 @@
       
       <div class="row sa">
         <div class="row" v-show='comments.length !== 0' v-on:click='openComments = !openComments'>
-          <img class="icon" src="../assets/icon_comment.png"/>
+          <img class="icon" src="../../assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
 
         <div class="row" v-show='kudos.length !== 0' v-on:click='openKudos = !openKudos'>
-          <img class="icon" src="../assets/icon_like.png"/>
+          <img class="icon" src="../../assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
         <div class="row" v-show='photos.length !== 0' v-on:click='openPhotos = !openPhotos'> 
-          <img class="icon" src="../assets/icon_picture.png"/>
+          <img class="icon" src="../../assets/icon_picture.png"/>
           <div class="data-metric">{{ photos.length }}</div>
         </div>
       </div>
@@ -51,7 +50,7 @@
       <div id="kudos-detail" v-show='openKudos'>
         <div class='col' v-for='kudo in kudos' v-bind:key='kudo.index'>
           <img v-bind:src='kudo.profile' class='avatar' />
-          {{ kudo.firstname }}
+          <h6>{{ kudo.firstname }}</h6>
         </div>
       </div>
       <div id="comments-detail" class="col sb" v-show='openComments'>
@@ -83,118 +82,3 @@
     ></google-map>
 
   </div>
-</template>
-
-<script>
-import navBar from '../components/navBar/navBar.vue'
-import renderData from '../mixins/renderData.js'
-import googleMap from '../components/googleMap.vue'
-
-export default {
-  name: 'viewActivity',
-  components: {
-    'nav-bar': navBar,
-    'google-map': googleMap
-  },
-  mixins: [ renderData ],
-  data () {
-    return {
-      pageTitle: 'ACTIVITY',
-      openLaps: false,
-      openComments: false,
-      openKudos: false,
-      openPhotos: false
-    }
-  },
-  mounted () {
-  },
-
-  created() {
-  },
-
-  methods: {
-  },
-  computed: {
-    activity: function() {
-      return this.$store.state.activity
-    },
-    comments: function() {
-      return this.$store.state.comments
-    },
-    kudos: function() {
-      return this.$store.state.kudos
-    },
-    photos: function() {
-      return this.$store.state.photos
-    },
-    lapsCount: function() {
-      if (!this.$store.state.activity.laps) return
-      return this.$store.state.activity.laps.length
-    },
-    laps: function() {
-      return this.$store.state.activity.laps
-    },
-    lat: function () {
-      if (!this.$store.state.activity.start_latlng) return
-      return this.$store.state.activity.start_latlng[0]
-    },
-    lng: function () {
-      if (!this.$store.state.activity.start_latlng) return
-      return this.$store.state.activity.start_latlng[1]
-    },
-    polyline: function () {
-      if (!this.$store.state.activity.map) return
-      return this.$store.state.activity.map.polyline
-    }
-  }
-}
-</script>
-
-<style scoped>
-  #activity-info{
-    position: absolute;
-    display: block;
-    flex-direction: column;
-    z-index: 1;
-    width: 100%;
-    background-color: #6D9DC5;
-    overflow-y: scroll;
-    overflow-x: hidden; 
-    max-height: 92%; 
-    color: white;
-    padding-bottom: 20px;
-  }
-
-  #activity-info__header {
-    padding: 10px;
-  }
-
-  .lap {
-    width: 100vw;
-  }
-
-  #kudos-detail{
-    margin-top: 20px;  
-    display: grid;
-    align-items: center;
-    grid-template-rows: 38% 100px auto;
-    justify-content: center;
-    grid-template-columns: 100px 100px 100px 100px;
-  }
-
-  #comments-detail{
-    align-items: unset;
-    margin: 10px;
-    padding: 20px;
-  }
-
-  #photos-detail{
-    margin-top: 10px;
-  }
-
-  .photo{
-    height: auto;
-    width: 98%;
-    margin: 2px;
-  }
-</style>

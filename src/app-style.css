@@ -34,8 +34,9 @@
 }
 
 /* TEXT */
-h1, h2, h3{
+h1, h2, h3, h4, h5, h6{
   font-weight: 100;
+  margin: 0;
 }
 
 .heading {
@@ -81,7 +82,7 @@ h1, h2, h3{
 
 .avatar{
   height: 50px;
-  width: auto;
+  width: 50px;
   border-radius: 10%;
   margin: 10px;
 }

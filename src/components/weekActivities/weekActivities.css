@@ -39,6 +39,8 @@
 
 .day-bar {
   background-color: transparent;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

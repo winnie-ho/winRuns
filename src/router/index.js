@@ -4,7 +4,7 @@ import home from '../pages/home/home.vue'
 import runclub from '../pages/runclub.vue'
 import parkrun from '../pages/parkrun.vue'
 import activities from '../pages/activities/activities.vue'
-import viewActivity from '../pages/viewActivity.vue'
+import viewActivity from '../pages/viewActivity/viewActivity.vue'
 
 Vue.use(Router)
 

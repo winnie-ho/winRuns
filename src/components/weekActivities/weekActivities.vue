@@ -96,6 +96,7 @@ export default {
       let weekActivities = this.activities.slice().filter(activity => {
         return (new Date(activity.start_date).getTime() < marker1) && (new Date(activity.start_date).getTime() >= marker2);
       });
+      console.log("WEEK ACT", weekActivities);
       return weekActivities
     },
     weekDistance: function() {

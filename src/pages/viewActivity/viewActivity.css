@@ -1,0 +1,46 @@
+#activity-info{
+  position: absolute;
+  display: block;
+  flex-direction: column;
+  z-index: 1;
+  width: 100%;
+  background-color: #6D9DC5;
+  overflow-y: scroll;
+  overflow-x: hidden; 
+  max-height: 92%; 
+  color: white;
+  padding-bottom: 20px;
+}
+
+#activity-info__header {
+  padding: 10px;
+}
+
+.lap {
+  width: 100vw;
+}
+
+#kudos-detail{
+  margin-top: 20px;  
+  display: grid;
+  align-items: center;
+  grid-template-rows: 38% 100px auto;
+  justify-content: center;
+  grid-template-columns: 20% 20% 20% 20%;
+}
+
+#comments-detail{
+  align-items: unset;
+  margin: 10px;
+  padding: 20px;
+}
+
+#photos-detail{
+  margin-top: 10px;
+}
+
+.photo{
+  height: auto;
+  width: 98%;
+  margin: 2px;
+}
