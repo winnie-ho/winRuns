@@ -12,15 +12,6 @@
   display: flex;
 }
 
-@keyframes expand-vertical {
-  from {
-    height: 30px;
-  }
-  to {
-    height: 100vh;
-  }
-}
-
 #burger {
   visibility: hidden;
   position: absolute;
@@ -34,7 +25,6 @@
 }
 
 .expanded-burger {
-  visibility: visible;
   position: absolute;
   top: 0px;  
   right: 0px;
@@ -43,10 +33,45 @@
   background-color: #3066be;
   padding: 10px;
   z-index: 2;
+}
 
+#burger-menu {
   animation-name: expand-vertical;
-  animation-duration: 0.3s;
+  animation-duration: 0.4s;
   animation-fill-mode: forwards;
+}
+
+.expanded-burger * {
+  animation-name: fade-in;
+  animation-duration: 0.7s;
+}
+
+@keyframes expand-vertical {
+  from {
+    height: 30px;
+  }
+  to {
+    height: 100vh;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    filter: opacity(0%)
+  }
+  to {
+    filter: opacity(100%)
+  }
+}
+.profile{
+  margin-top: 30px;
+}
+
+.avatar-profile{
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+  margin: 10px;
 }
 
 .burger-item {
@@ -70,10 +95,6 @@
   width: auto;
   right: 10px;
   filter: invert(100%);
-}
-
-.athlete {
-  margin-top: 50px;
 }
 
 #openNavBar {
