@@ -74,12 +74,13 @@
 
 .day{
   display: flex;
+  background: linear-gradient(to bottom right, #3066be, #6d9dc5);
   height: 45px;
   justify-content: flex-start;
   flex-direction: column;
   padding: 10px;
   pointer-events: none;
-  color: #3066BE;
+  color: white;
 }
 
 .arrow{
