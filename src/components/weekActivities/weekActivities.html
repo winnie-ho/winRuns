@@ -43,7 +43,7 @@
   </div>
 
   <div id='week-container'>
-    <div class='day-bar' v-for='day in dayLookUp' :key='day.index' >
+    <div class='day-bar' v-bind:class='{ fullWeekView: !toggleWeekView }' v-for='day in dayLookUp' :key='day.index' >
       <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
       <div class='day' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayHasActivities }'>
         <div class='heading'>{{ activity.name }}</div>

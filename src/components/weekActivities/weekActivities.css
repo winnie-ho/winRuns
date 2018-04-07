@@ -37,6 +37,23 @@
   border-top-right-radius: 3px;
 }
 
+.fullWeekView {
+  height: 90px;
+}
+
+.fullWeekView .day-title {
+  height: 90px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.fullWeekView .day {
+  height: 90px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  justify-content: center;
+}
+
 .day-bar {
   background-color: transparent;
   border-bottom-right-radius: 3px;
@@ -81,6 +98,8 @@
   padding: 10px;
   pointer-events: none;
   color: white;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .arrow{

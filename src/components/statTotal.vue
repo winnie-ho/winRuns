@@ -7,15 +7,15 @@
 
     <div v-show='expandToggle' class='expanded-stat'>
       <div class='expanded-stat-item'>
-        <img class='icon dark-icon' src='../assets/icon_distance.png'/>
+        <img class='icon' src='../assets/icon_distance.png'/>
         {{ renderDistance(statTypeDistance,'short') }}
       </div>
       <div class='expanded-stat-item'>
-        <img class='icon dark-icon' src='../assets/icon_time.png'/>
+        <img class='icon' src='../assets/icon_time.png'/>
         {{ renderTime(statTypeTime, 'short') }}
       </div>
       <div class='expanded-stat-item'>
-        <img class='icon dark-icon' src='../assets/icon_elevation.png'/>
+        <img class='icon' src='../assets/icon_elevation.png'/>
         {{ renderDistance(statTypeElevation, 'short') }}
       </div>
     </div>

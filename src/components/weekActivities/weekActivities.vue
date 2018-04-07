@@ -9,11 +9,16 @@ export default {
   components: {
   },
   mixins: [ renderData ],
+  props: {
+    toggleWeekView: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
-      toggleWeekView: true
     }
   },
   created() {
