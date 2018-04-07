@@ -3,29 +3,30 @@
     <div class='main-stat--title'>
       {{ title }}
       </div>
-    <div class='main-stat--value'>{{ statType.count }}</div>
+    <div class='main-stat--value'>{{ statTypeCount }}</div>
 
     <div v-show='expandToggle' class='expanded-stat'>
       <div class='expanded-stat-item'>
         <img class='icon dark-icon' src='../assets/icon_distance.png'/>
-        {{ (statType.distance/1000).toFixed(0) }} km
+        {{ renderDistance(statTypeDistance,'short') }}
       </div>
       <div class='expanded-stat-item'>
         <img class='icon dark-icon' src='../assets/icon_time.png'/>
-        {{ (statType.moving_time/3600).toFixed(0) }} hours
+        {{ renderTime(statTypeTime, 'short') }}
       </div>
       <div class='expanded-stat-item'>
         <img class='icon dark-icon' src='../assets/icon_elevation.png'/>
-        {{ (statType.elevation_gain/1000).toFixed(0) }} m
+        {{ renderDistance(statTypeElevation, 'short') }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import renderData from '../mixins/renderData.js'
 export default {
   name: "statTotal",
-
+  mixins: [ renderData ],
   data() {
     return {
       expandToggle: false,
@@ -50,6 +51,7 @@ export default {
       return (this.type + 's').toUpperCase();
     },
     statType: function() {
+      if (!this.$store.state.stats) return
       switch(this.type) {
         case 'run':
           return this.$store.state.stats.ytd_run_totals
@@ -61,6 +63,22 @@ export default {
           return this.$store.state.stats.ytd_swim_totals
           break;
       }
+    },
+    statTypeCount: function() {
+      if (!this.statType) return
+      return this.statType.count
+    },
+    statTypeDistance: function() {
+      if (!this.statType) return
+      return this.statType.distance
+    },
+    statTypeTime: function() {
+      if (!this.statType) return
+      return this.statType.moving_time
+    },
+    statTypeElevation: function() {
+      if (!this.statType) return
+      return this.statType.elevation_gain
     }
   }
 };
@@ -83,7 +101,6 @@ export default {
 }
 
 .expanded {
-  background-color: rgb(212, 217, 221, 0.5);
 }
 
 .expanded-stat {

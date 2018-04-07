@@ -5,5 +5,7 @@
       {{ renderDegTemp(weatherNowTemp) }}
     </div> -->
   <week-activities></week-activities>
+  <div v-on:click='toggleWeekView = !toggleWeekView'>CLICK ME</div>
+  <div v-show='toggleWeekView'>HELLOs</div>
   <stat-bar></stat-bar>
 </div>

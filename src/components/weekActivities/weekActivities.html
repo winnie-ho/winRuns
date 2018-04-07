@@ -2,8 +2,7 @@
   <div id='week' class='row sb'>
     <div 
     class="heading" 
-    id="dateInView" 
-    v-on:click='toggleWeekStats = !toggleWeekStats'>
+    id="dateInView">
     {{ weekInViewString }}
   </div>
   
@@ -13,7 +12,7 @@
   </div>
 </div>
 
-  <div v-show='toggleWeekStats' class='row sa'>
+  <div class='row sa'>
     <div id="week-totals" class="row sb">
       <div class='row week-total-stat'>
         <h1>{{ weekActivitiesCount }}</h1>

@@ -13,7 +13,7 @@ export default {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
-      toggleWeekStats: true
+      toggleWeekView: true
     }
   },
   created() {

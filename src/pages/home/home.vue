@@ -17,7 +17,8 @@ export default {
   mixins: [ renderData ],
   data() {
     return {
-      pageTitle: 'HOME'
+      pageTitle: 'HOME',
+      toggleWeekView: true
     };
   },
   mounted() {

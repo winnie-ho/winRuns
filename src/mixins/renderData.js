@@ -27,12 +27,16 @@ export default {
     }
   },
   methods: {
-    renderDistance: function (rawDistance) {
+    renderDistance: function (rawDistance, short) {
       if (!rawDistance) return
+      if (short === 'short') {
+        return ((rawDistance) / 1000).toFixed(0) + 'km'
+      }
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
-    renderTime: function (rawTime) {
+    renderTime: function (rawTime, short) {
       if (!rawTime) return
+
       const totalMinutes = (rawTime / 60).toFixed(2)
       const hours = Math.floor(totalMinutes / 60)
       const rawMinutes = (Math.floor(totalMinutes - (hours * 60))).toFixed(0)
@@ -46,8 +50,14 @@ export default {
         seconds = '0' + rawSeconds
       }
       if (hours === 0) {
+        if (short === 'short') {
+          return minutes + 'mins'
+        }
         return minutes + ':' + seconds
       } else {
+        if (short === 'short') {
+          return hours + ' hours'
+        }
         return hours + ':' + minutes + ':' + seconds
       }
     },
