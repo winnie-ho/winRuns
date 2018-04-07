@@ -1,27 +1,35 @@
 <div id='week-activities'>
   <div id='week' class='row sb'>
-    <div class="heading" id="dateInView">{{ weekInViewString }}</div>
-    <div class='row'>
-      <div v-on:click='changeWeek(1)' class='arrow'><strong><</strong></div>
-      <div v-on:click='changeWeek(-1)' class='arrow'><strong>></strong></div>
-    </div>
+    <div 
+    class="heading" 
+    id="dateInView" 
+    v-on:click='toggleWeekStats = !toggleWeekStats'>
+    {{ weekInViewString }}
   </div>
+  
+  <div class='row'>
+    <div v-on:click='changeWeek(1)' class='arrow'><strong><</strong></div>
+    <div v-on:click='changeWeek(-1)' class='arrow'><strong>></strong></div>
+  </div>
+</div>
 
-  <div id="week-totals" class="row sb">
-    <div class='row week-total-stat'>
-      <h1>{{ weekActivitiesCount }}</h1>
-      <div class='col'>
-        <div class='row substat'>
-          <img class='icon' src='../../assets/icon_run.png'/>
-          <h4>{{ countActivityType('Run') }}</h4>
-        </div>
-        <div class='row substat'>
-          <img class='icon' src='../../assets/icon_bike.png'/>
-          <h4>{{ countActivityType('Ride') }}</h4>
-        </div>
-        <div class='row substat'>
-          <img class='icon' src='../../assets/icon_swim.png'/>
-          <h4>{{ countActivityType('Swim') }}</h4>
+  <div v-show='toggleWeekStats' class='row sa'>
+    <div id="week-totals" class="row sb">
+      <div class='row week-total-stat'>
+        <h1>{{ weekActivitiesCount }}</h1>
+        <div class='col'>
+          <div class='row substat'>
+            <img class='icon' src='../../assets/icon_run.png'/>
+            <h4>{{ countActivityType('Run') }}</h4>
+          </div>
+          <div class='row substat'>
+            <img class='icon' src='../../assets/icon_bike.png'/>
+            <h4>{{ countActivityType('Ride') }}</h4>
+          </div>
+          <div class='row substat'>
+            <img class='icon' src='../../assets/icon_swim.png'/>
+            <h4>{{ countActivityType('Swim') }}</h4>
+          </div>
         </div>
       </div>
     </div>
