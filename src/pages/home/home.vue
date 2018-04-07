@@ -4,12 +4,14 @@
 <script>
 import navBar from "../../components/navBar/navBar.vue";
 import weekActivities from "../../components/weekActivities/weekActivities.vue";
+import statBar from "../../components/statBar.vue";
 import renderData from '../../mixins/renderData.js'
 
 export default {
   name: "home",
   components: {
     "nav-bar": navBar,
+    "stat-bar": statBar,
     "week-activities": weekActivities,
   },
   mixins: [ renderData ],

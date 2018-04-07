@@ -52,17 +52,16 @@ export default {
     statType: function() {
       switch(this.type) {
         case 'run':
-          return this.$store.state.runStats
+          return this.$store.state.stats.ytd_run_totals
           break;
         case 'ride':
-          return this.$store.state.rideStats
+          return this.$store.state.stats.ytd_ride_totals
           break;
         case 'swim':
-          return this.$store.state.swimStats
+          return this.$store.state.stats.ytd_swim_totals
           break;
       }
     }
-
   }
 };
 </script>

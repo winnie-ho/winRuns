@@ -21,6 +21,7 @@ export default {
   created () {
     this.$store.dispatch('fetchAthlete')
     this.$store.dispatch('fetchActivities')
+    this.$store.dispatch('fetchStats')
     this.$store.dispatch('fetchWeatherNow')
     this.$store.dispatch('fetchWeatherForecast')
   },
