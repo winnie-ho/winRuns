@@ -6,6 +6,12 @@
   padding: 5px;
 }
 
+#week-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #week-header{
   display:flex;
   flex-direction: row;
@@ -37,18 +43,16 @@
   border-top-right-radius: 3px;
 }
 
-.fullWeekView {
-  height: 90px;
+#week-container .fullWeekView  {
+  height: 10.5vh;
 }
 
 .fullWeekView .day-title {
-  height: 90px;
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
 }
 
 .fullWeekView .day {
-  height: 90px;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
   justify-content: center;
@@ -58,6 +62,7 @@
   background-color: transparent;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -80,7 +85,7 @@
   background-color:#3066BE;
   color: #AEECEF;
   padding: 10px;
-  height: 45px;
+  height: 100%;
   min-width: 45px;
   align-content: center;
   align-items: center;
@@ -92,7 +97,7 @@
 .day{
   display: flex;
   background: linear-gradient(to bottom right, #3066be, #6d9dc5);
-  height: 45px;
+  height: 100%;
   justify-content: flex-start;
   flex-direction: column;
   padding: 10px;
