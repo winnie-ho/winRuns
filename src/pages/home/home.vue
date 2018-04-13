@@ -18,17 +18,17 @@ export default {
   data() {
     return {
       pageTitle: 'HOME',
-      toggleWeekView: true
+      toggleWeekView: false
     };
   },
   mounted() {
   },
   computed: {
-    weatherNowTemp: function() {
+    weatherNowTemp: function () {
       if (!this.$store.state.weatherNow.main) return
       return this.$store.state.weatherNow.main.temp
     },
-    weatherNowMain: function (){
+    weatherNowMain: function () {
       if (!this.$store.state.weatherNow.weather) return
       return this.$store.state.weatherNow.weather[0].main
     }

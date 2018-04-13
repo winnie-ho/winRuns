@@ -9,16 +9,11 @@ export default {
   components: {
   },
   mixins: [ renderData ],
-  props: {
-    toggleWeekView: {
-      type: Boolean,
-      required: true
-    }
-  },
   data () {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
+      toggleWeekView: false
     }
   },
   created() {
@@ -49,6 +44,10 @@ export default {
     countActivityType: function (type) {
       if (!this.weekInView) return
       return this.weekInView.filter(activity => activity.type === type).length
+    },
+    triggerWeekView: function () {
+      this.toggleWeekView = !this.toggleWeekView
+      this.$emit('toggleWeekView', this.toggleWeekView)
     }
   },
   computed: {

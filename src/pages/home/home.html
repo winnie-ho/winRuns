@@ -1,11 +1,9 @@
 <div id='home'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-show='toggleWeekView'></nav-bar>
+  <nav-bar v-bind:pageTitle='pageTitle' @toggleWeekView='toggleWeekView'></nav-bar>
     <!-- <div id='weather-now'>
       {{ weatherNowMain }}
       {{ renderDegTemp(weatherNowTemp) }}
     </div> -->
-    <div v-on:click='toggleWeekView = !toggleWeekView'>
-      <week-activities v-bind:toggleWeekView='toggleWeekView'></week-activities>
-    </div>
+  <week-activities></week-activities>
   <stat-bar v-show='toggleWeekView'></stat-bar>
 </div>
