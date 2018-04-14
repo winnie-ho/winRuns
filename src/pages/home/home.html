@@ -6,8 +6,8 @@
     </div> -->
 
     <!-- week flicker -->
-    <week-changer></week-changer>
+    <week-changer v-on:weekInViewIndexChange='setWeekInViewIndex($event)'></week-changer>
     <!-- week summary -->
-  <week-activities></week-activities>
+  <week-activities v-bind:weekInViewIndex='weekInViewIndex'></week-activities>
   <stat-bar v-show='toggleWeekView'></stat-bar>
 </div>

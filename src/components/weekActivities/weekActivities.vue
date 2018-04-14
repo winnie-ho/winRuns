@@ -9,9 +9,14 @@ export default {
   components: {
   },
   mixins: [ renderData ],
+  props: {
+    weekInViewIndex: {
+      type: Number,
+      required: true
+    }
+  },
   data () {
     return {
-      weekInViewIndex: 0,
       dayHasActivities: false,
       toggleWeekView: true
     }
