@@ -1,0 +1,17 @@
+#week-changer {
+  justify-content: center;
+}
+
+.arrow {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.arrow img:hover {
+  filter: opacity(60%);
+}
+
+.arrow img {
+  height: 25px;
+  width: auto;
+}
