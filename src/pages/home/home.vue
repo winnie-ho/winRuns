@@ -4,6 +4,7 @@
 <script>
 import navBar from "../../components/navBar/navBar.vue";
 import weekActivities from "../../components/weekActivities/weekActivities.vue";
+import weekChanger from "../../components/weekChanger/weekChanger.vue";
 import statBar from "../../components/statBar.vue";
 import renderData from '../../mixins/renderData.js'
 
@@ -13,15 +14,22 @@ export default {
     "nav-bar": navBar,
     "stat-bar": statBar,
     "week-activities": weekActivities,
+    "week-changer": weekChanger,
   },
   mixins: [ renderData ],
   data() {
     return {
       pageTitle: 'HOME',
-      toggleWeekView: false
+      toggleWeekView: true
     };
   },
   mounted() {
+  },
+  methods: {
+    setToggleWeekView: function() {
+      console.log("TOGGLE STATUS")
+      this.toggleWeekView = !this.toggleWeekView
+    }
   },
   computed: {
     weatherNowTemp: function () {

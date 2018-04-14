@@ -4,12 +4,16 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 5px;
-}
+}  
 
 #week-container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  }  
+
+#week-container .fullWeekView  {
+  height: 10.5vh;
 }
 
 #week-header{
@@ -19,20 +23,20 @@
   justify-content: space-between;
   margin: 10px;
   height: 40px;
-}
+}  
 
 #week-totals{
   margin: 5px 0px;
   border-radius: 3px;
-}
+}  
 
 .week-total-stat h1{
   margin: 10px;
-}
+}  
 
 .substat h4{
   margin: 0px;
-}
+}  
 
 .active {
   color: #6D9DC5;
@@ -41,11 +45,8 @@
   width: 100vw;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
-}
+}  
 
-#week-container .fullWeekView  {
-  height: 10.5vh;
-}
 
 .fullWeekView .day-title {
   border-bottom-left-radius: 3px;
@@ -67,7 +68,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 5px 0;
+  margin: 5px -5px;
   overflow-x: scroll;
   overflow-y: hidden;
 

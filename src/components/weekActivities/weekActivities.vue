@@ -13,7 +13,7 @@ export default {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
-      toggleWeekView: false
+      toggleWeekView: true
     }
   },
   created() {
@@ -46,8 +46,9 @@ export default {
       return this.weekInView.filter(activity => activity.type === type).length
     },
     triggerWeekView: function () {
+      console.log("TRIGGER", this.toggleWeekView)
       this.toggleWeekView = !this.toggleWeekView
-      this.$emit('toggleWeekView', this.toggleWeekView)
+      this.$emit('toggleWeekViewStatus')
     }
   },
   computed: {
