@@ -39,6 +39,9 @@ export default {
     },
     setWeekInView: function(weekInView) {
       this.weekInView = weekInView;
+    },
+    setToggleWeekView: function(toggleWeekView) {
+      this.toggleWeekView = toggleWeekView;
     }
   },
   computed: {

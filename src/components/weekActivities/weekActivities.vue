@@ -36,9 +36,8 @@ export default {
       return dayActivities
     },
     triggerWeekView: function () {
-      console.log("TRIGGER", this.toggleWeekView)
       this.toggleWeekView = !this.toggleWeekView
-      this.$emit('toggleWeekViewStatus')
+      this.$emit('toggleWeekViewChange', this.toggleWeekView);
     }
   },
   computed: {
