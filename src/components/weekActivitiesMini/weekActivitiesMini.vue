@@ -40,6 +40,7 @@ export default {
       this.$emit('toggleWeekViewChange', this.toggleWeekView);
     },
     dayActivityCount: function (day) {
+      console.log("day", day)
       return day.length;
     }
   },
