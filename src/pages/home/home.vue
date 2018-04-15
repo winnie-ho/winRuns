@@ -37,6 +37,10 @@ export default {
     }
   },
   computed: {
+    activities: function () {
+      if (!this.$store.state.activities) return;
+      return this.$store.state.activities;
+    },
     weatherNowTemp: function () {
       if (!this.$store.state.weatherNow.main) return
       return this.$store.state.weatherNow.main.temp

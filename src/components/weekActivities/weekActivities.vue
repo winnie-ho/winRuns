@@ -13,6 +13,10 @@ export default {
     weekInViewIndex: {
       type: Number,
       required: true
+    },
+    activities: {
+      type: Array,
+      required: true
     }
   },
   data () {
@@ -24,12 +28,6 @@ export default {
   created() {
   },
   methods: {
-    changeWeek: function (num) {
-      this.weekInViewIndex += num;
-      if (this.weekInViewIndex < 0) {
-        this.weekInViewIndex = 0
-      }
-    },
     dayActivities: function (day) {
       if (!this.weekInView) return
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
@@ -57,9 +55,6 @@ export default {
     }
   },
   computed: {
-    activities: function () {
-      return this.$store.state.activities
-    },
     weekInViewString: function () {
       if (this.weekInViewIndex <= 0) {
         return "THIS WEEK";
