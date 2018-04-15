@@ -1,0 +1,8 @@
+<div id='week-activities-mini' class='row sb' v-on:click='triggerWeekView' v-bind:class='{ fullWeekView: toggleWeekView }'>
+  <div class='day-bar' v-for='day in dayLookUp' :key='day.index' >
+    <div class='day' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayHasActivities }'>
+      {{ dayActivityCount(day) }}
+      <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
+    </div>
+  </div>
+</div> 

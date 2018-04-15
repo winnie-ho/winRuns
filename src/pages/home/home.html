@@ -11,15 +11,19 @@
     v-on:mondayInViewChange='setMondayInView($event)'>
   </week-changer>
 
-  <week-stats
-    v-bind:weekInView='weekInView'>
+  <week-stats v-show='toggleWeekView' v-bind:weekInView='weekInView'>
   </week-stats>
 
+  <week-activities-mini
+    v-bind:weekInView='weekInView'
+    v-on:toggleWeekViewChange='setToggleWeekView($event)'>
+  </week-activities-mini>
+
   <week-activities 
+    v-show='!toggleWeekView'
     v-bind:activities='activities'
     v-bind:mondayInView='mondayInView'
-    v-on:weekInViewChange='setWeekInView($event)'
-    v-on:toggleWeekViewChange='setToggleWeekView($event)'>
+    v-on:weekInViewChange='setWeekInView($event)'>
   </week-activities>
 
   <stat-bar v-show='toggleWeekView'></stat-bar>

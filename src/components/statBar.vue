@@ -30,8 +30,6 @@ export default {
 
 <style scoped>
   #stat-bar {
-    position: absolute;
-    bottom: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

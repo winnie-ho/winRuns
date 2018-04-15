@@ -4,6 +4,7 @@
 <script>
 import navBar from "../../components/navBar/navBar.vue";
 import weekActivities from "../../components/weekActivities/weekActivities.vue";
+import weekActivitiesMini from "../../components/weekActivitiesMini/weekActivitiesMini.vue";
 import weekChanger from "../../components/weekChanger/weekChanger.vue";
 import weekStats from "../../components/weekStats/weekStats.vue";
 import statBar from "../../components/statBar.vue";
@@ -17,6 +18,7 @@ export default {
     "week-activities": weekActivities,
     "week-changer": weekChanger,
     "week-stats": weekStats,
+    "week-activities-mini": weekActivitiesMini,
   },
   mixins: [ renderData ],
   data() {

@@ -1,18 +1,19 @@
-<template src="./weekActivities.html"></template>
-<style scoped src='./weekActivities.css'></style>
+<template src="./weekActivitiesMini.html"></template>
+<style scoped src='./weekActivitiesMini.css'></style>
 
 <script>
 import renderData from '../../mixins/renderData.js'
 
 export default {
-  name: 'weekActivities',
+  name: 'weekActivitiesMini',
   components: {
   },
   mixins: [ renderData ],
-  props: [ 'mondayInView', 'activities' ],
+  props: [ 'weekInView' ],
   data () {
     return {
       dayHasActivities: false,
+      toggleWeekView: false
     }
   },
   created() {
@@ -32,20 +33,17 @@ export default {
       if (dayActivities.length === 0) {
         this.dayHasActivities = true
       }
-      return dayActivities
+      return dayActivities;
+    },
+    triggerWeekView: function () {
+      this.toggleWeekView = !this.toggleWeekView
+      this.$emit('toggleWeekViewChange', this.toggleWeekView);
+    },
+    dayActivityCount: function (day) {
+      return day.length;
     }
   },
   computed: {
-    weekInView: function () {
-      if (!this.activities.length) return
-      if (!this.mondayInView) return
-    
-      let lastMonday = new Date(this.mondayInView).getTime();
-      let nextMonday = lastMonday + (7 * 24 * 60 * 60 * 1000);
-      let weekInView = this.activities.filter(activity => new Date(activity.start_date) >= lastMonday && new Date(activity.start_date) < nextMonday);
-      this.$emit('weekInViewChange', weekInView);
-      return weekInView;
-    }
   }
 }
 </script>
