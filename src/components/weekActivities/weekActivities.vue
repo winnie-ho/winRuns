@@ -35,10 +35,6 @@ export default {
       }
       return dayActivities
     },
-    countActivityType: function (type) {
-      if (!this.weekInView) return
-      return this.weekInView.filter(activity => activity.type === type).length
-    },
     triggerWeekView: function () {
       console.log("TRIGGER", this.toggleWeekView)
       this.toggleWeekView = !this.toggleWeekView
@@ -52,20 +48,9 @@ export default {
     
       let lastMonday = new Date(this.mondayInView).getTime();
       let nextMonday = lastMonday + (7 * 24 * 60 * 60 * 1000);
-      return this.activities.filter(activity => new Date(activity.start_date) >= lastMonday && new Date(activity.start_date) < nextMonday);
-    },
-    weekDistance: function() {
-      if (!this.weekInView) return;
-      let weekDistance = this.weekInView.reduce((acc, activity ) => acc + activity.distance, 0);
-      return (weekDistance/1000).toFixed(0) + "km"
-    },
-    weekTime: function() {
-      if (!this.weekInView) return;
-      return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
-    },
-    weekActivitiesCount: function () {
-      if (!this.weekInView) return
-      return this.weekInView.length
+      let weekInView = this.activities.filter(activity => new Date(activity.start_date) >= lastMonday && new Date(activity.start_date) < nextMonday);
+      this.$emit('weekInViewChange', weekInView);
+      return weekInView;
     }
   }
 }

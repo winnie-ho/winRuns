@@ -5,6 +5,7 @@
 import navBar from "../../components/navBar/navBar.vue";
 import weekActivities from "../../components/weekActivities/weekActivities.vue";
 import weekChanger from "../../components/weekChanger/weekChanger.vue";
+import weekStats from "../../components/weekStats/weekStats.vue";
 import statBar from "../../components/statBar.vue";
 import renderData from '../../mixins/renderData.js'
 
@@ -15,13 +16,15 @@ export default {
     "stat-bar": statBar,
     "week-activities": weekActivities,
     "week-changer": weekChanger,
+    "week-stats": weekStats,
   },
   mixins: [ renderData ],
   data() {
     return {
       pageTitle: 'HOME',
       toggleWeekView: true,
-      mondayInView: ''
+      mondayInView: '',
+      weekInView: []
     };
   },
   mounted() {
@@ -33,6 +36,9 @@ export default {
     },
     setMondayInView: function (mondayInView) {
       this.mondayInView = mondayInView;
+    },
+    setWeekInView: function(weekInView) {
+      this.weekInView = weekInView;
     }
   },
   computed: {

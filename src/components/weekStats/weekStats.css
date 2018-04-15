@@ -1,0 +1,12 @@
+#week-stats{
+  margin: 5px 0px;
+  border-radius: 3px;
+}  
+
+.week-total-stat h1{
+  margin: 10px;
+}  
+
+.substat h4{
+  margin: 0px;
+}  

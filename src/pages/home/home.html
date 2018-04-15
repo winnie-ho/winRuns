@@ -8,10 +8,13 @@
   <week-changer 
     v-on:mondayInViewChange='setMondayInView($event)'>
   </week-changer>
-    <!-- week summary -->
+  <week-stats
+    v-bind:weekInView='weekInView'>
+  </week-stats>
   <week-activities 
     v-bind:activities='activities'
-    v-bind:mondayInView='mondayInView'>
+    v-bind:mondayInView='mondayInView'
+    v-on:weekInViewChange='setWeekInView($event)'>
   </week-activities>
   <stat-bar v-show='toggleWeekView'></stat-bar>
 </div>

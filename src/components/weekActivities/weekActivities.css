@@ -25,19 +25,6 @@
   height: 40px;
 }  
 
-#week-totals{
-  margin: 5px 0px;
-  border-radius: 3px;
-}  
-
-.week-total-stat h1{
-  margin: 10px;
-}  
-
-.substat h4{
-  margin: 0px;
-}  
-
 .active {
   color: #6D9DC5;
   background-color: white;
