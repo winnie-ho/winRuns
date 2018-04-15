@@ -91,6 +91,10 @@ export default {
       }
       return rawDate.substr(8, 2) + ' ' + (this.monthLookUp[parseInt(rawDate.substr(5, 2))]).substr(0, 3) + ' ' + rawDate.substr(2, 2)
     },
+    renderElevation: function (rawElevation) {
+      if (!rawElevation) return
+      return rawElevation.toFixed(0) + 'm'
+    },
     ordinalSuffixOf: function (num) {
       if (!num) return
       let digit = num
