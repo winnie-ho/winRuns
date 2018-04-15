@@ -1,29 +1,12 @@
 #week-activities {
-  bottom: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5px;
-}  
-
-#week-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  }  
-
-#week-container .fullWeekView  {
-  height: 10.5vh;
 }
 
-#week-header{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px;
-  height: 40px;
-}  
+#week-activities .fullWeekView  {
+  height: 10.5vh;
+}
 
 .active {
   color: #6D9DC5;
@@ -33,7 +16,6 @@
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }  
-
 
 .fullWeekView .day-title {
   border-bottom-left-radius: 3px;

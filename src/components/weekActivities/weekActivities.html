@@ -1,15 +1,13 @@
-<div id='week-activities'>
-  <div id='week-container' v-on:click='triggerWeekView' v-bind:class='{ fullWeekView: !toggleWeekView }'>
-    <div class='day-bar' v-bind:class='{ fullWeekView: !toggleWeekView }' v-for='day in dayLookUp' :key='day.index' >
-      <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
-      <div class='day' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayHasActivities }'>
-        <div class='heading'>{{ activity.name }}</div>
-        <div class='row data-metric'>
-          {{ renderDistance(activity.distance) }}  
-          {{ renderTime(activity.moving_time) }}  
-          {{ renderPace(activity.moving_time, activity.distance) }}
-        </div>
+<div id='week-activities' v-on:click='triggerWeekView' v-bind:class='{ fullWeekView: !toggleWeekView }'>
+  <div class='day-bar' v-bind:class='{ fullWeekView: !toggleWeekView }' v-for='day in dayLookUp' :key='day.index' >
+    <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
+    <div class='day' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayHasActivities }'>
+      <div class='heading'>{{ activity.name }}</div>
+      <div class='row data-metric'>
+        {{ renderDistance(activity.distance) }}  
+        {{ renderTime(activity.moving_time) }}  
+        {{ renderPace(activity.moving_time, activity.distance) }}
       </div>
     </div>
-  </div> 
-</div>
+  </div>
+</div> 
