@@ -35,6 +35,14 @@ export default {
     weekActivitiesCount: function () {
       if (!this.weekInView) return
       return this.weekInView.length
+    },
+    weekAchievements: function () {
+      if (!this.weekInView) return
+      return this.weekInView.reduce((acc, activity ) => acc + activity.achievement_count, 0);
+    },
+    weekKudos: function () {
+      if (!this.weekInView) return
+      return this.weekInView.reduce((acc, activity ) => acc + activity.kudos_count, 0);
     }
   }
 }

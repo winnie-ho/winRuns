@@ -95,10 +95,6 @@
   border-top-right-radius: 3px;
 }
 
-.arrow{
-  padding: 0 10px;
-}
-
 @keyframes day-settle {
   from {
     width: 0px; 
