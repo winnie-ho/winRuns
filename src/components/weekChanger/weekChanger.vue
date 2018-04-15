@@ -2,13 +2,8 @@
 <style scoped src='./weekChanger.css'></style>
 
 <script>
-import renderData from '../../mixins/renderData.js'
-
 export default {
   name: 'weekChanger',
-  components: {
-  },
-  mixins: [ renderData ],
   data () {
     return {
       weekInViewIndex: 0,
@@ -16,20 +11,28 @@ export default {
       toggleWeekView: true
     }
   },
-  created() {
-  },
   methods: {
     changeWeek: function (num) {
       this.weekInViewIndex += num;
       if (this.weekInViewIndex < 0) {
-        this.weekInViewIndex = 0
+        this.weekInViewIndex = 0;
       }
       this.$emit('weekInViewIndexChange', this.weekInViewIndex);
     }
   },
   computed: {
+    lastMonday: function () {
+      const todayDate = new Date();
+      const msHour = 60 * 60 * 1000;
+      const timeNowZeroed = todayDate.setHours(0,0,0,0);
+      const todayDay = todayDate.getDay();
+      const diff = (todayDay - (todayDay === 0 ? -6 : 1));
+      return new Date(timeNowZeroed - (diff * 24 * msHour));
+    },
+    mondayInView: function () {
+      return new Date(this.lastMonday - (this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000)).toLocaleDateString();
+    },
     weekInViewString: function () {
-      // TODO elment numbers is not necessary 'THIS WEEK' or 'NEXT WEEK'. Need to date check!
       if (this.weekInViewIndex <= 0) {
         return "THIS WEEK";
       }
@@ -37,8 +40,7 @@ export default {
         return "LAST WEEK";
       } 
       if (this.weekInViewIndex > 1) {
-        return "ACTUAL DATE"
-        // return this.renderDate(this.weekInView[0].start_date, "short");
+        return this.mondayInView;
       }
     }
   }
