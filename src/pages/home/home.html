@@ -5,11 +5,13 @@
       {{ renderDegTemp(weatherNowTemp) }}
     </div> -->
 
-  <week-changer v-on:weekInViewIndexChange='setWeekInViewIndex($event)'></week-changer>
+  <week-changer 
+    v-on:mondayInViewChange='setMondayInView($event)'>
+  </week-changer>
     <!-- week summary -->
   <week-activities 
     v-bind:activities='activities'
-    v-bind:weekInViewIndex='weekInViewIndex'>
+    v-bind:mondayInView='mondayInView'>
   </week-activities>
   <stat-bar v-show='toggleWeekView'></stat-bar>
 </div>

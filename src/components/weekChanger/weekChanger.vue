@@ -17,7 +17,17 @@ export default {
       if (this.weekInViewIndex < 0) {
         this.weekInViewIndex = 0;
       }
-      this.$emit('weekInViewIndexChange', this.weekInViewIndex);
+    },
+    weekInViewString: function (mondayInView) {
+      if (this.weekInViewIndex <= 0) {
+        return "THIS WEEK";
+      }
+      if (this.weekInViewIndex === 1 ) {
+        return "LAST WEEK";
+      } 
+      if (this.weekInViewIndex > 1) {
+        return mondayInView;
+      }
     }
   },
   computed: {
@@ -30,18 +40,10 @@ export default {
       return new Date(timeNowZeroed - (diff * 24 * msHour));
     },
     mondayInView: function () {
-      return new Date(this.lastMonday - (this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000)).toLocaleDateString();
-    },
-    weekInViewString: function () {
-      if (this.weekInViewIndex <= 0) {
-        return "THIS WEEK";
-      }
-      if (this.weekInViewIndex === 1 ) {
-        return "LAST WEEK";
-      } 
-      if (this.weekInViewIndex > 1) {
-        return this.mondayInView;
-      }
+      const mondayInView = new Date(this.lastMonday - (this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000));
+      const mondayInViewString = mondayInView.toLocaleDateString();
+      this.$emit('mondayInViewChange', mondayInView);
+      return mondayInViewString;
     }
   }
 }

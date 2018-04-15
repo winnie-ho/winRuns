@@ -9,16 +9,7 @@ export default {
   components: {
   },
   mixins: [ renderData ],
-  props: {
-    weekInViewIndex: {
-      type: Number,
-      required: true
-    },
-    activities: {
-      type: Array,
-      required: true
-    }
-  },
+  props: [ 'mondayInView', 'activities' ],
   data () {
     return {
       dayHasActivities: false,
@@ -55,55 +46,13 @@ export default {
     }
   },
   computed: {
-    weekInViewString: function () {
-      if (this.weekInViewIndex <= 0) {
-        return "THIS WEEK";
-      }
-      if (this.weekInViewIndex === 1 ) {
-        return "LAST WEEK";
-      } 
-      if (this.weekInViewIndex > 1) {
-        return this.renderDate(this.weekInView[0].start_date, "short");
-      }
-    },
     weekInView: function () {
       if (!this.activities.length) return
+      if (!this.mondayInView) return
     
-      let lastMonday = ''
-      const timeNow = new Date();
-      const timeNowZeroed = timeNow.setHours(0,0,0,0);
-      const msInDay = (24 * 60 * 60 * 1000);
-      
-      switch(new Date().getDay()) {
-        case 0:
-          lastMonday = timeNowZeroed - (6 * msInDay);
-          break;
-        case 1:
-          lastMonday = timeNowZeroed - (7 * msInDay);
-          break;
-        case 2:
-          lastMonday = timeNowZeroed - (1 * msInDay);
-          break;
-        case 3:
-          lastMonday = timeNowZeroed - (2 * msInDay);
-          break;
-        case 4:
-          lastMonday = timeNowZeroed - (3 * msInDay);
-          break;    
-        case 5:
-          lastMonday = timeNowZeroed - (4 * msInDay);
-          break;    
-        case 6:
-          lastMonday = timeNowZeroed - (5 * msInDay);
-          break;
-      }
-      let marker1 = lastMonday - ((this.weekInViewIndex - 1) * msInDay * 7)
-      let marker2 = lastMonday - (this.weekInViewIndex * msInDay * 7)
-      let weekActivities = this.activities.slice().filter(activity => {
-        return (new Date(activity.start_date).getTime() < marker1) && (new Date(activity.start_date).getTime() >= marker2);
-      });
-      console.log("WEEK ACT", weekActivities);
-      return weekActivities
+      let lastMonday = new Date(this.mondayInView).getTime();
+      let nextMonday = lastMonday + (7 * 24 * 60 * 60 * 1000);
+      return this.activities.filter(activity => new Date(activity.start_date) >= lastMonday && new Date(activity.start_date) < nextMonday);
     },
     weekDistance: function() {
       if (!this.weekInView) return;

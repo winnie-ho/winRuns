@@ -21,7 +21,7 @@ export default {
     return {
       pageTitle: 'HOME',
       toggleWeekView: true,
-      weekInViewIndex: 0
+      mondayInView: ''
     };
   },
   mounted() {
@@ -31,9 +31,8 @@ export default {
       console.log("TOGGLE STATUS")
       this.toggleWeekView = !this.toggleWeekView
     },
-    setWeekInViewIndex: function (weekInViewIndex) {
-      this.weekInViewIndex=weekInViewIndex
-      console.log("WEEK IN VIEW INDEX", this.weekInViewIndex )
+    setMondayInView: function (mondayInView) {
+      this.mondayInView = mondayInView;
     }
   },
   computed: {
