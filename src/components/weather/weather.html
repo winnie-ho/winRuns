@@ -1,0 +1,14 @@
+<div id='weather' class='row sa'>
+  <div class='data'>
+    <img src='../../assets/icon_forecast.png' class='icon'/>
+    <span id='weather-now-forecast'>{{ description }}</span>
+  </div>
+  <div class='data'>
+    <img src='../../assets/icon_thermometer.png' class='icon'/>
+    <span id='weather-now-temperature'>{{ renderDegTemp(temp) }}</span>
+  </div>
+  <div class='data'>
+    <img src='../../assets/icon_wind_sock.png' class='icon'/>
+    <span id='weather-now-wind' class='p'>{{ wind }}</span>
+  </div>
+</div>

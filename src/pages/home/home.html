@@ -1,11 +1,7 @@
 <div id='home'>
   <nav-bar v-bind:pageTitle='pageTitle' v-show='toggleWeekView' v-on:toggleWeekViewStatus='setToggleWeekView'></nav-bar>
-    <div 
-      id='weather-now'
-      v-show='toggleWeekView'>
-      {{ weatherNowMain }}
-      {{ renderDegTemp(weatherNowTemp) }}
-    </div>
+
+  <weather v-show='toggleWeekView'></weather>
 
   <week-changer 
     v-on:mondayInViewChange='setMondayInView($event)'>

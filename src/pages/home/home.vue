@@ -8,6 +8,7 @@ import weekActivitiesMini from "../../components/weekActivitiesMini/weekActiviti
 import weekChanger from "../../components/weekChanger/weekChanger.vue";
 import weekStats from "../../components/weekStats/weekStats.vue";
 import statBar from "../../components/statBar.vue";
+import weather from "../../components/weather/weather.vue";
 import renderData from '../../mixins/renderData.js'
 
 export default {
@@ -19,6 +20,7 @@ export default {
     "week-changer": weekChanger,
     "week-stats": weekStats,
     "week-activities-mini": weekActivitiesMini,
+    "weather": weather
   },
   mixins: [ renderData ],
   data() {
@@ -50,14 +52,6 @@ export default {
     activities: function () {
       if (!this.$store.state.activities) return;
       return this.$store.state.activities;
-    },
-    weatherNowTemp: function () {
-      if (!this.$store.state.weatherNow.main) return
-      return this.$store.state.weatherNow.main.temp
-    },
-    weatherNowMain: function () {
-      if (!this.$store.state.weatherNow.weather) return
-      return this.$store.state.weatherNow.weather[0].main
     }
   }
 };
