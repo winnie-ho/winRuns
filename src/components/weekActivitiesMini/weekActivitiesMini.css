@@ -5,23 +5,25 @@
 }
 
 .active {
-  /* background-color: #119DA4; */
+  background-color: #3066BE;
 }
 
 .day-bar {
-  background-color: #3066BE;
   color: #AEECEF;
   width: 45px;
   height: 45px;
-  border-radius: 50%;
+  border-radius: 5px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   cursor: pointer;
   border: 1px solid #AEECEF;
 }
 
 .day-title {
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .day{
@@ -30,4 +32,5 @@
   flex-direction: column;
   pointer-events: none;
   color: white;
+  font-size: 10px;
 }

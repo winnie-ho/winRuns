@@ -30,9 +30,11 @@ export default {
       if (!this.weekInView) return
       let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex).sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
 
-      if (dayActivities.length === 0) {
+      if (dayActivities.length > 0) {
         this.dayHasActivities = true
       }
+      console.log("dayAct", dayActivities)
+      console.log("weekInView", this.weekInView)
       return dayActivities;
     },
     triggerWeekView: function () {
