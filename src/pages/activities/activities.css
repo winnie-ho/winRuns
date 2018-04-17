@@ -1,6 +1,7 @@
 #activities{
   background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
-  height: 100vh;
+  height: 100%;
+  overflow-x:hidden;
 }
 
 .run-box{
