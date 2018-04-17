@@ -4,12 +4,11 @@
 }
 
 #activity-info{
-  position: absolute;
+  position: relative;
   display: block;
   flex-direction: column;
   z-index: 1;
   width: 100%;
-  background-color: #6D9DC5;
   overflow-y: scroll;
   overflow-x: hidden; 
   max-height: 92%; 

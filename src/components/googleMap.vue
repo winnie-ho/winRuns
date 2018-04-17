@@ -7,8 +7,6 @@
     </gmap-map> -->
 
     <div id='map'></div>
-    {{this.lat}}
-
   </div>
 </template>
 
@@ -70,8 +68,11 @@ export default {
   }
 
   #map {
-    height: 94vw;
+    height: 65vh;
     width: 100vw;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
   }
 
   #test {
