@@ -2,7 +2,6 @@
   display: none !important;
 }
 #navBar {
-  background-color: #6D9DC5;
 }
 
 #page-title {
@@ -131,7 +130,6 @@
 }
 
 #home-button {
-  background-color: #3066BE;
   color: #AEECEF;
   font-family: sans-serif;
   font-weight: lighter;
@@ -143,7 +141,7 @@
   font-size: 18px;
   line-height: 90%;
   word-spacing: 100vw;
-
+  
   animation-name: title-settle;
   animation-duration: 0.5s;
   animation-delay: 1s;
@@ -153,9 +151,10 @@
 @keyframes title-settle {
   from {
     width: 0px;
-    color: transparent;
+    background-color: transparent;
   }
   to {
+    background-color: #3066BE;
     width: 60px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
