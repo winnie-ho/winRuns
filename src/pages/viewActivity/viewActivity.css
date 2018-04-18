@@ -11,9 +11,8 @@
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden; 
-  max-height: 92%; 
   color: white;
-  padding-bottom: 20px;
+  background: linear-gradient(to bottom right, #6D9DC5 , #3066bebf);
 }
 
 #activity-info__header {
@@ -23,9 +22,12 @@
 .lap {
   width: 100vw;
 }
+#laps-detail{
+  margin: 10px 0;
+}
 
 #kudos-detail{
-  margin-top: 20px;  
+  margin: 20px 0;
   display: grid;
   align-items: center;
   grid-template-rows: 38% 100px auto;
@@ -34,13 +36,13 @@
 }
 
 #comments-detail{
+  margin: 20px 0;
   align-items: unset;
-  margin: 10px;
   padding: 20px;
 }
 
-#photos-detail{
-  margin-top: 10px;
+#photos-detail {
+  margin-top: 20px;
 }
 
 .photo{

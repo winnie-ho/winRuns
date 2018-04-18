@@ -68,10 +68,10 @@ export default {
   }
 
   #map {
-    height: 65vh;
+    height: 93vh;
     width: 100vw;
     position: absolute;
-    bottom: 0px;
+    bottom: -8px;
     left: 0px;
   }
 
