@@ -38,20 +38,18 @@
       <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
     </div>  
 
-    <div class='burger-item col'>
-      <router-link to="/" exact>HOME</router-link>
-    </div>
-    <div class='burger-item col'>
+    <router-link to="/" exact class='burger-item col'>HOME</router-link>
+    <router-link to="/runClub" exact class='burger-item col'>
       <img src='../../assets/icon_run4it.png' class='burger-icon'/>
-      <router-link to="/runClub" exact>RUN CLUB</router-link>
-    </div>
-    <div class='burger-item col'>
+      RUN CLUB
+    </router-link>
+    <router-link to="/parkRun" exact class='burger-item col'>
       <img src='../../assets/icon_park_run_logo.png' class='burger-icon'/>
-      <router-link to="/parkRun" exact>PARK RUN</router-link>
-    </div>
-    <div class='burger-item col'>
+      PARK RUN
+    </router-link>
+    <router-link to="/activities" exact class='burger-item col'>
       <img src='../../assets/icon_activities.png' class='burger-icon'/>
-      <router-link to="/activities" exact>ACTIVITIES</router-link>
-    </div>
+      ACTIVITIES
+    </router-link>
   </div>
 </div>

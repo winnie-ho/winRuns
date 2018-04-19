@@ -77,15 +77,14 @@
   margin: 50px;
   align-items: center;
   justify-content: center;
-}
-
-.burger-item a {
+  text-decoration: none;
   color: #AEECEF;
   text-decoration: none;
 }
 
 .burger-item:hover {
   border-left: 3px solid #AEECEF;
+  color:#80DED9;
 }
 
 .close-icon {
