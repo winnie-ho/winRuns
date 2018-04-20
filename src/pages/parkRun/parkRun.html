@@ -1,5 +1,6 @@
 <div id='parkrun'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
+  <subNavBar></subNavBar>
   <div id="park-run-latest" class="row">
     <div id='last-pr'>
       <img id="park-run-logo" src="../../assets/icon_park_run_logo.png"/>
@@ -24,5 +25,4 @@
     </div>
   </div>
   <div id='pr-chart'></div>
-  <activity v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index' v-bind:activity='parkRun'></activity>
 </div>

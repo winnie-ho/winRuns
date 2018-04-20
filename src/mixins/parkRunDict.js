@@ -52,8 +52,8 @@ export default {
         title: {
           text: 'Park Run Results',
           style: {
-            'fontSize': '12px',
-            'color': '#2c3e50'
+            'fontSize': '10px',
+            'color': 'white'
           }
         },
         tooltip: {
@@ -70,7 +70,7 @@ export default {
             data: dataArrayTime,
             color: '#AEECEF',
             style: {
-              'fontSize': '12px',
+              'fontSize': '10px',
               'color': '#AEECEF'
             }
           }
@@ -80,14 +80,14 @@ export default {
             enabled: true,
             text: 'Date',
             style: {
-              'fontSize': '12px',
-              'color': '#AEECEF'
+              'fontSize': '10px',
+              'color': 'white'
             }
           },
           categories: dateFormatted,
           labels: {
             style: {
-              color: '#AEECEF'
+              color: 'white'
             }
           },
           startOnTick: true,
@@ -100,15 +100,15 @@ export default {
           title: {
             enabled: true,
             text: 'Time (s)',
-            color: '#AEECEF',
+            color: 'white',
             style: {
-              'fontSize': '12px',
-              'color': '#AEECEF'
+              'fontSize': '10px',
+              'color': 'white'
             }
           },
           labels: {
             style: {
-              color: '#AEECEF'
+              color: 'white'
             }
           },
           startOnTick: true,
@@ -116,7 +116,7 @@ export default {
           showLastLabel: true
         },
         legend: {
-          itemStyle: { 'color': '#AEECEF' }
+          itemStyle: { 'color': 'white' }
         }
       })
     }

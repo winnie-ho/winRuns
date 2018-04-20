@@ -29,7 +29,8 @@ export const store = new Vuex.Store({
     setParkRuns: (state, payload) => (state.parkRuns = payload),
     setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
     setWeatherNow: (state, payload) => (state.weatherNow = payload),
-    setWeatherForecast: (state, payload) => (state.weatherForecast = payload)
+    setWeatherForecast: (state, payload) => (state.weatherForecast = payload),
+    setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -96,6 +97,9 @@ export const store = new Vuex.Store({
         function (response) {
           context.commit('setWeatherForecast', response.data)
         })
+    },
+    setTimeOrderedParkRuns: (context, timeOrderedParkRuns) => {
+      context.commit('setTimeOrderedParkRuns', timeOrderedParkRuns)
     }
   }
 })

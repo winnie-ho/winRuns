@@ -5,13 +5,15 @@
 import navBar from '../../components/navBar/navBar.vue'
 import activity from '../../components/activity/activity.vue'
 import parkRunDict from '../../mixins/parkRunDict.js'
+import subNavBar from '../../components/subNavBar/subNavBar.vue'
 import renderData from '../../mixins/renderData.js'
 
 export default {
   name: 'parkRun',
   components: {
     'nav-bar': navBar,
-    'activity': activity
+    'activity': activity,
+    'subNavBar': subNavBar
   },
   data () {
     return {
@@ -90,7 +92,9 @@ export default {
     },
     timeOrderedParkRuns: function () {
       if (!this.parkRuns) return []
-      return this.parkRuns.slice().sort((a, b) => a.moving_time - b.moving_time)
+      let timeOrderedParkRuns = this.parkRuns.slice().sort((a, b) => a.moving_time - b.moving_time)
+      this.$store.dispatch('setTimeOrderedParkRuns', timeOrderedParkRuns)
+      return timeOrderedParkRuns;
     },
     fastestParkRun: function () {
       if (!this.completeParkRuns) {

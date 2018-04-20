@@ -9,13 +9,15 @@ import home from './pages/home/home.vue'
 import runClub from './pages/runClub/runClub.vue'
 import parkRun from './pages/parkRun/parkRun.vue'
 import activities from './pages/activities/activities.vue'
+import parkRunActivities from './pages/parkRunActivities/parkRunActivities.vue'
 
 export default {
   components: {
     'home': home,
     'runClub': runClub,
     'parkRun': parkRun,
-    'activities': activities
+    'activities': activities,
+    'parkRunActivities': parkRunActivities
   },
   name: 'App',
   created () {
