@@ -19,6 +19,9 @@ export default {
   created() {
   },
   methods: {
+    computeImage: function (type) {
+      return type === 'ride'
+    },
     dayActivities: function (day) {
       if (!this.weekInView) return
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
@@ -28,13 +31,17 @@ export default {
         realIndex = 0
       }
       if (!this.weekInView) return
-      let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex).sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
+      let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex);
+      let sortedDayActivities = dayActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
-      if (dayActivities.length > 0) {
-        this.dayHasActivities = true
-      }
-      console.log("dayAct", dayActivities)
-      console.log("weekInView", this.weekInView)
+      // if (dayActivities.length > 0) {
+      //   this.dayHasActivities = true
+      // }
+      // if (dayActivities.length === 0) {
+      //   this.dayHasActivities = false
+      // }
+
+      console.log("dayHas", this.dayHasActivities)
       return dayActivities;
     },
     triggerWeekView: function () {

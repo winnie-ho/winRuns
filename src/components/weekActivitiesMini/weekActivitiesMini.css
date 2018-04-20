@@ -1,29 +1,40 @@
 #week-activities-mini {
   justify-content: space-evenly;
-  color: #AEECEF;
+  color: #3066BE;
   margin: 40px 0;
+  align-items: flex-end;
 }
 
 .active {
-  background-color: #3066BE;
+  color: #AEECEF!important;
+  background-color: #3066BE!important;
+}
+
+.day-container {
+  border-top-left-radius: 5px;  
+  border-top-right-radius: 5px;  
+  background-color: #AEECEF ;
+  width: 45px;
+  border: 1px solid #3066BE;
+  border-bottom-left-radius: 5px;  
+  border-bottom-right-radius: 5px;  
 }
 
 .day-bar {
+  background-color: #3066BE;
   color: #AEECEF;
-  width: 45px;
-  height: 45px;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   cursor: pointer;
-  border: 1px solid #AEECEF;
+  padding: 5px 0 ;
 }
 
 .day-title {
   display: flex;
   justify-content: center;
+  margin: 5px 0;
 }
 
 .day{
