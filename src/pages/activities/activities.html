@@ -15,7 +15,9 @@
           {{ renderTime(activity.moving_time) }}
         </div>
         <div class='data-metric'>
-          <img src="../../assets/icon_pace.png" class="icon">
+          <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon'/>
+          <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon'/>
+          <img v-show="activity.type === 'Swim'" src='../../assets/icon_swim.png' class='icon'/>
           {{ renderPace(activity.moving_time, activity.distance) }}
         </div>
       </div>
