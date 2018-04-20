@@ -4,11 +4,13 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
+import activity from '../../components/activity/activity.vue'
 
 export default {
   name: 'activities',
   components: {
-    'nav-bar': navBar
+    'nav-bar': navBar,
+    'activity': activity
   },
   mixins: [ renderData ],
   data () {
@@ -23,14 +25,7 @@ export default {
   },
 
   methods: {
-    viewActivity: function (activityId) {
-      this.$store.dispatch('fetchActivity', activityId)
-      this.$store.dispatch('fetchKudos', activityId)
-      this.$store.dispatch('fetchPhotos', activityId)
-      this.$store.dispatch('fetchComments', activityId).then(() => {
-        this.$router.push('/activity/' + activityId)
-      })
-    }
+
   },
   computed: {
     activities: function() {

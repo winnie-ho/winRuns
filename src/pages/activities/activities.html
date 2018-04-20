@@ -1,25 +1,5 @@
 <div id='activities'>
-    <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
-    <div class='run-box' v-for='activity in activities' v-bind:key='activity.index' v-on:click='viewActivity(activity.id)'>
-      <div class='run-box__detail'>
-        <div class='heading'>{{ activity.name }}</div>
-        <div class='date'>{{ renderDate(activity.start_date) }}</div>
-      </div>
-      <div class='run-box__detail'>
-        <div class='data-metric'>
-          <img src='../../assets/icon_distance.png' class='icon'/>
-          {{ renderDistance(activity.distance) }}
-        </div>
-        <div class='data-metric'>
-          <img src="../../assets/icon_time.png" class="icon">
-          {{ renderTime(activity.moving_time) }}
-        </div>
-        <div class='data-metric'>
-          <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon'/>
-          <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon'/>
-          <img v-show="activity.type === 'Swim'" src='../../assets/icon_swim.png' class='icon'/>
-          {{ renderPace(activity.moving_time, activity.distance) }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
+  <activity v-for='activity in activities' v-bind:key='activity.index' v-bind:activity='activity'>
+  </activity>
+</div>
