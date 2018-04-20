@@ -27,7 +27,7 @@
 }
 
 #kudos-detail{
-  margin: 20px 0;
+  margin: 10px 0;
   display: grid;
   align-items: center;
   grid-template-rows: 38% 100px auto;
@@ -36,9 +36,9 @@
 }
 
 #comments-detail{
-  margin: 20px 0;
+  margin: 10px 0;
   align-items: unset;
-  padding: 20px;
+  padding: 5px;
 }
 
 #photos-detail {

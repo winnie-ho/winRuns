@@ -33,15 +33,6 @@ export default {
       if (!this.weekInView) return
       let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex);
       let sortedDayActivities = dayActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
-
-      // if (dayActivities.length > 0) {
-      //   this.dayHasActivities = true
-      // }
-      // if (dayActivities.length === 0) {
-      //   this.dayHasActivities = false
-      // }
-
-      console.log("dayHas", this.dayHasActivities)
       return dayActivities;
     },
     triggerWeekView: function () {
@@ -49,7 +40,6 @@ export default {
       this.$emit('toggleWeekViewChange', this.toggleWeekView);
     },
     dayActivityCount: function (day) {
-      console.log("day", day)
       return day.length;
     }
   },

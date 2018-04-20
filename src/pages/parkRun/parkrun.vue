@@ -3,13 +3,15 @@
 
 <script>
 import navBar from '../../components/navBar/navBar.vue'
+import activity from '../../components/activity/activity.vue'
 import parkRunDict from '../../mixins/parkRunDict.js'
 import renderData from '../../mixins/renderData.js'
 
 export default {
   name: 'parkRun',
   components: {
-    'nav-bar': navBar
+    'nav-bar': navBar,
+    'activity': activity
   },
   data () {
     return {

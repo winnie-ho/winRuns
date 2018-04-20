@@ -24,15 +24,5 @@
     </div>
   </div>
   <div id='pr-chart'></div>
-  <div id='pr-list' v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index'>
-    <div class='row sb'>
-      {{ renderDate(parkRun.start_date) }}
-      {{ parkRun.name }}
-    </div>
-
-    <div class='row sb'>
-      {{ renderTime(parkRun.moving_time) }}
-      {{ renderPace(parkRun.moving_time, parkRun.distance) }}
-    </div>
-  </div>
+  <activity v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index' v-bind:activity='parkRun'></activity>
 </div>

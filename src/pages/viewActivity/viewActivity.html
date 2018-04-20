@@ -53,10 +53,10 @@
           <h6>{{ kudo.firstname }}</h6>
         </div>
       </div>
-      <div id="comments-detail" class="col sb" v-show='openComments'>
+      <div id="comments-detail" class="col sb " v-show='openComments'>
         <div class='row' v-for='comment in comments' v-bind:key='comment.index'>
           <img v-bind:src='comment.athlete.profile' class='avatar'/>
-          {{ comment.text }}
+          <h5>{{ comment.text }}</h5>
         </div>
       </div>
       <div id="photos-detail" class="col sb" v-show='openPhotos'>
@@ -68,9 +68,9 @@
 
         <div id="laps-list" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
           <div class='row sa lap'>
-            <div>{{ lap.lap_index }}</div>
-            <div>{{ renderTime(lap.moving_time) }}</div>
-            <div>{{ renderPace(lap.moving_time, lap.distance) }}</div>
+            <h5>{{ lap.lap_index }}</h5>
+            <h5>{{ renderTime(lap.moving_time) }}</h5>
+            <h5>{{ renderPace(lap.moving_time, lap.distance) }}</h5>
           </div>
         </div>
       </div>
