@@ -1,0 +1,7 @@
+#auth{
+  background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
