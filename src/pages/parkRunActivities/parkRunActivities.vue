@@ -3,6 +3,7 @@
 
 <script>
 import navBar from '../../components/navBar/navBar.vue'
+import subNavBar from '../../components/subNavBar/subNavBar.vue'
 import renderData from '../../mixins/renderData.js'
 import activity from '../../components/activity/activity.vue'
 
@@ -10,7 +11,8 @@ export default {
   name: 'parkRunActivities',
   components: {
     'nav-bar': navBar,
-    'activity': activity
+    'activity': activity,
+    'subNavBar': subNavBar
   },
   mixins: [ renderData ],
   data () {

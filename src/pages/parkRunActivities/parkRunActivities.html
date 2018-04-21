@@ -1,4 +1,5 @@
 <div id='parkRunActivities'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
+  <subNavBar></subNavBar>
   <activity v-for='parkRun in timeOrderedParkRuns' v-bind:key='parkRun.index' v-bind:activity='parkRun'></activity>
 </div>
