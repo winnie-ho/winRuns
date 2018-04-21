@@ -9,29 +9,27 @@
 }
 
 #park-run-logo{
-  height: 65px;
+  margin: 20px 0px 0px 10px;
+  height: 50px;
   width: auto;
 }
 
-#park-run-latest{
-  align-items: flex-start;
-  width: 100%;
+#last-pr{
+  margin: 10px 0;
 }
 
 #park-run-select {
-  position: absolute;
-  margin: 10px 0;
   cursor: pointer;
   border: none;
   text-transform: uppercase;
   background-color: transparent;
   border-radius: 2px;
   color: white;
+  margin: 10px -3px;
 }
 
-#last-pr{
-  font-size: 14px;
-  padding: 20px;
+#park-run-latest{
+  align-items: flex-start;
 }
 
 .last-pr__summary{
@@ -42,23 +40,13 @@
 }
 
 #park-run-latest{
+  font-size: 14px;
   align-items: flex-start;
   width: 100%;
 }
 
-#last-pr__date{
-  margin-bottom: 10px;
-}
-
-#last-pr__name{
-  width: 100%;
-}
-
 .last-pr__metric{
+  margin: 5px 0;
   width: 225px;
   font-size: 25px;
-}
-
-#last-pr__pace{
-  margin-right: 10px;
 }

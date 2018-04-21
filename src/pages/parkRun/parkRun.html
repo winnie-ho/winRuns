@@ -2,8 +2,9 @@
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
   <subNavBar></subNavBar>
   <div id="park-run-latest" class="row">
+    <img id="park-run-logo" src="../../assets/icon_park_run_logo.png"/>
+
     <div id='last-pr'>
-      <img id="park-run-logo" src="../../assets/icon_park_run_logo.png"/>
       <select 
         id="park-run-select" 
         v-model='selectedParkRunName'
@@ -11,18 +12,22 @@
         <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
       </select>
 
-      <div id="last-pr__date">LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
-      <div id="last-pr__name" class="last-pr__metric">{{ latestParkRun.name }}</div>
+      <div>LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
+
+      <div class="last-pr__metric">{{ latestParkRun.name }}</div>
+
       <div class="last-pr__metric row sb">
-        <div id="last-pr__time">{{ renderTime(latestParkRun.time) }}</div>
-        <div id="last-pr__pace">{{ renderPace(latestParkRun.time, latestParkRun.distance) }}</div>
+        <div>{{ renderTime(latestParkRun.moving_time) }}</div>
+        <div>{{ renderPace(latestParkRun.moving_time, latestParkRun.distance) }}</div>
       </div>
+      
       <div class="last-pr__summary">
-        <div id="last-pr__context">{{ computeLastPRContext() }}</div>
-        <div id="year-best">{{ computeYBContext() }}</div>
-        <div id="pb">{{ computePBContext() }}</div>
+        <div>{{ computeLastPRContext() }}</div>
+        <div>{{ computeYBContext() }}</div>
+        <div>{{ computePBContext() }}</div>
       </div>
     </div>
   </div>
+  
   <div id='pr-chart'></div>
 </div>
