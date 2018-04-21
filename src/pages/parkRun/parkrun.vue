@@ -17,7 +17,7 @@ export default {
   },
   data () {
     return {
-      pageTitle: 'PARK RUNS',
+      pageTitle: 'PARK RUN',
       selectedParkRunName: '',
       defaultParkRun: {
         "name": "",
