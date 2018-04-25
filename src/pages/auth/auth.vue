@@ -21,8 +21,8 @@ export default {
       user: '',
       userToken: '',
       athleteId: '',
-      // redirect_url: "https://win-runs.firebaseapp.com"
-      redirect_url: "http://localhost:8080",
+      redirect_url: "https://win-runs.firebaseapp.com"
+      // redirect_url: "http://localhost:8080",
     }
   },
   mounted () {
