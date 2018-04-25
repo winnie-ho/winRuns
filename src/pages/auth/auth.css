@@ -10,7 +10,8 @@
   align-items: center;
   margin-top: 200px;
 }
-#auth img {
+
+.strava {
   height: 15px;
   width: auto;
   padding: 5px;
@@ -30,4 +31,14 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #80DED9;
+}
+
+.profile{
+  margin-top: 30px;
+  margin: 50px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #AEECEF;
+  text-decoration: none;
 }

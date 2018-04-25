@@ -1,13 +1,20 @@
 <div id='auth' ref='auth'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
 
-  <div class='strava-container col'>
+  <div class='strava-container col' v-show='!athlete.id'>
     <button id="strava-button" v-on:click="login">
     <div>
       <h4>CONNECT TO</h4>
-      <img src="../../assets/icon_strava.png" class='icon'/>
+      <img src="../../assets/icon_strava.png" class='icon strava'/>
     </div>
     </button>
   </div>
+
+  <router-link to="/home" exact class='col profile' v-show='athlete.id'>
+    <h4>You're connected!</h4>
+    <img class='avatar-profile' :src='athlete.profile'/>
+    <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
+    <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
+  </router-link>
   
 </div>
