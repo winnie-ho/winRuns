@@ -5,12 +5,14 @@
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
 import activity from '../../components/activity/activity.vue'
+import searchBar from '../../components/searchBar/searchBar.vue'
 
 export default {
   name: 'activities',
   components: {
     'nav-bar': navBar,
-    'activity': activity
+    'activity': activity,
+    'search-bar': searchBar
   },
   mixins: [ renderData ],
   data () {
