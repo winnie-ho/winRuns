@@ -13,8 +13,8 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', component: home },
-    { path: '/auth', component: auth },
+    { path: '/', component: auth },
+    { path: '/home', component: home },
     { path: '/runClub', component: runClub },
     { path: '/parkRun', component: parkRun },
     { path: '/activities', component: activities },

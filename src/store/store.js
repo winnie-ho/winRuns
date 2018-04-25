@@ -16,7 +16,8 @@ export const store = new Vuex.Store({
     comments: {},
     selectedParkRun: {},
     weatherNow: {},
-    weatherForecast: {}
+    weatherForecast: {},
+    userToken: ''
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -30,7 +31,8 @@ export const store = new Vuex.Store({
     setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
     setWeatherNow: (state, payload) => (state.weatherNow = payload),
     setWeatherForecast: (state, payload) => (state.weatherForecast = payload),
-    setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload)
+    setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
+    setUserToken: (state, payload) => (state.userToken = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -48,13 +50,13 @@ export const store = new Vuex.Store({
         })
     },
     fetchStats: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athletes/3752965/stats?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
+      Vue.http.get('https://www.strava.com/api/v3/athletes/3752965/stats?access_token=' + context.state.userToken).then(
         function (response) {
           context.commit('setStats', response.data)
         })
     },
     fetchActivities: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
+      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=' + context.state.userToken).then(
         function (response) {
           context.commit('setActivities', response.data)
         })
@@ -100,6 +102,14 @@ export const store = new Vuex.Store({
     },
     setTimeOrderedParkRuns: (context, timeOrderedParkRuns) => {
       context.commit('setTimeOrderedParkRuns', timeOrderedParkRuns)
+    },
+    tokenExchange: (context, exchangeData) => {
+      Vue.http.post('https://www.strava.com/oauth/token', exchangeData).then(
+        function (response) {
+          context.commit('setUserToken', response.body.access_token)
+          context.commit('setAthlete', response.body.athlete)
+        }
+      )
     }
   }
 })

@@ -28,10 +28,12 @@ export default {
       pageTitle: 'HOME',
       toggleWeekView: true,
       mondayInView: '',
-      weekInView: []
+      weekInView: [],
     };
   },
   mounted() {
+    this.$store.dispatch('fetchActivities');
+    this.$store.dispatch('fetchStats')
   },
   methods: {
     setToggleWeekView: function() {
@@ -52,6 +54,10 @@ export default {
     activities: function () {
       if (!this.$store.state.activities) return;
       return this.$store.state.activities;
+    },
+    userToken: function () {
+      let result = !this.$store.state.userToken;
+      return result;
     }
   }
 };

@@ -1,6 +1,6 @@
 <div id='navBar'>
   <div id='openNavBar' class='row'>
-    <router-link to="/" exact>
+    <router-link to="/home" exact>
       <div class='data nav-button' id='home-button'>WIN RUNS</div>
     </router-link>
 
@@ -32,13 +32,13 @@
   <div id='burger-menu' class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
     <img class='close-icon' src='../../assets/icon_cross.png'/>
 
-    <router-link to="/auth" exact class='burger-item col profile'>
+    <router-link to="/" exact class='burger-item col profile'>
       <img class='avatar-profile' :src='athlete.profile'/>
       <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
       <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
     </router-link>
 
-    <router-link to="/" exact class='burger-item col'>HOME</router-link>
+    <router-link to="/home" exact class='burger-item col'>HOME</router-link>
     <router-link to="/runClub" exact class='burger-item col'>
       <img src='../../assets/icon_run4it.png' class='burger-icon'/>
       RUN CLUB

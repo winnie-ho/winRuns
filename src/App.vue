@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import auth from './pages/auth/auth.vue'
 import home from './pages/home/home.vue'
 import runClub from './pages/runClub/runClub.vue'
 import parkRun from './pages/parkRun/parkRun.vue'
@@ -13,6 +14,7 @@ import parkRunActivities from './pages/parkRunActivities/parkRunActivities.vue'
 
 export default {
   components: {
+    'auth': auth,
     'home': home,
     'runClub': runClub,
     'parkRun': parkRun,
@@ -20,10 +22,7 @@ export default {
     'parkRunActivities': parkRunActivities
   },
   name: 'App',
-  created () {
-    this.$store.dispatch('fetchAthlete')
-    this.$store.dispatch('fetchActivities')
-    this.$store.dispatch('fetchStats')
+  mounted () {
     this.$store.dispatch('fetchWeatherNow')
     this.$store.dispatch('fetchWeatherForecast')
   },
