@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       pageTitle: 'ACTIVITIES',
-      filteredActivities: []
+      wordToSearch: ''
     }
   },
   mounted () {
@@ -28,17 +28,19 @@ export default {
   },
 
   methods: {
-    filterWithSearchWord: function(searchWord){
-      console.log('search', searchWord, this.activities)
-      if (!searchWord) {
-        this.filteredActivities = this.activities;
+      filterWithSearchWord: function (searchWord) {
+        this.wordToSearch = searchWord;
       }
-      this.filteredActivities = this.activities.filter(activity => activity.name === searchWord);
-    }
-  },
+    },
   computed: {
     activities: function() {
       return this.$store.state.activities;
+    },
+    filteredActivities: function(){
+      if (!this.activities && !this.wordToSearch) return;
+      return this.activities.filter(activity => {
+        return activity.name.toLowerCase().includes(this.wordToSearch.toLowerCase())
+      })
     },
   }
 }

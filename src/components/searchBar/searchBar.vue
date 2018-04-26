@@ -23,7 +23,6 @@ export default {
   methods: {
     setWordSearch: function(e) {
       this.searchWord = e.srcElement.value;
-      console.log('emit', this.searchWord)
       this.$emit('searchWordChange', e.srcElement.value);
     }
   },
