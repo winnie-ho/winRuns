@@ -5,8 +5,10 @@
   </div>
   <div class='run-box__detail'>
     <div class='data-metric'>
-      <img src='../../assets/icon_distance.png' class='icon'/>
-      {{ renderDistance(activity.distance) }}
+      <div v-show="activity.type === 'Ride' || activity.type ==='Run'">
+        <img src='../../assets/icon_distance.png' class='icon'/>
+        {{ renderDistance(activity.distance) }}
+      </div>
     </div>
     <div class='data-metric'>
       <img src="../../assets/icon_time.png" class="icon">

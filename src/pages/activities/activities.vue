@@ -28,10 +28,10 @@ export default {
   },
 
   methods: {
-      filterWithSearchWord: function (searchWord) {
-        this.wordToSearch = searchWord;
-      }
-    },
+    filterWithSearchWord: function (searchWord) {
+      this.wordToSearch = searchWord;
+    }
+  },
   computed: {
     activities: function() {
       return this.$store.state.activities;
