@@ -1,6 +1,6 @@
 <div id='activities'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
-  <search-bar></search-bar>
-  <activity v-for='activity in activities' v-bind:key='activity.index' v-bind:activity='activity'>
+  <search-bar v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
+  <activity v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity' >
   </activity>
 </div>

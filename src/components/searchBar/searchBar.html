@@ -1,4 +1,5 @@
 <div id='search-bar'>
   <img id='search-icon' class='icon' src='../../assets/icon_search.png' v-on:click='toggleSearch=!toggleSearch'>
-  <input v-show='toggleSearch' placeholder=" 🔎">
+  <input v-show='toggleSearch' placeholder=" 🔎" v-model='searchWord' v-on:change='setWordSearch'>
+  {{ searchWord }}
 </div>

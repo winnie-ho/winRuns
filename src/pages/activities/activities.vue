@@ -17,7 +17,8 @@ export default {
   mixins: [ renderData ],
   data () {
     return {
-      pageTitle: 'ACTIVITIES'
+      pageTitle: 'ACTIVITIES',
+      filteredActivities: []
     }
   },
   mounted () {
@@ -27,12 +28,18 @@ export default {
   },
 
   methods: {
-
+    filterWithSearchWord: function(searchWord){
+      console.log('search', searchWord, this.activities)
+      if (!searchWord) {
+        this.filteredActivities = this.activities;
+      }
+      this.filteredActivities = this.activities.filter(activity => activity.name === searchWord);
+    }
   },
   computed: {
     activities: function() {
       return this.$store.state.activities;
-    }
+    },
   }
 }
 </script>

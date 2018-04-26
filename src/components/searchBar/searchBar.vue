@@ -10,7 +10,8 @@ export default {
   },
   data () {
     return {
-      toggleSearch: false
+      toggleSearch: false,
+      searchWord: ''
     }
   },
   mounted () {
@@ -20,7 +21,11 @@ export default {
   },
 
   methods: {
-    
+    setWordSearch: function(e) {
+      this.searchWord = e.srcElement.value;
+      console.log('emit', this.searchWord)
+      this.$emit('searchWordChange', e.srcElement.value);
+    }
   },
   computed: {
   }
