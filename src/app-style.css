@@ -2,7 +2,7 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: white;
   margin: -8px;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
 }
 
