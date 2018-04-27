@@ -1,6 +1,8 @@
 #search-bar{
   height: 100%;
   overflow-x:hidden;
+  display: flex;
+  justify-content: center;
 }
 
 #search-icon {
@@ -10,9 +12,16 @@
 }
 
 input{
-  margin: 5px 14px;
-  border-radius: 2px;
-  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid #AEECEF;
   height: 20px;
-  width: 92%;
+  width: 100%;
+  margin: 10px;
+  color: #AEECEF;
+  padding: 0 5px;
+}
+
+::placeholder {
+  color: #AEECEF;
 }
