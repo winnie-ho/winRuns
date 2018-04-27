@@ -30,13 +30,12 @@ export default {
   },
 
   methods: {
-    markLap(time){
-      this.lapMarkers.push(time);
+    markLap(index){
+      this.lapMarkers.push(index-1);
       if (this.lapMarkers.length > 2) {
         this.lapMarkers.shift();
       }
-      console.log('lap markers', this.lapMarkers);
-    }
+    },
   },
   computed: {
     activity: function() {
@@ -69,6 +68,18 @@ export default {
     polyline: function () {
       if (!this.$store.state.activity.map) return
       return this.$store.state.activity.map.polyline
+    },
+    sortedLapMarkers(){
+      if (!this.lapMarkers) return;
+      return this.lapMarkers.sort((a, b) => a - b);
+    },
+    lapCalcResult: function () {
+      if (!this.sortedLapMarkers) return;
+      let lapTimeCounter = 0;
+      for (let i = this.sortedLapMarkers[0]; i < this.sortedLapMarkers[1] + 1; i ++) {
+        lapTimeCounter += this.laps[i].moving_time;
+      }
+      return lapTimeCounter;
     }
   }
 }

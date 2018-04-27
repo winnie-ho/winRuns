@@ -69,6 +69,7 @@
       <div id="laps-detail" class="col sb">
         <div id="laps-calc-result" class="row sa"></div>
 
+        <div id='lap-calc-result'>{{ renderTime(lapCalcResult) }}</div>
         <div id="laps-list" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
           <div class='row sa lap' v-on:click='markLap(lap.lap_index)'>
             <h5>{{ lap.lap_index }}</h5>
@@ -83,7 +84,7 @@
       name='view-activity' 
       v-bind:lat='lat'
       v-bind:lng='lng'
-      v-bind:polyline='polyline'
-    ></google-map>
+      v-bind:polyline='polyline'>
+    </google-map>
 
   </div>
