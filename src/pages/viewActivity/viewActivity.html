@@ -73,7 +73,7 @@
           <div class='row sa lap'>
             <h5>{{ lap.lap_index }}</h5>
             <h5>{{ renderTime(lap.moving_time) }}</h5>
-            <h5>{{ renderPace(lap.moving_time, lap.distance) }}</h5>
+            <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lap.moving_time, lap.distance) }}</h5>
           </div>
         </div>
       </div>

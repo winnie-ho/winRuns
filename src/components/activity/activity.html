@@ -17,8 +17,9 @@
     <div class='data-metric'>
       <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon'/>
       <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon'/>
-      <img v-show="activity.type === 'Swim'" src='../../assets/icon_swim.png' class='icon'/>
-      {{ renderPace(activity.moving_time, activity.distance) }}
+      <div v-show="activity.type === 'Ride' || activity.type ==='Run'">
+        {{ renderPace(activity.moving_time, activity.distance) }}
+      </div>
     </div>
   </div>  
 </div>
