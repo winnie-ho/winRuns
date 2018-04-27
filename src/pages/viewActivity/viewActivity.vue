@@ -19,7 +19,8 @@ export default {
       openLaps: false,
       openComments: false,
       openKudos: false,
-      openPhotos: false
+      openPhotos: false,
+      lapMarkers: []
     }
   },
   mounted () {
@@ -29,6 +30,13 @@ export default {
   },
 
   methods: {
+    markLap(time){
+      this.lapMarkers.push(time);
+      if (this.lapMarkers.length > 2) {
+        this.lapMarkers.shift();
+      }
+      console.log('lap markers', this.lapMarkers);
+    }
   },
   computed: {
     activity: function() {
