@@ -1,8 +1,6 @@
 [hidden] {
   display: none !important;
 }
-#navBar {
-}
 
 #page-title {
   justify-content: center;
@@ -121,7 +119,9 @@
   border-radius: 5px;
 }
 
-#home-button {
+.home-button {
+  cursor: pointer;
+  text-decoration: none;
   color: #AEECEF;
   font-family: sans-serif;
   font-weight: lighter;
