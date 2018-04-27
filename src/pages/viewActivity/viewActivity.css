@@ -12,7 +12,7 @@
   overflow-y: scroll;
   overflow-x: hidden; 
   color: white;
-  background: linear-gradient(to bottom right, #6D9DC5 , #3066bebf);
+  background: linear-gradient(to bottom right, #6D9DC5 , #3066be);
 }
 
 #activity-info__header {
