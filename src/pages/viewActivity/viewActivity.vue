@@ -5,12 +5,14 @@
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
 import googleMap from '../../components/googleMap.vue'
+import lap from '../../components/lap/lap.vue'
 
 export default {
   name: 'viewActivity',
   components: {
     'nav-bar': navBar,
-    'google-map': googleMap
+    'google-map': googleMap,
+    'lap': lap
   },
   mixins: [ renderData ],
   data () {
@@ -30,12 +32,12 @@ export default {
   },
 
   methods: {
-    markLap(index){
-      this.lapMarkers.push(index-1);
+    setLapMarker: function(lap) {
+      this.lapMarkers.push(lap.lap_index - 1);
       if (this.lapMarkers.length > 2) {
         this.lapMarkers.shift();
       }
-    },
+    }
   },
   computed: {
     activity: function() {
@@ -71,7 +73,8 @@ export default {
     },
     sortedLapMarkers(){
       if (!this.lapMarkers) return;
-      return this.lapMarkers.sort((a, b) => a - b);
+      let result = this.lapMarkers.slice().sort((a, b) => a - b);
+      return result;
     },
     lapCalcResult: function () {
       if (!this.sortedLapMarkers) return;

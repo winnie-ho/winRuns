@@ -1,0 +1,19 @@
+.lap {
+  width: 100vw;
+  background-color: transparent;
+  color: white;
+}
+#laps{
+  margin: 10px 0;
+}
+
+#lap-calc-result {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.selectedLap {
+  background-color: #AEECEF;
+  color: #3066BE;
+}
