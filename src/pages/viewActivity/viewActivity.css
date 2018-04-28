@@ -9,8 +9,6 @@
   flex-direction: column;
   z-index: 1;
   width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden; 
   color: white;
   background: linear-gradient(to bottom right, #6D9DC5 , #3066be);
 }
@@ -54,5 +52,6 @@
 #lap-calc-result {
   width: 100vw;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
 }
