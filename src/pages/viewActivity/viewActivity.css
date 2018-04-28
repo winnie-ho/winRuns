@@ -53,4 +53,6 @@
 
 #lap-calc-result {
   width: 100vw;
+  position: sticky;
+  top: 0;
 }

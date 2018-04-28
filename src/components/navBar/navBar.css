@@ -82,8 +82,8 @@
   position: absolute;
   height: 30px;
   width: auto;
-  right: 10px;
-  filter: invert(100%);
+  right: 15px;
+  top: 15px;
 }
 
 #openNavBar {

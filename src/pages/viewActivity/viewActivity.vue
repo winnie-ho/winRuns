@@ -37,6 +37,9 @@ export default {
       if (this.lapMarkers.length > 2) {
         this.lapMarkers.shift();
       }
+    },
+    clearLapMarkers: function() {
+      this.lapMarkers = [];
     }
   },
   computed: {
