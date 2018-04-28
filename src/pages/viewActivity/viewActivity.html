@@ -67,9 +67,12 @@
       </div>
 
       <div id="laps-detail" class="col sb">
-        <div id="laps-calc-result" class="row sa"></div>
-
-        <div id='lap-calc-result'>{{ renderTime(lapCalcResult) }}</div>
+        <div id='lap-calc-result' class='row sa'>
+          <h2>{{ lapCountInCalc }}</h2>
+          <h2>{{ renderDistance(lapCalcDistanceResult) }}</h2>
+          <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
+          <h2>{{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
+        </div>
         <div id="laps-list" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
           <lap v-on:onMarkLapChange='setLapMarker($event)' v-bind:lap='lap' v-bind:activity='activity' v-bind:lapMarkers='lapMarkers' class="row sa lap"></lap>
         </div>

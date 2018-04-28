@@ -76,13 +76,25 @@ export default {
       let result = this.lapMarkers.slice().sort((a, b) => a - b);
       return result;
     },
-    lapCalcResult: function () {
+    lapCalcTimeResult: function () {
       if (!this.sortedLapMarkers) return;
       let lapTimeCounter = 0;
       for (let i = this.sortedLapMarkers[0]; i < this.sortedLapMarkers[1] + 1; i ++) {
         lapTimeCounter += this.laps[i].moving_time;
       }
       return lapTimeCounter;
+    },
+    lapCalcDistanceResult: function () {
+      if (!this.sortedLapMarkers) return;
+      let lapDistanceCounter = 0;
+      for (let i = this.sortedLapMarkers[0]; i < this.sortedLapMarkers[1] + 1; i ++) {
+        lapDistanceCounter += this.laps[i].distance;
+      }
+      return lapDistanceCounter;
+    },
+    lapCountInCalc: function (){
+      if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;
+      return (this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1);
     }
   }
 }
