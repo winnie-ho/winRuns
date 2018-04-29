@@ -1,6 +1,6 @@
 <div id='activity' class='run-box' v-on:click='viewActivity(activity.id)'>
   <div class='run-box__detail'>
-    <div class='heading'>{{ activity.name }}</div>
+    <div class='heading truncate'>{{ activity.name }}</div>
     <div class='date'>{{ renderDate(activity.start_date) }}</div>
   </div>
   <div class='run-box__detail'>

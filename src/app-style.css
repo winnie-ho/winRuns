@@ -70,6 +70,13 @@ h1, h2, h3, h4, h5, h6{
   max-width: auto;
 }
 
+.truncate {
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* IMAGES */
 .icon{
   height: 20px;

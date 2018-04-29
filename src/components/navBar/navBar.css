@@ -26,7 +26,6 @@
   top: 0px;  
   right: 0px;
   width: 98vw;
-  height: 100vh;
   background-color: #3066be;
   padding: 10px;
   z-index: 2;
@@ -48,7 +47,7 @@
     height: 30px;
   }
   to {
-    height: 100vh;
+    height: 120vh;
   }
 }
 
