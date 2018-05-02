@@ -32,11 +32,13 @@
   <div id='burger-menu' class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
     <img class='close-icon' src='../../assets/icon_cross.png'/>
 
-    <router-link to="/" exact class='burger-item col profile'>
+    <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
       <img class='avatar-profile' :src='athlete.profile'/>
       <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
       <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
     </router-link>
+
+    <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>LOGIN</router-link>
 
     <router-link to="/home" exact class='burger-item col'>HOME</router-link>
     <router-link to="/runClub" exact class='burger-item col'>
