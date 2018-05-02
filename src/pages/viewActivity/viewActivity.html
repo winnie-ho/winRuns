@@ -10,7 +10,12 @@
         <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
       </div>
 
-      <div class="row sa">
+      <div v-show="activity.type === 'Swim'" class="row sa">
+        <div class="data-metric">{{ activity.description }}</div>
+        <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
+      </div>
+
+      <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
         <div class="data-metric">{{ renderDistance(activity.distance) }}</div>
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
         <div class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
