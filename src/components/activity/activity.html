@@ -1,25 +1,23 @@
-<div id='activity' class='run-box' v-on:click='viewActivity(activity.id)'>
+<div id='activity' class='run-box row sb' v-on:click='viewActivity(activity.id)'>
+  <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon icon__circle'/>
+  <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon icon__circle'/>
+  <img v-show="activity.type === 'Swim'" src='../../assets/icon_swim.png' class='icon icon__circle'/>
+
   <div class='run-box__detail'>
-    <div class='heading truncate'>{{ activity.name }}</div>
-    <div class='date'>{{ renderDate(activity.start_date) }}</div>
-  </div>
-  <div class='run-box__detail'>
-    <div class='data-metric'>
-      <div v-show="activity.type === 'Ride' || activity.type ==='Run'">
-        <img src='../../assets/icon_distance.png' class='icon'/>
+    <div class='row sb'>
+      <div class='heading truncate'>{{ activity.name }}</div>
+      <div class='date'>{{ renderDate(activity.start_date) }}</div>
+    </div>
+    <div class='run-box__detail row'>
+      <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run'">
         {{ renderDistance(activity.distance) }}
       </div>
-    </div>
-    <div class='data-metric'>
-      <img src="../../assets/icon_time.png" class="icon">
-      {{ renderTime(activity.moving_time) }}
-    </div>
-    <div class='data-metric'>
-      <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon'/>
-      <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon'/>
-      <div v-show="activity.type === 'Ride' || activity.type ==='Run'">
+      <div class='data-metric space'>
+        {{ renderTime(activity.moving_time) }}
+      </div>
+      <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run'">
         {{ renderPace(activity.moving_time, activity.distance) }}
       </div>
-    </div>
-  </div>  
+    </div>  
+  </div>
 </div>
