@@ -31,9 +31,9 @@ export default {
     
     },
   computed: {
-    timeOrderedParkRuns: function () {
-      if (!this.$store.state.timeOrderedParkRuns) return;
-      return this.$store.state.timeOrderedParkRuns;
+    parkRuns: function () {
+      if (!this.$store.getters.parkRuns) return;
+      return this.$store.getters.parkRuns;
     }
   }
 }

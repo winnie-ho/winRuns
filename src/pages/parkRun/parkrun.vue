@@ -92,7 +92,7 @@ export default {
     },
     timeOrderedParkRuns: function () {
       if (!this.parkRuns) return []
-      let timeOrderedParkRuns = this.parkRuns.slice().sort((a, b) => a.moving_time - b.moving_time)
+      let timeOrderedParkRuns = this.completeParkRuns.slice().sort((a, b) => a.moving_time - b.moving_time)
       this.$store.dispatch('setTimeOrderedParkRuns', timeOrderedParkRuns)
       return timeOrderedParkRuns;
     },
