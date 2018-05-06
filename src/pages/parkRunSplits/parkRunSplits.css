@@ -5,3 +5,14 @@
   flex-direction: column;
   font-size: 16px;
 }
+
+.spacer{
+  min-width: 37px;
+}
+
+.km-header{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+}

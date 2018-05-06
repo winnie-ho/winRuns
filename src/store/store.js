@@ -17,7 +17,8 @@ export const store = new Vuex.Store({
     selectedParkRun: {},
     weatherNow: {},
     weatherForecast: {},
-    userToken: ''
+    userToken: '',
+    fullParkRuns: []
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -32,7 +33,8 @@ export const store = new Vuex.Store({
     setWeatherNow: (state, payload) => (state.weatherNow = payload),
     setWeatherForecast: (state, payload) => (state.weatherForecast = payload),
     setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
-    setUserToken: (state, payload) => (state.userToken = payload)
+    setUserToken: (state, payload) => (state.userToken = payload),
+    setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload))
   },
   getters: {
     parkRuns: (state) => {
@@ -110,6 +112,16 @@ export const store = new Vuex.Store({
           context.commit('setAthlete', response.body.athlete)
         }
       )
+    },
+    fetchFullParkRuns: (context) => {
+      context.getters.parkRuns.forEach(parkRun => {
+        return Vue.http.get('https://www.strava.com/api/v3/activities/' + parkRun.id + '\?access_token=' + context.state.userToken).then(
+          function (response) {
+            context.commit('setFullParkRuns', response.body)
+            console.log('rs', response)
+          }
+        )
+      })
     }
   }
 })
