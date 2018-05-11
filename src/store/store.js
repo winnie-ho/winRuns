@@ -118,7 +118,6 @@ export const store = new Vuex.Store({
         return Vue.http.get('https://www.strava.com/api/v3/activities/' + parkRun.id + '\?access_token=' + context.state.userToken).then(
           function (response) {
             context.commit('setFullParkRuns', response.body)
-            console.log('rs', response)
           }
         )
       })

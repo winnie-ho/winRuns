@@ -11,7 +11,7 @@ export default {
             2: 'Edinburgh Parkrun 2nd Kilometre',
             3: 'Edinburgh Parkrun 3rd Kilometre',
             4: 'Edinburgh Parkrun 4th Kilometre',
-            5: "Edinburgh Parkrun 5th 'Kilometre'"
+            5: 'Edinburgh Parkrun 5th "Kilometre"'
           },
           default: true
         },
