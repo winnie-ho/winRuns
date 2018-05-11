@@ -38,7 +38,7 @@ export default {
   computed: {
     fullParkRuns: function () {
       if (!this.$store.state.fullParkRuns) return;
-      return this.$store.state.fullParkRuns;
+      return this.$store.state.fullParkRuns.slice().sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
     },
     selectedParkRunSegs: function() {
       if (!this.$store.state.selectedParkRun) return;
