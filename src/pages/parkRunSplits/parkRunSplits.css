@@ -7,17 +7,22 @@
 
 th, td {
   padding: 5px;
+  text-align: center;
 }
 
 th{
   background-color: #3066BE;
-  
+
 }
 
 table {
   border-spacing: 2px;
   width: 100%;
   margin-top: 15px;
+}
+
+.name{
+  text-align: left;
 }
 
 
