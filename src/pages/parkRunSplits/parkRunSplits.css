@@ -25,6 +25,10 @@ table {
   text-align: left;
 }
 
+.splits-method{
+  margin: 5px;
+  padding: 5px 30px;
+}
 
 /* responsive css  */
 @media all and (max-width: 500px) {

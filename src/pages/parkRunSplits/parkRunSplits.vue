@@ -4,6 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue'
 import subNavBar from '../../components/subNavBar/subNavBar.vue'
+import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue'
 import renderData from '../../mixins/renderData.js'
 import activity from '../../components/activity/activity.vue'
 import parkRunDict from '../../mixins/parkRunDict';
@@ -13,12 +14,14 @@ export default {
   components: {
     'nav-bar': navBar,
     'activity': activity,
-    'subNavBar': subNavBar
+    'subNavBar': subNavBar,
+    'toggleSwitch': toggleSwitch
   },
   mixins: [ renderData, parkRunDict ],
   data () {
     return {
       pageTitle: 'PARK RUN SPLITS',
+      lapSplitMethod: true
     }
   },
   mounted () {
@@ -30,15 +33,24 @@ export default {
 
   methods: {
     kmTime: function(fullParkRun, km) {
-      let segment = fullParkRun.segment_efforts.find(seg => seg.name === this.selectedParkRunSegs[km]);
+      if (this.lapSplitMethod) {
+        const kmLap = fullParkRun.laps[km - 1 ];
+        if (!kmLap) return;
+        return kmLap.moving_time;
+      }
+
+      const segment = fullParkRun.segment_efforts.find(seg => seg.name === this.selectedParkRunSegs[km]);
       if (!segment) return; 
       return segment.moving_time;
+    },
+    setSplitMethod(method){
+      this.lapSplitMethod = method;
     }
   },
   computed: {
-    fullParkRuns: function () {
-      if (!this.$store.state.fullParkRuns) return;
-      return this.$store.state.fullParkRuns.slice().sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
+    timeOrderedFullParkRuns: function () {
+      if (!this.$store.getters.timeOrderedFullParkRuns) return;
+      return this.$store.getters.timeOrderedFullParkRuns;
     },
     selectedParkRunSegs: function() {
       if (!this.$store.state.selectedParkRun) return;

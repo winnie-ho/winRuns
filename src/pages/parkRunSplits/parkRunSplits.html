@@ -1,7 +1,12 @@
 <div id='parkRunSplits'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
   <subNavBar></subNavBar>
-
+  <div class='splits-method row'>
+    <h6>Split Method:</h6>
+    <toggleSwitch v-on:onToggleSwitchChange='setSplitMethod($event)'></toggleSwitch>
+    <h6 v-show='!lapSplitMethod'>By Segment</h6>
+    <h6 v-show='lapSplitMethod'>By Laps</h6>
+  </div>
   <table>
     <tr>
       <th>DATE</th>
@@ -13,10 +18,11 @@
       <th>3</th>
       <th>4</th>
       <th>5</th>
+      <th v-show='lapSplitMethod'>*</th>
     </tr>
 
     
-    <tr v-for='fullParkRun in fullParkRuns' :key='fullParkRun.index'>
+    <tr v-for='fullParkRun in timeOrderedFullParkRuns' :key='fullParkRun.index'>
       <td>{{ renderDate(fullParkRun.start_date) }}</td>
       <td class='name'>{{ fullParkRun.name }}</td>
       <td>{{ renderTime(fullParkRun.elapsed_time) }}</td>
@@ -26,8 +32,8 @@
       <td>{{ renderTime(kmTime(fullParkRun, 3)) }}</td>
       <td>{{ renderTime(kmTime(fullParkRun, 4)) }}</td>
       <td>{{ renderTime(kmTime(fullParkRun, 5)) }}</td>
+      <td v-show='lapSplitMethod'>{{ renderTime(kmTime(fullParkRun, 6)) }}</td>
     </tr>
-      
 
   </table>
 </div>
