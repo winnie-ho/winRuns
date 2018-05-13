@@ -6,7 +6,7 @@
 }
 
 th, td {
-  padding: 5px;
+  padding: 3px;
   text-align: center;
 }
 
@@ -26,8 +26,7 @@ table {
 }
 
 .splits-method{
-  margin: 5px;
-  padding: 5px 30px;
+  margin-top: 25px;
 }
 
 /* responsive css  */

@@ -3,9 +3,9 @@
   <subNavBar></subNavBar>
   <div class='splits-method row'>
     <h6>Split Method:</h6>
-    <toggleSwitch v-on:onToggleSwitchChange='setSplitMethod($event)'></toggleSwitch>
     <h6 v-show='!lapSplitMethod'>By Segment</h6>
     <h6 v-show='lapSplitMethod'>By Laps</h6>
+    <toggleSwitch v-on:onToggleSwitchChange='setSplitMethod($event)'></toggleSwitch>
   </div>
   <table>
     <tr>
