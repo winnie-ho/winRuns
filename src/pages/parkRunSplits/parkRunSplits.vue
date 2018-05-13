@@ -48,9 +48,9 @@ export default {
     }
   },
   computed: {
-    timeOrderedFullParkRuns: function () {
-      if (!this.$store.getters.timeOrderedFullParkRuns) return;
-      return this.$store.getters.timeOrderedFullParkRuns;
+    dateOrderedFullParkRuns: function () {
+      if (!this.$store.getters.dateOrderedFullParkRuns) return;
+      return this.$store.getters.dateOrderedFullParkRuns;
     },
     selectedParkRunSegs: function() {
       if (!this.$store.state.selectedParkRun) return;

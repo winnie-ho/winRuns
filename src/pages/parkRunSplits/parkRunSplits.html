@@ -22,7 +22,7 @@
     </tr>
 
     
-    <tr v-for='fullParkRun in timeOrderedFullParkRuns' :key='fullParkRun.index'>
+    <tr v-for='fullParkRun in dateOrderedFullParkRuns' :key='fullParkRun.index'>
       <td>{{ renderDate(fullParkRun.start_date) }}</td>
       <td class='name'>{{ fullParkRun.name }}</td>
       <td>{{ renderTime(fullParkRun.elapsed_time) }}</td>

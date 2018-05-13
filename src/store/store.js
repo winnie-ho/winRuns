@@ -43,7 +43,7 @@ export const store = new Vuex.Store({
         return activity.start_latitude === state.selectedParkRun.startCoords[0] && activity.start_longitude === state.selectedParkRun.startCoords[1]
       })
     },
-    timeOrderedFullParkRuns: (state) => {
+    dateOrderedFullParkRuns: (state) => {
       if (!state.fullParkRuns) return
       return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
     }
