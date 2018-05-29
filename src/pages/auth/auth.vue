@@ -35,13 +35,11 @@ export default {
   methods: {
     setAuthCode: function () {
       let location = window.location.search;
-      let length = location.length;
-
       if (location.search("code=") === -1) {
         return;
       } else {
-        let start = location.search("code=");
-        this.authCode = window.location.search.substr(start + 5, length);
+        let start = location.search("code=") + 5;
+        this.authCode = location.substr(start, 40);
         this.tokenExchange();
       }
     },
