@@ -6,13 +6,15 @@ import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
 import googleMap from '../../components/googleMap.vue'
 import lap from '../../components/lap/lap.vue'
+import activitySession from '../../components/activitySession/activitySession.vue'
 
 export default {
   name: 'viewActivity',
   components: {
     'nav-bar': navBar,
     'google-map': googleMap,
-    'lap': lap
+    'lap': lap,
+    'activitySession': activitySession
   },
   mixins: [ renderData ],
   data () {
@@ -22,7 +24,9 @@ export default {
       openComments: false,
       openKudos: false,
       openPhotos: false,
-      lapMarkers: []
+      lapMarkers: [],
+      createSession: false,
+      sessionEfforts: []
     }
   },
   mounted () {
@@ -40,6 +44,22 @@ export default {
     },
     clearLapMarkers: function() {
       this.lapMarkers = [];
+    },
+    toggleCreateSession: function() {
+      this.createSession = !this.createSession;
+    },
+    setSessionLapMarker(lap) {
+      if (this.sessionEfforts.includes(lap)) {
+        let index = this.sessionEfforts.indexOf(lap);
+        if (index > -1) {
+          this.sessionEfforts.splice(index, 1);
+        }
+      } else {
+        this.sessionEfforts.push(lap)
+      }
+    },
+    resetSessionEfforts: function() {
+      this.sessionEfforts = [];
     }
   },
   computed: {

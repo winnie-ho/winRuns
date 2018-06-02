@@ -6,7 +6,7 @@ import renderData from '../../mixins/renderData.js'
 
 export default {
   name: 'lap',
-  props: ['lap', 'activity', 'lapMarkers'],
+  props: ['lap', 'activity', 'lapMarkers', 'createSession', 'sessionEfforts'],
   mixins: [renderData],
   data () {
     return {
@@ -16,13 +16,31 @@ export default {
   methods: {
     markLap: function () {
       this.selected = true;
-      this.$emit('onMarkLapChange', this.lap)
+
+
+      if (this.createSession){
+        this.$emit('onSessionMarkLapChange', this.lap)
+      }
+      
+      if (!this.createSession) {
+        this.$emit('onMarkLapChange', this.lap)
+      }
     }
   },
   computed: {
     isSelectedLap: function () {
-      if (!this.lapMarkers) return;
-      return !!this.lapMarkers.includes(this.lap.lap_index - 1)
+      console.log('CREATE SESSION', this.createSession)
+      if (!this.createSession) {
+        if (!this.lapMarkers) return;
+        return !!this.lapMarkers.includes(this.lap.lap_index - 1) 
+      }
+      if (this.createSession) {
+        if (!this.sessionEfforts) return;
+        let result =  !!this.sessionEfforts.includes(this.lap) 
+        console.log('SESSION EFFORTS', this.sessionEfforts)
+        console.log('RESULT', this.lap.lap_index, result)
+        return result
+      }
     }
   }
 }

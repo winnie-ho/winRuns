@@ -62,7 +62,7 @@ export const store = new Vuex.Store({
         })
     },
     fetchActivities: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=' + context.state.userToken).then(
+      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=100&access_token=' + context.state.userToken).then(
         function (response) {
           context.commit('setActivities', response.data)
         })

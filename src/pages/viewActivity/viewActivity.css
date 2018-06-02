@@ -56,3 +56,15 @@
   top: 0;
   background-color: #3066BE;
 }
+
+.createSessionBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin-left:15px;
+}
+
+.createSessionBtn img {
+  margin: 0px;
+}

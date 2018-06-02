@@ -72,15 +72,32 @@
       </div>
 
       <div id="laps-detail" class="col sb">
-        <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2'>
+        <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
           <h2>{{ lapCountInCalc }}</h2>
           <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}</h2>
           <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
           <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
           <img src='../../assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()'/>
         </div>
-        <div id="laps-list" class="col sb" v-show='openLaps' v-for='lap in laps' v-bind:key='lap.index'>
-          <lap v-on:onMarkLapChange='setLapMarker($event)' v-bind:lap='lap' v-bind:activity='activity' v-bind:lapMarkers='lapMarkers' class="row sa lap"></lap>
+        
+        <div v-show='openLaps'>
+          <div class="createSessionBtn" v-on:click='toggleCreateSession'> 
+            <img class="icon" src="../../assets/icon_add.png"/>
+            <h5>Session</h5>
+          </div>
+          <activitySession v-bind:createSession='createSession' v-bind:sessionEfforts='sessionEfforts' v-on:onResetSessionEfforts='resetSessionEfforts'></activitySession>
+          <div id="laps-list" class="col sb" v-for='lap in laps' v-bind:key='lap.index'>
+            <lap 
+              class="row sa lap"
+              v-bind:lap='lap'
+              v-bind:activity='activity'
+              v-bind:lapMarkers='lapMarkers'
+              v-bind:sessionEfforts='sessionEfforts'
+              v-bind:createSession='createSession'
+              v-on:onMarkLapChange='setLapMarker($event)'
+              v-on:onSessionMarkLapChange='setSessionLapMarker($event)'>
+            </lap>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,13 @@
+<div id='activity-session' class='col sa' v-show='createSession'>
+  <h4>SET EFFORTS</h4>
+  <div id="efforts-list" v-for='effort in orderedSessionEfforts' v-bind:key='effort.index'>
+    <div class='row sb'>
+      <h5>{{ effort.lap_index }}</h5>
+      <h5>{{ renderDistance(effort.distance) }}</h5>
+      <h5>{{ renderTime(effort.moving_time) }}</h5>
+      <h5>{{ renderPace(effort.moving_time, effort.distance) }}</h5>
+    </div>
+  </div>
+  <button v-on:click='resetSession'>Reset</button>
+  <button v-on:click='saveSession'>Save session</button>
+</div>
