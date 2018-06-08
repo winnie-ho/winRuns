@@ -18,7 +18,8 @@ export const store = new Vuex.Store({
     weatherNow: {},
     weatherForecast: {},
     userToken: '',
-    fullParkRuns: []
+    fullParkRuns: [],
+    sessions: []
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -34,7 +35,8 @@ export const store = new Vuex.Store({
     setWeatherForecast: (state, payload) => (state.weatherForecast = payload),
     setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
     setUserToken: (state, payload) => (state.userToken = payload),
-    setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload))
+    setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
+    setSessions: (state, payload) => (state.sessions = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -62,7 +64,7 @@ export const store = new Vuex.Store({
         })
     },
     fetchActivities: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=100&access_token=' + context.state.userToken).then(
+      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=200&access_token=' + context.state.userToken).then(
         function (response) {
           context.commit('setActivities', response.data)
         })
@@ -125,6 +127,25 @@ export const store = new Vuex.Store({
           }
         )
       })
+    },
+    fetchSessions: (context, sessions) => {
+      Vue.http.get('https://win-runs.firebaseio.com/sessions.json').then(function (data) {
+        return data.json()
+      }).then(function (data) {
+        let sessions = []
+        for (let key in data) {
+          data[key].id = key
+          sessions.push(data[key])
+        }
+        context.commit('setSessions', sessions)
+      })
+    },
+    updateStravaActivity: (context, actionParameters) => {
+      console.log('UPDATING STRAVA ACTIVITY:', actionParameters)
+      Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters[1]).then(
+        function (response) {
+          console.log('response', response)
+        })
     }
   }
 })
