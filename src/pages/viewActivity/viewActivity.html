@@ -81,7 +81,7 @@
         </div>
         
         <div v-show='openLaps'>
-          <div class="createSessionBtn" v-on:click='toggleCreateSession'> 
+          <div class="createSessionBtn" v-on:click='toggleCreateSession' v-show='!createSession'> 
             <img class="icon" src="../../assets/icon_add.png"/>
             <h5>Session</h5>
           </div>
