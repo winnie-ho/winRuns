@@ -130,22 +130,22 @@ export const store = new Vuex.Store({
         )
       })
     },
-    fetchSessions: (context, sessions) => {
-      Vue.http.get('https://win-runs.firebaseio.com/sessions.json').then(function (data) {
-        return data.json()
-      }).then(function (data) {
-        let sessions = []
-        for (let key in data) {
-          data[key].id = key
-          sessions.push(data[key])
-        }
-        context.commit('setSessions', sessions)
-      })
-    },
+    // fetchSessions: (context, sessions) => {
+    //   Vue.http.get('https://win-runs.firebaseio.com/sessions.json').then(function (data) {
+    //     return data.json()
+    //   }).then(function (data) {
+    //     let sessions = []
+    //     for (let key in data) {
+    //       data[key].id = key
+    //       sessions.push(data[key])
+    //     }
+    //     context.commit('setSessions', sessions)
+    //   })
+    // },
     updateStravaActivity: (context, actionParameters) => {
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters[1]).then(
         function (response) {
-          context.commit('setUpdateStravaActivityResponse', response.ok)
+          context.commit('setUpdateStravaActivityResponse', response)
         })
     }
   }
