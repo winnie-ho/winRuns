@@ -124,6 +124,26 @@ h1, h2, h3, h4, h5, h6{
   margin-left: 6px;
 }
 
+.button {
+  background-color: #AEECEF;
+  color: #3066BE;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100px;
+}
+
+.button--primary {
+  background-color: #3066BE;
+  color: #AEECEF;
+  border: 1px solid #AEECEF;
+}
+
+.button--secondary {
+  background-color: #AEECEF;
+  color: #3066BE;
+}
+
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric {
