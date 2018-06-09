@@ -8,6 +8,8 @@
       <h5>{{ renderPace(effort.moving_time, effort.distance) }}</h5>
     </div>
   </div>
-  <button v-on:click='resetSession'>Reset</button>
-  <button v-on:click='saveSession'>Save session</button>
+  <span>
+    <button v-on:click='resetSession'>Reset</button>
+    <button v-on:click='saveSession'>Save session</button>
+  </span>
 </div>
