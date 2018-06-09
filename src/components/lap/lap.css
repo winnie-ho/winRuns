@@ -2,6 +2,7 @@
   width: 100vw;
   background-color: transparent;
   color: white;
+  position: relative;
 }
 #laps{
   margin: 10px 0;
@@ -16,4 +17,21 @@
 .selectedLap {
   background-color: #AEECEF;
   color: #3066BE;
+}
+
+.merge{
+  position: absolute;
+  right: 15px;
+  bottom: 8px;
+  padding: 0px 2px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.merge:hover{
+  border: 1px solid #3066BE;
+}
+
+.lap-detail{
+  width: 100%;
 }

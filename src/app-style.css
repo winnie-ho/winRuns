@@ -130,17 +130,18 @@ h1, h2, h3, h4, h5, h6{
   border: none;
   border-radius: 3px;
   padding: 5px;
-  width: 100px;
-  margin: 2px;
+  margin: 5px;
 }
 
 .button--primary {
+  width: 100px;
   background-color: #3066BE;
   color: #AEECEF;
   border: 1px solid #AEECEF;
 }
 
 .button--secondary {
+  width: 100px;
   background-color: #AEECEF;
   border: 1px solid #AEECEF;
   color: #3066BE;

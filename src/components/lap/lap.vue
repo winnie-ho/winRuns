@@ -25,11 +25,13 @@ export default {
       if (!this.createSession) {
         this.$emit('onMarkLapChange', this.lap)
       }
+    },
+    mergeLap: function(){
+      console.log('MERGE LAP')
     }
   },
   computed: {
     isSelectedLap: function () {
-      console.log('CREATE SESSION', this.createSession)
       if (!this.createSession) {
         if (!this.lapMarkers) return;
         return !!this.lapMarkers.includes(this.lap.lap_index - 1) 
@@ -37,8 +39,6 @@ export default {
       if (this.createSession) {
         if (!this.sessionEfforts) return;
         let result =  !!this.sessionEfforts.includes(this.lap) 
-        console.log('SESSION EFFORTS', this.sessionEfforts)
-        console.log('RESULT', this.lap.lap_index, result)
         return result
       }
     }

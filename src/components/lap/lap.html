@@ -1,6 +1,11 @@
-<div v-on:click='markLap()' v-bind:class='{ selectedLap: isSelectedLap }' >
-  <h5>{{ lap.lap_index }}</h5>
-  <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lap.distance) }}</h5>
-  <h5>{{ renderTime(lap.moving_time) }}</h5>
-  <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lap.moving_time, lap.distance) }}</h5>
+<div class='lap' v-bind:class='{ selectedLap: isSelectedLap }' >
+  <div v-on:click='markLap()' class='row sa lap-detail'>
+    <h5>{{ lap.lap_index }}</h5>
+    <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lap.distance) }}</h5>
+    <h5>{{ renderTime(lap.moving_time) }}</h5>
+    <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lap.moving_time, lap.distance) }}</h5>
+  </div>
+  <div v-show='createSession'>
+    <button class='merge button' v-show='isSelectedLap' v-on:click='mergeLap()'>⇡</button>
+  </div>
 </div>
