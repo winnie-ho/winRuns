@@ -18,28 +18,24 @@
     },
     methods: {
       saveSession: function() {
-        if (!this.sessionSaved) {
-          this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
-            this.sessionSaved = true;
-            console.log('DATA', data, this.sessionSaved);
-          })
+          // this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
+          //   this.sessionSaved = true;
+          //   console.log('DATA', data, this.sessionSaved);
+          // })
 
-          let activityId = this.sessionEfforts[0].activity.id;
-
-          // set everything to the activity properties except description.
+          // Only updating the description to hold the session details.
           let updatedActivity = {
-            "commute": false,
-            "trainer": false,
+            "commute": this.activity.commute,
+            "trainer": this.activity.trainer,
             "description": this.renderStravaSession,
-            "name": this.sessionEfforts[0].activity.name,
-            "type": "Run",
-            "private": false,
-            "gear_id": ""
+            "name": this.activity.name,
+            "type": this.activity.type,
+            "private": this.activity.private,
+            "gear_id": this.activity.gear_id
           }
-          let actionParameters = [activityId, updatedActivity]
-          console.log('UPDATED ACTIVITY', updatedActivity)
+          let actionParameters = [this.activity.id, updatedActivity]
+          console.log('UPDATED ACTIVITY', updatedActivity.description)
           this.$store.dispatch('updateStravaActivity', actionParameters)
-        }
       },
       resetSession: function() {
         console.log('RESET SESSION')
@@ -65,17 +61,16 @@
       sessionExists: function() {
       },
       renderStravaSession: function() {
-        let resultString = '';
+        let sessionString = '';
         let i = 1;
         this.orderedSessionEfforts.forEach(effort => {
-          
-          resultString = resultString + i + ' ' + this.renderDistance(effort.distance) + ' ' + this.renderTime(effort.moving_time) + ' ' + this.renderPace(effort.moving_time, effort.distance) + '\n'
+          sessionString = sessionString + i + '  ' + this.renderDistance(effort.distance) + '  ' + this.renderTime(effort.moving_time) + '  ' + this.renderPace(effort.moving_time, effort.distance) + '\n'
 
           i ++
         })
 
-        console.log('resultString', resultString)
-        return resultString
+        console.log('sessionString', sessionString)
+        return sessionString
       }
     }
   }
