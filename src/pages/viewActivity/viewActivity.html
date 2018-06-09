@@ -85,7 +85,7 @@
             <img class="icon" src="../../assets/icon_add.png"/>
             <h5>Session</h5>
           </div>
-          <activitySession v-bind:createSession='createSession' v-bind:sessionEfforts='sessionEfforts' v-on:onResetSessionEfforts='resetSessionEfforts'></activitySession>
+          <activitySession v-bind:createSession='createSession' v-bind:sessionEfforts='sessionEfforts' v-on:onResetSessionEfforts='resetSessionEfforts' v-on:onCloseSession='toggleCreateSession'></activitySession>
           <div id="laps-list" class="col sb" v-for='lap in laps' v-bind:key='lap.index'>
             <lap 
               class="row sa lap"

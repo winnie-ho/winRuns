@@ -13,33 +13,35 @@
       }
     },
     props: ['createSession', 'sessionEfforts'],
-    created() {
-      this.$store.dispatch('fetchSessions');
-    },
     methods: {
       saveSession: function() {
-          // this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
-          //   this.sessionSaved = true;
-          //   console.log('DATA', data, this.sessionSaved);
-          // })
+        // this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
+        //   this.sessionSaved = true;
+        //   console.log('DATA', data, this.sessionSaved);
+        // })
 
-          // Only updating the description to hold the session details.
-          let updatedActivity = {
-            "commute": this.activity.commute,
-            "trainer": this.activity.trainer,
-            "description": this.renderStravaSession,
-            "name": this.activity.name,
-            "type": this.activity.type,
-            "private": this.activity.private,
-            "gear_id": this.activity.gear_id
-          }
-          let actionParameters = [this.activity.id, updatedActivity]
-          console.log('UPDATED ACTIVITY', updatedActivity.description)
-          this.$store.dispatch('updateStravaActivity', actionParameters)
+        // Only updating the description to hold the session details.
+        let updatedActivity = {
+          "commute": this.activity.commute,
+          "trainer": this.activity.trainer,
+          "description": this.renderStravaSession,
+          "name": this.activity.name,
+          "type": this.activity.type,
+          "private": this.activity.private,
+          "gear_id": this.activity.gear_id
+        }
+        let actionParameters = [this.activity.id, updatedActivity]
+        console.log('UPDATED ACTIVITY', updatedActivity.description)
+        this.$store.dispatch('updateStravaActivity', actionParameters)
+
+        this.sessionSaved = true;
       },
       resetSession: function() {
-        console.log('RESET SESSION')
+        this.sessionSaved = false;
         this.$emit('onResetSessionEfforts')
+      },
+      closeSession: function() {
+        this.$emit('onCloseSession')
       }
     },
     computed: {

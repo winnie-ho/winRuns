@@ -1,15 +1,21 @@
-<div id='activity-session' class='col sa' v-show='createSession'>
-  <h4>SET EFFORTS</h4>
-  <div id="efforts-list" v-for='effort in orderedSessionEfforts' v-bind:key='effort.index'>
-    <div class='row sb'>
-      <h5>{{ effort.lap_index }}</h5>
+<div id='activity-session' class='col sb' v-show='createSession'>
+  <img class="icon exit" src="../../assets/icon_cross.png" v-on:click='closeSession'/>
+  <h4>SESSION EFFORTS</h4>
+  <div id="efforts-list" class='col sa'>
+    <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' v-bind:key='effort.index'>
+      <h5>{{ index + 1 }}</h5>
       <h5>{{ renderDistance(effort.distance) }}</h5>
       <h5>{{ renderTime(effort.moving_time) }}</h5>
       <h5>{{ renderPace(effort.moving_time, effort.distance) }}</h5>
     </div>
   </div>
-  <span>
-    <button v-on:click='resetSession'>Reset</button>
-    <button v-on:click='saveSession'>Save session</button>
-  </span>
+  <div id='session-saved' v-show='sessionSaved'>
+    <h4>Session Saved</h4>
+  </div>
+  <div class='row'>
+    <button class='button button--primary' v-on:click='resetSession'>Reset</button>
+    <button class='button button--secondary'v-on:click='saveSession'>Save session</button>
+  </div>
 </div>
+
+ 
