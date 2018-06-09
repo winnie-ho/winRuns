@@ -19,7 +19,8 @@ export const store = new Vuex.Store({
     weatherForecast: {},
     userToken: '',
     fullParkRuns: [],
-    sessions: []
+    sessions: [],
+    updateStravaActivityResponse: false
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -36,7 +37,8 @@ export const store = new Vuex.Store({
     setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
     setUserToken: (state, payload) => (state.userToken = payload),
     setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
-    setSessions: (state, payload) => (state.sessions = payload)
+    setSessions: (state, payload) => (state.sessions = payload),
+    setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -141,10 +143,9 @@ export const store = new Vuex.Store({
       })
     },
     updateStravaActivity: (context, actionParameters) => {
-      console.log('UPDATING STRAVA ACTIVITY:', actionParameters)
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters[1]).then(
         function (response) {
-          console.log('response', response)
+          context.commit('setUpdateStravaActivityResponse', response.ok)
         })
     }
   }
