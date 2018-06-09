@@ -131,6 +131,7 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 3px;
   padding: 5px;
   width: 100px;
+  margin: 2px;
 }
 
 .button--primary {
@@ -141,6 +142,7 @@ h1, h2, h3, h4, h5, h6{
 
 .button--secondary {
   background-color: #AEECEF;
+  border: 1px solid #AEECEF;
   color: #3066BE;
 }
 
