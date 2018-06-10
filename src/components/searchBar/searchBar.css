@@ -8,7 +8,7 @@
 #search-icon {
   position: absolute;
   top: 17px;
-  right: 55px;
+  right: 340px;
 }
 
 input{
@@ -24,4 +24,11 @@ input{
 
 ::placeholder {
   color: #AEECEF;
+}
+
+/* responsive css  */
+@media all and (max-width: 1000px) {
+  #search-icon {
+    right: 55px;
+  }
 }
