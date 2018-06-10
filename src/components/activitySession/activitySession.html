@@ -1,7 +1,7 @@
 <div id='activity-session' class='col sb' v-show='createSession'>
   <img class="icon exit" src="../../assets/icon_cross.png" v-on:click='closeSession'/>
   <h4>SESSION EFFORTS</h4>
-  <div id="efforts-list" class='col sa'>
+  <div id="efforts-list">
     <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' v-bind:key='effort.index'>
       <h5>{{ index + 1 }}</h5>
       <h5>{{ renderDistance(effort.distance) }}</h5>
