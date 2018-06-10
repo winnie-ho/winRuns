@@ -41,6 +41,13 @@ export default {
         let result =  !!this.sessionEfforts.includes(this.lap) 
         return result
       }
+    },
+    isMergeable: function() {
+      let isSelectedLap = this.sessionEfforts.find( effort => effort.lap_index === this.lap.lap_index );
+      if (isSelectedLap) {
+        let result = this.sessionEfforts.map(index => index.lap_index).indexOf(this.lap.lap_index - 1)
+        return result !== -1 
+      }
     }
   }
 }
