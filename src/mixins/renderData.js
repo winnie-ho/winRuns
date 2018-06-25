@@ -72,6 +72,18 @@ export default {
       }
       return paceMinutes + ':' + paceSeconds + '/km'
     },
+    renderSwimPace: function (rawTime, rawDistance) {
+      let multiplier = 100 / rawDistance
+      if (!rawTime) return
+      const totalMinutes = (rawTime * multiplier / 60).toFixed(2)
+      const paceMinutes = (Math.floor(totalMinutes)).toFixed(0)
+      let rawPaceSeconds = (((totalMinutes) - paceMinutes) * 60).toFixed(0)
+      let paceSeconds = rawPaceSeconds
+      if (rawPaceSeconds < 10) {
+        paceSeconds = '0' + rawPaceSeconds
+      }
+      return paceMinutes + ':' + paceSeconds + '/100m'
+    },
     renderDate: function (rawDate, format) {
       if (!rawDate) return
       const convertedRawDate = new Date(rawDate)
