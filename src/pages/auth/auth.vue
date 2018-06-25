@@ -21,8 +21,8 @@ export default {
       user: '',
       userToken: '',
       athleteId: '',
-      redirect_url: "https://win-runs.firebaseapp.com"
-      // redirect_url: "http://localhost:8080",
+      // redirect_url: "https://win-runs.firebaseapp.com"
+      redirect_url: "http://localhost:8080",
     }
   },
   mounted () {
@@ -45,7 +45,7 @@ export default {
     },
     login: function () {
       console.log('LOGGING IN...')
-      const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=write&state=mystate&approval_prompt=force";
+      const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=write&state=mystate&approval_prompt=auto";
       
       window.location = url;
       if (this.authCode) {
