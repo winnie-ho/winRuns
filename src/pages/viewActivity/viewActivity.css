@@ -5,6 +5,7 @@
 
 #activity-info{
   position: relative;
+  padding-bottom: 20px;
   display: block;
   flex-direction: column;
   z-index: 1;
@@ -28,7 +29,6 @@
   margin: 10px 0;
   display: grid;
   align-items: center;
-  grid-template-rows: 38% 100px auto;
   justify-content: center;
   grid-template-columns: 20% 20% 20% 20%;
 }
