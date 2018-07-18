@@ -66,7 +66,12 @@
         let sessionString = '';
         let i = 1;
         this.orderedSessionEfforts.forEach(effort => {
-          sessionString = sessionString + i + '  ' + this.renderDistance(effort.distance) + '  ' + this.renderTime(effort.moving_time) + '  ' + this.renderPace(effort.moving_time, effort.distance) + '\n'
+          let index = i;
+          if (i < 10) {
+            index = "0" + i
+          }
+          
+          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) + ')\n'
 
           i ++
         })
