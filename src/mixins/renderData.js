@@ -35,6 +35,7 @@ export default {
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
     renderSwimDistance: function (rawDistance) {
+      if (rawDistance === 0) return '0m'
       if (!rawDistance) return
       return rawDistance.toFixed(0) + 'm'
     },
@@ -77,6 +78,7 @@ export default {
       return paceMinutes + ':' + paceSeconds + '/km'
     },
     renderSwimPace: function (rawTime, rawDistance) {
+      if (rawDistance === 0) return '-'
       let multiplier = 100 / rawDistance
       if (!rawTime) return
       const totalMinutes = (rawTime * multiplier / 60).toFixed(2)

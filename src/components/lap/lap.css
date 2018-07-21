@@ -3,6 +3,8 @@
   background-color: transparent;
   color: white;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 #laps{
   margin: 10px 0;
