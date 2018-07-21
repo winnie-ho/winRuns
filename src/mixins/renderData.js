@@ -34,6 +34,10 @@ export default {
       }
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
+    renderSwimDistance: function (rawDistance) {
+      if (!rawDistance) return
+      return rawDistance.toFixed(0) + 'm'
+    },
     renderTime: function (rawTime, short) {
       if (!rawTime) return
 

@@ -11,14 +11,15 @@
       </div>
 
       <div v-show="activity.type === 'Swim'" class="row sa">
-        <div class="data-metric">{{ activity.description }}</div>
+        <div class="data-metric">{{ renderSwimDistance(activity.distance) }}</div>
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
+        <div class="data-metric">{{ renderSwimPace(activity.moving_time, activity.distance) }}</div>
       </div>
+      <div v-show="activity.type === 'Swim'" class='description'>{{ activity.description }}</div>
 
       <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
         <div class="data-metric">{{ renderDistance(activity.distance) }}</div>
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
-        <div class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
       </div>
       
       <div class="row sa">

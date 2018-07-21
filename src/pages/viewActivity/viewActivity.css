@@ -68,3 +68,8 @@
 .createSessionBtn img {
   margin: 0px;
 }
+
+.description{
+  margin: 10px 30px;
+  font-size: 12px;
+}
