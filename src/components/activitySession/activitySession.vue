@@ -24,7 +24,7 @@
         let updatedActivity = {
           "commute": this.activity.commute,
           "trainer": this.activity.trainer,
-          "description": this.renderStravaSession,
+          "description": this.activity.type === "Swim" ? this.renderStravaSwimSession() : this.renderStravaSession(),
           "name": this.activity.name,
           "type": this.activity.type,
           "private": this.activity.private,
@@ -42,7 +42,36 @@
       },
       closeSession: function() {
         this.$emit('onCloseSession')
+      },
+      renderStravaSession: function() {
+        let sessionString = '';
+        let i = 1;
+
+        this.orderedSessionEfforts.forEach(effort => {
+          let index = i;
+          if (i < 10) {
+            index = "0" + i
+          }
+          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) + ')\n'
+        })
+        i++
+        return sessionString
+      },
+      renderStravaSwimSession: function() {
+        let sessionString = '';
+        let i = 1;
+
+        this.orderedSessionEfforts.forEach(effort => {
+          let index = i;
+          if (i < 10) {
+            index = "0" + i
+          }
+          sessionString = sessionString + index + '\t - \t' + this.renderSwimDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderSwimPace(effort.moving_time, effort.distance) + ')\n'
+        })
+        i ++
+        return sessionString
       }
+
     },
     computed: {
       activity: function() {
@@ -62,23 +91,6 @@
       },
       sessionExists: function() {
       },
-      renderStravaSession: function() {
-        let sessionString = '';
-        let i = 1;
-        this.orderedSessionEfforts.forEach(effort => {
-          let index = i;
-          if (i < 10) {
-            index = "0" + i
-          }
-          
-          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) + ')\n'
-
-          i ++
-        })
-
-        console.log('sessionString', sessionString)
-        return sessionString
-      }
     }
   }
 </script>
