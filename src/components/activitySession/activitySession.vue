@@ -53,8 +53,8 @@
             index = "0" + i
           }
           sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) + ')\n'
+          i++
         })
-        i++
         return sessionString
       },
       renderStravaSwimSession: function() {
@@ -67,8 +67,8 @@
             index = "0" + i
           }
           sessionString = sessionString + index + '\t - \t' + this.renderSwimDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderSwimPace(effort.moving_time, effort.distance) + ')\n'
+          i ++
         })
-        i ++
         return sessionString
       }
 
