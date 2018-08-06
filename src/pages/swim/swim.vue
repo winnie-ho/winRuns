@@ -1,17 +1,18 @@
-<template src='./runClub.html'></template>
-<style scoped src='./runClub.css'></style>
+<template src='./swim.html'></template>
+<style scoped src='./swim.css'></style>
 
 <script>
 import navBar from '../../components/navBar/navBar.vue'
 
+
 export default {
-  name: 'runClub',
+  name: 'swim',
   components: {
     'nav-bar': navBar
   },
   data () {
     return {
-      pageTitle: 'RUN CLUB'
+      pageTitle: 'SWIM'
     }
   },
   mounted () {
@@ -21,8 +22,15 @@ export default {
   },
 
   methods: {
+    generateSwimFile: function() {
+      console.log('GENERATE SWIM FILE', this.tcx)
+
+    }
   },
   computed: {
+    status: function() {
+
+    }
   }
 }
 </script>

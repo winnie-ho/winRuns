@@ -7,7 +7,7 @@
 <script>
 import auth from './pages/auth/auth.vue'
 import home from './pages/home/home.vue'
-import runClub from './pages/runClub/runClub.vue'
+import swim from './pages/swim/swim.vue'
 import parkRun from './pages/parkRun/parkRun.vue'
 import activities from './pages/activities/activities.vue'
 import parkRunActivities from './pages/parkRunActivities/parkRunActivities.vue'
@@ -16,7 +16,7 @@ export default {
   components: {
     'auth': auth,
     'home': home,
-    'runClub': runClub,
+    'swim': swim,
     'parkRun': parkRun,
     'activities': activities,
     'parkRunActivities': parkRunActivities
