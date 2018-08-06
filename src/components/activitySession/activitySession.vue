@@ -66,7 +66,7 @@
           if (i < 10) {
             index = "0" + i
           }
-          sessionString = sessionString + index + '\t - \t' + this.renderSwimDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderSwimPace(effort.moving_time, effort.distance) + ')\n'
+          sessionString = sessionString + index + ' - ' + this.renderSwimDistance(effort.distance) +  ', ' + this.renderTime(effort.moving_time) +  ' (' + this.renderSwimPace(effort.moving_time, effort.distance) + ')\n'
           i ++
         })
         return sessionString
