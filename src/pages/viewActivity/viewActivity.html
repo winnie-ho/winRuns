@@ -15,12 +15,13 @@
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
         <div class="data-metric">{{ renderSwimPace(activity.moving_time, activity.distance) }}</div>
       </div>
-      <div v-show="activity.type === 'Swim'" class='description'>{{ activity.description }}</div>
-
+      
       <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
         <div class="data-metric">{{ renderDistance(activity.distance) }}</div>
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
+        <div class="data-metric">{{ renderPace(activity.moving_time, activity.distance) }}</div>
       </div>
+      <div class='description'>{{ activity.description }}</div>
       
       <div class="row sa">
         <div class="row" v-on:click='openLaps =!openLaps'> 
@@ -84,7 +85,7 @@
         <div v-show='openLaps'>
           <div class="createSessionBtn" v-on:click='toggleCreateSession' v-show='!createSession'> 
             <img class="icon" src="../../assets/icon_add.png"/>
-            <h5>Session</h5>
+            <h4>Session</h4>
           </div>
           <activitySession v-bind:createSession='createSession' v-bind:sessionEfforts='sessionEfforts' v-on:onResetSessionEfforts='resetSessionEfforts' v-on:onCloseSession='toggleCreateSession'></activitySession>
           <div v-for='lap in laps' v-bind:key='lap.index'>
