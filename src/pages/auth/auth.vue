@@ -45,7 +45,7 @@ export default {
     },
     login: function () {
       console.log('LOGGING IN...')
-      const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=write&state=mystate&approval_prompt=auto";
+      const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=view_private,write&state=mystate&approval_prompt=auto";
       
       window.location = url;
       if (this.authCode) {
