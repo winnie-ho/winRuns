@@ -44,7 +44,9 @@ export const store = new Vuex.Store({
     parkRuns: (state) => {
       if (!state.selectedParkRun.startCoords) return
       return state.activities.filter(activity => {
-        return activity.start_latitude === state.selectedParkRun.startCoords[0] && activity.start_longitude === state.selectedParkRun.startCoords[1]
+        if (activity.start_latitude && activity.start_longitude) {
+          return activity.start_latitude.toFixed(2) == state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) == state.selectedParkRun.startCoords[1]
+        }
       })
     },
     dateOrderedFullParkRuns: (state) => {
