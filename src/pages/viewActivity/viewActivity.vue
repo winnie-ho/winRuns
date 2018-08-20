@@ -60,6 +60,10 @@ export default {
     },
     resetSessionEfforts: function() {
       this.sessionEfforts = [];
+    },
+    generateSwim: function() {
+      console.log('generate Swim')
+      this.$store.dispatch('fetchSwimTcx', activityId)
     }
   },
   computed: {

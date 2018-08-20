@@ -1,7 +1,7 @@
 <div id='swim'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
 
-  <input id='fileInput' type="file" accept=".tcx">
-  <button class='button button--primary' v-on:click='generateSwimFile'>GENERATE</button>
+  <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
+  <button class='button button--primary' v-on:click='generateSwim'>GENERATE</button>
   <h4>{{ status }}</h4>
 </div>

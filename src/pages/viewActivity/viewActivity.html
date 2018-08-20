@@ -9,7 +9,7 @@
         <div class="heading truncate">{{ activity.name }}</div>
         <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
       </div>
-
+      
       <div v-show="activity.type === 'Swim'" class="row sa">
         <div class="data-metric">{{ renderSwimDistance(activity.distance) }}</div>
         <div class="data-metric">{{ renderTime(activity.moving_time) }}</div>
@@ -32,8 +32,8 @@
           <img class="icon" src="../../assets/icon_heartrate.png"/>
           <div class="data-metric">{{ activity.average_heartrate }}</div>
         </div>
-
-        <div class='row'>
+        
+        <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class='row'>
           <img class="icon" src="../../assets/icon_cadence.png"/>
           <div class="data-metric">{{ activity.average_cadence }}</div>
         </div>
@@ -45,7 +45,7 @@
           <img class="icon" src="../../assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
-
+        
         <div class="row" v-show='kudos.length !== 0' v-on:click='openKudos = !openKudos'>
           <img class="icon" src="../../assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
