@@ -114,6 +114,21 @@ export default {
       // if (err) throw err;
   
       console.log('Saved!', xml);
+
+      let newActivity = {
+        file: "./sample.tcx",
+        // "name": 'New Swim',
+        // "description": '',
+        // "private": true,
+        // "trainer": false,
+        // "commute": false,
+        data_type: 'tcx',
+        external_id: "winSwims Test"
+      }
+      let actionParameters = [ newActivity ]
+      console.log('NEW ACTIVITY', newActivity.externalId)
+      this.$store.dispatch('uploadStravaActivity', newActivity)
+
     // });
     }
 

@@ -20,7 +20,8 @@ export const store = new Vuex.Store({
     userToken: '',
     fullParkRuns: [],
     sessions: [],
-    updateStravaActivityResponse: false
+    updateStravaActivityResponse: false,
+    uploadStravaActivityResponse: {}
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -38,7 +39,8 @@ export const store = new Vuex.Store({
     setUserToken: (state, payload) => (state.userToken = payload),
     setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
     setSessions: (state, payload) => (state.sessions = payload),
-    setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload)
+    setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
+    setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -146,6 +148,13 @@ export const store = new Vuex.Store({
     // },
     updateStravaActivity: (context, actionParameters) => {
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters[1]).then(
+        function (response) {
+          context.commit('setUpdateStravaActivityResponse', response)
+        })
+    },
+    uploadStravaActivity: (context, actionParameters) => {
+      console.log('actionParams', actionParameters)
+      Vue.http.post('https://www.strava.com/api/v3/uploads/\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters).then(
         function (response) {
           context.commit('setUpdateStravaActivityResponse', response)
         })
