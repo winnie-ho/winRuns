@@ -51,7 +51,6 @@ export default {
     },
 
     parseFile: async function(file){
-      console.log('startParse', file)
       let parser = new xml2js.Parser();
 
       let parsedFile = await parser.parseString(file, (err, result) => {
@@ -59,14 +58,12 @@ export default {
           console.log('ERROR IN PARSING', err)
         } 
 
-        console.log('RESULT', result)
         this.updateActivity(result);
       });
 
     },
 
     selectLaps: function(data) {
-      console.log('data', data)
       return data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
     },
 
@@ -109,27 +106,35 @@ export default {
     },
 
     writeFile: function (xml) {
-      // fs.writeFile('./today.tcx', xml, (err) => {  
-      // // throws an error, you could also catch it here
-      // if (err) throw err;
-  
-      console.log('Saved!', xml);
+      let swimFile = new Blob([xml], {type:'text/plain'});
+
+      let downloadLink = document.createElement("a");
+      downloadLink.download = "outputSwim.tcx";
+      downloadLink.innerHTML = "Download Swim";
+      if (window.webkitURL != null)
+      {
+        downloadLink.href = window.webkitURL.createObjectURL(swimFile);
+      }
+      else
+      {
+        downloadLink.href = window.URL.createObjectURL(swimFile);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+      }
+      downloadLink.click();
+
+      console.log('Saved!', swimFile)
 
       let newActivity = {
-        file: "./sample.tcx",
-        // "name": 'New Swim',
-        // "description": '',
-        // "private": true,
-        // "trainer": false,
-        // "commute": false,
+        file: swimFile,
+        name: 'Test Swim Upload',
+        private: true,
         data_type: 'tcx',
         external_id: "winSwims Test"
       }
       let actionParameters = [ newActivity ]
-      console.log('NEW ACTIVITY', newActivity.externalId)
       this.$store.dispatch('uploadStravaActivity', newActivity)
-
-    // });
     }
 
   },
