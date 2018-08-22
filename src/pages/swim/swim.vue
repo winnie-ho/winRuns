@@ -38,7 +38,6 @@ export default {
           this.file = e.target.result;
         }
         reader.readAsText(input.files[0]);
-        this.status = "Successfully imported file.";
       }
     },
 
@@ -106,8 +105,7 @@ export default {
     },
 
     writeFile: function (xml) {
-      let swimFile = new Blob([xml], {type:'text/plain'});
-
+      let swimFile = new File([xml], {type:'text/plain'});
       let downloadLink = document.createElement("a");
       downloadLink.download = "outputSwim.tcx";
       downloadLink.innerHTML = "Download Swim";
@@ -135,6 +133,7 @@ export default {
       }
       let actionParameters = [ newActivity ]
       this.$store.dispatch('uploadStravaActivity', newActivity)
+      this.status = "Successfully imported file.";
     }
 
   },
