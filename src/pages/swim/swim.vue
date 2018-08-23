@@ -98,14 +98,17 @@ export default {
       this.parseFile(this.file)
     },
 
-    renderFile: function(data) {
+    renderFile: async function(data) {
       const builder = new xml2js.Builder();
       const xml = builder.buildObject(data);
-      this.writeFile(xml);
+      const file = await this.writeFile(xml);
+      await this.uploadToStrava(file);
+      // await this.getUploadStatus();
     },
 
     writeFile: function (xml) {
-      let swimFile = new File([xml], {type:'text/plain'});
+      let swimFile = new File([xml], 'outputSwim.tcx', {type:'text/plain'});
+
       let downloadLink = document.createElement("a");
       downloadLink.download = "outputSwim.tcx";
       downloadLink.innerHTML = "Download Swim";
@@ -121,19 +124,26 @@ export default {
         document.body.appendChild(downloadLink);
       }
       downloadLink.click();
-
       console.log('Saved!', swimFile)
+      return swimFile;
+    },
 
-      let newActivity = {
-        file: swimFile,
-        name: 'Test Swim Upload',
-        private: true,
-        data_type: 'tcx',
-        external_id: "winSwims Test"
-      }
-      let actionParameters = [ newActivity ]
-      this.$store.dispatch('uploadStravaActivity', newActivity)
+    uploadToStrava: function (file) {
+      let formData = new FormData();
+      formData.append('name', 'Test:postSwimUploadRequest');
+      formData.append('file', file, 'outputSwim.tcx');
+      formData.append('private', '56');
+      formData.append('data_type', 'tcx');
+      formData.append('external_id', 'winSwimsTest');
+
+      this.$store.dispatch('uploadStravaActivity', formData)
       this.status = "Successfully imported file.";
+    },
+
+    getUploadStatus: function () {
+      if (!this.$store.state.uploadStravaActivityResponse) return;
+      console.log('ID', this.$store.state.uploadStravaActivityResponse)
+      this.$store.dispatch('getStravaUpload', this.$store.state.uploadStravaActivityResponse.id)
     }
 
   },
