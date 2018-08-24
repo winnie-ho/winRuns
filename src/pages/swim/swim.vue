@@ -19,7 +19,8 @@ export default {
       file: '',
       lapDistance: 0,
       swimName:'New Swim',
-      swimDescription: ''
+      swimDescription: '',
+      swimPrivacy: 0
     }
   },
   mounted () {
@@ -141,7 +142,7 @@ export default {
       formData.append('name', this.swimName);
       formData.append('description', this.swimDescription);
       formData.append('file', file, 'outputSwim.tcx');
-      formData.append('private', 1);
+      formData.append('private', this.swimPrivacy);
       formData.append('data_type', 'tcx');
       formData.append('external_id', 'winSwimsTest');
       formData.append('activity_type', 'swim');
@@ -167,6 +168,13 @@ export default {
       this.lapDistance = document.getElementById('poolLength').value
     },
 
+    setSwimPrivacy: function () {
+      if (document.getElementById('swimPrivacy').checked) {
+        this.swimPrivacy = 1
+      } else {
+        this.swimPrivacy = 0
+      }
+    },
 
   },
   computed: {

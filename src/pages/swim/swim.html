@@ -1,16 +1,20 @@
 <div id='swim'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
   <div class='col sa'>
-    <img src='../../assets/icon_swim.png'/>
+    <img class='swim-logo' src='../../assets/icon_swim.png'/>
     <img class='strava-logo' src='../../assets/icon_strava.png'/>
-    <p class='subheading'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
+    <div class='swim-instructions'>
+      <p class='subheading'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
+    </div>
     <form class='swim-form'>
       <label for='swimName'>NAME</label>
       <input id='swimName' @change='setSwimName'>
       <label for='swimDescription'>DESCRIPTION</label>
       <input id='swimDescription' @change='setSwimDescription'>
-      <label for='poolLength'>LAP DISTANCE (m) </label>
+      <label for='poolLength'>LAP DISTANCE (m)</label>
       <input id='poolLength' @change='setPoolLength'>
+      <label for='swimPrivacy'>PRIVATE ACTIVITY</label>
+      <input id='swimPrivacy' type='checkbox' @change='setSwimPrivacy'>
 
       
       <label for='fileInput'>ACTIVITY FILE</label>
