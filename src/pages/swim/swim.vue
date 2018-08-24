@@ -132,9 +132,10 @@ export default {
       let formData = new FormData();
       formData.append('name', 'Test:postSwimUploadRequest');
       formData.append('file', file, 'outputSwim.tcx');
-      formData.append('private', '56');
+      formData.append('private', 1);
       formData.append('data_type', 'tcx');
       formData.append('external_id', 'winSwimsTest');
+      formData.append('activity_type', 'swim');
 
       this.$store.dispatch('uploadStravaActivity', formData)
       this.status = "Successfully imported file.";
