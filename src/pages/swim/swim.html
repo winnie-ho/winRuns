@@ -1,9 +1,23 @@
 <div id='swim'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
-  <div class='col sa swim-form'>
-    <p class='subheading'>Upload your activity.tcx file to a Strava swim activity.</p>
-    <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
+  <div class='col sa'>
+    <img src='../../assets/icon_swim.png'/>
+    <img class='strava-logo' src='../../assets/icon_strava.png'/>
+  <p class='subheading'>Upload your activity.tcx file to a Strava swim activity.</p>
+    <form class='swim-form'>
+      <label for='swimName'>NAME</label>
+      <input id='swimName' @change='setSwimName'>
+      <label for='swimDescription'>DESCRIPTION</label>
+      <input id='swimDescription' @change='setSwimDescription'>
+      <label for='poolLength'>LAP DISTANCE</label>
+      <input id='poolLength' @change='setPoolLength'>
+
+      
+      <label for='fileInput'>ACTIVITY FILE</label>
+      <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
+    </form>
     <p class='subheading'>{{ status }}</p>
+    <p class='subheading'>{{ stravaStatus }}</p>
     <button class='button button--primary' v-on:click='generateSwim'>Upload</button>
   </div>
 </div>

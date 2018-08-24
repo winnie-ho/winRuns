@@ -4,7 +4,8 @@
 }
 
 .swim-form{
-  margin: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .subheading{
@@ -12,5 +13,22 @@
 }
 
 input{
-  margin: 30px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+label{
+  font-size: 12px;
+}
+
+img{
+  height: 50px;
+  width: auto;
+}
+
+.strava-logo{
+  height: 10px;
+  width: auto;
 }

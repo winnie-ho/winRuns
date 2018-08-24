@@ -17,7 +17,9 @@ export default {
       pageTitle: 'SWIM',
       status: '',
       file: '',
-      lapDistance: 50
+      lapDistance: 0,
+      swimName:'New Swim',
+      swimDescription: ''
     }
   },
   mounted () {
@@ -32,6 +34,7 @@ export default {
       if (input.files.length === 0) {
         this.status = "Please select a file."
       } else {
+        this.status = ""
         const reader = new FileReader();
 
         reader.onload = (e) => {
@@ -42,6 +45,10 @@ export default {
     },
 
     updateActivity: function(result) {
+      if (!result) {
+        this.status = "Please select a file"
+        return
+      }
       const laps = this.selectLaps(result);
       this.renderLapDistanceTotal(laps);
 
@@ -63,17 +70,19 @@ export default {
     },
 
     selectLaps: function(data) {
+      if (!data) return
       return data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
     },
 
     renderLapDistanceTotal: function(laps) {
+      if (!laps) return
       let lapIndex = 0;
       return laps.map(lap => {
         let incrementalLapDistance = lapIndex * this.lapDistance;
         let trackpoints = lap.Track[0].Trackpoint;
         lapIndex ++;
         return Object.assign(lap, {
-          DistanceMeters: 50,
+          DistanceMeters: this.lapDistance,
           Track: {
               Trackpoint: this.renderTrack(trackpoints, incrementalLapDistance)
           }
@@ -124,13 +133,13 @@ export default {
         document.body.appendChild(downloadLink);
       }
       downloadLink.click();
-      console.log('Saved!', swimFile)
       return swimFile;
     },
 
     uploadToStrava: function (file) {
       let formData = new FormData();
-      formData.append('name', 'Test:postSwimUploadRequest');
+      formData.append('name', this.swimName);
+      formData.append('description', this.swimDescription);
       formData.append('file', file, 'outputSwim.tcx');
       formData.append('private', 1);
       formData.append('data_type', 'tcx');
@@ -138,18 +147,33 @@ export default {
       formData.append('activity_type', 'swim');
 
       this.$store.dispatch('uploadStravaActivity', formData)
-      this.status = "Successfully imported file.";
     },
 
     getUploadStatus: function () {
       if (!this.$store.state.uploadStravaActivityResponse) return;
       console.log('ID', this.$store.state.uploadStravaActivityResponse)
       this.$store.dispatch('getStravaUpload', this.$store.state.uploadStravaActivityResponse.id)
-    }
+    },
+
+    setSwimName: function () {
+      this.swimName = document.getElementById('swimName').value
+    },
+
+    setSwimDescription: function () {
+      this.swimDescription = document.getElementById('swimDescription').value
+    },
+
+    setPoolLength: function () {
+      this.lapDistance = document.getElementById('poolLength').value
+    },
+
 
   },
   computed: {
-
+    stravaStatus: function () {
+      if (!this.$store.state.uploadStravaActivityResponse) return;
+      return this.$store.state.uploadStravaActivityResponse.status;
+    }
   }
 }
 </script>

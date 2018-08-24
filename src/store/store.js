@@ -158,8 +158,14 @@ export const store = new Vuex.Store({
       Vue.http.post('https://www.strava.com/api/v3/uploads\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1', actionParameters
       ).then(
         function (response) {
+          console.log('RES', response.body.status)
           context.commit('setUploadStravaActivityResponse', response.body)
-        })
+        },
+        response => {
+          console.log('RES', response.body.status)
+          context.commit('setUploadStravaActivityResponse', response.body)
+        }
+      )
     },
     getStravaUpload: (context, uploadId) => {
       Vue.http.post('https://www.strava.com/api/v3/uploads/' + uploadId + '\?access_token=d0f9b2db60c6a57c7a86eaa9c7019ef9e30fbab1').then(
