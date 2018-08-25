@@ -124,21 +124,19 @@ export default {
     writeFile: function (xml) {
       let swimFile = new File([xml], 'outputSwim.tcx', {type:'text/plain'});
 
-      let downloadLink = document.createElement("a");
-      downloadLink.download = "outputSwim.tcx";
-      downloadLink.innerHTML = "Download Swim";
-      if (window.webkitURL != null)
-      {
-        downloadLink.href = window.webkitURL.createObjectURL(swimFile);
-      }
-      else
-      {
-        downloadLink.href = window.URL.createObjectURL(swimFile);
-        downloadLink.onclick = destroyClickedElement;
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
-      }
-      downloadLink.click();
+      // let downloadLink = document.createElement("a");
+      // downloadLink.download = "outputSwim.tcx";
+      // downloadLink.innerHTML = "Download Swim";
+      // if (window.webkitURL != null) {
+      //   downloadLink.href = window.webkitURL.createObjectURL(swimFile);
+      // }
+      // else {
+      //   downloadLink.href = window.URL.createObjectURL(swimFile);
+      //   downloadLink.onclick = destroyClickedElement;
+      //   downloadLink.style.display = "none";
+      //   document.body.appendChild(downloadLink);
+      // }
+      // downloadLink.click();
       return swimFile;
     },
 
