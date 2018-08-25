@@ -3,9 +3,7 @@
   <div class='col sa'>
     <img class='swim-logo' src='../../assets/icon_swim.png'/>
     <img class='strava-logo' src='../../assets/icon_strava.png'/>
-    <div class='swim-instructions'>
-      <p class='subheading'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
-    </div>
+    <p class='subheading'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
     <form class='swim-form'>
       <label for='swimName'>NAME</label>
       <input id='swimName' @change='setSwimName'>
@@ -22,6 +20,6 @@
     </form>
     <p class='subheading'>{{ status }}</p>
     <p class='subheading'>{{ stravaStatus }}</p>
-    <button class='button button--primary' v-on:click='generateSwim'>Upload</button>
+    <button class='button button--primary' v-on:click='generateSwim' v-bind:disabled='disableButton'>Upload</button>
   </div>
 </div>

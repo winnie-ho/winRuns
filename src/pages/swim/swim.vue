@@ -20,7 +20,7 @@ export default {
       lapDistance: 0,
       swimName:'New Swim',
       swimDescription: '',
-      swimPrivacy: 0
+      swimPrivacy: 0,
     }
   },
   mounted () {
@@ -31,6 +31,7 @@ export default {
 
   methods: {
     readFile: async function(event) {
+      this.file = '';
       const input = event.target;
       if (input.files.length === 0) {
         this.status = "Please select a file."
@@ -174,13 +175,20 @@ export default {
       } else {
         this.swimPrivacy = 0
       }
-    },
-
+    }
   },
   computed: {
     stravaStatus: function () {
       if (!this.$store.state.uploadStravaActivityResponse) return;
-      return this.$store.state.uploadStravaActivityResponse.status;
+      if (this.$store.state.uploadStravaActivityResponse.status === 'Your activity is still being processed.') {
+        return "Your swim is uploading. Check your Strava in a few moments.";
+      } else {
+        return this.$store.state.uploadStravaActivityResponse.status;
+      }
+    },
+
+    disableButton: function () {
+      return !(this.lapDistance && this.file);
     }
   }
 }

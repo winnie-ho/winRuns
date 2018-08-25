@@ -1,6 +1,6 @@
 #swim {
   height: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .swim-form{
@@ -9,7 +9,7 @@
 }
 
 .subheading{
-  margin: 10px;
+  margin: 10px 20px;
 }
 
 input{
@@ -37,7 +37,7 @@ img{
   margin-bottom: 5px;
 }
 
-.swim-instructions {
-  margin: 20px;
+.disabled {
+  background-color: gray;
 }
 
