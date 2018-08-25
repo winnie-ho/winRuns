@@ -27,5 +27,12 @@
       v-bind:disabled='disableButton' 
       v-bind:hidden='successfulStravaStatus'>Upload
     </button>
+    <button 
+      class='button button--primary' 
+      v-on:click='viewActivities' 
+      v-bind:hidden='!successfulStravaStatus'>Activities
+    </button>
+
+
   </div>
 </div>

@@ -25,6 +25,7 @@ export default {
     }
   },
   mounted () {
+    this.$store.dispatch('resetUploadStravaActivityResponse');
   },
 
   created () {
@@ -177,6 +178,10 @@ export default {
       } else {
         this.swimPrivacy = 0
       }
+    },
+
+    viewActivities: function () {
+      this.$router.push('/activities/')
     }
   },
   computed: {
