@@ -21,6 +21,7 @@ export default {
       swimName:'New Swim',
       swimDescription: '',
       swimPrivacy: 0,
+      stravaSuccessMessage: 'Your activity is still being processed.'
     }
   },
   mounted () {
@@ -180,8 +181,8 @@ export default {
   computed: {
     stravaStatus: function () {
       if (!this.$store.state.uploadStravaActivityResponse) return;
-      if (this.$store.state.uploadStravaActivityResponse.status === 'Your activity is still being processed.') {
-        return "Your swim is uploading. Check your Strava in a few moments.";
+      if (this.$store.state.uploadStravaActivityResponse.status === this.stravaSuccessMessage) {
+        return "Your swim is uploading.\nCheck your Strava in a few moments.";
       } else {
         return this.$store.state.uploadStravaActivityResponse.status;
       }
@@ -189,6 +190,10 @@ export default {
 
     disableButton: function () {
       return !(this.lapDistance && this.file);
+    },
+
+    successfulStravaStatus: function () {
+      return this.$store.state.uploadStravaActivityResponse.status === this.stravaSuccessMessage;
     }
   }
 }
