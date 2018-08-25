@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch('fetchActivities');
+    this.$store.dispatch('fetchActivities', 15);
     this.$store.dispatch('fetchStats')
   },
   methods: {

@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('fetchActivities');
+    this.$store.dispatch('fetchActivities', 200);
   },
 
   created() {
