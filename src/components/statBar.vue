@@ -53,4 +53,11 @@ export default {
     left: 0px;
     width: 70px;
   }
+
+  /* responsive css  */
+@media all and (max-width: 700px) {
+  .stat-bar {
+    margin-right: -25px;
+  }
+}
 </style>

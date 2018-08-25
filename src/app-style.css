@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .truncate {
-  width: 80%;
+  width: 70%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
