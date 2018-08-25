@@ -18,7 +18,6 @@
         <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
       </div>
     </form>
-    <p class='subheading'>{{ status }}</p>
     <img class='tick-icon' src='../../assets/icon_tick.png' v-bind:hidden='!successfulStravaStatus'/>
     <p class='heading strava-status'>{{ stravaStatus }}</p>
     <button 

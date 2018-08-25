@@ -15,7 +15,6 @@ export default {
   data () {
     return {
       pageTitle: 'SWIM',
-      status: '',
       file: '',
       lapDistance: 0,
       swimName:'New Swim',
@@ -35,24 +34,15 @@ export default {
     readFile: async function(event) {
       this.file = '';
       const input = event.target;
-      if (input.files.length === 0) {
-        this.status = "Please select a file."
-      } else {
-        this.status = ""
-        const reader = new FileReader();
+      const reader = new FileReader();
 
-        reader.onload = (e) => {
-          this.file = e.target.result;
-        }
-        reader.readAsText(input.files[0]);
+      reader.onload = (e) => {
+        this.file = e.target.result;
       }
+      reader.readAsText(input.files[0]);
     },
 
     updateActivity: function(result) {
-      if (!result) {
-        this.status = "Please select a file"
-        return
-      }
       const laps = this.selectLaps(result);
       this.renderLapDistanceTotal(laps);
 
@@ -119,7 +109,6 @@ export default {
       const xml = builder.buildObject(data);
       const file = await this.writeFile(xml);
       await this.uploadToStrava(file);
-      // await this.getUploadStatus();
     },
 
     writeFile: function (xml) {
