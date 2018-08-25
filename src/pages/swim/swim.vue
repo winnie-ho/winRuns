@@ -74,7 +74,10 @@ export default {
 
     selectLaps: function(data) {
       if (!data) return
-      return data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
+
+      // check for valid laps with time > 0.
+      let laps = data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
+      return laps.filter(lap => parseInt(lap.TotalTimeSeconds[0]) > 0);
     },
 
     renderLapDistanceTotal: function(laps) {
@@ -94,7 +97,7 @@ export default {
     },
 
     renderTrack: function(trackpoints, incrementalLapDistance) {
-      let increment = this.lapDistance/trackpoints.length;
+      let increment = this.lapDistance/(trackpoints.length-1);
       let updatedTrack = [];
       for (let i = 0; i < trackpoints.length; i ++) {
           let updatedTrackpoint = Object.assign(trackpoints[i], {
