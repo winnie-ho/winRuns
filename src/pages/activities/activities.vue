@@ -21,12 +21,6 @@ export default {
       wordToSearch: ''
     }
   },
-  mounted () {
-    this.$store.dispatch('fetchActivities', 200);
-  },
-
-  created() {
-  },
 
   methods: {
     filterWithSearchWord: function (searchWord) {

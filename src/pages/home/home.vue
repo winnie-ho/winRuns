@@ -34,6 +34,7 @@ export default {
   mounted() {
     this.$store.dispatch('fetchActivities', 15);
     this.$store.dispatch('fetchStats')
+    this.$store.dispatch('fetchActivities', 200);
   },
   methods: {
     setToggleWeekView: function() {
