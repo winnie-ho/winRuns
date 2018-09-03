@@ -12,11 +12,17 @@
       <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run'">
         {{ renderDistance(activity.distance) }}
       </div>
+      <div class='data-metric space' v-show="activity.type === 'Swim'">
+        {{ renderSwimDistance(activity.distance) }}
+      </div>
       <div class='data-metric space'>
         {{ renderTime(activity.moving_time) }}
       </div>
       <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run'">
         {{ renderPace(activity.moving_time, activity.distance) }}
+      </div>
+      <div class='data-metric space' v-show="activity.type === 'Swim'">
+        {{ renderSwimPace(activity.moving_time, activity.distance) }}
       </div>
     </div>  
   </div>
