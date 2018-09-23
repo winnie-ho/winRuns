@@ -2,6 +2,11 @@
   justify-content: space-evenly;
   color: #3066BE;
   align-items: flex-end;
+  position: absolute;
+  bottom: 30%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100vw;
 }
 
 .active {
