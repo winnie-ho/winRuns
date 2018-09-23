@@ -1,7 +1,7 @@
 <div id='week-stats' class='col sa'>
   <div class="stat-row">
     <div class='row week-total-stat'>
-      <h1>{{ weekActivitiesCount }}</h1>
+      <div class='week-total-stat-value'>{{ weekActivitiesCount }}</div>
       <div class='col'>
         <div class='row substat'>
           <img class='icon' src='../../assets/icon_run.png'/>
@@ -17,17 +17,6 @@
         </div>
       </div>
     </div>
-    <div class='week-total-stat'>
-      <img class='icon icon-large' src='../../assets/icon_medal.png'/>
-      <h2>{{ weekAchievements }}</h2>
-    </div>
-    <div class='week-total-stat'>
-      <img class='icon icon-large' src='../../assets/icon_like.png'/>
-      <h2>{{ weekKudos }}</h2>
-    </div>
-  </div>
-
-  <div class="stat-row">
     <div class='col week-total-stat'>
       <img class='icon icon-large' src='../../assets/icon_distance.png'/>
       <h2>{{ weekDistance }}</h2>
@@ -35,10 +24,6 @@
     <div class='col week-total-stat'>
       <img class='icon icon-large' src='../../assets/icon_time.png'/>
       <h2>{{ renderTime(weekTime) }}</h2>
-    </div>
-    <div class='col week-total-stat'>
-      <img class='icon icon-large' src='../../assets/icon_elevation.png'/>
-      <h2>{{ renderElevation(weekElevation) }}</h2>
     </div>
   </div>
 </div>

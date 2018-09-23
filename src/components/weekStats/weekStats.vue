@@ -28,21 +28,9 @@ export default {
       if (!this.weekInView) return;
       return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
     },
-    weekElevation: function() {
-      if (!this.weekInView) return;
-      return this.weekInView.reduce((acc, activity ) => acc + activity.total_elevation_gain, 0);
-    },
     weekActivitiesCount: function () {
       if (!this.weekInView) return
       return this.weekInView.length
-    },
-    weekAchievements: function () {
-      if (!this.weekInView) return
-      return this.weekInView.reduce((acc, activity ) => acc + activity.achievement_count, 0);
-    },
-    weekKudos: function () {
-      if (!this.weekInView) return
-      return this.weekInView.reduce((acc, activity ) => acc + activity.kudos_count, 0);
     }
   }
 }

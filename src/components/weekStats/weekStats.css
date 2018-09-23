@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+.week-total-stat-value {
+  font-size: 60px;
+}
+
 .substat h4 {
   margin: 0px;
 }  
