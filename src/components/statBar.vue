@@ -40,6 +40,7 @@ export default {
   }
 
   .stat-bar {
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

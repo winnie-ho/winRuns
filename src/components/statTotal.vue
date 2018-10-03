@@ -104,7 +104,6 @@ export default {
 }
 
 .expanded-stat {
-  margin-top: 10px;
   animation-name: expand-vertical;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
