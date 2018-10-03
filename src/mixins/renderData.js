@@ -61,7 +61,7 @@ export default {
         return minutes + ':' + seconds
       } else {
         if (short === 'short') {
-          return hours + ' hours'
+          return hours + ' hrs'
         }
         return hours + ':' + minutes + ':' + seconds
       }
