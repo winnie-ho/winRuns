@@ -10,7 +10,9 @@ export default {
   },
   data () {
     return {
-      toggleFilter: false,
+      toggleFilterSwim: false,
+      toggleFilterBike: false,
+      toggleFilterRun: false,
     }
   },
   mounted () {
@@ -20,7 +22,10 @@ export default {
   },
 
   methods: {
-
+    setSwimFilter: function() {
+      this.toggleFilterSwim = !this.toggleFilterSwim;
+      this.$emit('filterSwimChange', this.toggleFilterSwim);
+    }
   },
   computed: {
   }

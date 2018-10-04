@@ -20,13 +20,23 @@ export default {
   data () {
     return {
       pageTitle: 'ACTIVITIES',
-      wordToSearch: ''
+      wordToSearch: '',
+      showSwims: false
     }
   },
 
   methods: {
     filterWithSearchWord: function (searchWord) {
       this.wordToSearch = searchWord;
+    },
+    setSwimFilter: function(showSwims){
+      this.showSwims = showSwims;
+    },
+    filterByActivities: function(activities){
+      if (this.showSwims) {
+        return activities.filter(activity => activity.type === "Swim")
+      }
+      return activities;
     }
   },
   computed: {
@@ -35,9 +45,10 @@ export default {
     },
     filteredActivities: function(){
       if (!this.activities && !this.wordToSearch) return;
-      return this.activities.filter(activity => {
+      const filteredActivitiesByWordSearch = this.activities.filter(activity => {
         return activity.name.toLowerCase().includes(this.wordToSearch.toLowerCase())
-      })
+      });
+      return this.filterByActivities(filteredActivitiesByWordSearch);
     },
   }
 }
