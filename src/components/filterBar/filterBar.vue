@@ -10,9 +10,9 @@ export default {
   },
   data () {
     return {
-      toggleFilterSwim: false,
-      toggleFilterRide: false,
-      toggleFilterRun: false,
+      toggleFilterSwim: true,
+      toggleFilterRide: true,
+      toggleFilterRun: true,
     }
   },
   mounted () {

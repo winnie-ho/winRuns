@@ -4,3 +4,14 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.filter-icon {
+  border: none;
+  padding: 5px;
+  filter: opacity(40%) blur(1px);
+}
+
+.selectedFilter {
+  filter: opacity(100%);
+  border-bottom:solid 2px #3066BE;
+}

@@ -38,8 +38,7 @@ export default {
       }
       if (this.createSession) {
         if (!this.sessionEfforts) return;
-        let result =  !!this.sessionEfforts.includes(this.lap) 
-        return result
+        return !!this.sessionEfforts.includes(this.lap) 
       }
     },
     isMergeable: function() {

@@ -21,9 +21,9 @@ export default {
     return {
       pageTitle: 'ACTIVITIES',
       wordToSearch: '',
-      showSwims: false,
-      showRides: false,
-      showRuns: false
+      showSwims: true,
+      showRides: true,
+      showRuns: true
     }
   },
 
@@ -41,16 +41,11 @@ export default {
       this.showRuns = showRuns;
     },
     filterByActivities: function(activities){
-      if (this.showSwims) {
-        return activities.filter(activity => activity.type === "Swim")
-      }
-      if (this.showRides) {
-        return activities.filter(activity => activity.type === "Ride")
-      }
-      if (this.showRuns) {
-        return activities.filter(activity => activity.type === "Run")
-      }
-      return activities;
+      return activities.filter(activity => {
+        return activity.type === "Swim" && this.showSwims ||
+               activity.type === "Ride" && this.showRides ||
+               activity.type === "Run" && this.showRuns;
+      });
     }
   },
   computed: {
