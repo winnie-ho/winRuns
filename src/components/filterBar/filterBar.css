@@ -1,0 +1,6 @@
+#filter-bar{
+  height: 100%;
+  overflow-x:hidden;
+  display: flex;
+  justify-content: flex-end;
+}
