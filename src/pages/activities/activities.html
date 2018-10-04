@@ -3,6 +3,8 @@
   <search-bar v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
   <filter-bar 
     v-on:filterSwimChange='setSwimFilter($event)'
+    v-on:filterRideChange='setRideFilter($event)'
+    v-on:filterRunChange='setRunFilter($event)'
   ></filter-bar>
   <activity v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity' >
   </activity>

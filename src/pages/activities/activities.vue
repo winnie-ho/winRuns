@@ -21,7 +21,9 @@ export default {
     return {
       pageTitle: 'ACTIVITIES',
       wordToSearch: '',
-      showSwims: false
+      showSwims: false,
+      showRides: false,
+      showRuns: false
     }
   },
 
@@ -32,9 +34,21 @@ export default {
     setSwimFilter: function(showSwims){
       this.showSwims = showSwims;
     },
+    setRideFilter: function(showRides){
+      this.showRides = showRides;
+    },
+    setRunFilter: function(showRuns){
+      this.showRuns = showRuns;
+    },
     filterByActivities: function(activities){
       if (this.showSwims) {
         return activities.filter(activity => activity.type === "Swim")
+      }
+      if (this.showRides) {
+        return activities.filter(activity => activity.type === "Ride")
+      }
+      if (this.showRuns) {
+        return activities.filter(activity => activity.type === "Run")
       }
       return activities;
     }

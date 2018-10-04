@@ -11,7 +11,7 @@ export default {
   data () {
     return {
       toggleFilterSwim: false,
-      toggleFilterBike: false,
+      toggleFilterRide: false,
       toggleFilterRun: false,
     }
   },
@@ -25,6 +25,14 @@ export default {
     setSwimFilter: function() {
       this.toggleFilterSwim = !this.toggleFilterSwim;
       this.$emit('filterSwimChange', this.toggleFilterSwim);
+    },
+    setBikeFilter: function() {
+      this.toggleFilterRide = !this.toggleFilterRide;
+      this.$emit('filterRideChange', this.toggleFilterRide);
+    },
+    setRunFilter: function() {
+      this.toggleFilterRun = !this.toggleFilterRun;
+      this.$emit('filterRunChange', this.toggleFilterRun);
     }
   },
   computed: {
