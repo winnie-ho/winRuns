@@ -6,6 +6,7 @@
 .header{
   position: sticky;
   top: 0;
+  padding-bottom: 20px;
 }
 
 .activities-list{
