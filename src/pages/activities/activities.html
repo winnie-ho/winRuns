@@ -2,7 +2,9 @@
   <div class='header'>
     <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
     <search-bar v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
+    <img class='icon filter' src='../../assets/icon_filter.png' v-on:click='expandFilters()'/>
     <filter-bar 
+      v-show='showFilters'
       v-on:filterSwimChange='setSwimFilter($event)'
       v-on:filterRideChange='setRideFilter($event)'
       v-on:filterRunChange='setRunFilter($event)'

@@ -23,7 +23,8 @@ export default {
       wordToSearch: '',
       showSwims: true,
       showRides: true,
-      showRuns: true
+      showRuns: true,
+      showFilters: false
     }
   },
 
@@ -46,6 +47,10 @@ export default {
                activity.type === "Ride" && this.showRides ||
                activity.type === "Run" && this.showRuns;
       });
+    },
+    expandFilters: function(){
+      this.showFilters = !this.showFilters;
+      console.log(this.showFilters);
     }
   },
   computed: {

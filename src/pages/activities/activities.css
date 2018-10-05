@@ -13,3 +13,10 @@
   height: 85vh;
   overflow-y: scroll;
 }
+
+.filter{
+  position: absolute;
+  top: 18px;
+  right: 88px;
+  height: 16px;
+}
