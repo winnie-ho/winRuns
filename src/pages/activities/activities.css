@@ -1,3 +1,14 @@
 #activities{
-  overflow-x:hidden;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+}
+
+.activities-list{
+  height: 85vh;
+  overflow-y: scroll;
 }
