@@ -1,34 +1,17 @@
 #search-bar{
-  height: 100%;
-  overflow-x:hidden;
-  display: flex;
-  justify-content: center;
-}
-
-#search-icon {
-  position: absolute;
-  top: 17px;
-  right: 340px;
+  margin: 5px;
 }
 
 input{
   border-radius: 3px;
-  background-color: transparent;
-  border: 1px solid #AEECEF;
+  background-color: white;
+  border: none;
   height: 25px;
-  width: 100%;
-  margin: 10px;
-  color: #AEECEF;
+  width: 90vw;
+  color: #3066BE;
   padding: 0 5px;
 }
 
 ::placeholder {
-  color: #AEECEF;
-}
-
-/* responsive css  */
-@media all and (max-width: 1000px) {
-  #search-icon {
-    right: 55px;
-  }
+  color: #3066BE;
 }

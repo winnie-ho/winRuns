@@ -14,9 +14,16 @@
   overflow-y: scroll;
 }
 
+.sub-bar{
+  background-color: #6D9DC5;
+  padding: 10px;
+  align-items: flex-end;
+}
+
+.sub-bar__expanded{
+  align-items: flex-end;
+}
+
 .filter{
-  position: absolute;
-  top: 18px;
-  right: 88px;
   height: 16px;
 }

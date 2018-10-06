@@ -24,7 +24,8 @@ export default {
       showSwims: true,
       showRides: true,
       showRuns: true,
-      showFilters: false
+      showFilters: false,
+      showSearch: false
     }
   },
 
@@ -50,7 +51,9 @@ export default {
     },
     expandFilters: function(){
       this.showFilters = !this.showFilters;
-      console.log(this.showFilters);
+    },
+    expandSearch: function(){
+      this.showSearch = !this.showSearch;
     }
   },
   computed: {
