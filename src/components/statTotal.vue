@@ -1,5 +1,5 @@
 <template>
-  <div class='main-stat' v-bind:class='{ expanded: expandToggle }' v-on:click='expandToggle = !expandToggle'>
+  <div class='main-stat' v-bind:class='{ expanded: expandToggle }'>
     <div class='main-stat--title'>
       {{ title }}
       </div>
@@ -38,6 +38,10 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    expandToggle: {
+      type: Boolean,
+      required: false
     }
   },
 
@@ -141,7 +145,7 @@ export default {
   margin-top: -20px;
   animation-name: expand-horizontal;
   animation-duration: 4s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
 }
 
 @keyframes expand-horizontal {

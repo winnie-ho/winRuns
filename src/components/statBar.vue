@@ -1,10 +1,10 @@
 <template>
-  <div id='stat-bar' class='row'>
-    <div class='stat-bar__title'>THIS YEAR</div>
-    <div class='stat-bar'>
-      <stat-total type='run'></stat-total>
-      <stat-total type='ride'></stat-total>
-      <stat-total type='swim'></stat-total>
+  <div id='stat-bar' class='col'>
+    <div class='stat-bar__title'>2018 TOTALS</div>
+    <div id='stat-bar__details' class='stat-bar row' v-on:click='expandStats()'>
+      <stat-total type='run' v-bind:expandToggle='expandStat'></stat-total>
+      <stat-total type='ride' v-bind:expandToggle='expandStat'></stat-total>
+      <stat-total type='swim' v-bind:expandToggle='expandStat'></stat-total>
     </div>
   </div>
 </template>
@@ -19,12 +19,18 @@ export default {
   },
   data () {
     return {
+      expandStat: false
     }
   },
   created() {
     this.$store.dispatch("fetchStats")
   },
   methods: {
+    expandStats: function() {
+      this.expandStat = !this.expandStat;
+      const element = document.getElementById("stat-bar__details");
+      element.scrollTop = element.scrollHeight;
+    }
   },
   computed: {
   }
@@ -32,13 +38,6 @@ export default {
 </script>
 
 <style scoped>
-  #stat-bar {
-    position: absolute;
-    bottom: 0px;
-    width: calc(100% - 10px);
-    justify-content: flex-end;
-  }
-
   .stat-bar {
     z-index: 1;
     display: flex;
@@ -47,18 +46,7 @@ export default {
     padding: 5px;
   }
 
-  .stat-bar__title {
-    position: absolute;
-    bottom: 0px;
-    padding: 12px;
-    left: 0px;
-    width: 70px;
+  .stat-bar__title{
+    margin-top: 20px;
   }
-
-  /* responsive css  */
-@media all and (max-width: 700px) {
-  .stat-bar {
-    margin-right: -25px;
-  }
-}
 </style>
