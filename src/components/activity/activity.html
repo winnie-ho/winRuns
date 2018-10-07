@@ -1,5 +1,6 @@
 <div id='activity' class='run-box row sb' v-on:click='viewActivity(activity.id)'>
   <img v-show="activity.type === 'Ride'" src='../../assets/icon_bike.png' class='icon icon__circle'/>
+  <img v-show="activity.type === 'VirtualRide'" src='../../assets/icon_bike.png' class='icon icon__circle'/>
   <img v-show="activity.type === 'Run'" src='../../assets/icon_run.png' class='icon icon__circle'/>
   <img v-show="activity.type === 'Swim'" src='../../assets/icon_swim.png' class='icon icon__circle'/>
 

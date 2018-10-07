@@ -45,7 +45,8 @@ export default {
     filterByActivities: function(activities){
       return activities.filter(activity => {
         return activity.type === "Swim" && this.showSwims ||
-               activity.type === "Ride" && this.showRides ||
+               activity.type === "Ride" && this.showRides || 
+               activity.type === 'VirtualRide' && this.showRides ||
                activity.type === "Run" && this.showRuns;
       });
     },
