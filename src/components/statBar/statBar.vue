@@ -21,8 +21,6 @@ export default {
   methods: {
     expandStats: function() {
       this.expandStat = !this.expandStat;
-      const element = document.getElementById("stat-bar__details");
-      element.scrollTop = element.scrollHeight;
     }
   },
   computed: {
