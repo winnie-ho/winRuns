@@ -1,0 +1,8 @@
+<div id='stat-bar' class='col'>
+  <div class='stat-bar__title'>2018 TOTALS</div>
+  <div id='stat-bar__details' class='stat-bar row' v-on:click='expandStats()'>
+    <stat-total type='run' v-bind:expandToggle='expandStat'></stat-total>
+    <stat-total type='ride' v-bind:expandToggle='expandStat'></stat-total>
+    <stat-total type='swim' v-bind:expandToggle='expandStat'></stat-total>
+  </div>
+</div>

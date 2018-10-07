@@ -1,0 +1,64 @@
+.main-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 200px;
+  min-width: 100px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.main-stat--value {
+  font-size: 24px;
+}
+
+.expanded-stat {
+  animation-name: expand-vertical;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.expanded-stat-item {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes expand-vertical {
+  from {
+    height: 30px;
+  }
+  to {
+    height: 90px;
+  }
+}
+
+.bar {
+  height: 20px;
+}
+
+#last-year-bar {
+  position: relative;
+  background-color: lightblue;
+  width: 100%;
+}
+
+.this-year-bar {
+  position: absolute;
+  z-index: 2;
+  margin-top: -20px;
+  animation-name: expand-horizontal;
+  animation-duration: 4s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes expand-horizontal {
+  from {
+    background-color: lightblue;
+  }
+  to {
+    background-color: rgba(31, 97, 141, 0.7);
+  }
+}
