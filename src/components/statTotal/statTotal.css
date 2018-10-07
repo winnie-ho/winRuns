@@ -13,14 +13,14 @@
   font-size: 24px;
 }
 
-.expanded-stat {
+.expanded {
   animation-name: expand-vertical;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
+  margin-top: 30px;
 }
 
 .expanded-stat-item {
-  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,33 +32,5 @@
   }
   to {
     height: 90px;
-  }
-}
-
-.bar {
-  height: 20px;
-}
-
-#last-year-bar {
-  position: relative;
-  background-color: lightblue;
-  width: 100%;
-}
-
-.this-year-bar {
-  position: absolute;
-  z-index: 2;
-  margin-top: -20px;
-  animation-name: expand-horizontal;
-  animation-duration: 4s;
-  animation-fill-mode: backwards;
-}
-
-@keyframes expand-horizontal {
-  from {
-    background-color: lightblue;
-  }
-  to {
-    background-color: rgba(31, 97, 141, 0.7);
   }
 }
