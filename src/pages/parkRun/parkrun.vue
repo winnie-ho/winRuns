@@ -5,7 +5,7 @@
 import navBar from '../../components/navBar/navBar.vue'
 import activity from '../../components/activity/activity.vue'
 import parkRunDict from '../../mixins/parkRunDict.js'
-import subNavBar from '../../components/subNavBar/subNavBar.vue'
+import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
 import renderData from '../../mixins/renderData.js'
 
 export default {
@@ -13,7 +13,7 @@ export default {
   components: {
     'nav-bar': navBar,
     'activity': activity,
-    'subNavBar': subNavBar
+    'park-run-sub-bar': parkRunSubBar
   },
   data () {
     return {

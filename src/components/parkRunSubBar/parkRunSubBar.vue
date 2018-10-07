@@ -1,9 +1,9 @@
-<template src="./subNavBar.html"></template>
-<style scoped src='./subNavBar.css'></style>
+<template src="./parkRunSubBar.html"></template>
+<style scoped src='./parkRunSubBar.css'></style>
 
 <script src>
   export default {
-    name: 'subNavBar',
+    name: 'parkRunSubBar',
     data () {
       return {
       }
