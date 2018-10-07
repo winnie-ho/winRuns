@@ -1,3 +1,9 @@
+#subNavBar{
+  background-color: #6D9DC5;
+  padding: 10px;
+  align-items: flex-end;
+}
+
 .sub-nav-icon {
   height: 25px;
   width: auto;
@@ -5,7 +11,6 @@
 }
 
 .sub-nav-button {
-  padding: 5px;
   width: 50px;
   justify-content: center;
   display: flex;
