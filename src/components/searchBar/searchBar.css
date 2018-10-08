@@ -13,5 +13,12 @@ input{
 }
 
 ::placeholder {
+  /* color: #3066BE; */
+}
+
+#search-clear{
+  position: absolute;
+  top: 87px;
+  right: 25px;
   color: #3066BE;
 }

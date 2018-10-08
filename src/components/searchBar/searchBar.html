@@ -1,3 +1,4 @@
 <div id='search-bar'>
-  <input placeholder="search" v-model='searchWord' v-on:change='setWordSearch' type='text'>
+  <input id='search-input' placeholder="search" v-on:change='setWordSearch' type='text'>
+  <div id='search-clear' v-on:click='resetSearch()'>x</div>
 </div>
