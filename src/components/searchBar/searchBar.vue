@@ -10,6 +10,7 @@ export default {
   },
   data () {
     return {
+      searchWord: ''
     }
   },
   mounted () {
@@ -20,7 +21,8 @@ export default {
 
   methods: {
     setWordSearch: function(e) {
-      this.$emit('searchWordChange', e.srcElement.value);
+      this.searchWord = e.srcElement.value;
+      this.$emit('searchWordChange', this.searchWord);
     },
     resetSearch: function(){
       document.getElementById('search-input').value = '';
