@@ -10,15 +10,22 @@ input{
   width: 90vw;
   color: #3066BE;
   padding: 0 5px;
-}
-
-::placeholder {
-  /* color: #3066BE; */
+  z-index: 1;
 }
 
 #search-clear{
-  position: absolute;
-  top: 87px;
-  right: 25px;
-  color: #3066BE;
+  float: right;
+  right: 17px;
+  margin-bottom: -22px;
+  color: blue;
+  z-index: 2;
+  position: relative;
+}
+
+
+/* responsive css  */
+@media all and (max-width: 400px) {
+  #search-clear{
+    right: 8px;
+  }
 }
