@@ -11,7 +11,10 @@
 
 .activities-list{
   height: 85vh;
+  margin: auto;
+  max-width: 700px;
   overflow-y: scroll;
+
 }
 
 .sub-bar{

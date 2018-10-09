@@ -1,5 +1,7 @@
 <div id='parkRunActivities'>
   <nav-bar v-bind:pageTitle='pageTitle'></nav-bar>
   <park-run-sub-bar></park-run-sub-bar>
-  <activity v-for='parkRun in parkRuns' v-bind:key='parkRun.index' v-bind:activity='parkRun'></activity>
+  <park-run-list class='park-run-list'>
+    <activity v-for='parkRun in parkRuns' v-bind:key='parkRun.index' v-bind:activity='parkRun'></activity>
+  </park-run-list>
 </div>
