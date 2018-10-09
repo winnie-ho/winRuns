@@ -109,6 +109,7 @@
 
 .nav-button {
   cursor: pointer;
+  z-index: 2;
 }
 
 .button-active {
@@ -132,6 +133,7 @@
   font-size: 18px;
   line-height: 90%;
   word-spacing: 100vw;
+  z-index: 1;
   
   animation-name: title-settle;
   animation-duration: 0.5s;
