@@ -12,7 +12,7 @@
         sessionSaved: false
       }
     },
-    props: ['createSession', 'sessionEfforts'],
+    props: ['createSession', 'sessionEfforts', 'sessionEffortsMergeMarkers'],
     methods: {
       saveSession: function() {
         // this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
@@ -82,8 +82,30 @@
         if(!this.$store.state.activity.laps) return;
         return this.$store.state.activity.laps;
       },
+      finalLaps: function() {
+        if(!this.sessionEfforts) return [];
+        const processedLaps = [];
+        this.sessionEfforts.forEach(lap => {
+          const isMergeMarker = this.sessionEffortsMergeMarkers.includes(lap);
+          const lapToMergeWith = this.sessionEffortsMergeMarkers.find(mergeMarker => mergeMarker.lap_index === lap.lap_index + 1);
+
+          if (lapToMergeWith) {
+            processedLaps.push(
+              Object.assign({}, lap, {
+                distance: lap.distance + lapToMergeWith.distance,
+                moving_time: lap.moving_time + lapToMergeWith.moving_time
+              })
+            )
+          } else if (!lapToMergeWith && !isMergeMarker) {
+            processedLaps.push(lap);
+          };
+        });
+
+        return processedLaps;
+      },
       orderedSessionEfforts: function() {
-        return this.sessionEfforts.sort((a, b) => a.lap_index - b.lap_index)
+        if (!this.finalLaps) return;
+        return this.finalLaps.sort((a, b) => a.lap_index - b.lap_index)
       },
       sessions: function() {
         if(!this.$store.state.sessions) return;

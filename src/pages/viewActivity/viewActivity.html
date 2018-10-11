@@ -90,10 +90,11 @@
           <activity-session 
             v-bind:createSession='createSession' 
             v-bind:sessionEfforts='sessionEfforts' 
+            v-bind:sessionEffortsMergeMarkers='sessionEffortsMergeMarkers'
             v-on:onResetSessionEfforts='resetSessionEfforts' 
             v-on:onCloseSession='toggleCreateSession'>
           </activity-session>
-          
+
           <div v-for='lap in laps' v-bind:key='lap.index'>
             <lap 
               class="row sa lap"
@@ -103,7 +104,8 @@
               v-bind:sessionEfforts='sessionEfforts'
               v-bind:createSession='createSession'
               v-on:onMarkLapChange='setLapMarker($event)'
-              v-on:onSessionMarkLapChange='setSessionLapMarker($event)'>
+              v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
+              v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
             </lap>
           </div>
         </div>

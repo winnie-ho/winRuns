@@ -11,7 +11,6 @@ export default {
   data () {
     return {
       selected: false,
-      lapsToMerge:[]
     }
   },
   methods: {
@@ -20,16 +19,15 @@ export default {
 
 
       if (this.createSession){
-        this.$emit('onSessionMarkLapChange', this.lap)
+        this.$emit('onSessionMarkLapChange', this.lap);
       }
       
       if (!this.createSession) {
-        this.$emit('onMarkLapChange', this.lap)
+        this.$emit('onMarkLapChange', this.lap);
       }
     },
     mergeLap: function(){
-      this.lapsToMerge.push(this.lap.lap_index);
-      console.log('Laps to merge', this.lapsToMerge);
+      this.$emit('onSessionMarkLapMerge', this.lap);
     }
   },
   computed: {

@@ -26,7 +26,8 @@ export default {
       openPhotos: false,
       lapMarkers: [],
       createSession: false,
-      sessionEfforts: []
+      sessionEfforts: [],
+      sessionEffortsMergeMarkers: []
     }
   },
   mounted () {
@@ -58,9 +59,20 @@ export default {
         this.sessionEfforts.push(lap)
       }
     },
+    setSessionLapMergeMarker: function(lap){
+      if (this.sessionEffortsMergeMarkers.includes(lap)) {
+        let index = this.sessionEffortsMergeMarkers.indexOf(lap);
+        if (index > -1) {
+          this.sessionEffortsMergeMarkers.splice(index, 1);
+        }
+      } else {
+        this.sessionEffortsMergeMarkers.push(lap)
+      }
+      console.log('EFFORT MERGES', this.sessionEffortsMergeMarkers);
+    },
     resetSessionEfforts: function() {
       this.sessionEfforts = [];
-    }
+    } 
   },
   computed: {
     activity: function() {
