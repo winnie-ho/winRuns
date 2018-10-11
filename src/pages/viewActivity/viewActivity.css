@@ -72,6 +72,6 @@
 .description{
   margin: 10px 30px;
   font-size: 12px;
-  white-space: pre;
+  white-space: pre-wrap;
   text-align: center;
 }
