@@ -11,6 +11,7 @@ export default {
   data () {
     return {
       selected: false,
+      merged: false
     }
   },
   methods: {
@@ -28,6 +29,7 @@ export default {
     },
     mergeLap: function(){
       this.$emit('onSessionMarkLapMerge', this.lap);
+      this.merged = !this.merged;
     }
   },
   computed: {

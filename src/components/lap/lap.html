@@ -8,6 +8,7 @@
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
   </div>
   <div v-show='createSession'>
-    <button class='merge button' v-show='isMergeable' v-on:click='mergeLap()'>⇡</button>
+    <button class='merge button' v-show='isMergeable && !merged' v-on:click='mergeLap()'>⇡</button>
+    <button class='merge button' v-show='isMergeable && merged' v-on:click='mergeLap()'>↓</button>
   </div>
 </div>

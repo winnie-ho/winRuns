@@ -68,7 +68,6 @@ export default {
       } else {
         this.sessionEffortsMergeMarkers.push(lap)
       }
-      console.log('EFFORT MERGES', this.sessionEffortsMergeMarkers);
     },
     resetSessionEfforts: function() {
       this.sessionEfforts = [];
