@@ -15,12 +15,6 @@
     props: ['createSession', 'sessionEfforts', 'sessionEffortsMergeMarkers'],
     methods: {
       saveSession: function() {
-        // this.$http.post('https://win-runs.firebaseio.com/sessions.json', this.sessionEfforts).then(function(data){
-        //   this.sessionSaved = true;
-        //   console.log('DATA', data, this.sessionSaved);
-        // })
-
-        // Only updating the description to hold the session details.
         let updatedActivity = {
           "commute": this.activity.commute,
           "trainer": this.activity.trainer,
@@ -110,9 +104,7 @@
       sessions: function() {
         if(!this.$store.state.sessions) return;
         return this.$store.state.sessions;
-      },
-      sessionExists: function() {
-      },
+      }
     }
   }
 </script>
