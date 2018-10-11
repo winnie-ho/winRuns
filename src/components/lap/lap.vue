@@ -11,6 +11,7 @@ export default {
   data () {
     return {
       selected: false,
+      lapsToMerge:[]
     }
   },
   methods: {
@@ -27,7 +28,8 @@ export default {
       }
     },
     mergeLap: function(){
-      console.log('MERGE LAP')
+      this.lapsToMerge.push(this.lap.lap_index);
+      console.log('Laps to merge', this.lapsToMerge);
     }
   },
   computed: {

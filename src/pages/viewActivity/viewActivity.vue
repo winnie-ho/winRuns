@@ -14,7 +14,7 @@ export default {
     'nav-bar': navBar,
     'google-map': googleMap,
     'lap': lap,
-    'activitySession': activitySession
+    'activity-session': activitySession
   },
   mixins: [ renderData ],
   data () {
@@ -60,10 +60,6 @@ export default {
     },
     resetSessionEfforts: function() {
       this.sessionEfforts = [];
-    },
-    generateSwim: function() {
-      console.log('generate Swim')
-      this.$store.dispatch('fetchSwimTcx', activityId)
     }
   },
   computed: {
