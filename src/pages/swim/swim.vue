@@ -19,7 +19,6 @@ export default {
       lapDistance: 0,
       swimName:'New Swim',
       swimDescription: '',
-      swimPrivacy: 0,
       stravaSuccessMessage: 'Your activity is still being processed.'
     }
   },
@@ -68,7 +67,14 @@ export default {
 
       // check for valid laps with time > 0.
       let laps = data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
-      return laps.filter(lap => parseInt(lap.TotalTimeSeconds[0]) > 0);
+      return laps.filter(lap => {
+        // Check the duration within the trackpoint points. Garmin can fudge it up!
+        const trackpointEndIndex = parseInt(lap.Track[0].Trackpoint.length - 1);
+        const trackEndTime = lap.Track[0].Trackpoint[ trackpointEndIndex ]['Time'][0];
+        const trackStartTime = lap.Track[0].Trackpoint[0].Time[0];
+        const lapDuration = (new Date(trackEndTime) - new Date(trackStartTime)) / 1000;
+        return parseInt(lap.TotalTimeSeconds[0]) > 0 || lapDuration > 0;
+      });
     },
 
     renderLapDistanceTotal: function(laps) {
@@ -135,7 +141,6 @@ export default {
       formData.append('name', this.swimName);
       formData.append('description', this.swimDescription);
       formData.append('file', file, 'outputSwim.tcx');
-      formData.append('private', this.swimPrivacy);
       formData.append('data_type', 'tcx');
       formData.append('external_id', 'winSwimsTest');
       formData.append('activity_type', 'swim');
@@ -159,14 +164,6 @@ export default {
 
     setPoolLength: function () {
       this.lapDistance = document.getElementById('poolLength').value
-    },
-
-    setSwimPrivacy: function () {
-      if (document.getElementById('swimPrivacy').checked) {
-        this.swimPrivacy = 1
-      } else {
-        this.swimPrivacy = 0
-      }
     },
 
     viewActivities: function () {
