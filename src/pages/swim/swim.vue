@@ -68,12 +68,16 @@ export default {
       // check for valid laps with time > 0.
       let laps = data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
       return laps.filter(lap => {
-        // Check the duration within the trackpoint points. Garmin can fudge it up!
-        const trackpointEndIndex = parseInt(lap.Track[0].Trackpoint.length - 1);
-        const trackEndTime = lap.Track[0].Trackpoint[ trackpointEndIndex ]['Time'][0];
-        const trackStartTime = lap.Track[0].Trackpoint[0].Time[0];
-        const lapDuration = (new Date(trackEndTime) - new Date(trackStartTime)) / 1000;
-        return parseInt(lap.TotalTimeSeconds[0]) > 0 || lapDuration > 0;
+        if (!lap.Track) {
+          return parseInt(lap.TotalTimeSeconds[0]) > 0 ;
+        } else {
+          // Check the duration within the trackpoint points. Garmin can fudge it up!
+          const trackpointEndIndex = parseInt(lap.Track[0].Trackpoint.length - 1);
+          const trackEndTime = lap.Track[0].Trackpoint[ trackpointEndIndex ]['Time'][0];
+          const trackStartTime = lap.Track[0].Trackpoint[0].Time[0];
+          const lapDuration = (new Date(trackEndTime) - new Date(trackStartTime)) / 1000;
+          return parseInt(lap.TotalTimeSeconds[0]) > 0 || lapDuration > 0;
+        }
       });
     },
 
