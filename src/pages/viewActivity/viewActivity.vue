@@ -4,6 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
+import changePage from '../../mixins/changePage.js'
 import googleMap from '../../components/googleMap.vue'
 import lap from '../../components/lap/lap.vue'
 import activitySession from '../../components/activitySession/activitySession.vue'
@@ -16,7 +17,7 @@ export default {
     'lap': lap,
     'activity-session': activitySession
   },
-  mixins: [ renderData ],
+  mixins: [ renderData, changePage ],
   data () {
     return {
       pageTitle: 'ACTIVITY',

@@ -3,9 +3,13 @@
 
     <div id="activity-info" class="run-box__detail">
       <div id="activity-info__header" class="row sb">
-        <a href="javascript:history.go(-1)">
-          <img src='../../assets/icon_arrow_left.png' class='icon back-button'/>
-        </a>
+        <el-button 
+          type='secondary' 
+          icon='el-icon-arrow-left' 
+          circle 
+          size='mini' 
+          v-on:click='changePage("/activities")'>
+        </el-button>
         <div class="heading truncate">{{ activity.name }}</div>
         <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
       </div>
