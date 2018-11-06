@@ -7,19 +7,19 @@
     <div id='page-title'>{{ pageTitle }}</div>
 
     <div id='pagesBar' v-show='showNav' class='row'>
-      <router-link to="/activities" exact class='nav-button'>
+      <router-link to="/activities" exact class='nav-button' v-bind:class='{ navbtnselected: pageSelected("/activities") }'>
         <div class='data'>
           <img src='../../assets/icon_activities.png' class='nav-icon'/>
         </div>
       </router-link>
       
-      <router-link to="/parkRun" exact class='nav-button'>
+      <router-link to="/parkRun" exact class='nav-button' v-bind:class='{ navbtnselected: pageSelected("/parkRun") }'>
         <div class='data'>
           <img src='../../assets/icon_park_run.png' class='nav-icon'/>
         </div>
       </router-link>
       
-      <router-link to="/swim" exact class='nav-button'>
+      <router-link to="/swim" exact class='nav-button' v-bind:class='{ navbtnselected: pageSelected("/swim") }'>
         <div class='data'>
           <img src='../../assets/icon_swim.png' class='nav-icon'/>
         </div>

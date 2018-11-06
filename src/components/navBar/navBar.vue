@@ -19,7 +19,12 @@
         required: false
       }
     },
+    mounted(){
+    },
     methods: {
+      pageSelected(page){
+        return this.$route.path === page;
+      }
     },
     computed: {
       athlete: function() {
