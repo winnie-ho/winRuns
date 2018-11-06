@@ -10,8 +10,8 @@
           size='mini' 
           v-on:click='changePage("/activities")'>
         </el-button>
-        <div class="heading truncate">{{ activity.name }}</div>
-        <div class="date data-metric">{{ renderDate(activity.start_date) }}</div>
+        <h1 class="heading truncate">{{ activity.name }}</h1>
+        <h2 class="date data-metric">{{ renderDate(activity.start_date) }}</h2>
       </div>
       
       <div v-show="activity.type === 'Swim'" class="row sa">
