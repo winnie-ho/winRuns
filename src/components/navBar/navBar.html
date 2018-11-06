@@ -6,7 +6,7 @@
 
     <div id='page-title'>{{ pageTitle }}</div>
 
-    <div id='pagesBar' class='row'>
+    <div id='pagesBar' v-show='showNav' class='row'>
       <router-link to="/activities" exact class='nav-button'>
         <div class='data'>
           <img src='../../assets/icon_activities.png' class='nav-icon'/>
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <img id='burger' src='../../assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
+  <img id='burger' v-show='showNav' src='../../assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
 
   <div id='burger-menu' class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
     <img class='close-icon' src='../../assets/icon_cross.png'/>

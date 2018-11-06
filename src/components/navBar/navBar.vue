@@ -13,6 +13,10 @@
       pageTitle: {
         type: String,
         required: true
+      },
+      showNav: {
+        type: Boolean,
+        required: false
       }
     },
     methods: {

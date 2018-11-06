@@ -1,5 +1,5 @@
 <div id='home'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-show='toggleWeekView' v-on:toggleWeekViewStatus='setToggleWeekView'></nav-bar>
+  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true' v-show='toggleWeekView' v-on:toggleWeekViewStatus='setToggleWeekView'></nav-bar>
 
   <weather v-show='toggleWeekView'></weather>
 
