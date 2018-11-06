@@ -3,12 +3,13 @@
 
 <script>
 import renderData from '../../mixins/renderData.js'
+import changePage from '../../mixins/changePage.js';
 
 export default {
   name: 'activity',
   components: {
   },
-  mixins: [ renderData ],
+  mixins: [ renderData, changePage ],
   props: ['activity'],
   data () {
     return {
@@ -26,7 +27,7 @@ export default {
       this.$store.dispatch('fetchKudos', activityId)
       this.$store.dispatch('fetchPhotos', activityId)
       this.$store.dispatch('fetchComments', activityId).then(() => {
-        this.$router.push('/activity/' + activityId)
+        this.changePage(`/activity/${ activityId }`)
       })
     }
   },
