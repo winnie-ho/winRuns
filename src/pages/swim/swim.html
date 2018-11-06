@@ -18,18 +18,20 @@
     </form>
     <img class='tick-icon' src='../../assets/icon_tick.png' v-bind:hidden='!successfulStravaStatus'/>
     <p class='heading strava-status'>{{ stravaStatus }}</p>
-    <button 
-      class='button button--primary' 
-      v-on:click='generateSwim' 
+    <el-button
+      v-show='!successfulStravaStatus'
       v-bind:disabled='disableButton' 
-      v-bind:hidden='successfulStravaStatus'>Upload
-    </button>
-    <button 
-      class='button button--primary' 
-      v-on:click='viewActivities' 
-      v-bind:hidden='!successfulStravaStatus'>Activities
-    </button>
-
-
+      v-on:click='generateSwim'
+      size='mini'
+      type='primary'
+      >Upload
+    </el-button>
+    <el-button
+      v-show='successfulStravaStatus'
+      v-on:click='changePage("/activities")'
+      size='mini'
+      type='primary'
+      >Activities
+    </el-button>
   </div>
 </div>

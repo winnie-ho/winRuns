@@ -3,12 +3,14 @@
 
 <script>
 import navBar from '../../components/navBar/navBar.vue'
+import changePage from '../../mixins/changePage.js'
 import xml2js from 'xml2js'
 import * as fs from 'fs-web'
 
 
 export default {
   name: 'swim',
+  mixins: [ changePage ],
   components: {
     'nav-bar': navBar
   },
@@ -168,10 +170,6 @@ export default {
 
     setPoolLength: function () {
       this.lapDistance = document.getElementById('poolLength').value
-    },
-
-    viewActivities: function () {
-      this.$router.push('/activities/')
     }
   },
   computed: {
