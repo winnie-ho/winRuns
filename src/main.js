@@ -7,6 +7,8 @@ import VueResource from 'vue-resource'
 import { store } from './store/store'
 import xml2js from 'xml2js'
 import * as fs from 'fs-web'
+import ElementUI from 'element-ui'
+
 // import * as VueGoogleMaps from 'vue2-google-maps'
 
 // Vue.use(VueGoogleMaps, {
@@ -18,6 +20,7 @@ import * as fs from 'fs-web'
 Vue.use(VueResource)
 Vue.use(xml2js)
 Vue.use(fs)
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
