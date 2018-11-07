@@ -1,8 +1,8 @@
 <div id='swim'>
   <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
   <div class='col sa'>
-    <img class='swim-logo' src='../../assets/icon_swim.png'/>
-    <img class='strava-logo' src='../../assets/icon_strava.png'/>
+    <img class='swim-logo' src='../../../static/assets/icon_swim.png'/>
+    <img class='strava-logo' src='../../../static/assets/icon_strava.png'/>
     <p class='subheading' v-bind:hidden='successfulStravaStatus'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
     <form>
       <div class='swim-form' v-bind:hidden='successfulStravaStatus'>
@@ -16,7 +16,7 @@
         <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
       </div>
     </form>
-    <img class='tick-icon' src='../../assets/icon_tick.png' v-bind:hidden='!successfulStravaStatus'/>
+    <img class='tick-icon' src='../../../static/assets/icon_tick.png' v-bind:hidden='!successfulStravaStatus'/>
     <p class='heading strava-status'>{{ stravaStatus }}</p>
     <el-button
       v-show='!successfulStravaStatus'

@@ -29,16 +29,16 @@
       
       <div class="row sa">
         <div class="row" v-on:click='openLaps =!openLaps'> 
-          <img class="icon" src="../../assets/icon_laps.png"/>
+          <img class="icon" src="../../../static/assets/icon_laps.png"/>
           <div id="laps" class="data-metric">{{ lapsCount }}</div>
         </div>
         <div class="row">
-          <img class="icon" src="../../assets/icon_heartrate.png"/>
+          <img class="icon" src="../../../static/assets/icon_heartrate.png"/>
           <div class="data-metric">{{ activity.average_heartrate }}</div>
         </div>
         
         <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class='row'>
-          <img class="icon" src="../../assets/icon_cadence.png"/>
+          <img class="icon" src="../../../static/assets/icon_cadence.png"/>
           <div class="data-metric">{{ activity.average_cadence }}</div>
         </div>
       </div>
@@ -46,17 +46,17 @@
       
       <div class="row sa">
         <div class="row" v-show='comments.length !== 0' v-on:click='openComments = !openComments'>
-          <img class="icon" src="../../assets/icon_comment.png"/>
+          <img class="icon" src="../../../static/assets/icon_comment.png"/>
           <div class="data-metric">{{ comments.length }}</div>
         </div>
         
         <div class="row" v-show='kudos.length !== 0' v-on:click='openKudos = !openKudos'>
-          <img class="icon" src="../../assets/icon_like.png"/>
+          <img class="icon" src="../../../static/assets/icon_like.png"/>
           <div class="data-metric">{{ kudos.length }}</div>
         </div>
         
         <div class="row" v-show='photos.length !== 0' v-on:click='openPhotos = !openPhotos'> 
-          <img class="icon" src="../../assets/icon_picture.png"/>
+          <img class="icon" src="../../../static/assets/icon_picture.png"/>
           <div class="data-metric">{{ photos.length }}</div>
         </div>
       </div>
@@ -83,12 +83,12 @@
           <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}</h2>
           <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
           <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
-          <img src='../../assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()'/>
+          <img src='../../../static/assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()'/>
         </div>
         
         <div v-show='openLaps'>
           <div class="createSessionBtn" v-on:click='toggleCreateSession' v-show='!createSession'> 
-            <img class="icon" src="../../assets/icon_add.png"/>
+            <img class="icon" src="../../../static/assets/icon_add.png"/>
             <h4>Session</h4>
           </div>
           <activity-session 

@@ -1,0 +1,42 @@
+[debug] [2018-11-07T10:34:27.979Z] ----------------------------------------------------------------------
+[debug] [2018-11-07T10:34:27.982Z] Command:       /usr/local/Cellar/node/8.4.0/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-07T10:34:27.982Z] CLI Version:   6.0.0
+[debug] [2018-11-07T10:34:27.982Z] Platform:      darwin
+[debug] [2018-11-07T10:34:27.982Z] Node Version:  v8.4.0
+[debug] [2018-11-07T10:34:27.983Z] Time:          Wed Nov 07 2018 10:34:27 GMT+0000 (GMT)
+[debug] [2018-11-07T10:34:27.983Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-07T10:34:28.003Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-07T10:34:28.003Z] > authorizing via signed-in user
+[debug] [2018-11-07T10:34:28.003Z] [iam] checking project win-runs for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2018-11-07T10:34:28.006Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-07T10:34:28.006Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2018-11-07T10:34:28.237Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-07T10:34:28.250Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/win-runs:testIamPermissions  
+
+[debug] [2018-11-07T10:34:29.046Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-07T10:34:29.048Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/win-runs  
+ 
+[debug] [2018-11-07T10:34:29.454Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'win-runs'...
+[info] 
+[info] i  deploying database, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-11-07T10:34:29.465Z] >>> HTTP REQUEST PUT https://win-runs.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+
+[debug] [2018-11-07T10:34:30.171Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database win-runs is valid
+[debug] [2018-11-07T10:34:30.173Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/win-runs/versions  
+
+[debug] [2018-11-07T10:34:31.812Z] <<< HTTP RESPONSE 200
+[info] i  hosting[win-runs]: beginning deploy...
+[info] i  hosting[win-runs]: found 88 files in ./public/dist
+[debug] [2018-11-07T10:34:31.845Z] [hosting] hash cache [cHVibGljL2Rpc3Q] load error: lines is not defined
