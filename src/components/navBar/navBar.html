@@ -1,8 +1,6 @@
 <div id='navBar'>
   <div id='openNavBar' class='row'>
-    <router-link to="/home" exact class='home-button'>
-      WIN RUNS
-    </router-link>
+    <router-link to="/home" exact class='home-button'>WIN RUNS</router-link>
 
     <div id='page-title'>{{ pageTitle }}</div>
 
@@ -39,18 +37,17 @@
     </router-link>
 
     <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>LOGIN</router-link>
-
     <router-link to="/home" exact class='burger-item col'>HOME</router-link>
     <router-link to="/activities" exact class='burger-item col'>
-      <img src='../../assets/icon_activities.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_activities.png' class='burger-icon'/>
       ACTIVITIES
     </router-link>
     <router-link to="/parkRun" exact class='burger-item col'>
-      <img src='../../assets/icon_park_run_logo.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_park_run.png' class='burger-icon'/>
       PARK RUN
     </router-link>
     <router-link to="/swim" exact class='burger-item col'>
-      <img src='../../assets/icon_swim.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_swim.png' class='burger-icon'/>
       SWIM
     </router-link>
   </div>
