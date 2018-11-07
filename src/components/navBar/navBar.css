@@ -108,15 +108,6 @@
   filter: invert(0%)
 }
 
-.nav-button {
-  cursor: pointer;
-  z-index: 2;
-}
-
-.navbtnselected{
-  border-bottom: 2px solid #AEECEF;
-}
-
 .button-active {
   background-color: #AEECEF;
   transform: scale(1.1);

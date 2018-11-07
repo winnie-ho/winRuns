@@ -2,8 +2,12 @@
 <style scoped src='./navBar.css'></style>
 
 <script src>
+  import navBarBtn from '../navBarBtn/navBarBtn.vue'
   export default {
     name: 'navBar',
+    components: {
+      "nav-bar-btn": navBarBtn
+    },
     data () {
       return {
         expandBurger: false
@@ -22,9 +26,6 @@
     mounted(){
     },
     methods: {
-      pageSelected(pages){
-        return pages.find(page => page === this.$route.path);
-      }
     },
     computed: {
       athlete: function() {

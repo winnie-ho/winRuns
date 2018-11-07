@@ -1,0 +1,19 @@
+.nav-button {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.navBtnSelected{
+  border-bottom: 2px solid #AEECEF;
+}
+
+.nav-icon {
+  width: auto;
+  height: 30px;
+  margin: 0 5px;
+  padding-top: 5px;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
