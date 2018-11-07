@@ -143,6 +143,17 @@ button[disabled]{
   color: #3066BE;
 }
 
+.nav-icon {
+  width: auto;
+  height: 30px;
+  margin: 0 5px;
+  padding-top: 5px;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+}
+
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric {
