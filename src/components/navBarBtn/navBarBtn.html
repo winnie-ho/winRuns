@@ -1,11 +1,5 @@
-<div id='navBarBtn' :class='{ navBtnSelected: pageSelected }'>
-  <router-link 
-    :to="path" 
-    exact 
-    class='nav-button' 
-    >
-    <div class='data'>
-      <img :src='btnIcon' class='nav-icon'/>
-    </div>
+<div id='navBarBtn' class='nav-button' :class='{ navBtnSelected: pageSelected }'>
+  <router-link :to="path" exact>
+    <img :src='btnIcon' class='nav-icon'/>
   </router-link>
 </div>
