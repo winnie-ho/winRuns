@@ -22,14 +22,14 @@
     mounted(){
     },
     methods: {
-      pageSelected(page){
-        return this.$route.path === page;
+      pageSelected(pages){
+        return pages.find(page => page === this.$route.path);
       }
     },
     computed: {
       athlete: function() {
-        if (!this.$store.state.athlete) return
-        return this.$store.state.athlete
+        if (!this.$store.state.athlete) return;
+        return this.$store.state.athlete;
       }
     }
   }
