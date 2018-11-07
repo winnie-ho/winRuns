@@ -1,7 +1,7 @@
 <div id='auth' ref='auth'>
   <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='false'></nav-bar>
   
-  <div class='strava-container col' v-show='!athlete.id'>
+  <div class='strava-container' v-show='!athlete.id'>
     <button id="strava-button" v-on:click="login">
     <div class='button-contents'>
       <h4>CONNECT TO</h4>

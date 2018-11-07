@@ -1,14 +1,15 @@
 #auth{
   background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
   height: 100vh;
-  display: flex;
-  flex-direction: column;
   font-size: 16px;
 }
 
 .strava-container{
   align-items: center;
-  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
 }
 
 .button-contents{
@@ -22,6 +23,7 @@
 }
 
 #strava-button{
+  cursor: pointer;
   background-color: #3066BE;
   color: #80DED9;
   height: auto;
@@ -35,15 +37,30 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #80DED9;
-  cursor: pointer;
+  z-index: 3;
+}
+
+#strava-button:hover{
+  border: 2px solid #80DED9;
+  box-shadow: 5px 5px 10px #3066BE;
 }
 
 .profile{
-  margin-top: 30px;
-  margin: 50px;
-  align-items: center;
-  justify-content: center;
   text-decoration: none;
   color: #AEECEF;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: auto;
+  margin: auto;
+  width: 200px;
+  cursor: pointer;
+  margin-top: 30%;
+  padding: 20px;
+}
+
+.profile:hover > img{
+    box-shadow: 10px 10px 20px #3066BE;
 }
