@@ -74,7 +74,14 @@
         </div>
       </div>
       <div id="photos-detail" class="col sb" v-show='openPhotos'>
-        <img class='photo' v-bind:src="photo.urls['1000']" v-for='photo in photos' v-bind:key='photo.index'/>
+        <div class="photo">
+          <span class="demonstration"></span>
+          <el-carousel height="500px" indicator-position="outside">
+            <el-carousel-item v-for="photo in photos" :key="photo.index">
+              <img class='photo' v-bind:src="photo.urls['1000']"/>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
       </div>
 
       <div id="laps-detail" class="col sb">
