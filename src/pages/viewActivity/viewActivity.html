@@ -23,14 +23,7 @@
             <h4>{{ renderTime(activity.moving_time) }}</h4>
             <h4>{{ renderPace(activity.moving_time, activity.distance) }}</h4>
           </div>
-  
-          <el-carousel indicator-position="outside" v-show='displayPhotos'>
-            <el-carousel-item v-for="photo in photos" :key="photo.index">
-              <div class='col' >
-                <img class='photo' v-bind:src="photo.urls['1000']"/>
-              </div>
-            </el-carousel-item>
-          </el-carousel>
+
         </div>
       </div>
       
@@ -63,27 +56,27 @@
               </el-button>
             </div>
 
-              <activity-session 
-                v-bind:createSession='createSession' 
-                v-bind:sessionEfforts='sessionEfforts' 
-                v-bind:sessionEffortsMergeMarkers='sessionEffortsMergeMarkers'
-                v-on:onResetSessionEfforts='resetSessionEfforts' 
-                v-on:onCloseSession='toggleCreateSession'>
-              </activity-session>
-    
-              <div v-for='lap in laps' v-bind:key='lap.index'>
-                <lap 
-                  class="row sa lap"
-                  v-bind:lap='lap'
-                  v-bind:activity='activity'
-                  v-bind:lapMarkers='lapMarkers'
-                  v-bind:sessionEfforts='sessionEfforts'
-                  v-bind:createSession='createSession'
-                  v-on:onMarkLapChange='setLapMarker($event)'
-                  v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
-                  v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
-                </lap>
-              </div>
+            <activity-session 
+              v-bind:createSession='createSession' 
+              v-bind:sessionEfforts='sessionEfforts' 
+              v-bind:sessionEffortsMergeMarkers='sessionEffortsMergeMarkers'
+              v-on:onResetSessionEfforts='resetSessionEfforts' 
+              v-on:onCloseSession='toggleCreateSession'>
+            </activity-session>
+  
+            <div v-for='lap in laps' v-bind:key='lap.index'>
+              <lap 
+                class="row sa lap"
+                v-bind:lap='lap'
+                v-bind:activity='activity'
+                v-bind:lapMarkers='lapMarkers'
+                v-bind:sessionEfforts='sessionEfforts'
+                v-bind:createSession='createSession'
+                v-on:onMarkLapChange='setLapMarker($event)'
+                v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
+                v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
+              </lap>
+            </div>
           </div>
         </el-collapse-item>
         
@@ -114,7 +107,21 @@
             </div>
           </div>
         </el-collapse-item>
-       
+
+        <el-collapse-item title="Photos" name="4" v-show='activity.photos.count > 0'>
+          <template slot="title">
+            <div class='row'>
+              <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ activity.photos.count }} photos
+            </div>
+          </template>
+          <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
+            <el-carousel-item v-for="photo in photos" :key="photo.index">
+              <div class='col' >
+                <img class='photo' v-bind:src="photo.urls['1000']"/>
+              </div>
+            </el-carousel-item>
+          </el-carousel>
+        </el-collapse-item>       
       </el-collapse>
 
     </div>
