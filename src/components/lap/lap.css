@@ -17,7 +17,7 @@
 
 .selectedLap {
   background-color: #AEECEF;
-  color: #3066BE;
+  color: #3066BE!important;
 }
 
 .merge{

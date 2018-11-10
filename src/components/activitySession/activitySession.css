@@ -1,12 +1,14 @@
 #activity-session {
-  background-color: #3066BE;
+  border: white 1px solid;
   margin: 10px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 3px;
   position: sticky;
   top: 10px;
   z-index: 2;
   max-height: 45vh;
+  color: white;
+  width: 80%;
 }
 
 #efforts-list {
@@ -17,6 +19,10 @@
 
 .effort {
   width: 100%;
+}
+
+.effort h4 {
+  margin: 3px;
 }
 
 .exit {

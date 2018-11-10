@@ -21,9 +21,7 @@ export default {
   data () {
     return {
       pageTitle: 'ACTIVITY',
-      openLaps: false,
       openComments: false,
-      openKudos: false,
       openPhotos: false,
       lapMarkers: [],
       createSession: false,
@@ -76,35 +74,37 @@ export default {
   },
   computed: {
     activity: function() {
-      return this.$store.state.activity
+      if (!this.$store.state.activity) return;
+      return this.$store.state.activity;
     },
     comments: function() {
-      return this.$store.state.comments
+      return this.$store.state.comments;
     },
     kudos: function() {
-      return this.$store.state.kudos
+      return this.$store.state.kudos;
     },
     photos: function() {
-      return this.$store.state.photos
+      if (!this.$store.state.activity.photos) return;
+      return this.$store.state.photos;
     },
     lapsCount: function() {
-      if (!this.$store.state.activity.laps) return
-      return this.$store.state.activity.laps.length
+      if (!this.$store.state.activity.laps) return;
+      return this.$store.state.activity.laps.length;
     },
     laps: function() {
-      return this.$store.state.activity.laps
+      return this.$store.state.activity.laps;
     },
     lat: function () {
-      if (!this.$store.state.activity.start_latlng) return
-      return this.$store.state.activity.start_latlng[0]
+      if (!this.$store.state.activity.start_latlng) return;
+      return this.$store.state.activity.start_latlng[0];
     },
     lng: function () {
-      if (!this.$store.state.activity.start_latlng) return
-      return this.$store.state.activity.start_latlng[1]
+      if (!this.$store.state.activity.start_latlng) return;
+      return this.$store.state.activity.start_latlng[1];
     },
     polyline: function () {
-      if (!this.$store.state.activity.map) return
-      return this.$store.state.activity.map.polyline
+      if (!this.$store.state.activity.map) return;
+      return this.$store.state.activity.map.polyline;
     },
     sortedLapMarkers(){
       if (!this.lapMarkers) return;
@@ -130,7 +130,23 @@ export default {
     lapCountInCalc: function (){
       if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;
       return (this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1);
-    }
+    },
+    displayPhotos: function() {
+      if (!this.photos) return;
+      return this.photos.length > 0;
+    },
+    // displayComments: function() {
+    //   if (!this.comments) return;
+    //   return this.comments.length > 0;
+    // },
+    // displayKudos: function() {
+    //   if (!this.kudos) return;
+    //   return this.kudos.length > 0;
+    // },
+    // displayLaps: function() {
+    //   if (!this.laps) return;
+    //   return this.laps.length > 0;
+    // }
   }
 }
 </script>

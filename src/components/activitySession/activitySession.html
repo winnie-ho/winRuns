@@ -4,19 +4,19 @@
   <p class='data-metric'>Select the efforts in your session and add it to your Strava activity description.</p>
   <div id="efforts-list">
     <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' v-bind:key='effort.index'>
-      <h5>{{ index + 1 }}</h5>
-      <h5>{{ renderDistance(effort.distance) }}</h5>
-      <h5>{{ renderTime(effort.moving_time) }}</h5>
-      <h5 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(effort.moving_time, effort.distance) }}</h5>
-      <h5 v-show="activity.type === 'Swim'">{{ renderSwimPace(effort.moving_time, effort.distance) }}</h5>
+      <h4>{{ index + 1 }}</h4>
+      <h4>{{ renderDistance(effort.distance) }}</h4>
+      <h4>{{ renderTime(effort.moving_time) }}</h4>
+      <h4 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(effort.moving_time, effort.distance) }}</h4>
+      <h4 v-show="activity.type === 'Swim'">{{ renderSwimPace(effort.moving_time, effort.distance) }}</h4>
     </div>
   </div>
   <div id='session-saved' v-show='sessionSaved'>
     <h4>Session Saved</h4>
   </div>
   <div class='row'>
-    <button class='button button--primary' v-on:click='resetSession'>Reset</button>
-    <button class='button button--secondary'v-on:click='saveSession'>Save session</button>
+    <el-button v-on:click='resetSession' size='mini' type='secondary'>Reset</el-button>
+    <el-button v-on:click='saveSession' size='mini' type='primary'>Save session</el-button>
   </div>
 </div>
 
