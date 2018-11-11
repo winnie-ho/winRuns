@@ -6,7 +6,7 @@ import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
 import changePage from '../../mixins/changePage.js'
 import googleMap from '../../components/googleMap.vue'
-import lap from '../../components/lap/lap.vue'
+import lapItem from '../../components/lap-item/lap-item.vue'
 import activitySession from '../../components/activitySession/activitySession.vue'
 
 export default {
@@ -14,7 +14,7 @@ export default {
   components: {
     'nav-bar': navBar,
     'google-map': googleMap,
-    'lap': lap,
+    'lap-item': lapItem,
     'activity-session': activitySession
   },
   mixins: [ renderData, changePage ],

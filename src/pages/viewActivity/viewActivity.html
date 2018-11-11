@@ -72,7 +72,7 @@
             </activity-session>
   
             <div v-for='lap in laps' v-bind:key='lap.index'>
-              <lap 
+              <lap-item 
                 class="row sa lap"
                 v-bind:lap='lap'
                 v-bind:activity='activity'
@@ -82,7 +82,7 @@
                 v-on:onMarkLapChange='setLapMarker($event)'
                 v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
                 v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
-              </lap>
+              </lap-item>
             </div>
           </div>
         </el-collapse-item>
