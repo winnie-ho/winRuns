@@ -1,11 +1,5 @@
 <template>
-  <div class='google-map' v-bind:id='mapName'>
-    <!-- <gmap-map
-      v-bind:center = 'center'
-      v-bind:zoom="12"
-      style="height: 102.5vw; width: 100vw">
-    </gmap-map> -->
-
+  <div v-bind:id='mapName'>
     <div id='map'></div>
   </div>
 </template>
@@ -25,7 +19,8 @@ export default {
     const mapContainer = document.getElementById('map')
     let options = {
       zoom: 13,
-      center: new google.maps.LatLng(this.center)
+      center: new google.maps.LatLng(this.center),
+      disableDefaultUI: true
     }
 
     const map = new google.maps.Map(mapContainer, options)
@@ -62,26 +57,8 @@ export default {
 </script>
 
 <style scoped>
-  gmap-map {
-    margin: 0 auto;
-    color: yellowgreen;
-  }
-
   #map {
-    height: 93vh;
-    width: 100vw;
-    position: absolute;
-    bottom: -8px;
-    left: 0px;
+    height: 300px;
+    width: 100%;
   }
-
-  #test {
-    position: absolute;
-    z-index: 200000;
-    color: red;
-    border: blue dashed 1px;
-    height: 200px;
-    width: 200px;
-  }
-
 </style>
