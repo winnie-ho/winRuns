@@ -135,18 +135,13 @@ export default {
       if (!this.photos) return;
       return this.photos.length > 0;
     },
-    // displayComments: function() {
-    //   if (!this.comments) return;
-    //   return this.comments.length > 0;
-    // },
-    // displayKudos: function() {
-    //   if (!this.kudos) return;
-    //   return this.kudos.length > 0;
-    // },
-    // displayLaps: function() {
-    //   if (!this.laps) return;
-    //   return this.laps.length > 0;
-    // }
+    backgroundImage: function(){
+      if(this.photos.length > 0){
+        return this.photos[0].urls['1000'];
+      } else {
+        return '';
+      }
+    }
   }
 }
 </script>

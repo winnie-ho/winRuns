@@ -8,23 +8,30 @@
     <div id="activity-info" class="run-box__detail col">
       
       <div id="activity-info__header">
-        <h2 class="date">{{ renderDate(activity.start_date) }}</h2>
-        <h4><strong>{{ activity.name }}</strong></h4>
+        <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }" ></div>
 
-        <div id='activity-info__main'>
-          <div v-show="activity.type === 'Swim'" class="row sa">
-            <h4>{{ renderSwimDistance(activity.distance) }}</h4>
-            <h4>{{ renderTime(activity.moving_time) }}</h4>
-            <h4>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h4>
-          </div>
-          
-          <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
-            <h4>{{ renderDistance(activity.distance) }}</h4>
-            <h4>{{ renderTime(activity.moving_time) }}</h4>
-            <h4>{{ renderPace(activity.moving_time, activity.distance) }}</h4>
-          </div>
 
+
+        <div class='header'>
+          <div class='header-titles'>
+            <h2 class="date">{{ renderDate(activity.start_date) }}</h2>
+            <h2>{{ activity.name }}</h2>
+          </div>
+          <div id='activity-info__main'>
+            <div v-show="activity.type === 'Swim'" class="row sa">
+              <h2>{{ renderSwimDistance(activity.distance) }}</h2>
+              <h2>{{ renderTime(activity.moving_time) }}</h2>
+              <h2>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
+            </div>
+            
+            <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
+              <h2>{{ renderDistance(activity.distance) }}</h2>
+              <h2>{{ renderTime(activity.moving_time) }}</h2>
+              <h2>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
+            </div>
+          </div>
         </div>
+
       </div>
       
       <div class='description'>{{ activity.description }}</div>

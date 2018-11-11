@@ -1,6 +1,7 @@
 #view-activity {
   /* background: linear-gradient(to bottom right, #6D9DC5 , #3066BE); */
   height: 100%;
+  overflow-x: hidden;
 }
 
 #activity-info{
@@ -10,8 +11,28 @@
 }
 
 #activity-info__header {
-  width: 90%;
-  padding:10px;
+  width: 100%;
+}
+
+.header-background{
+  width: 100vw;
+  height: 240px;
+  max-height: 300px;
+  filter: opacity(30%);
+  background-size: cover;
+  background-position: center; 
+}
+
+.header{
+  position: absolute;
+  width: 95vw;
+  padding: 10px;
+  z-index: 6;
+  top: 100px;
+}
+
+.header-titles{
+  margin: 0 15px;
 }
 
 #activity-info__main {
