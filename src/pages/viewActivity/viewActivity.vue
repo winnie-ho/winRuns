@@ -136,11 +136,16 @@ export default {
       return this.photos.length > 0;
     },
     backgroundImage: function(){
+      if (!this.photos) return '';
       if(this.photos.length > 0){
         return this.photos[0].urls['1000'];
       } else {
         return '';
       }
+    },
+    photoCount(){
+      if (!this.$store.state.activity.photos) return;
+      return this.$store.state.activity.photos.count;
     }
   }
 }

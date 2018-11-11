@@ -115,10 +115,10 @@
           </div>
         </el-collapse-item>
 
-        <el-collapse-item title="Photos" name="4" v-show='activity.photos.count > 0'>
+        <el-collapse-item title="Photos" name="4" v-show='photoCount > 0'>
           <template slot="title">
             <div class='row'>
-              <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ activity.photos.count }} photos
+              <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ photoCount }} photos
             </div>
           </template>
           <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
