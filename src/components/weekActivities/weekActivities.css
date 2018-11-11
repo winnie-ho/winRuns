@@ -72,10 +72,13 @@
   justify-content: flex-start;
   flex-direction: column;
   padding: 10px;
-  pointer-events: none;
   color: white;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.day > * {
+  pointer-events: none;
 }
 
 @keyframes day-settle {

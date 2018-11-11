@@ -1,7 +1,12 @@
 <div id='week-activities'>
   <div class='day-bar' v-for='day in dayLookUp' :key='day.index' >
     <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
-    <div class='day' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayHasActivities }'>
+    <div 
+      class='day' 
+      :class='{ active: dayHasActivities }' 
+      v-for='activity in dayActivities(day)' 
+      :key='activity.index' 
+      v-on:click='viewActivity(activity.id)'>
       <div class='heading'>{{ activity.name }}</div>
       <div class='row data-metric' v-show="activity.type === 'Ride' || activity.type ==='Run'">
         {{ renderDistance(activity.distance) }}  

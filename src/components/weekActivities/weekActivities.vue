@@ -3,12 +3,13 @@
 
 <script>
 import renderData from '../../mixins/renderData.js'
+import changePage from '../../mixins/changePage.js';
 
 export default {
   name: 'weekActivities',
   components: {
   },
-  mixins: [ renderData ],
+  mixins: [ renderData, changePage ],
   props: [ 'mondayInView', 'activities' ],
   data () {
     return {
