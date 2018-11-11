@@ -2,12 +2,10 @@
   <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='false'></nav-bar>
   
   <div class='strava-container' v-show='!athlete.id'>
-    <button id="strava-button" v-on:click="login">
-    <div class='button-contents'>
-      <h4>CONNECT TO</h4>
+    <el-button id="strava-button" v-on:click="login" type='primary'> 
+      <h3>CONNECT TO</h3>
       <img src="../../../static/assets/icon_strava.png" class='icon strava'/>
-    </div>
-    </button>
+    </el-button>
   </div>
 
   <router-link to="/home" exact class='col profile' v-show='athlete.id'>

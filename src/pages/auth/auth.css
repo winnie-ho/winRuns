@@ -14,6 +14,7 @@
 
 .button-contents{
   pointer-events: none;
+  padding: 10px;
 }
 
 .strava {
@@ -23,15 +24,17 @@
 }
 
 #strava-button{
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   background-color: #3066BE;
   color: #80DED9;
-  height: auto;
+  height: 100px;
+  width: 160px;
   border-radius: 5px;
   font-family: "gill sans";
   font-size: 10px;
   padding: 15px;
-  display: flex;
   border: none;
   align-items: center;
   justify-content: center;
@@ -40,26 +43,6 @@
 }
 
 #strava-button:hover{
-  border: 2px solid #80DED9;
+  border: 1px solid #80DED9;
   box-shadow: 5px 5px 10px #3066BE;
-}
-
-.profile{
-  text-decoration: none;
-  color: #AEECEF;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  height: auto;
-  margin: auto;
-  width: 200px;
-  cursor: pointer;
-  margin-top: 30%;
-  padding: 20px;
-}
-
-.profile:hover > img{
-  box-shadow: 10px 10px 20px #3066BE;
 }
