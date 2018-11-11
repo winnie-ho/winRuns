@@ -4,7 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
-import activity from '../../components/activity/activity.vue'
+import activityItem from '../../components/activityItem/activityItem.vue'
 import searchBar from '../../components/searchBar/searchBar.vue'
 import filterBar from '../../components/filterBar/filterBar.vue'
 
@@ -12,7 +12,7 @@ export default {
   name: 'activities',
   components: {
     'nav-bar': navBar,
-    'activity': activity,
+    'activity-item': activityItem,
     'search-bar': searchBar,
     'filter-bar': filterBar
   },

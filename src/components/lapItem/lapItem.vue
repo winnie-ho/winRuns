@@ -1,11 +1,11 @@
-<template src="./lap-item.html"></template>
-<style scoped src='./lap-item.css'></style>
+<template src="./lapItem.html"></template>
+<style scoped src='./lapItem.css'></style>
 
 <script>
 import renderData from '../../mixins/renderData.js'
 
 export default {
-  name: 'lap-item',
+  name: 'lapItem',
   props: ['lap', 'activity', 'lapMarkers', 'createSession', 'sessionEfforts'],
   mixins: [renderData],
   data () {

@@ -20,6 +20,6 @@
     </div>
   </div>
   <div class='activities-list'>
-    <activity v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity'></activity>
+    <activity-item v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity'></activity-item>
   </div>
 </div>

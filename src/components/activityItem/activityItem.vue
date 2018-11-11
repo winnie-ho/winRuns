@@ -1,12 +1,12 @@
-<template src="./activity.html"></template>
-<style scoped src='./activity.css'></style>
+<template src="./activityItem.html"></template>
+<style scoped src='./activityItem.css'></style>
 
 <script>
 import renderData from '../../mixins/renderData.js'
 import changePage from '../../mixins/changePage.js';
 
 export default {
-  name: 'activity',
+  name: 'activityItem',
   components: {
   },
   mixins: [ renderData, changePage ],
