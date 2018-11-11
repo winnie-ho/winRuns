@@ -1,9 +1,9 @@
 <div id='week-activities-mini' class='row sb' v-on:click='triggerWeekView' v-bind:class='{ fullWeekView: toggleWeekView }'>
   <div class='day-container' v-for='day in dayLookUp' :key='day.index'>
     <div class='day-bar' v-for='activity in dayActivities(day)' :key='activity.index' v-bind:class='{ active: dayActivities.length > 0 }' v-on:click='viewActivity(activity.id)'>
-      <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon'/>
-      <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon'/>
-      <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon'/>
+      <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon btn'/>
+      <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon btn'/>
+      <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon btn'/>
     </div>
     <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
   </div>

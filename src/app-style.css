@@ -141,6 +141,10 @@ button[disabled]{
   cursor: pointer;
 }
 
+.btn:hover{
+  transform: scale(1.2);
+}
+
 .icon-btn{
   padding: 5px;
 }
