@@ -37,7 +37,10 @@
     </router-link>
 
     <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>LOGIN</router-link>
-    <router-link to="/home" exact class='burger-item col'>HOME</router-link>
+    <router-link to="/home" exact class='burger-item col'>
+      <img src='../../../static/assets/icon_home.png' class='burger-icon'/>
+      HOME
+    </router-link>
     <router-link to="/activities" exact class='burger-item col'>
       <img src='../../../static/assets/icon_activities.png' class='burger-icon'/>
       ACTIVITIES

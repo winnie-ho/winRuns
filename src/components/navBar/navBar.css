@@ -66,7 +66,7 @@
 }
 
 .burger-item {
-  margin: 35px;
+  margin: 25px;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -136,6 +136,10 @@
   animation-duration: 0.5s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
+}
+
+.relative{
+  position: relative;
 }
 
 @keyframes title-settle {
