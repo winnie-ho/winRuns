@@ -1,7 +1,7 @@
 #view-activity {
-  /* background: linear-gradient(to bottom right, #6D9DC5 , #3066BE); */
   height: 100%;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 #activity-info{
