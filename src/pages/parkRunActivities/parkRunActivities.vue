@@ -5,13 +5,13 @@
 import navBar from '../../components/navBar/navBar.vue'
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
 import renderData from '../../mixins/renderData.js'
-import activity from '../../components/activity/activity.vue'
+import activityItem from '../../components/activityItem/activityItem.vue'
 
 export default {
   name: 'parkRunActivities',
   components: {
     'nav-bar': navBar,
-    'activity': activity,
+    'activity-item': activityItem,
     'park-run-sub-bar': parkRunSubBar
   },
   mixins: [ renderData ],
@@ -20,16 +20,12 @@ export default {
       pageTitle: 'PARK RUNS',
     }
   },
-  mounted () {
-    
-    },
-
+  mounted () {  
+  },
   created() {
-    },
-
+  },
   methods: {
-    
-    },
+  },
   computed: {
     parkRuns: function () {
       if (!this.$store.getters.parkRuns) return;

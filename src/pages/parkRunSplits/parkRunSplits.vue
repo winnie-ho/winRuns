@@ -6,14 +6,12 @@ import navBar from '../../components/navBar/navBar.vue'
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
 import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue'
 import renderData from '../../mixins/renderData.js'
-import activity from '../../components/activity/activity.vue'
 import parkRunDict from '../../mixins/parkRunDict';
 
 export default {
   name: 'parkRunSplits',
   components: {
     'nav-bar': navBar,
-    'activity': activity,
     'parkRunSubBar': parkRunSubBar,
     'toggleSwitch': toggleSwitch
   },
