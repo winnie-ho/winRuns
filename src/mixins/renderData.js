@@ -40,7 +40,7 @@ export default {
       return rawDistance.toFixed(0) + 'm'
     },
     renderTime: function (rawTime, short) {
-      if (!rawTime) return
+      if (!rawTime) return '-';
 
       const totalMinutes = (rawTime / 60).toFixed(2)
       const hours = Math.floor(totalMinutes / 60)
