@@ -10,11 +10,11 @@
 
 .stat-bar__title{
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /* responsive css  */
-@media all and (max-width: 600px) {
+@media all and (max-width: 320px) {
   #stat-bar{
     position: relative;
   }
