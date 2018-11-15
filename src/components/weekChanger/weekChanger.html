@@ -10,7 +10,7 @@
       <h3>{{ weekInViewString(mondayInView) }}</h3>
     </div>
 
-    <div v-on:click='changeWeek(-1)' class='arrow'>
+    <div v-on:click='changeWeek(-1)' class='arrow' v-bind:class='{ disable: forwardArrowDisable }'>
       <img src='../../../static/assets/icon_arrow_right.png'/>
     </div>
 </div>

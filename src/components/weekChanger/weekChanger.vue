@@ -8,7 +8,8 @@ export default {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
-      toggleWeekView: true
+      toggleWeekView: true,
+      forwardArrowDisable: false,
     }
   },
   methods: {
@@ -20,12 +21,15 @@ export default {
     },
     weekInViewString: function (mondayInView) {
       if (this.weekInViewIndex <= 0) {
+        this.forwardArrowDisable = true;
         return "THIS WEEK";
       }
       if (this.weekInViewIndex === 1 ) {
+        this.forwardArrowDisable = false;
         return "LAST WEEK";
       } 
       if (this.weekInViewIndex > 1) {
+        this.forwardArrowDisable = false;
         return mondayInView;
       }
     }
