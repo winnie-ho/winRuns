@@ -48,3 +48,13 @@
   color: white;
   font-size: 10px;
 }
+
+.week-detail-btn{
+  float: right;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+
+.el-button{
+  color: white;
+}

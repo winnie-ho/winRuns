@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       pageTitle: 'HOME',
-      toggleWeekView: true,
+      toggleWeekView: false,
       mondayInView: '',
       weekInView: [],
     };
@@ -37,18 +37,14 @@ export default {
     this.$store.dispatch('fetchActivities', 200);
   },
   methods: {
-    setToggleWeekView: function() {
-      console.log("TOGGLE STATUS")
-      this.toggleWeekView = !this.toggleWeekView
+    setToggleWeekView: function(event) {
+      this.toggleWeekView = event;
     },
     setMondayInView: function (mondayInView) {
       this.mondayInView = mondayInView;
     },
     setWeekInView: function(weekInView) {
       this.weekInView = weekInView;
-    },
-    setToggleWeekView: function(toggleWeekView) {
-      this.toggleWeekView = toggleWeekView;
     }
   },
   computed: {
