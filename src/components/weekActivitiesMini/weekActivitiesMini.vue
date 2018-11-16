@@ -21,23 +21,22 @@ export default {
   },
   methods: {
     computeImage: function (type) {
-      return type === 'ride'
+      return type === 'ride';
     },
     dayActivities: function (day) {
-      if (!this.weekInView) return
+      if (!this.weekInView) return;
       const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
 
-      let realIndex = parseInt(dayIndex) + 1
+      let realIndex = parseInt(dayIndex) + 1;
       if (dayIndex == 6) {
-        realIndex = 0
+        realIndex = 0;
       }
-      if (!this.weekInView) return
       let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex);
       let sortedDayActivities = dayActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
       return dayActivities;
     },
     triggerWeekView: function () {
-      this.toggleWeekView = !this.toggleWeekView
+      this.toggleWeekView = !this.toggleWeekView;
       this.$emit('toggleWeekViewChange', this.toggleWeekView);
     },
     dayActivityCount: function (day) {

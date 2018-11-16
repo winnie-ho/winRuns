@@ -2,13 +2,13 @@ export default {
   data () {
     return {
       dayLookUp: {
-        0: 'Sunday',
-        1: 'Monday',
-        2: 'Tuesday',
-        3: 'Wednesday',
-        4: 'Thursday',
-        5: 'Friday',
-        6: 'Saturday'
+        6: 'Sunday',
+        0: 'Monday',
+        1: 'Tuesday',
+        2: 'Wednesday',
+        3: 'Thursday',
+        4: 'Friday',
+        5: 'Saturday'
       },
       monthLookUp: {
         1: 'January',
@@ -103,7 +103,7 @@ export default {
 
       if (rawDateOnly === todayDateOnly) return 'Today'
       if (rawDateOnly === yesterdayDateOnly) return 'Yesterday'
-      if (convertedRawDate > lastWeek) return this.dayLookUp[convertedRawDate.getDay()]
+      if (convertedRawDate > lastWeek) return this.dayLookUp[convertedRawDate.getDay() - 1]
       if (format === 'long') {
         return this.ordinalSuffixOf(rawDate.substr(8, 2)) + ' ' + this.monthLookUp[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(0, 4)
       }
