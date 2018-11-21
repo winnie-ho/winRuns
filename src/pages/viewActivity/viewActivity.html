@@ -5,7 +5,7 @@
       <i class='el-icon-arrow-left btn icon-btn' v-on:click='changePage("/activities")'></i>
     </div>
 
-    <div id="activity-info" class="run-box__detail col">
+    <div id="activity-info" class="run-box__detail">
       
       <div id="activity-info__header">
         <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }" ></div>
@@ -31,8 +31,8 @@
       
       <div class='description'>{{ activity.description }}</div>
       
-      <el-collapse>
-        <el-collapse-item title="Laps" name="1">
+      <el-collapse accordion>
+        <el-collapse-item name="1">
           <template slot="title">
             <div class='row'>
               <img src='../../../static/assets/icon_laps.png' class='btn icon-btn icon'/>{{ lapsCount }} laps
@@ -82,7 +82,7 @@
           </div>
         </el-collapse-item>
         
-        <el-collapse-item title="Kudos" name="2" v-show='activity.kudos_count > 0'>
+        <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
           <template slot="title">
             <div class='row'>
               <img src='../../../static/assets/icon_like.png' class='btn icon-btn icon'/>{{ activity.kudos_count }} kudos
@@ -96,7 +96,7 @@
           </div>
         </el-collapse-item>
 
-        <el-collapse-item title="Comments" name="3" v-show='activity.comment_count > 0'>
+        <el-collapse-item name="3" v-show='activity.comment_count > 0'>
           <template slot="title">
             <div class='row'>
               <img src='../../../static/assets/icon_comment.png' class='btn icon-btn icon'/>{{ activity.comment_count }} comments
@@ -110,7 +110,7 @@
           </div>
         </el-collapse-item>
 
-        <el-collapse-item title="Photos" name="4" v-show='photoCount > 0'>
+        <el-collapse-item name="4" v-show='photoCount > 0'>
           <template slot="title">
             <div class='row'>
               <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ photoCount }} photos
@@ -123,8 +123,9 @@
               </div>
             </el-carousel-item>
           </el-carousel>
-        </el-collapse-item>       
+        </el-collapse-item>    
       </el-collapse>
+
     </div>
 
     <!-- <google-map 

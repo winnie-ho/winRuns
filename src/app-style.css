@@ -20,13 +20,6 @@
   align-items: center;
 }
 
-.col-left{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: flex-start;
-}
-
 .sb{
   justify-content: space-between;
 }
