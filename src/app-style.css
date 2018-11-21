@@ -171,6 +171,10 @@ button[disabled]{
   color: white;
 }
 
+.el-collapse-item__wrap{
+  overflow: unset;
+}
+
 .profile{
   text-decoration: none;
   color: #AEECEF;

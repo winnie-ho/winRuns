@@ -43,8 +43,10 @@
             <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
               <h2>{{ lapCountInCalc }}</h2>
               <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}</h2>
+              <h2 v-show="activity.type === 'Swim'">{{ renderSwimDistance(lapCalcDistanceResult) }}</h2>
               <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
               <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
+              <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
               <img src='../../../static/assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()'/>
             </div>
               
