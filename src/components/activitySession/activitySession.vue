@@ -9,7 +9,12 @@
     mixins: [ renderData ],
     data () {
       return {
-        sessionSaved: false
+        sessionSaved: false,
+        rankMarkIcon: {
+          0: '🥇',
+          1: '🥈',
+          2: '🥉'
+        }
       }
     },
     props: ['createSession', 'sessionEfforts', 'sessionEffortsMergeMarkers'],
@@ -46,8 +51,17 @@
           if (i < 10) {
             index = "0" + i
           }
-          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) + ')\n'
-          i++
+
+          let rankMark = '';
+
+          for (let i = 0; i < this.fastestSessionEffortIds.length; i ++ ){
+            if (this.fastestSessionEffortIds[i] === effort.id){
+              rankMark = this.rankMarkIcon[i];
+            }
+          };
+
+          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
+          i++;
         })
         return sessionString
       },
@@ -60,8 +74,16 @@
           if (i < 10) {
             index = "0" + i
           }
-          sessionString = sessionString + index + ' - ' + this.renderSwimDistance(effort.distance) +  ', ' + this.renderTime(effort.moving_time) +  ' (' + this.renderSwimPace(effort.moving_time, effort.distance) + ')\n'
-          i ++
+          let rankMark = '';
+
+          for (let i = 0; i < this.fastestSessionEffortIds.length; i ++ ){
+            if (this.fastestSessionEffortIds[i] === effort.id){
+              rankMark = this.rankMarkIcon[i];
+            }
+          };
+
+          sessionString = sessionString + index + ' - ' + this.renderSwimDistance(effort.distance) +  ', ' + this.renderTime(effort.moving_time) +  ' (' + this.renderSwimPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
+          i ++;
         })
         return sessionString
       }
@@ -99,8 +121,17 @@
       },
       orderedSessionEfforts: function() {
         if (!this.finalLaps) return;
-        return this.finalLaps.sort((a, b) => a.lap_index - b.lap_index)
+        return this.finalLaps.sort((a, b) => a.lap_index - b.lap_index);  
       },
+      fastestSessionEffortIds: function() {
+        if (!this.finalLaps) return;
+        const fastestArray = this.finalLaps.slice().sort((a, b) => a.moving_time - b.moving_time);
+        const fastestIds = []
+        for (let i = 0; i < 3; i ++ ){
+          fastestIds.push(fastestArray[i].id);
+        }
+        return fastestIds;
+      },  
       sessions: function() {
         if(!this.$store.state.sessions) return;
         return this.$store.state.sessions;
