@@ -103,7 +103,9 @@ export default {
 
       if (rawDateOnly === todayDateOnly) return 'Today'
       if (rawDateOnly === yesterdayDateOnly) return 'Yesterday'
-      if (convertedRawDate > lastWeek) return this.dayLookUp[convertedRawDate.getDay() - 1]
+      if (convertedRawDate > lastWeek) {
+        return convertedRawDate.getDay() === 0 ? this.dayLookUp[6] : this.dayLookUp[convertedRawDate.getDay() - 1]
+      }
       if (format === 'long') {
         return this.ordinalSuffixOf(rawDate.substr(8, 2)) + ' ' + this.monthLookUp[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(0, 4)
       }
