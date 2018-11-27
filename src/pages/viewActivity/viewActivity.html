@@ -34,7 +34,7 @@
       <el-collapse accordion>
         <el-collapse-item name="1">
           <template slot="title">
-            <div class='row'>
+            <div class='row full-width'>
               <img src='../../../static/assets/icon_laps.png' class='btn icon-btn icon'/>{{ lapsCount }} laps
             </div>
           </template>
@@ -86,7 +86,7 @@
         
         <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
           <template slot="title">
-            <div class='row'>
+            <div class='row full-width'>
               <img src='../../../static/assets/icon_like.png' class='btn icon-btn icon'/>{{ activity.kudos_count }} kudos
             </div>
           </template>
@@ -100,7 +100,7 @@
 
         <el-collapse-item name="3" v-show='activity.comment_count > 0'>
           <template slot="title">
-            <div class='row'>
+            <div class='row full-width'>
               <img src='../../../static/assets/icon_comment.png' class='btn icon-btn icon'/>{{ activity.comment_count }} comments
             </div>
           </template>
@@ -114,7 +114,7 @@
 
         <el-collapse-item name="4" v-show='photoCount > 0'>
           <template slot="title">
-            <div class='row'>
+            <div class='row full-width'>
               <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ photoCount }} photos
             </div>
           </template>

@@ -28,6 +28,10 @@
   justify-content: space-around;
 }
 
+.full-width{
+  width: 100%;
+}
+
 /* TEXT */
 h1, h2, h3, h4, h5, h6{
   font-weight: 100;
