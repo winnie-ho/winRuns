@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
     userToken: '',
     fullParkRuns: [],
     sessions: [],
-    updateStravaActivityResponse: false,
+    updateStravaActivityResponse: {},
     uploadStravaActivityResponse: {},
     stravaUpload: {}
   },
@@ -151,6 +151,7 @@ export const store = new Vuex.Store({
     updateStravaActivity: (context, actionParameters) => {
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=' + context.state.userToken, actionParameters[1]).then(
         function (response) {
+          console.log('response', response)
           context.commit('setUpdateStravaActivityResponse', response)
         })
     },

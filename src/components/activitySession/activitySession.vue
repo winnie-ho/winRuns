@@ -23,7 +23,7 @@
         let updatedActivity = {
           "commute": this.activity.commute,
           "trainer": this.activity.trainer,
-          "description": this.activity.type === "Swim" ? this.renderStravaSwimSession() : this.renderStravaSession(),
+          "description": this.renderStravaSession(this.activity.type),
           "name": this.activity.name,
           "type": this.activity.type,
           "private": this.activity.private,
@@ -40,11 +40,13 @@
         this.$emit('onResetSessionEfforts')
       },
       closeSession: function() {
-        this.$emit('onCloseSession')
+        this.$emit('onCloseSession');
+        this.sessionSaved = false;
       },
-      renderStravaSession: function() {
+      renderStravaSession: function(type) {
         let sessionString = '';
         let i = 1;
+        let rankMark = '';
 
         this.orderedSessionEfforts.forEach(effort => {
           let index = i;
@@ -52,42 +54,25 @@
             index = "0" + i
           }
 
-          let rankMark = '';
+          if (this.finalLaps.length > 6) {
+            rankMark = '';
+            for (let i = 0; i < this.fastestSessionEffortIds.length; i ++ ){
+              if (this.fastestSessionEffortIds[i] === effort.id){
+                rankMark = this.rankMarkIcon[i];
+              }
+            };
+          }
 
-          for (let i = 0; i < this.fastestSessionEffortIds.length; i ++ ){
-            if (this.fastestSessionEffortIds[i] === effort.id){
-              rankMark = this.rankMarkIcon[i];
-            }
-          };
+          if (type === 'Swim') {
+            sessionString = sessionString + index + ' - ' + this.renderSwimDistance(effort.distance) +  ', ' + this.renderTime(effort.moving_time) +  ' (' + this.renderSwimPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
+          } else {
+            sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
+          }
 
-          sessionString = sessionString + index + '\t - \t' + this.renderDistance(effort.distance) +  ', \t' + this.renderTime(effort.moving_time) +  '\t(' + this.renderPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
           i++;
         })
         return sessionString
-      },
-      renderStravaSwimSession: function() {
-        let sessionString = '';
-        let i = 1;
-
-        this.orderedSessionEfforts.forEach(effort => {
-          let index = i;
-          if (i < 10) {
-            index = "0" + i
-          }
-          let rankMark = '';
-
-          for (let i = 0; i < this.fastestSessionEffortIds.length; i ++ ){
-            if (this.fastestSessionEffortIds[i] === effort.id){
-              rankMark = this.rankMarkIcon[i];
-            }
-          };
-
-          sessionString = sessionString + index + ' - ' + this.renderSwimDistance(effort.distance) +  ', ' + this.renderTime(effort.moving_time) +  ' (' + this.renderSwimPace(effort.moving_time, effort.distance) +  ') ' + rankMark + '\n';
-          i ++;
-        })
-        return sessionString
       }
-
     },
     computed: {
       activity: function() {
@@ -135,6 +120,10 @@
       sessions: function() {
         if(!this.$store.state.sessions) return;
         return this.$store.state.sessions;
+      },
+      updateStravaActivityResponse: function () {
+        if(!this.$store.state.updateStravaActivityResponse) return;
+        return this.$store.state.updateStravaActivityResponse.ok;
       }
     }
   }

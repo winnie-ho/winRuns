@@ -1,8 +1,8 @@
 <div id='activity-session' class='col sb' v-show='createSession'>
   <img class="icon exit" src="../../../static/assets/icon_cross.png" v-on:click='closeSession'/>
   <h4>SESSION EFFORTS</h4>
-  <p class='data-metric'>Select the efforts in your session and add it to your Strava activity description.</p>
-  <div id="efforts-list">
+  <p v-show='!sessionSaved' class='data-metric'>Select the efforts in your session and add it to your Strava activity description.</p>
+  <div id="efforts-list" v-show='!sessionSaved'>
     <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' v-bind:key='effort.index'>
       <h4>{{ index + 1 }}</h4>
       <h4>{{ renderDistance(effort.distance) }}</h4>
@@ -12,9 +12,11 @@
     </div>
   </div>
   <div id='session-saved' v-show='sessionSaved'>
-    <h4>Session Saved</h4>
+    <p v-show='updateStravaActivityResponse'>Session saved</p>  
+    <p v-show='!updateStravaActivityResponse'>Error in saving. Try again.</p>  
+    <img class='tick-icon' src='../../../static/assets/icon_tick.png'/>
   </div>
-  <div class='row'>
+  <div class='row' v-show='!sessionSaved'>
     <el-button v-on:click='resetSession' size='mini' type='secondary'>Reset</el-button>
     <el-button v-on:click='saveSession' size='mini' type='primary'>Save session</el-button>
   </div>

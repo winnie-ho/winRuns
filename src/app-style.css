@@ -80,6 +80,14 @@ h1, h2, h3, h4, h5, h6{
   filter: invert(60%);
 }
 
+.tick-icon{
+  height: 40px;
+  width: auto;
+  margin: 20px;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
 .avatar{
   height: 35px;
   width: 35px;

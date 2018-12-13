@@ -46,14 +46,6 @@ img{
   margin-bottom: 5px;
 }
 
-.tick-icon{
-  height: 40px;
-  width: auto;
-  margin: 20px;
-  animation-name: fade-in;
-  animation-duration: 2s;
-}
-
 @keyframes fade-in {
   from {
     filter: opacity(0%)
