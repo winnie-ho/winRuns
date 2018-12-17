@@ -39,6 +39,7 @@ export const store = new Vuex.Store({
     setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
     setUserToken: (state, payload) => (state.userToken = payload),
     setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
+    clearFullParkRuns: (state) => (state.fullParkRuns = []),
     setSessions: (state, payload) => (state.sessions = payload),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
@@ -128,6 +129,7 @@ export const store = new Vuex.Store({
       )
     },
     fetchFullParkRuns: (context) => {
+      context.commit('clearFullParkRuns')
       context.getters.parkRuns.forEach(parkRun => {
         return Vue.http.get('https://www.strava.com/api/v3/activities/' + parkRun.id + '\?access_token=' + context.state.userToken).then(
           function (response) {

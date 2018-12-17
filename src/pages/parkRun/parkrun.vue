@@ -30,12 +30,13 @@ export default {
   },
   mixins: [ parkRunDict, renderData ],
   mounted () {
-    this.createParkRunChart(this.parkRuns)
+    this.createParkRunChart(this.parkRuns);
+    this.$store.dispatch('fetchFullParkRuns');
   },
 
   created () {
-    this.setDefaultParkRunName()
-    this.setParkRunLocation()
+    this.setDefaultParkRunName();
+    this.setParkRunLocation();
   },
 
   methods: {
@@ -83,6 +84,10 @@ export default {
         return this.defaultParkRun
       }
       return this.parkRuns[0]
+    },
+    numOfAttempts: function(){
+      if (!this.$store.state.fullParkRuns[0]) return;
+      return this.$store.state.fullParkRuns[0].similar_activities.effort_count;
     },
     completeParkRuns: function () {
       if (!this.parkRuns) return

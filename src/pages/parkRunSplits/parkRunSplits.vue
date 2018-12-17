@@ -23,9 +23,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('fetchFullParkRuns');
   },
-
   created() {
   },
 

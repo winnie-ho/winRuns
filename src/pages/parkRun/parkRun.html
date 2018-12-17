@@ -15,13 +15,14 @@
       <div>LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
 
       <div class="last-pr__metric">{{ latestParkRun.name }}</div>
-
+      
       <div class="last-pr__metric row sb">
         <div>{{ renderTime(latestParkRun.moving_time) }}</div>
         <div>{{ renderPace(latestParkRun.moving_time, latestParkRun.distance) }}</div>
       </div>
       
       <div class="last-pr__summary">
+        <div>Ran: {{ numOfAttempts }} times</div>
         <div>{{ computeLastPRContext() }}</div>
         <div>{{ computeYBContext() }}</div>
         <div>{{ computePBContext() }}</div>
