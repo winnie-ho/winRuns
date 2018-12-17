@@ -123,10 +123,14 @@ export const store = new Vuex.Store({
     tokenExchange: (context, exchangeData) => {
       Vue.http.post('https://www.strava.com/oauth/token', exchangeData).then(
         function (response) {
+          localStorage.setItem('userToken', response.body.access_token)
+          localStorage.setItem('athleteId', response.body.athlete.id)
           context.commit('setUserToken', response.body.access_token)
           context.commit('setAthlete', response.body.athlete)
-        }
-      )
+        })
+    },
+    setUserToken: (context, userToken) => {
+      context.commit('setUserToken', userToken)
     },
     fetchFullParkRuns: (context) => {
       context.commit('clearFullParkRuns')

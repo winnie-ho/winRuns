@@ -5,6 +5,7 @@
 import navBar from '../../components/navBar/navBar.vue'
 import renderData from '../../mixins/renderData.js'
 import { store } from '../../store/store.js'
+import changePage from '../../mixins/changePage';
 
 export default {
   name: 'auth',
@@ -21,18 +22,28 @@ export default {
       user: '',
       userToken: '',
       athleteId: '',
-      // redirect_url: "https://win-runs.firebaseapp.com"
-      redirect_url: "http://localhost:8080",
+      redirect_url: "https://win-runs.firebaseapp.com"
+      // redirect_url: "http://localhost:8080",
     }
   },
   mounted () {
-    this.setAuthCode();
+    this.checkStoredCreds();
   },
 
   created() {
   },
 
   methods: {
+    checkStoredCreds: function(){
+      if (localStorage.userToken) {
+        this.userToken = localStorage.userToken;
+        this.athleteId = localStorage.athleteId;
+        this.$store.dispatch('setUserToken', localStorage.userToken);
+        this.$store.dispatch('fetchAthlete', localStorage.athleteId);
+      } else {
+        this.setAuthCode();
+      }
+    },
     setAuthCode: function () {
       let location = window.location.search;
       if (location.search("code=") === -1) {
