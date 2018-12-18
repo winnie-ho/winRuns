@@ -8,11 +8,13 @@
     </el-button>
   </div>
 
-  <router-link to="/home" exact class='col profile' v-show='athlete.id'>
+  <div class='col profile'>
     <h4>You're connected!</h4>
-    <img class='avatar-profile' :src='athlete.profile'/>
+    <router-link to="/home" exact  v-show='athlete.id'>
+      <img class='avatar-profile' :src='athlete.profile'/>
+    </router-link>
     <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
     <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
-  </router-link>
-  
+    <el-button plain icon='el-icon-menu' size='small' type='primary' v-on:click="changePage('/home')">Dashboard</el-button>
+  </div>
 </div>

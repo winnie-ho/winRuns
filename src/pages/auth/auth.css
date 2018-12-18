@@ -46,3 +46,7 @@
   border: 1px solid #80DED9;
   box-shadow: 5px 5px 10px #3066BE;
 }
+
+.el-button{
+  margin-top: 20px;
+}

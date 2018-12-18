@@ -12,7 +12,7 @@ export default {
   components: {
     'nav-bar': navBar,
   },
-  mixins: [ renderData ],
+  mixins: [ renderData, changePage ],
   data () {
     return {
       pageTitle: 'LOGIN',
