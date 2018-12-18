@@ -24,6 +24,7 @@ export default {
       showSwims: true,
       showRides: true,
       showRuns: true,
+      showWorkouts: true,
       showFilters: false,
       showSearch: false
     }
@@ -42,12 +43,16 @@ export default {
     setRunFilter: function(showRuns){
       this.showRuns = showRuns;
     },
+    setWorkoutFilter: function(showWorkouts){
+      this.showWorkouts = showWorkouts;
+    },
     filterByActivities: function(activities){
       return activities.filter(activity => {
         return activity.type === "Swim" && this.showSwims ||
                activity.type === "Ride" && this.showRides || 
                activity.type === 'VirtualRide' && this.showRides ||
-               activity.type === "Run" && this.showRuns;
+               activity.type === "Run" && this.showRuns ||
+               activity.type === 'Workout' && this.showWorkouts
       });
     },
     expandFilters: function(){

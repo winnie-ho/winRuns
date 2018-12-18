@@ -13,6 +13,7 @@ export default {
       toggleFilterSwim: true,
       toggleFilterRide: true,
       toggleFilterRun: true,
+      toggleFilterWorkout: true
     }
   },
   mounted () {
@@ -33,6 +34,10 @@ export default {
     setRunFilter: function() {
       this.toggleFilterRun = !this.toggleFilterRun;
       this.$emit('filterRunChange', this.toggleFilterRun);
+    },
+    setWorkoutFilter: function() {
+      this.toggleFilterWorkout = !this.toggleFilterWorkout;
+      this.$emit('filterWorkoutChange', this.toggleFilterWorkout);
     }
   },
   computed: {
