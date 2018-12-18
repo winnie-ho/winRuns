@@ -1,19 +1,39 @@
-<div class='main-stat' v-bind:class='{ expanded: expandToggle }'>
-  <div class='main-stat--title'>{{ title }}</div>
-  <div class='main-stat--value'>{{ statTypeCount }}</div>
+<div class='main-stat'>
 
-  <div class='expanded-stats' v-show='expandToggle'>
-    <div class='expanded-stat-item'>
-      <img class='icon' src='../../../static/assets/icon_distance.png'/>
-      {{ renderDistance(statTypeDistance,'short') }}
-    </div>
-    <div class='expanded-stat-item'>
-      <img class='icon' src='../../../static/assets/icon_time.png'/>
-      {{ renderTime(statTypeTime, 'short') }}
-    </div>
-    <div class='expanded-stat-item'>
-      <img class='icon' src='../../../static/assets/icon_elevation.png'/>
-      {{ renderDistance(statTypeElevation, 'short') }}
+  <div class='expanded-stats'>
+
+    <div class='result-container'>
+      <ul>
+        <li>
+          <div>
+            {{ title }}
+          </div>
+          <div>
+            {{ statTypeCount }}
+          </div>
+          <div>
+            <img class='icon' src='../../../static/assets/icon_distance.png'/>
+          </div>
+          <div>
+            {{ renderDistance(statTypeDistance,'short') }}
+          </div>
+          <div>
+            <img class='icon' src='../../../static/assets/icon_time.png'/>
+          </div>
+          <div>
+            {{ renderTime(statTypeTime, 'short') }}
+          </div>
+          <div>
+            <img class='icon' src='../../../static/assets/icon_elevation.png'/>
+          </div>
+          <div>
+            {{ renderDistance(statTypeElevation, 'short') }}
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+  
+
+
 </div>

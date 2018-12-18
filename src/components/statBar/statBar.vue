@@ -12,16 +12,12 @@ export default {
   },
   data () {
     return {
-      expandStat: false
     }
   },
   created() {
     this.$store.dispatch("fetchStats")
   },
   methods: {
-    expandStats: function() {
-      this.expandStat = !this.expandStat;
-    }
   },
   computed: {
   }
