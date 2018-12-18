@@ -12,6 +12,10 @@
           <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon btn'>
         </el-tooltip>
         <el-tooltip placement="top">
+          <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>
+          <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png' class='icon btn'>
+        </el-tooltip>
+        <el-tooltip placement="top">
           <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>  
           <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon btn tool-tip'/>
         </el-tooltip>
