@@ -1,10 +1,5 @@
-.main-stat {
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.result-container{
-  margin-right: 50px;
+.container{
+  margin-right: 40px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -26,8 +21,8 @@ ul{
 ul li{
   position: relative;
   list-style: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 ul li div{
@@ -62,31 +57,31 @@ ul li div:nth-child(1){
   z-index: 2;
 }
 ul li div:nth-child(2){
-  transform: translate(50px, 0);
+  transform: translate(40px, 0);
   opacity: 0.8;
   z-index: 2;
 }
 ul li:hover div:nth-child(3){
-  transform: translate(0px, -50px);
+  transform: translate(0px, -40px);
   opacity: 1;
 }
 ul li:hover div:nth-child(4){
-  transform: translate(50px, -50px);
+  transform: translate(40px, -40px);
   opacity: 1;
 }
 ul li:hover div:nth-child(5){
-  transform: translate(0px, -100px);
+  transform: translate(0px, -80px);
   opacity: 1;
 }
 ul li:hover div:nth-child(6){
-  transform: translate(50px, -100px);
+  transform: translate(40px, -80px);
   opacity: 1;
 }
 ul li:hover div:nth-child(7){
-  transform: translate(0px, -150px);
+  transform: translate(0px, -120px);
   opacity: 0.9;
 }
 ul li:hover div:nth-child(8){
-  transform: translate(50px, -150px);
+  transform: translate(40px, -120px);
   opacity: 0.8;
 }

@@ -20,6 +20,9 @@ export default {
   methods: {
   },
   computed: {
+    year: function() {
+      return new Date().getFullYear();
+    }
   }
 }
 </script>

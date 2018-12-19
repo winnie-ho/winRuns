@@ -7,11 +7,12 @@
 }
 
 .title-box{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
   color: #fff;
   font-size: 10px;
   background: #3066BE;
