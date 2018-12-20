@@ -2,6 +2,8 @@
 <style scoped src='./weekChanger.css'></style>
 
 <script>
+import moment from 'moment';
+
 export default {
   name: 'weekChanger',
   data () {
@@ -45,7 +47,7 @@ export default {
     },
     mondayInView: function () {
       const mondayInView = new Date(this.lastMonday - (this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000));
-      const mondayInViewString = mondayInView.toLocaleDateString();
+      const mondayInViewString = moment(mondayInView).format('Do MMM YYYY')
       this.$emit('mondayInViewChange', mondayInView);
       return mondayInViewString;
     }
