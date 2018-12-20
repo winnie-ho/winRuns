@@ -14,13 +14,9 @@
 }
 
 .day-container {
-  border-top-left-radius: 5px;  
-  border-top-right-radius: 5px;  
   background-color: #AEECEF ;
   width: 45px;
   border: 1px solid #3066BE;
-  border-bottom-left-radius: 5px;  
-  border-bottom-right-radius: 5px;  
 }
 
 .day-bar {
@@ -28,16 +24,19 @@
   color: #AEECEF;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   padding: 5px 0 ;
+  height: 35px;
 }
 
 .day-title {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 5px 0;
+  height: 35px;
 }
 
 .day{
