@@ -11,7 +11,7 @@
         <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }" ></div>
         <div class='header'>
           <div class='header-titles'>
-            <h2 class="date">{{ renderDate(activity.start_date) }}</h2>
+            <h2 class="date">{{ renderDate(activity.start_date, 'long') }}</h2>
             <h2>{{ activity.name }}</h2>
           </div>
           <div id='activity-info__main'>

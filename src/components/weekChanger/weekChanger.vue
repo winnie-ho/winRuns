@@ -2,10 +2,11 @@
 <style scoped src='./weekChanger.css'></style>
 
 <script>
-import moment from 'moment';
+import renderData from '../../mixins/renderData';
 
 export default {
   name: 'weekChanger',
+  mixins: [ renderData ],
   data () {
     return {
       weekInViewIndex: 0,
@@ -47,7 +48,7 @@ export default {
     },
     mondayInView: function () {
       const mondayInView = new Date(this.lastMonday - (this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000));
-      const mondayInViewString = moment(mondayInView).format('Do MMM YYYY')
+      const mondayInViewString = this.renderDate(mondayInView, 'long');
       this.$emit('mondayInViewChange', mondayInView);
       return mondayInViewString;
     }

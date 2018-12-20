@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export default {
   data () {
     return {
@@ -9,20 +11,6 @@ export default {
         3: 'Thursday',
         4: 'Friday',
         5: 'Saturday'
-      },
-      monthLookUp: {
-        1: 'January',
-        2: 'February',
-        3: 'March',
-        4: 'April',
-        5: 'May',
-        6: 'June',
-        7: 'July',
-        8: 'August',
-        9: 'September',
-        10: 'October',
-        11: 'November',
-        12: 'December'
       }
     }
   },
@@ -107,9 +95,9 @@ export default {
         return convertedRawDate.getDay() === 0 ? this.dayLookUp[6] : this.dayLookUp[convertedRawDate.getDay() - 1]
       }
       if (format === 'long') {
-        return this.ordinalSuffixOf(rawDate.substr(8, 2)) + ' ' + this.monthLookUp[parseInt(rawDate.substr(5, 2))] + ' ' + rawDate.substr(0, 4)
+        return moment(rawDate).format('Do MMMM YYYY')
       }
-      return rawDate.substr(8, 2) + ' ' + (this.monthLookUp[parseInt(rawDate.substr(5, 2))]).substr(0, 3) + ' ' + rawDate.substr(2, 2)
+      return moment(rawDate).format('DD MMM YY')
     },
     renderElevation: function (rawElevation) {
       if (!rawElevation) return
