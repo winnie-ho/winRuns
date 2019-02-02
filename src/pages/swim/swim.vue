@@ -93,7 +93,7 @@ export default {
         return Object.assign(lap, {
           DistanceMeters: this.lapDistance,
           Track: {
-              Trackpoint: this.renderTrack(trackpoints, incrementalLapDistance)
+            Trackpoint: this.renderTrack(trackpoints, incrementalLapDistance)
           }
         })
       })
@@ -103,12 +103,20 @@ export default {
       let increment = this.lapDistance/(trackpoints.length-1);
       let updatedTrack = [];
       for (let i = 0; i < trackpoints.length; i ++) {
-          let updatedTrackpoint = Object.assign(trackpoints[i], {
-              DistanceMeters: [(incrementalLapDistance + (i * increment)).toFixed(2)]
-          });
-          updatedTrack.push(updatedTrackpoint);
-          delete updatedTrackpoint.Extensions
+        let updatedTrackpoint = Object.assign(trackpoints[i], {
+            DistanceMeters: [(incrementalLapDistance + (i * increment)).toFixed(2)]
+        });
+
+        if ( i > 0) {
+          let dTime = (new Date(trackpoints[i].Time[0]) - new Date(trackpoints[i - 1 ].Time[0]))/1000;
+          console.log('TRACK', i, dTime)
+          if (i === 0 || dTime < 10) {
+            updatedTrack.push(updatedTrackpoint);
+          }
+        }
+        delete updatedTrackpoint.Extensions
       }
+      console.log('UPDATED', updatedTrack)
       return updatedTrack;
     },
 
@@ -120,7 +128,7 @@ export default {
       const builder = new xml2js.Builder();
       const xml = builder.buildObject(data);
       const file = await this.writeFile(xml);
-      await this.uploadToStrava(file);
+      // await this.uploadToStrava(file);
     },
 
     writeFile: function (xml) {

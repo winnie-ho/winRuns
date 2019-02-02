@@ -11,9 +11,9 @@
       return {
         sessionSaved: false,
         rankMarkIcon: {
-          0: '🥇',
-          1: '🥈',
-          2: '🥉'
+          0: '(1)',
+          1: '(2)',
+          2: '(3)'
         }
       }
     },
@@ -30,7 +30,7 @@
           "gear_id": this.activity.gear_id
         }
         let actionParameters = [this.activity.id, updatedActivity]
-        console.log('UPDATED ACTIVITY', updatedActivity.description)
+        console.log(updatedActivity.description)
         this.$store.dispatch('updateStravaActivity', actionParameters)
 
         this.sessionSaved = true;
@@ -110,7 +110,7 @@
       },
       fastestSessionEffortIds: function() {
         if (!this.finalLaps) return;
-        const fastestArray = this.finalLaps.slice().sort((a, b) => a.moving_time - b.moving_time);
+        const fastestArray = this.finalLaps.slice().sort((a, b) => (a.moving_time/a.distance) - (b.moving_time/b.distance));
         const fastestIds = []
         for (let i = 0; i < 3; i ++ ){
           fastestIds.push(fastestArray[i].id);
