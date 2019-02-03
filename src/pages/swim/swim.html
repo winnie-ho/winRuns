@@ -33,5 +33,12 @@
       type='primary'
       >Activities
     </el-button>
+    <el-button
+      v-show='!successfulStravaStatus'
+      v-on:click='openGarminConnect'
+      size='mini'
+      type='plain'
+      >Garmin Connect
+    </el-button>
   </div>
 </div>
