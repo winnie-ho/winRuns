@@ -102,6 +102,16 @@ h1, h2, h3, h4, h5, h6{
   margin: 10px;
 }
 
+/* ANCHOR TAGS */
+a {
+  text-decoration: none;
+  color: #AEECEF;
+}
+
+a:hover{
+  color: #80DED9;
+}
+
 /* BUTTONS */
 .hover:hover {
   color: #3E9FDF;

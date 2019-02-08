@@ -172,10 +172,6 @@ export default {
 
     setPoolLength: function () {
       this.lapDistance = document.getElementById('poolLength').value
-    },
-
-    openGarminConnect: function () {
-      window.open('https://connect.garmin.com/modern/activities', '_blank');
     }
   },
   computed: {

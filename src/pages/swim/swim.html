@@ -3,7 +3,12 @@
   <div class='col sa'>
     <img class='swim-logo' src='../../../static/assets/icon_swim.png'/>
     <img class='strava-logo' src='../../../static/assets/icon_strava.png'/>
-    <p class='subheading' v-bind:hidden='successfulStravaStatus'>Convert your regular activity file into a Strava swim activity. Mark lengths consistently during your swim with the lap button. Enter your chosen lap distance below.</p>
+    <p class='subheading' v-bind:hidden='successfulStravaStatus'>Convert your regular activity file into a Strava swim activity.<br>
+      1 - Mark lengths consistently during your swim with the lap button. <br>
+      2 - Get your .tcx file from <a href='https://connect.garmin.com/modern/activities' target='_blank'>Garmin Connect</a>.<br>
+      3 - Enter your chosen lap distance below.<br>
+      4 - Upload the file to Strava.</p>
+   
     <form>
       <div class='swim-form' v-bind:hidden='successfulStravaStatus'>
         <label for='swimName'>NAME</label>
@@ -32,13 +37,6 @@
       size='mini'
       type='primary'
       >Activities
-    </el-button>
-    <el-button
-      v-show='!successfulStravaStatus'
-      v-on:click='openGarminConnect'
-      size='mini'
-      type='plain'
-      >Garmin Connect
     </el-button>
   </div>
 </div>
