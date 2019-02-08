@@ -124,6 +124,10 @@
       updateStravaActivityResponse: function () {
         if(!this.$store.state.updateStravaActivityResponse) return;
         return this.$store.state.updateStravaActivityResponse.ok;
+      },
+      updateStravaActivityResponseError: function () {
+        if(!this.$store.state.updateStravaActivityResponse) return;
+        return this.$store.state.updateStravaActivityResponse.status === 400;
       }
     }
   }
