@@ -1,5 +1,5 @@
 #search-bar{
-  margin: 5px;
+  margin: 20px 5px 5px 5px;;
 }
 
 input{
@@ -15,7 +15,7 @@ input{
 
 #search-clear{
   float: right;
-  right: 17px;
+  right: 25px;
   margin-bottom: -22px;
   color: #3066BE;
   z-index: 2;
