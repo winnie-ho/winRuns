@@ -19,6 +19,7 @@ export const store = new Vuex.Store({
     weatherForecast: {},
     userToken: '',
     fullParkRuns: [],
+    fullKmSessions: [],
     sessions: [],
     updateStravaActivityResponse: {},
     uploadStravaActivityResponse: {},
@@ -40,6 +41,8 @@ export const store = new Vuex.Store({
     setUserToken: (state, payload) => (state.userToken = payload),
     setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
     clearFullParkRuns: (state) => (state.fullParkRuns = []),
+    setFullKmSessions: (state, payload) => (state.fullKmSessions.push(payload)),
+    clearFullKmSessions: (state) => (state.fullKmSessions = []),
     setSessions: (state, payload) => (state.sessions = payload),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
@@ -57,6 +60,14 @@ export const store = new Vuex.Store({
     dateOrderedFullParkRuns: (state) => {
       if (!state.fullParkRuns) return
       return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
+    },
+    kmSessions: (state) => {
+      if (!state.activities) return
+      return state.activities.filter(activity => activity.name.search('5x 1km') !== -1)
+    },
+    dateOrderedFullKmSessions: (state) => {
+      if (!state.fullKmSessions) return
+      return state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
     }
   },
   actions: {
@@ -138,6 +149,16 @@ export const store = new Vuex.Store({
         return Vue.http.get('https://www.strava.com/api/v3/activities/' + parkRun.id + '\?access_token=' + context.state.userToken).then(
           function (response) {
             context.commit('setFullParkRuns', response.body)
+          }
+        )
+      })
+    },
+    fetchFullKmSessions: (context) => {
+      context.commit('clearFullKmSessions')
+      context.getters.kmSessions.forEach(kmSession => {
+        return Vue.http.get('https://www.strava.com/api/v3/activities/' + kmSession.id + '\?access_token=' + context.state.userToken).then(
+          function (response) {
+            context.commit('setFullKmSessions', response.body)
           }
         )
       })

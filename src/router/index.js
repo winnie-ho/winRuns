@@ -8,6 +8,7 @@ import activities from '../pages/activities/activities.vue'
 import viewActivity from '../pages/viewActivity/viewActivity.vue'
 import parkRunActivities from '../pages/parkRunActivities/parkRunActivities.vue'
 import parkRunSplits from '../pages/parkRunSplits/parkRunSplits.vue'
+import kmSplits from '../pages/kmSplits/kmSplits.vue'
 
 Vue.use(Router)
 
@@ -20,7 +21,8 @@ export default new Router({
     { path: '/activities', component: activities },
     { path: '/activity/:id', component: viewActivity },
     { path: '/parkRunActivities', component: parkRunActivities },
-    { path: '/parkRunSplits', component: parkRunSplits }
+    { path: '/parkRunSplits', component: parkRunSplits },
+    { path: '/kmSplits', component: kmSplits }
   ],
   mode: 'history'
 })
