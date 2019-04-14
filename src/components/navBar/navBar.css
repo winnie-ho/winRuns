@@ -37,6 +37,7 @@
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
   z-index: 10;
+  overflow-y: scroll;
 }
 
 .expanded-burger * {
