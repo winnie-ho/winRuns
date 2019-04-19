@@ -2,7 +2,7 @@
     <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
 
     <div class='sub-bar'>
-      <i class='el-icon-arrow-left btn icon-btn' v-on:click='changePage("/activities")'></i>
+      <i class='el-icon-arrow-left btn icon-btn' v-on:click='$router.go(-1)'></i>
     </div>
 
     <div id="activity-info" class="run-box__detail">
