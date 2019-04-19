@@ -7,6 +7,7 @@ import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
 import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue'
 import renderData from '../../mixins/renderData.js'
 import parkRunDict from '../../mixins/parkRunDict';
+import changePage from '../../mixins/changePage';
 
 export default {
   name: 'parkRunSplits',
@@ -15,7 +16,7 @@ export default {
     'parkRunSubBar': parkRunSubBar,
     'toggleSwitch': toggleSwitch
   },
-  mixins: [ renderData, parkRunDict ],
+  mixins: [ renderData, parkRunDict, changePage ],
   data () {
     return {
       pageTitle: 'PARK RUN SPLITS',
