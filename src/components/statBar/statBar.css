@@ -1,6 +1,6 @@
 #stat-bar{
   bottom: 0;
-  position: absolute;
+  position: relative;
   width: 100%;
   justify-content: center;
   margin-bottom: 10px;
@@ -17,4 +17,14 @@
   font-size: 12px;
   background: #3066BE;
   margin: 0px;
+}
+
+
+/* responsive css  */
+@media all and (max-width: 700px) {
+  #stat-bar {
+    position: absolute;
+    margin-top: 40px;
+  }
+
 }
