@@ -22,7 +22,7 @@
     </tr>
 
     
-    <tr v-for='fullParkRun in dateOrderedFullParkRuns' :key='fullParkRun.index' v-on:click='viewActivity(fullParkRun.id)'>
+    <tr v-for='fullParkRun in dateOrderedFullParkRuns' :key='fullParkRun.index' v-on:click='viewActivity(fullParkRun.id)' class='hover'>
       <td>{{ renderDate(fullParkRun.start_date) }}</td>
       <td class='name'>{{ fullParkRun.name }}</td>
       <td>{{ renderTime(fullParkRun.elapsed_time) }}</td>
