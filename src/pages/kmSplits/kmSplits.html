@@ -16,7 +16,7 @@
   
     <tr v-for='kmSession in dateOrderedFullKmSessions' :key='kmSession.index'>
       <td>{{ renderDate(kmSession.start_date) }}</td>
-      <td class='name'>{{ kmSession.name }}</td>
+      <td class='name hover' v-on:click='viewActivity(kmSession.id)'>{{ kmSession.name }}</td>
       <td>{{ renderTime(totalKmRepTime(kmSession)) }}</td>
       <td>{{ renderPace(totalKmRepTime(kmSession), 5000) }}</td>
       <td>{{ renderTime(kmTime(kmSession, 1)) }}</td>

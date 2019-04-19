@@ -115,6 +115,7 @@ a:hover{
 /* BUTTONS */
 .hover:hover {
   color: #3E9FDF;
+  cursor: pointer;
 }
 
 .back-button {

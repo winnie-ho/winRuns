@@ -5,6 +5,7 @@
 import navBar from '../../components/navBar/navBar.vue'
 import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue'
 import renderData from '../../mixins/renderData.js'
+import changePage from '../../mixins/changePage';
 
 export default {
   name: 'kmSplits',
@@ -12,7 +13,7 @@ export default {
     'nav-bar': navBar,
     'toggleSwitch': toggleSwitch
   },
-  mixins: [ renderData ],
+  mixins: [ renderData, changePage ],
   data () {
     return {
       pageTitle: 'KM SPLITS',
