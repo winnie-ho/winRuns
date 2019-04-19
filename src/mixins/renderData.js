@@ -100,6 +100,7 @@ export default {
       return moment(rawDate).format('DD MMM YY')
     },
     renderDateTime: function (rawDate) {
+      if (!rawDate) return
       return rawDate.substr(11, 5)
     },
     renderElevation: function (rawElevation) {
