@@ -12,14 +12,12 @@
     </div>
   </div>
   <div id='session-saved' v-show='sessionSaved'>
-    <p v-show='updateStravaActivityResponse'>Session saved</p>  
-    <p v-show='updateStravaActivityResponseError'>Error in saving. Try again.</p>  
-    <img class='tick-icon' src='../../../static/assets/icon_tick.png'/>
+    <p v-show='updateStravaActivityResponse'>Session saved</p>
+    <img v-show='updateStravaActivityResponse' class='tick-icon' src='../../../static/assets/icon_tick.png'/>
+    <p v-show='updateStravaActivityResponseError'>Error in saving. Try again.</p>
   </div>
   <div class='row' v-show='!sessionSaved'>
     <el-button v-on:click='resetSession' plain size='mini' type='info'>Reset</el-button>
     <el-button v-on:click='saveSession' plain size='mini' type='primary'>Save session</el-button>
   </div>
 </div>
-
- 
