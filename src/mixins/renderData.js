@@ -15,19 +15,19 @@ export default {
     }
   },
   methods: {
-    renderDistance: function (rawDistance, short) {
+    renderDistance (rawDistance, short) {
       if (!rawDistance) return
       if (short === 'short') {
         return ((rawDistance) / 1000).toFixed(0) + 'km'
       }
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
-    renderSwimDistance: function (rawDistance) {
+    renderSwimDistance (rawDistance) {
       if (rawDistance === 0) return '0m'
       if (!rawDistance) return
       return rawDistance.toFixed(0) + 'm'
     },
-    renderTime: function (rawTime, short) {
+    renderTime (rawTime, short) {
       if (!rawTime) return '-'
 
       const totalMinutes = (rawTime / 60).toFixed(2)
@@ -54,7 +54,7 @@ export default {
         return hours + ':' + minutes + ':' + seconds
       }
     },
-    renderPace: function (rawTime, rawDistance) {
+    renderPace (rawTime, rawDistance) {
       if (!rawTime) return
       const totalMinutes = (rawTime / 60).toFixed(2)
       const paceMinutes = (Math.floor(totalMinutes / (rawDistance / 1000))).toFixed(0)
@@ -65,7 +65,7 @@ export default {
       }
       return paceMinutes + ':' + paceSeconds + '/km'
     },
-    renderSwimPace: function (rawTime, rawDistance) {
+    renderSwimPace (rawTime, rawDistance) {
       if (rawDistance === 0) return '-'
       let multiplier = 100 / rawDistance
       if (!rawTime) return
@@ -78,7 +78,7 @@ export default {
       }
       return paceMinutes + ':' + paceSeconds + '/100m'
     },
-    renderDate: function (rawDate, format) {
+    renderDate (rawDate, format) {
       if (!rawDate) return
       const convertedRawDate = new Date(rawDate)
       const today = new Date()
@@ -99,15 +99,15 @@ export default {
       }
       return moment(rawDate).format('DD MMM YY')
     },
-    renderDateTime: function (rawDate) {
+    renderDateTime (rawDate) {
       if (!rawDate) return
       return rawDate.substr(11, 5)
     },
-    renderElevation: function (rawElevation) {
+    renderElevation (rawElevation) {
       if (!rawElevation) return
       return rawElevation.toFixed(0) + 'm'
     },
-    ordinalSuffixOf: function (num) {
+    ordinalSuffixOf (num) {
       if (!num) return
       let digit = num
       let j = num % 10
@@ -127,7 +127,7 @@ export default {
       }
       return digit + 'th'
     },
-    renderDegTemp: function (rawTemp) {
+    renderDegTemp (rawTemp) {
       return (rawTemp - 273).toFixed(0) + '°C'
     }
   }

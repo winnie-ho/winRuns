@@ -2,59 +2,59 @@
 <style scoped src='./parkRunSplits.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue'
-import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
-import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue'
-import renderData from '../../mixins/renderData.js'
-import parkRunDict from '../../mixins/parkRunDict';
-import changePage from '../../mixins/changePage';
+import navBar from "../../components/navBar/navBar.vue";
+import parkRunSubBar from "../../components/parkRunSubBar/parkRunSubBar.vue";
+import toggleSwitch from "../../components/toggleSwitch/toggleSwitch.vue";
+import renderData from "../../mixins/renderData.js";
+import parkRunDict from "../../mixins/parkRunDict";
+import changePage from "../../mixins/changePage";
 
 export default {
-  name: 'parkRunSplits',
+  name: "parkRunSplits",
   components: {
-    'nav-bar': navBar,
-    'parkRunSubBar': parkRunSubBar,
-    'toggleSwitch': toggleSwitch
+    "nav-bar": navBar,
+    parkRunSubBar: parkRunSubBar,
+    toggleSwitch: toggleSwitch
   },
-  mixins: [ renderData, parkRunDict, changePage ],
-  data () {
+  mixins: [renderData, parkRunDict, changePage],
+  data() {
     return {
-      pageTitle: 'PARK RUN SPLITS',
+      pageTitle: "PARK RUN SPLITS",
       lapSplitMethod: true
-    }
+    };
   },
-  mounted () {
-  },
-  created() {
-  },
+  mounted() {},
+  created() {},
 
   methods: {
-    kmTime: function(fullParkRun, km) {
+    kmTime(fullParkRun, km) {
       if (this.lapSplitMethod) {
-        const kmLap = fullParkRun.laps[km - 1 ];
+        const kmLap = fullParkRun.laps[km - 1];
         if (!kmLap) return;
         return kmLap.moving_time;
       }
 
-      const segment = fullParkRun.segment_efforts.find(seg => seg.name === this.selectedParkRunSegs[km]);
-      if (!segment) return; 
+      const segment = fullParkRun.segment_efforts.find(
+        seg => seg.name === this.selectedParkRunSegs[km]
+      );
+      if (!segment) return;
       return segment.moving_time;
     },
-    setSplitMethod(method){
+    setSplitMethod(method) {
       this.lapSplitMethod = method;
     }
   },
   computed: {
-    dateOrderedFullParkRuns: function () {
+    dateOrderedFullParkRuns() {
       if (!this.$store.getters.dateOrderedFullParkRuns) return;
       return this.$store.getters.dateOrderedFullParkRuns;
     },
-    selectedParkRunSegs: function() {
+    selectedParkRunSegs() {
       if (!this.$store.state.selectedParkRun) return;
       return this.$store.state.selectedParkRun.segDict;
     }
   }
-}
+};
 </script>
 
 

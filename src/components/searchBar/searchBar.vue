@@ -13,23 +13,15 @@ export default {
       searchWord: ''
     }
   },
-  mounted () {
-  },
-
-  created() {
-  },
-
   methods: {
-    setWordSearch: function(e) {
+    setWordSearch(e) {
       this.searchWord = e.srcElement.value;
       this.$emit('searchWordChange', this.searchWord);
     },
-    resetSearch: function(){
+    resetSearch(){
       document.getElementById('search-input').value = '';
       this.$emit('searchWordChange', '');
     }
   },
-  computed: {
-  }
 }
 </script>

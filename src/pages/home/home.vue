@@ -9,7 +9,7 @@ import weekChanger from "../../components/weekChanger/weekChanger.vue";
 import weekStats from "../../components/weekStats/weekStats.vue";
 import statBar from "../../components/statBar/statBar.vue";
 import weather from "../../components/weather/weather.vue";
-import renderData from '../../mixins/renderData.js'
+import renderData from "../../mixins/renderData.js";
 
 export default {
   name: "home",
@@ -20,39 +20,39 @@ export default {
     "week-changer": weekChanger,
     "week-stats": weekStats,
     "week-activities-mini": weekActivitiesMini,
-    "weather": weather
+    weather: weather
   },
-  mixins: [ renderData ],
+  mixins: [renderData],
   data() {
     return {
-      pageTitle: 'HOME',
+      pageTitle: "HOME",
       toggleWeekView: false,
-      mondayInView: '',
-      weekInView: [],
+      mondayInView: "",
+      weekInView: []
     };
   },
   mounted() {
-    this.$store.dispatch('fetchActivities', 15);
-    this.$store.dispatch('fetchStats')
-    this.$store.dispatch('fetchActivities', 200);
+    this.$store.dispatch("fetchActivities", 15);
+    this.$store.dispatch("fetchStats");
+    this.$store.dispatch("fetchActivities", 200);
   },
   methods: {
-    setToggleWeekView: function(event) {
+    setToggleWeekView(event) {
       this.toggleWeekView = event;
     },
-    setMondayInView: function (mondayInView) {
+    setMondayInView(mondayInView) {
       this.mondayInView = mondayInView;
     },
-    setWeekInView: function(weekInView) {
+    setWeekInView(weekInView) {
       this.weekInView = weekInView;
     }
   },
   computed: {
-    activities: function () {
+    activities() {
       if (!this.$store.state.activities) return;
       return this.$store.state.activities;
     },
-    userToken: function () {
+    userToken() {
       let result = !this.$store.state.userToken;
       return result;
     }

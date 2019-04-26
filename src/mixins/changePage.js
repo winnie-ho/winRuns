@@ -4,10 +4,10 @@ export default {
     }
   },
   methods: {
-    changePage: function (page) {
+    changePage (page) {
       this.$router.push(page)
     },
-    viewActivity: async function (activityId) {
+    async viewActivity (activityId) {
       await this.$store.dispatch('fetchKudos', activityId)
       await this.$store.dispatch('fetchPhotos', activityId)
       await this.$store.dispatch('fetchComments', activityId)

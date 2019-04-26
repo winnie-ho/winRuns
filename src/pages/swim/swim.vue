@@ -2,131 +2,134 @@
 <style scoped src='./swim.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue'
-import changePage from '../../mixins/changePage.js'
-import xml2js from 'xml2js'
-import * as fs from 'fs-web'
-
+import navBar from "../../components/navBar/navBar.vue";
+import changePage from "../../mixins/changePage.js";
+import xml2js from "xml2js";
+import * as fs from "fs-web";
 
 export default {
-  name: 'swim',
-  mixins: [ changePage ],
+  name: "swim",
+  mixins: [changePage],
   components: {
-    'nav-bar': navBar
+    "nav-bar": navBar
   },
-  data () {
+  data() {
     return {
-      pageTitle: 'SWIM',
-      file: '',
+      pageTitle: "SWIM",
+      file: "",
       lapDistance: 0,
-      swimName:'New Swim',
-      swimDescription: '',
-      stravaSuccessMessage: 'Your activity is still being processed.'
-    }
+      swimName: "New Swim",
+      swimDescription: "",
+      stravaSuccessMessage: "Your activity is still being processed."
+    };
   },
-  mounted () {
-    this.$store.dispatch('resetUploadStravaActivityResponse');
+  mounted() {
+    this.$store.dispatch("resetUploadStravaActivityResponse");
   },
 
-  created () {
-  },
+  created() {},
 
   methods: {
-    readFile: async function(event) {
-      this.file = '';
+    async readFile(event) {
+      this.file = "";
       const input = event.target;
       const reader = new FileReader();
 
-      reader.onload = (e) => {
+      reader.onload = e => {
         this.file = e.target.result;
-      }
+      };
       reader.readAsText(input.files[0]);
     },
 
-    updateActivity: function(result) {
+    updateActivity(result) {
       const laps = this.selectLaps(result);
       this.renderLapDistanceTotal(laps);
 
-      result.TrainingCenterDatabase.Activities[0].Activity[0]['$'] = {"Sport": "Swim"};
+      result.TrainingCenterDatabase.Activities[0].Activity[0]["$"] = {
+        Sport: "Swim"
+      };
       this.renderFile(result);
     },
 
-    parseFile: async function(file){
+    async parseFile(file) {
       let parser = new xml2js.Parser();
 
       let parsedFile = await parser.parseString(file, (err, result) => {
         if (err) {
-          console.log('ERROR IN PARSING', err)
-        } 
+          console.log("ERROR IN PARSING", err);
+        }
 
         this.updateActivity(result);
       });
-
     },
 
-    selectLaps: function(data) {
-      if (!data) return
+    selectLaps(data) {
+      if (!data) return;
 
       // check for valid laps with time > 0.
       let laps = data.TrainingCenterDatabase.Activities[0].Activity[0].Lap;
       return laps.filter(lap => {
         if (!lap.Track) {
-          return parseInt(lap.TotalTimeSeconds[0]) > 0 ;
+          return parseInt(lap.TotalTimeSeconds[0]) > 0;
         } else {
           // Check the duration within the trackpoint points. Garmin can fudge it up!
-          const trackpointEndIndex = parseInt(lap.Track[0].Trackpoint.length - 1);
-          const trackEndTime = lap.Track[0].Trackpoint[ trackpointEndIndex ]['Time'][0];
+          const trackpointEndIndex = parseInt(
+            lap.Track[0].Trackpoint.length - 1
+          );
+          const trackEndTime =
+            lap.Track[0].Trackpoint[trackpointEndIndex]["Time"][0];
           const trackStartTime = lap.Track[0].Trackpoint[0].Time[0];
-          const lapDuration = (new Date(trackEndTime) - new Date(trackStartTime)) / 1000;
+          const lapDuration =
+            (new Date(trackEndTime) - new Date(trackStartTime)) / 1000;
           return parseInt(lap.TotalTimeSeconds[0]) > 0 || lapDuration > 0;
         }
       });
     },
 
-    renderLapDistanceTotal: function(laps) {
-      if (!laps) return
+    renderLapDistanceTotal(laps) {
+      if (!laps) return;
       let lapIndex = 0;
       return laps.map(lap => {
         let incrementalLapDistance = lapIndex * this.lapDistance;
         let trackpoints = lap.Track[0].Trackpoint;
-        lapIndex ++;
+        lapIndex++;
         return Object.assign(lap, {
           DistanceMeters: this.lapDistance,
           Track: {
             Trackpoint: this.renderTrack(trackpoints, incrementalLapDistance)
           }
-        })
-      })
+        });
+      });
     },
 
-    renderTrack: function(trackpoints, incrementalLapDistance) {
-      let increment = this.lapDistance/(trackpoints.length-1);
+    renderTrack(trackpoints, incrementalLapDistance) {
+      let increment = this.lapDistance / (trackpoints.length - 1);
       let updatedTrack = [];
-      for (let i = 0; i < trackpoints.length; i ++) {
+      for (let i = 0; i < trackpoints.length; i++) {
         let updatedTrackpoint = Object.assign(trackpoints[i], {
-            DistanceMeters: [(incrementalLapDistance + (i * increment)).toFixed(2)]
+          DistanceMeters: [(incrementalLapDistance + i * increment).toFixed(2)]
         });
 
         updatedTrack.push(updatedTrackpoint);
-        delete updatedTrackpoint.Extensions
+        delete updatedTrackpoint.Extensions;
       }
-      console.log('UPDATED', updatedTrack)
+      console.log("UPDATED", updatedTrack);
       return updatedTrack;
     },
 
-    generateSwim: function() {
-      this.parseFile(this.file)
+    generateSwim() {
+      this.parseFile(this.file);
     },
 
-    renderFile: async function(data) {
+    async renderFile(data) {
       const builder = new xml2js.Builder();
       const xml = builder.buildObject(data);
       const file = await this.writeFile(xml);
       await this.uploadToStrava(file);
     },
 
-    writeFile: function (xml) {
-      let swimFile = new File([xml], 'outputSwim.tcx', {type:'text/plain'});
+    writeFile(xml) {
+      let swimFile = new File([xml], "outputSwim.tcx", { type: "text/plain" });
 
       // let downloadLink = document.createElement("a");
       // downloadLink.download = "outputSwim.tcx";
@@ -144,53 +147,62 @@ export default {
       return swimFile;
     },
 
-    uploadToStrava: function (file) {
+    uploadToStrava(file) {
       let formData = new FormData();
-      formData.append('name', this.swimName);
-      formData.append('description', this.swimDescription);
-      formData.append('file', file, 'outputSwim.tcx');
-      formData.append('data_type', 'tcx');
-      formData.append('external_id', 'winSwimsTest');
-      formData.append('activity_type', 'swim');
+      formData.append("name", this.swimName);
+      formData.append("description", this.swimDescription);
+      formData.append("file", file, "outputSwim.tcx");
+      formData.append("data_type", "tcx");
+      formData.append("external_id", "winSwimsTest");
+      formData.append("activity_type", "swim");
 
-      this.$store.dispatch('uploadStravaActivity', formData)
+      this.$store.dispatch("uploadStravaActivity", formData);
     },
 
-    getUploadStatus: function () {
+    getUploadStatus() {
       if (!this.$store.state.uploadStravaActivityResponse) return;
-      console.log('ID', this.$store.state.uploadStravaActivityResponse)
-      this.$store.dispatch('getStravaUpload', this.$store.state.uploadStravaActivityResponse.id)
+      console.log("ID", this.$store.state.uploadStravaActivityResponse);
+      this.$store.dispatch(
+        "getStravaUpload",
+        this.$store.state.uploadStravaActivityResponse.id
+      );
     },
 
-    setSwimName: function () {
-      this.swimName = document.getElementById('swimName').value
+    setSwimName() {
+      this.swimName = document.getElementById("swimName").value;
     },
 
-    setSwimDescription: function () {
-      this.swimDescription = document.getElementById('swimDescription').value
+    setSwimDescription() {
+      this.swimDescription = document.getElementById("swimDescription").value;
     },
 
-    setPoolLength: function () {
-      this.lapDistance = document.getElementById('poolLength').value
+    setPoolLength() {
+      this.lapDistance = document.getElementById("poolLength").value;
     }
   },
   computed: {
-    stravaStatus: function () {
+    stravaStatus() {
       if (!this.$store.state.uploadStravaActivityResponse) return;
-      if (this.$store.state.uploadStravaActivityResponse.status === this.stravaSuccessMessage) {
+      if (
+        this.$store.state.uploadStravaActivityResponse.status ===
+        this.stravaSuccessMessage
+      ) {
         return "Your swim is uploading.\nCheck your Strava in a few moments.";
       } else {
         return this.$store.state.uploadStravaActivityResponse.status;
       }
     },
 
-    disableButton: function () {
+    disableButton() {
       return !(this.lapDistance && this.file);
     },
 
-    successfulStravaStatus: function () {
-      return this.$store.state.uploadStravaActivityResponse.status === this.stravaSuccessMessage;
+    successfulStravaStatus() {
+      return (
+        this.$store.state.uploadStravaActivityResponse.status ===
+        this.stravaSuccessMessage
+      );
     }
   }
-}
+};
 </script>

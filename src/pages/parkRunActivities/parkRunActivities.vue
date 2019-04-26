@@ -2,37 +2,34 @@
 <style scoped src='./parkRunActivities.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue'
-import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue'
-import renderData from '../../mixins/renderData.js'
-import activityItem from '../../components/activityItem/activityItem.vue'
+import navBar from "../../components/navBar/navBar.vue";
+import parkRunSubBar from "../../components/parkRunSubBar/parkRunSubBar.vue";
+import renderData from "../../mixins/renderData.js";
+import activityItem from "../../components/activityItem/activityItem.vue";
 
 export default {
-  name: 'parkRunActivities',
+  name: "parkRunActivities",
   components: {
-    'nav-bar': navBar,
-    'activity-item': activityItem,
-    'park-run-sub-bar': parkRunSubBar
+    "nav-bar": navBar,
+    "activity-item": activityItem,
+    "park-run-sub-bar": parkRunSubBar
   },
-  mixins: [ renderData ],
-  data () {
+  mixins: [renderData],
+  data() {
     return {
-      pageTitle: 'PARK RUNS',
-    }
+      pageTitle: "PARK RUNS"
+    };
   },
-  mounted () {  
-  },
-  created() {
-  },
-  methods: {
-  },
+  mounted() {},
+  created() {},
+  methods: {},
   computed: {
-    parkRuns: function () {
+    parkRuns() {
       if (!this.$store.getters.parkRuns) return;
       return this.$store.getters.parkRuns;
     }
   }
-}
+};
 </script>
 
 

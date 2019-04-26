@@ -14,14 +14,6 @@ export default {
     return {
     }
   },
-  mounted () {
-  },
-
-  created() {
-  },
-
-  methods: {
-    },
   computed: {
     pageSelected(){
       return this.pages.find(page => page === this.$route.path);

@@ -2,45 +2,36 @@
 <style scoped src='./filterBar.css'></style>
 
 <script>
-import renderData from '../../mixins/renderData.js'
+import renderData from "../../mixins/renderData.js";
 
 export default {
-  name: 'filter-bar',
-  components: {
-  },
-  data () {
+  name: "filter-bar",
+  components: {},
+  data() {
     return {
       toggleFilterSwim: true,
       toggleFilterRide: true,
       toggleFilterRun: true,
       toggleFilterWorkout: true
-    }
+    };
   },
-  mounted () {
-  },
-
-  created() {
-  },
-
   methods: {
-    setSwimFilter: function() {
+    setSwimFilter() {
       this.toggleFilterSwim = !this.toggleFilterSwim;
-      this.$emit('filterSwimChange', this.toggleFilterSwim);
+      this.$emit("filterSwimChange", this.toggleFilterSwim);
     },
-    setBikeFilter: function() {
+    setBikeFilter() {
       this.toggleFilterRide = !this.toggleFilterRide;
-      this.$emit('filterRideChange', this.toggleFilterRide);
+      this.$emit("filterRideChange", this.toggleFilterRide);
     },
-    setRunFilter: function() {
+    setRunFilter() {
       this.toggleFilterRun = !this.toggleFilterRun;
-      this.$emit('filterRunChange', this.toggleFilterRun);
+      this.$emit("filterRunChange", this.toggleFilterRun);
     },
-    setWorkoutFilter: function() {
+    setWorkoutFilter() {
       this.toggleFilterWorkout = !this.toggleFilterWorkout;
-      this.$emit('filterWorkoutChange', this.toggleFilterWorkout);
+      this.$emit("filterWorkoutChange", this.toggleFilterWorkout);
     }
   },
-  computed: {
-  }
-}
+};
 </script>

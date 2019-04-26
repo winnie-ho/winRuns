@@ -2,50 +2,44 @@
 <style scoped src='./viewActivity.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue'
-import renderData from '../../mixins/renderData.js'
-import changePage from '../../mixins/changePage.js'
-import googleMap from '../../components/googleMap.vue'
-import lapItem from '../../components/lapItem/lapItem.vue'
-import activitySession from '../../components/activitySession/activitySession.vue'
+import navBar from "../../components/navBar/navBar.vue";
+import renderData from "../../mixins/renderData.js";
+import changePage from "../../mixins/changePage.js";
+import googleMap from "../../components/googleMap.vue";
+import lapItem from "../../components/lapItem/lapItem.vue";
+import activitySession from "../../components/activitySession/activitySession.vue";
 
 export default {
-  name: 'viewActivity',
+  name: "viewActivity",
   components: {
-    'nav-bar': navBar,
-    'google-map': googleMap,
-    'lap-item': lapItem,
-    'activity-session': activitySession
+    "nav-bar": navBar,
+    "google-map": googleMap,
+    "lap-item": lapItem,
+    "activity-session": activitySession
   },
-  mixins: [ renderData, changePage ],
-  data () {
+  mixins: [renderData, changePage],
+  data() {
     return {
-      pageTitle: 'ACTIVITY',
+      pageTitle: "ACTIVITY",
       openComments: false,
       openPhotos: false,
       lapMarkers: [],
       createSession: false,
       sessionEfforts: [],
       sessionEffortsMergeMarkers: []
-    }
+    };
   },
-  mounted () {
-  },
-
-  created() {
-  },
-
   methods: {
-    setLapMarker: function(lap) {
+    setLapMarker(lap) {
       this.lapMarkers.push(lap.lap_index - 1);
       if (this.lapMarkers.length > 2) {
         this.lapMarkers.shift();
       }
     },
-    clearLapMarkers: function() {
+    clearLapMarkers() {
       this.lapMarkers = [];
     },
-    toggleCreateSession: function() {
+    toggleCreateSession() {
       this.createSession = !this.createSession;
     },
     setSessionLapMarker(lap) {
@@ -55,98 +49,106 @@ export default {
           this.sessionEfforts.splice(index, 1);
         }
       } else {
-        this.sessionEfforts.push(lap)
+        this.sessionEfforts.push(lap);
       }
     },
-    setSessionLapMergeMarker: function(lap){
+    setSessionLapMergeMarker(lap) {
       if (this.sessionEffortsMergeMarkers.includes(lap)) {
         let index = this.sessionEffortsMergeMarkers.indexOf(lap);
         if (index > -1) {
           this.sessionEffortsMergeMarkers.splice(index, 1);
         }
       } else {
-        this.sessionEffortsMergeMarkers.push(lap)
+        this.sessionEffortsMergeMarkers.push(lap);
       }
     },
-    resetSessionEfforts: function() {
+    resetSessionEfforts() {
       this.sessionEfforts = [];
-    } 
+    }
   },
   computed: {
-    activity: function() {
+    activity() {
       if (!this.$store.state.activity) return;
       return this.$store.state.activity;
     },
-    comments: function() {
+    comments() {
       return this.$store.state.comments;
     },
-    kudos: function() {
+    kudos() {
       return this.$store.state.kudos;
     },
-    photos: function() {
+    photos() {
       if (!this.$store.state.activity.photos) return;
       return this.$store.state.photos;
     },
-    lapsCount: function() {
+    lapsCount() {
       if (!this.$store.state.activity.laps) return;
       return this.$store.state.activity.laps.length;
     },
-    laps: function() {
+    laps() {
       return this.$store.state.activity.laps;
     },
-    lat: function () {
+    lat() {
       if (!this.$store.state.activity.start_latlng) return;
       return this.$store.state.activity.start_latlng[0];
     },
-    lng: function () {
+    lng() {
       if (!this.$store.state.activity.start_latlng) return;
       return this.$store.state.activity.start_latlng[1];
     },
-    polyline: function () {
+    polyline() {
       if (!this.$store.state.activity.map) return;
       return this.$store.state.activity.map.polyline;
     },
-    sortedLapMarkers(){
+    sortedLapMarkers() {
       if (!this.lapMarkers) return;
       let result = this.lapMarkers.slice().sort((a, b) => a - b);
       return result;
     },
-    lapCalcTimeResult: function () {
+    lapCalcTimeResult() {
       if (!this.sortedLapMarkers) return;
       let lapTimeCounter = 0;
-      for (let i = this.sortedLapMarkers[0]; i < this.sortedLapMarkers[1] + 1; i ++) {
+      for (
+        let i = this.sortedLapMarkers[0];
+        i < this.sortedLapMarkers[1] + 1;
+        i++
+      ) {
         lapTimeCounter += this.laps[i].moving_time;
       }
       return lapTimeCounter;
     },
-    lapCalcDistanceResult: function () {
+    lapCalcDistanceResult() {
       if (!this.sortedLapMarkers) return;
       let lapDistanceCounter = 0;
-      for (let i = this.sortedLapMarkers[0]; i < this.sortedLapMarkers[1] + 1; i ++) {
+      for (
+        let i = this.sortedLapMarkers[0];
+        i < this.sortedLapMarkers[1] + 1;
+        i++
+      ) {
         lapDistanceCounter += this.laps[i].distance;
       }
       return lapDistanceCounter;
     },
-    lapCountInCalc: function (){
+    lapCountInCalc() {
       if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;
-      return (this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1);
+      return this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1;
     },
-    displayPhotos: function() {
+    displayPhotos() {
       if (!this.photos) return;
       return this.photos.length > 0;
     },
-    backgroundImage: function(){
-      if (!this.photos) return '';
-      if(this.photos.length > 0){
-        return this.photos[0].urls['1000'];
+    backgroundImage() {
+      if (!this.photos) return "";
+      if (this.photos.length > 0) {
+        return this.photos[0].urls["1000"];
       } else {
-        return '';
+        return "";
       }
     },
-    photoCount(){
+    photoCount() {
       if (!this.$store.state.activity.photos) return;
       return this.$store.state.activity.photos.count;
     }
   }
-}
+};
 </script>

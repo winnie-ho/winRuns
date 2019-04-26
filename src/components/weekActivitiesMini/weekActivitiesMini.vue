@@ -2,48 +2,51 @@
 <style scoped src='./weekActivitiesMini.css'></style>
 
 <script>
-import renderData from '../../mixins/renderData.js'
-import changePage from '../../mixins/changePage.js';
+import renderData from "../../mixins/renderData.js";
+import changePage from "../../mixins/changePage.js";
 
 export default {
-  name: 'weekActivitiesMini',
-  components: {
-  },
-  mixins: [ renderData, changePage ],
-  props: [ 'weekInView' ],
-  data () {
+  name: "weekActivitiesMini",
+  components: {},
+  mixins: [renderData, changePage],
+  props: ["weekInView"],
+  data() {
     return {
       dayHasActivities: false,
       toggleWeekView: false
-    }
+    };
   },
-  created() {
-  },
+  created() {},
   methods: {
-    computeImage: function (type) {
-      return type === 'ride';
+    computeImage(type) {
+      return type === "ride";
     },
-    dayActivities: function (day) {
+    dayActivities(day) {
       if (!this.weekInView) return;
-      const dayIndex = Object.keys(this.dayLookUp).find(key => this.dayLookUp[key] === day);
+      const dayIndex = Object.keys(this.dayLookUp).find(
+        key => this.dayLookUp[key] === day
+      );
 
       let realIndex = parseInt(dayIndex) + 1;
       if (dayIndex == 6) {
         realIndex = 0;
       }
-      let dayActivities = this.weekInView.filter(activity => new Date(activity.start_date).getDay() === realIndex);
-      let sortedDayActivities = dayActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+      let dayActivities = this.weekInView.filter(
+        activity => new Date(activity.start_date).getDay() === realIndex
+      );
+      let sortedDayActivities = dayActivities.sort(
+        (a, b) => new Date(a.start_date) - new Date(b.start_date)
+      );
       return dayActivities;
     },
-    triggerWeekView: function () {
+    triggerWeekView() {
       this.toggleWeekView = !this.toggleWeekView;
-      this.$emit('toggleWeekViewChange', this.toggleWeekView);
+      this.$emit("toggleWeekViewChange", this.toggleWeekView);
     },
-    dayActivityCount: function (day) {
+    dayActivityCount(day) {
       return day.length;
     }
   },
-  computed: {
-  }
-}
+  computed: {}
+};
 </script>

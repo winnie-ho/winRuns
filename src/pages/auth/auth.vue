@@ -34,7 +34,7 @@ export default {
   },
 
   methods: {
-    checkStoredCreds: function(){
+    checkStoredCreds(){
       if (localStorage.userToken) {
         this.userToken = localStorage.userToken;
         this.athleteId = localStorage.athleteId;
@@ -44,7 +44,7 @@ export default {
         this.setAuthCode();
       }
     },
-    setAuthCode: function () {
+    setAuthCode () {
       let location = window.location.search;
       if (location.search("code=") === -1) {
         return;
@@ -54,7 +54,7 @@ export default {
         this.tokenExchange();
       }
     },
-    login: function () {
+    login () {
       console.log('LOGGING IN...')
       const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=view_private,write&state=mystate&approval_prompt=auto";
       
@@ -63,7 +63,7 @@ export default {
         this.tokenExchange();
       }
     },
-    tokenExchange: function () {
+    tokenExchange () {
       let exchangeData = {
         client_id: this.client_id,
         client_secret: this.client_secret,
@@ -73,7 +73,7 @@ export default {
     }
   },
   computed: {
-    athlete: function() {
+    athlete() {
       if (!this.$store.state.athlete) return
       return this.$store.state.athlete
     }

@@ -2,36 +2,41 @@
 <style scoped src='./weekStats.css'></style>
 
 <script>
-import renderData from '../../mixins/renderData.js'
+import renderData from "../../mixins/renderData.js";
 
 export default {
-  name: 'weekStats',
-  props: ['weekInView'],
-  data () {
-    return {
-    }
+  name: "weekStats",
+  props: ["weekInView"],
+  data() {
+    return {};
   },
-  mixins: [ renderData ],
+  mixins: [renderData],
   methods: {
-    countActivityType: function (type) {
-      if (!this.weekInView) return
-      return this.weekInView.filter(activity => activity.type === type).length
+    countActivityType(type) {
+      if (!this.weekInView) return;
+      return this.weekInView.filter(activity => activity.type === type).length;
     }
   },
   computed: {
-    weekDistance: function() {
+    weekDistance() {
       if (!this.weekInView) return;
-      let weekDistance = this.weekInView.reduce((acc, activity ) => acc + activity.distance, 0);
-      return (weekDistance/1000).toFixed(0) + "km"
+      let weekDistance = this.weekInView.reduce(
+        (acc, activity) => acc + activity.distance,
+        0
+      );
+      return (weekDistance / 1000).toFixed(0) + "km";
     },
-    weekTime: function() {
+    weekTime() {
       if (!this.weekInView) return;
-      return this.weekInView.reduce((acc, activity ) => acc + activity.moving_time, 0);
+      return this.weekInView.reduce(
+        (acc, activity) => acc + activity.moving_time,
+        0
+      );
     },
-    weekActivitiesCount: function () {
-      if (!this.weekInView) return
-      return this.weekInView.length
+    weekActivitiesCount() {
+      if (!this.weekInView) return;
+      return this.weekInView.length;
     }
   }
-}
+};
 </script>

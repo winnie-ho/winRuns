@@ -9,12 +9,8 @@
         checked: false
       }
     },
-    
-    props: [],
-    methods: {
-    },
     computed: {
-      toggleSetting: function() {
+      toggleSetting() {
         this.$emit('onToggleSwitchChange', this.checked);
       }
     }

@@ -17,10 +17,8 @@ export default {
   created() {
     this.$store.dispatch("fetchStats")
   },
-  methods: {
-  },
   computed: {
-    year: function() {
+    year() {
       return new Date().getFullYear();
     }
   }

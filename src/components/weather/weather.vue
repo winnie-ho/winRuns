@@ -2,32 +2,31 @@
 <style scoped src='./weather.css'></style>
 
 <script>
-import renderData from '../../mixins/renderData.js'
+import renderData from "../../mixins/renderData.js";
 
 export default {
-  name: 'weather',
+  name: "weather",
   props: [],
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
-  mixins: [ renderData ],
-  methods: {
-   
-  },
+  mixins: [renderData],
   computed: {
-    temp: function () {
+    temp() {
       if (!this.$store.state.weatherNow.main) return;
       return this.$store.state.weatherNow.main.temp;
     },
-    description: function () {
+    description() {
       if (!this.$store.state.weatherNow.weather) return;
       return this.$store.state.weatherNow.weather[0].main;
     },
-    wind: function () {
+    wind() {
       if (!this.$store.state.weatherNow.weather) return;
-      return (2.2369362920544 * this.$store.state.weatherNow.wind.speed).toFixed(0) + "mph"
+      return (
+        (2.2369362920544 * this.$store.state.weatherNow.wind.speed).toFixed(0) +
+        "mph"
+      );
     }
   }
-}
+};
 </script>
