@@ -7,13 +7,12 @@ export default {
     changePage: function (page) {
       this.$router.push(page)
     },
-    viewActivity: function (activityId) {
-      this.$store.dispatch('fetchActivity', activityId)
-      this.$store.dispatch('fetchKudos', activityId)
-      this.$store.dispatch('fetchPhotos', activityId)
-      this.$store.dispatch('fetchComments', activityId).then(() => {
-        this.changePage(`/activity/${ activityId }`)
-      })
+    viewActivity: async function (activityId) {
+      await this.$store.dispatch('fetchKudos', activityId)
+      await this.$store.dispatch('fetchPhotos', activityId)
+      await this.$store.dispatch('fetchComments', activityId)
+      await this.$store.dispatch('fetchActivity', activityId)
+      await this.changePage(`/activity/${activityId}`)
     }
   }
 }
