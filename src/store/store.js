@@ -62,7 +62,7 @@ export const store = new Vuex.Store({
       return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
     },
     kmSessions: (state) => {
-      if (!state.activities) return
+      if (!state.activities.length) return
       return state.activities.filter(activity => activity.name.search('5x 1km') !== -1)
     },
     dateOrderedFullKmSessions: (state) => {

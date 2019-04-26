@@ -48,6 +48,7 @@ export default {
   },
   computed: {
     kmSessions: function () {
+      if (!this.$store.getters.kmSessions) return;
       return this.$store.getters.kmSessions;
     },
     dateOrderedFullKmSessions: function () {
