@@ -95,6 +95,9 @@ export const store = new Vuex.Store({
           context.commit('setActivity', response.data)
         })
     },
+    resetActivity: (context) => {
+      context.commit('setActivity', {})
+    },
     fetchKudos: (context, activityId) => {
       Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '/kudos\?access_token=' + context.state.userToken).then(
         function (response) {

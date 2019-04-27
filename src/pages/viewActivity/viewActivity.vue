@@ -29,6 +29,18 @@ export default {
       sessionEffortsMergeMarkers: []
     };
   },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.$store.dispatch('fetchKudos', to.params.id)
+      vm.$store.dispatch('fetchPhotos', to.params.id)
+      vm.$store.dispatch('fetchComments', to.params.id)
+      vm.$store.dispatch('fetchActivity', to.params.id).then
+      next() 
+    })
+  },
+  beforeDestroy () {
+    this.$store.dispatch('resetActivity')
+  },
   methods: {
     setLapMarker(lap) {
       this.lapMarkers.push(lap.lap_index - 1);
