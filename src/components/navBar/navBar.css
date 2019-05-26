@@ -120,21 +120,22 @@
 .home-button {
   cursor: pointer;
   text-decoration: none;
-  color: #AEECEF;
-  font-family: sans-serif;
-  font-weight: lighter;
+  font-weight: 300;
   position: absolute;
-  padding: 3px;
-  padding-left: 10px;
+  padding: 10px;
   top: 4px;
-  left: -5px;
+  left: 0px;
   font-size: 18px;
   line-height: 90%;
-  word-spacing: 100vw;
   z-index: 1;
+  word-spacing: 100vw;
+  color: transparent;
+
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
   
   animation-name: title-settle;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
@@ -147,12 +148,13 @@
   from {
     width: 0px;
     background-color: transparent;
+    opacity: 0;
   }
   to {
+    width: 70px;
     background-color: #3066BE;
-    width: 60px;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
+    opacity: 100%;
+    color: #AEECEF;
   }
 }
 

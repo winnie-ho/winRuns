@@ -1,7 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', 'Avenir', Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 300;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, sans-serif;
-  color: white;
-  margin: -8px;
   min-height: 100vh;
   background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
 }
