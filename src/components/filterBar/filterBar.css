@@ -3,12 +3,14 @@
   overflow-x:hidden;
   display: flex;
   justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .filter-icon {
   border: none;
   padding: 5px;
   filter: opacity(40%) blur(1px);
+  box-sizing: content-box;
 }
 
 .selectedFilter {
