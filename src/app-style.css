@@ -234,6 +234,19 @@ button[disabled]{
   text-align: center;
 }
 
+.activity-list{
+  height: 85vh;
+  overflow-y: scroll;
+  padding: 0 5%;
+}
+
+.sub-bar{
+  background-color: #6D9DC5;
+  padding: 10px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* responsive css  */
 @media all and (max-width: 700px) {
