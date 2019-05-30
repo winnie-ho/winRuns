@@ -9,10 +9,21 @@
   padding-bottom: 20px;
 }
 
-.sub-bar__expanded{
-  justify-content: flex-end;
-}
-
 .filter{
   height: 16px;
+}
+
+.sub-bar{
+  align-items: center;
+}
+
+.sub-bar__buttons{
+  width: 100vw;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.sub-bar__expanded{
+  width: 100vw;
+  align-items: center;
 }

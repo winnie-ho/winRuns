@@ -1,28 +1,25 @@
 #search-bar{
-  margin: 20px 5px 5px 5px;;
+  margin: 20px 5px 5px 5px;
+  display: flex;
+  align-items: center;
 }
 
 input{
   border-radius: 3px;
   background-color: white;
   border: none;
-  height: 25px;
+  height: 30px;
   width: 90vw;
   color: #3066BE;
-  padding: 0 5px;
+  padding: 0 12px;
   z-index: 1;
 }
 
 #search-clear{
-  float: right;
-  right: 25px;
-  margin-bottom: -22px;
-  color: #3066BE;
-  z-index: 2;
-  position: relative;
   cursor: pointer;
+  margin-left: 6px;
+  z-index: 2px;
 }
-
 
 /* responsive css  */
 @media all and (max-width: 400px) {
