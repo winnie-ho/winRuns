@@ -5,6 +5,9 @@
 
 .week-total-stat {
   text-align: center;
+  animation-name: expandIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
 }
 
 .week-total-stat-value {
@@ -21,4 +24,20 @@
   justify-content: space-around;
   width: 100%;
   margin: 10px 0;
+}
+
+@keyframes expandIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5)
+  }
+  
+  60% {
+    transform: scale(1.1)
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
