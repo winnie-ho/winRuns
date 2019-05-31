@@ -1,141 +1,130 @@
 <div id='view-activity'>
-    <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
+  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
 
-    <div class='sub-bar'>
-      <i class='el-icon-arrow-left btn icon-btn' v-on:click='$router.go(-1)'></i>
-    </div>
+  <div class='sub-bar'>
+    <i class='el-icon-arrow-left btn icon-btn' v-on:click='$router.go(-1)'></i>
+  </div>
 
-    <div id="activity-info" class="run-box__detail">
-      
-      <div id="activity-info__header">
-        <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }" ></div>
-        <div class='header'>
-          <div class='header-titles'>
-            <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
-            <h2>{{ activity.name }}</h2>
+  <div id="activity-info" class="run-box__detail">
+
+    <div id="activity-info__header">
+      <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }"></div>
+      <div class='header'>
+        <div class='header-titles'>
+          <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
+          <h2>{{ activity.name }}</h2>
+        </div>
+        <div id='activity-info__main'>
+          <div v-show="activity.type === 'Swim'" class="row sa">
+            <h2>{{ renderSwimDistance(activity.distance) }}</h2>
+            <h2>{{ renderTime(activity.moving_time) }}</h2>
+            <h2>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
           </div>
-          <div id='activity-info__main'>
-            <div v-show="activity.type === 'Swim'" class="row sa">
-              <h2>{{ renderSwimDistance(activity.distance) }}</h2>
-              <h2>{{ renderTime(activity.moving_time) }}</h2>
-              <h2>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
-            </div>
-            <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
-              <h2>{{ renderDistance(activity.distance) }}</h2>
-              <h2>{{ renderTime(activity.moving_time) }}</h2>
-              <h2>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
-            </div>
+          <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
+            <h2>{{ renderDistance(activity.distance) }}</h2>
+            <h2>{{ renderTime(activity.moving_time) }}</h2>
+            <h2>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
           </div>
         </div>
       </div>
-      
-      <div class='description'>{{ activity.description }}</div>
-      
-      <el-collapse accordion>
-        <el-collapse-item name="1">
-          <template slot="title">
-            <div class='row full-width'>
-              <img src='../../../static/assets/icon_laps.png' class='btn icon-btn icon'/>{{ lapsCount }} laps
-            </div>
-          </template>
-          
-          <div id="laps-detail" class="col sb">
-            <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
-              <h2>{{ lapCountInCalc }}</h2>
-              <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}</h2>
-              <h2 v-show="activity.type === 'Swim'">{{ renderSwimDistance(lapCalcDistanceResult) }}</h2>
-              <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
-              <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
-              <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
-              <img src='../../../static/assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()'/>
-            </div>
-              
-            <div class='row create-session'>
-              <el-button 
-                type="primary" 
-                plain
-                icon="el-icon-plus" 
-                size='mini' 
-                v-on:click='toggleCreateSession' 
-                v-show='!createSession'>Session
-              </el-button>
-            </div>
-
-            <activity-session 
-              v-bind:createSession='createSession' 
-              v-bind:sessionEfforts='sessionEfforts' 
-              v-bind:sessionEffortsMergeMarkers='sessionEffortsMergeMarkers'
-              v-on:onResetSessionEfforts='resetSessionEfforts' 
-              v-on:onCloseSession='toggleCreateSession'>
-            </activity-session>
-  
-            <div v-for='lap in laps' v-bind:key='lap.index'>
-              <lap-item 
-                class="row sa lap"
-                v-bind:lap='lap'
-                v-bind:activity='activity'
-                v-bind:lapMarkers='lapMarkers'
-                v-bind:sessionEfforts='sessionEfforts'
-                v-bind:createSession='createSession'
-                v-on:onMarkLapChange='setLapMarker($event)'
-                v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
-                v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
-              </lap-item>
-            </div>
-          </div>
-        </el-collapse-item>
-        
-        <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
-          <template slot="title">
-            <div class='row full-width'>
-              <img src='../../../static/assets/icon_like.png' class='btn icon-btn icon'/>{{ activity.kudos_count }} kudos
-            </div>
-          </template>
-          <div id="kudos-detail">
-            <div class='col' v-for='kudo in kudos' v-bind:key='kudo.index'>
-              <img v-bind:src='kudo.profile' class='avatar' />
-              <h5>{{ kudo.firstname }}</h5>
-            </div>
-          </div>
-        </el-collapse-item>
-
-        <el-collapse-item name="3" v-show='activity.comment_count > 0'>
-          <template slot="title">
-            <div class='row full-width'>
-              <img src='../../../static/assets/icon_comment.png' class='btn icon-btn icon'/>{{ activity.comment_count }} comments
-            </div>
-          </template>
-          <div id="comments-detail" class="col sb ">
-            <div class='row' v-for='comment in comments' v-bind:key='comment.index'>
-              <img v-bind:src='comment.athlete.profile' class='avatar'/>
-              <h5>{{ comment.text }}</h5>
-            </div>
-          </div>
-        </el-collapse-item>
-
-        <el-collapse-item name="4" v-show='photoCount > 0'>
-          <template slot="title">
-            <div class='row full-width'>
-              <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon'/>{{ photoCount }} photos
-            </div>
-          </template>
-          <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
-            <el-carousel-item v-for="photo in photos" :key="photo.index">
-              <div class='col' >
-                <img class='photo' v-bind:src="photo.urls['1000']"/>
-              </div>
-            </el-carousel-item>
-          </el-carousel>
-        </el-collapse-item>    
-      </el-collapse>
-
     </div>
 
-    <!-- <google-map 
+    <div class='description'>{{ activity.description }}</div>
+
+    <el-collapse accordion>
+      <el-collapse-item name="1" v-show='lapsCount'>
+        <template slot="title">
+          <div class='row full-width'>
+            <img src='../../../static/assets/icon_laps.png' class='btn icon-btn icon' />{{ lapsCount }} laps
+          </div>
+        </template>
+
+        <div id="laps-detail" class="col sb">
+          <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
+            <h2>{{ lapCountInCalc }}</h2>
+            <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}
+            </h2>
+            <h2 v-show="activity.type === 'Swim'">{{ renderSwimDistance(lapCalcDistanceResult) }}</h2>
+            <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
+            <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">
+              {{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
+            <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
+            <img src='../../../static/assets/icon_cross.png' class='icon' v-on:click='clearLapMarkers()' />
+          </div>
+
+          <div class='row create-session'>
+            <el-button type="primary" plain icon="el-icon-plus" size='mini' v-on:click='toggleCreateSession'
+              v-show='!createSession'>Session
+            </el-button>
+          </div>
+
+          <activity-session v-bind:createSession='createSession' v-bind:sessionEfforts='sessionEfforts'
+            v-bind:sessionEffortsMergeMarkers='sessionEffortsMergeMarkers'
+            v-on:onResetSessionEfforts='resetSessionEfforts' v-on:onCloseSession='toggleCreateSession'>
+          </activity-session>
+
+          <div v-for='lap in laps' v-bind:key='lap.index'>
+            <lap-item class="row sa lap" v-bind:lap='lap' v-bind:activity='activity' v-bind:lapMarkers='lapMarkers'
+              v-bind:sessionEfforts='sessionEfforts' v-bind:createSession='createSession'
+              v-on:onMarkLapChange='setLapMarker($event)' v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
+              v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
+            </lap-item>
+          </div>
+        </div>
+      </el-collapse-item>
+
+      <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
+        <template slot="title">
+          <div class='row full-width'>
+            <img src='../../../static/assets/icon_like.png' class='btn icon-btn icon' />{{ activity.kudos_count }} kudos
+          </div>
+        </template>
+        <div id="kudos-detail">
+          <div class='col' v-for='kudo in kudos' v-bind:key='kudo.index'>
+            <img v-bind:src='kudo.profile' class='avatar' />
+            <h5>{{ kudo.firstname }}</h5>
+          </div>
+        </div>
+      </el-collapse-item>
+
+      <el-collapse-item name="3" v-show='activity.comment_count > 0'>
+        <template slot="title">
+          <div class='row full-width'>
+            <img src='../../../static/assets/icon_comment.png' class='btn icon-btn icon' />{{ activity.comment_count }}
+            comments
+          </div>
+        </template>
+        <div id="comments-detail" class="col sb ">
+          <div class='row' v-for='comment in comments' v-bind:key='comment.index'>
+            <img v-bind:src='comment.athlete.profile' class='avatar' />
+            <h5>{{ comment.text }}</h5>
+          </div>
+        </div>
+      </el-collapse-item>
+
+      <el-collapse-item name="4" v-show='photoCount > 0'>
+        <template slot="title">
+          <div class='row full-width'>
+            <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon' />{{ photoCount }} photos
+          </div>
+        </template>
+        <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
+          <el-carousel-item v-for="photo in photos" :key="photo.index">
+            <div class='col'>
+              <img class='photo' v-bind:src="photo.urls['1000']" />
+            </div>
+          </el-carousel-item>
+        </el-carousel>
+      </el-collapse-item>
+    </el-collapse>
+
+  </div>
+
+  <!-- <google-map 
       name='view-activity' 
       v-bind:lat='lat'
       v-bind:lng='lng'
       v-bind:polyline='polyline'>
     </google-map> -->
 
-  </div>
+</div>
