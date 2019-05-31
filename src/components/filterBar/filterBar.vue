@@ -16,22 +16,26 @@ export default {
     };
   },
   methods: {
-    setSwimFilter() {
-      this.toggleFilterSwim = !this.toggleFilterSwim;
-      this.$emit("filterSwimChange", this.toggleFilterSwim);
+    setFilter(activityType) {
+      switch(activityType) {
+        case "SWIM":
+          this.toggleFilterSwim = !this.toggleFilterSwim;
+          this.$emit("filterSwimChange", this.toggleFilterSwim);
+          break;
+        case "RIDE":
+          this.toggleFilterRide = !this.toggleFilterRide;
+          this.$emit("filterRideChange", this.toggleFilterRide);
+          break;
+        case "RUN":
+          this.toggleFilterRun = !this.toggleFilterRun;
+          this.$emit("filterRunChange", this.toggleFilterRun);
+          break;
+        case "WORKOUT":
+          this.toggleFilterWorkout = !this.toggleFilterWorkout;
+          this.$emit("filterWorkoutChange", this.toggleFilterWorkout);
+          break;
+      }
     },
-    setBikeFilter() {
-      this.toggleFilterRide = !this.toggleFilterRide;
-      this.$emit("filterRideChange", this.toggleFilterRide);
-    },
-    setRunFilter() {
-      this.toggleFilterRun = !this.toggleFilterRun;
-      this.$emit("filterRunChange", this.toggleFilterRun);
-    },
-    setWorkoutFilter() {
-      this.toggleFilterWorkout = !this.toggleFilterWorkout;
-      this.$emit("filterWorkoutChange", this.toggleFilterWorkout);
-    }
-  },
+  }
 };
 </script>

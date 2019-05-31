@@ -1,6 +1,6 @@
 <div id='filter-bar'>
-  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterSwim }' src='../../../static/assets/icon_swim.png' v-on:click='setSwimFilter'>
-  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterRide }' src='../../../static/assets/icon_bike.png' v-on:click='setBikeFilter'>
-  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterRun }' src='../../../static/assets/icon_run.png' v-on:click='setRunFilter'>
-  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterWorkout }' src='../../../static/assets/icon_activities.png' v-on:click='setWorkoutFilter'>
+  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterSwim }' src='../../../static/assets/icon_swim.png' v-on:click='setFilter("SWIM")'>
+  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterRide }' src='../../../static/assets/icon_bike.png' v-on:click='setFilter("RIDE")'>
+  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterRun }' src='../../../static/assets/icon_run.png' v-on:click='setFilter("RUN")'>
+  <img class='icon filter-icon' v-bind:class='{ selectedFilter: toggleFilterWorkout }' src='../../../static/assets/icon_activities.png' v-on:click='setFilter("WORKOUT")'>
 </div>
