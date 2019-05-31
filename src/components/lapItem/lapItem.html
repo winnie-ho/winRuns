@@ -1,14 +1,16 @@
-<div class='lap' v-bind:class='{ selectedLap: isSelectedLap }' >
+<div class='lap' v-bind:class='{ selectedLap: isSelectedLap }'>
   <div v-on:click='markLap()' class='row sa lap-detail'>
     <div class='lap'>{{ lap.lap_index }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lap.distance) }}</div>
+    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lap.distance) }}
+    </div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimDistance(lap.distance) }}</div>
     <div class='lap'>{{ renderTime(lap.moving_time) }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(lap.moving_time, lap.distance) }}</div>
+    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">
+      {{ renderPace(lap.moving_time, lap.distance) }}</div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
-  </div>
-  <div v-show='createSession'>
-    <button class='merge button' v-show='isMergeable && !merged' v-on:click='mergeLap()'>⇡</button>
-    <button class='merge button' v-show='isMergeable && merged' v-on:click='mergeLap()'>↓</button>
+    <div v-show='createSession' class='merge-buttons'>
+      <button class='merge button' v-show='isMergeable && !merged' v-on:click='mergeLap()'>⇡</button>
+      <button class='merge button' v-show='isMergeable && merged' v-on:click='mergeLap()'>↓</button>
+    </div>
   </div>
 </div>
