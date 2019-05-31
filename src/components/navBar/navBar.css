@@ -141,7 +141,6 @@
   
   animation-name: titleSettle;
   animation-duration: 1s;
-  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
