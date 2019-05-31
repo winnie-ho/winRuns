@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     setFilter(activityType) {
-      switch(activityType) {
+      switch (activityType) {
         case "SWIM":
           this.toggleFilterSwim = !this.toggleFilterSwim;
           this.$emit("filterSwimChange", this.toggleFilterSwim);
@@ -35,7 +35,7 @@ export default {
           this.$emit("filterWorkoutChange", this.toggleFilterWorkout);
           break;
       }
-    },
+    }
   }
 };
 </script>
