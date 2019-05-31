@@ -58,6 +58,10 @@
   color: white;
 }
 
+.activity-hover {
+  cursor: pointer;
+}
+
 @keyframes riseUp {
   0% {
     opacity: 0;
@@ -67,5 +71,5 @@
   100% {
     opacity: 1;
     height: 35px;
-    }
+  }
 }

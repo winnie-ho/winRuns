@@ -1,27 +1,28 @@
 <div>
   <div id='week-activities-mini' class='row sb'>
     <div class='day-container' v-for='day in dayLookUp' :key='day.index'>
-      <div 
-        class='day-bar' 
-        v-for='activity in dayActivities(day)' 
-        :key='activity.index' 
-        :class='{ active: dayActivities.length > 0 }' 
-        @click='viewActivity(activity.id)'>
+      <div class='day-bar' v-for='activity in dayActivities(day)' :key='activity.index'
+        :class='{ active: dayActivities.length > 0 }' @click='viewActivity(activity.id)'>
         <el-tooltip placement="top">
-          <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>
-          <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon btn'>
+          <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
+            {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
+          <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'"
+            src='../../../static/assets/icon_bike.png' class='icon btn'>
         </el-tooltip>
         <el-tooltip placement="top">
-          <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>
+          <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
+            {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
           <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png' class='icon btn'>
         </el-tooltip>
         <el-tooltip placement="top">
-          <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>  
-          <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon btn tool-tip'/>
+          <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
+            {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
+          <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon btn tool-tip' />
         </el-tooltip>
         <el-tooltip placement="top">
-          <div slot="content">{{ activity.name }}<br/>{{ renderDistance(activity.distance) }}</div>
-          <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon btn tool-tip'/>
+          <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
+            {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
+          <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon btn tool-tip' />
         </el-tooltip>
       </div>
       <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
@@ -31,4 +32,4 @@
     <i class='el-icon-arrow-right btn icon-btn' v-on:click='triggerWeekView' v-show='!toggleWeekView'></i>
     <i class='el-icon-arrow-left btn icon-btn' v-on:click='triggerWeekView' v-show='toggleWeekView'></i>
   </div>
-</div> 
+</div>
