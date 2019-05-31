@@ -13,10 +13,6 @@
   height: 16px;
 }
 
-.sub-bar{
-  align-items: center;
-}
-
 .sub-bar__buttons{
   width: 100vw;
   justify-content: flex-end;
