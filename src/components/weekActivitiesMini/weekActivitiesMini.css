@@ -6,6 +6,7 @@
   margin-right: auto;
   margin-left: auto;
   width: 100vw;
+  min-height:100px; 
 }
 
 .active {
@@ -16,10 +17,10 @@
 .day-container {
   background-color: #AEECEF ;
   width: 45px;
-  border: 1px solid #3066BE;
 }
 
 .day-bar {
+  animation: riseUp 1s backwards;
   background-color: #3066BE;
   color: #AEECEF;
   display: flex;
@@ -27,7 +28,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding: 5px 0 ;
+  padding: 5px 0;
   height: 35px;
 }
 
@@ -56,4 +57,16 @@
 
 .el-button{
   color: white;
+}
+
+@keyframes riseUp {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  
+  100% {
+    opacity: 1;
+    height: 35px;
+    }
 }
