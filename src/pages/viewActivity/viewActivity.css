@@ -88,7 +88,6 @@
   color: white;
   margin: 10px 0;
   z-index: 1;
-
 }
 
 .create-session-btn {
@@ -104,7 +103,7 @@
   margin: 20px;
   font-size: 14px;
   white-space: pre-wrap;
-  text-align: left;
+  text-align: center;
   align-items: center;
 }
 
