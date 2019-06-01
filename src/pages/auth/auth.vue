@@ -2,49 +2,48 @@
 <style scoped src='./auth.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue'
-import renderData from '../../mixins/renderData.js'
-import { store } from '../../store/store.js'
-import changePage from '../../mixins/changePage';
+import navBar from "../../components/navBar/navBar.vue";
+import renderData from "../../mixins/renderData.js";
+import { store } from "../../store/store.js";
+import changePage from "../../mixins/changePage";
 
 export default {
-  name: 'auth',
+  name: "auth",
   components: {
-    'nav-bar': navBar,
+    navBar
   },
-  mixins: [ renderData, changePage ],
-  data () {
+  mixins: [renderData, changePage],
+  data() {
     return {
-      pageTitle: 'LOGIN',
-      authCode: '',
-      client_id: '15869',
-      client_secret: '63fec0d321558ea536b0be0f155c6adf29b7b278',
-      user: '',
-      userToken: '',
-      athleteId: '',
+      pageTitle: "LOGIN",
+      authCode: "",
+      client_id: "15869",
+      client_secret: "63fec0d321558ea536b0be0f155c6adf29b7b278",
+      user: "",
+      userToken: "",
+      athleteId: "",
       redirect_url: "https://win-runs.firebaseapp.com"
       // redirect_url: "http://localhost:8080",
-    }
+    };
   },
-  mounted () {
+  mounted() {
     this.checkStoredCreds();
   },
 
-  created() {
-  },
+  created() {},
 
   methods: {
-    checkStoredCreds(){
+    checkStoredCreds() {
       if (localStorage.userToken) {
         this.userToken = localStorage.userToken;
         this.athleteId = localStorage.athleteId;
-        this.$store.dispatch('setUserToken', localStorage.userToken);
-        this.$store.dispatch('fetchAthlete', localStorage.athleteId);
+        this.$store.dispatch("setUserToken", localStorage.userToken);
+        this.$store.dispatch("fetchAthlete", localStorage.athleteId);
       } else {
         this.setAuthCode();
       }
     },
-    setAuthCode () {
+    setAuthCode() {
       let location = window.location.search;
       if (location.search("code=") === -1) {
         return;
@@ -54,31 +53,34 @@ export default {
         this.tokenExchange();
       }
     },
-    login () {
-      console.log('LOGGING IN...')
-      const url = "https://www.strava.com/oauth/authorize?client_id=" + this.client_id + "&response_type=code&redirect_uri=" + this.redirect_url + "&scope=view_private,write&state=mystate&approval_prompt=auto";
-      
-      window.location = url;
+    login() {
+      console.log("LOGGING IN...");
+      window.location = `https://www.strava.com/oauth/authorize?client_id=${
+        this.client_id
+      }&response_type=code&redirect_uri=${
+        this.redirect_url
+      }&scope=view_private,write&state=mystate&approval_prompt=auto`;
+
       if (this.authCode) {
         this.tokenExchange();
       }
     },
-    tokenExchange () {
+    tokenExchange() {
       let exchangeData = {
         client_id: this.client_id,
         client_secret: this.client_secret,
         code: this.authCode
       };
-      store.dispatch('tokenExchange', exchangeData);
+      store.dispatch("tokenExchange", exchangeData);
     }
   },
   computed: {
     athlete() {
-      if (!this.$store.state.athlete) return
-      return this.$store.state.athlete
+      if (!this.$store.state.athlete) return;
+      return this.$store.state.athlete;
     }
   }
-}
+};
 </script>
 
 
