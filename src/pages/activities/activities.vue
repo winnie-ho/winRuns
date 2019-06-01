@@ -11,10 +11,10 @@ import filterBar from "../../components/filterBar/filterBar.vue";
 export default {
   name: "activities",
   components: {
-    "nav-bar": navBar,
-    "activity-item": activityItem,
-    "search-bar": searchBar,
-    "filter-bar": filterBar
+    navBar,
+    activityItem,
+    searchBar,
+    filterBar
   },
   mixins: [renderData],
   data() {

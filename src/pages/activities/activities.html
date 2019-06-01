@@ -4,16 +4,13 @@
     <div class='sub-bar col'>
 
       <div class='sub-bar__buttons row'>
-        <img class='icon filter' src='../../../static/assets/icon_filter.png' v-on:click='expandFilters()'/>
+        <img class='icon filter' src='../../../static/assets/icon_filter.png' v-on:click='expandFilters()' />
         <img id='search-icon' class='icon' src='../../../static/assets/icon_search.png' v-on:click='expandSearch()'>
       </div>
 
       <div class='col sub-bar__expanded'>
-        <filter-bar 
-          v-show='showFilters'
-          v-on:filterSwimChange='setSwimFilter($event)'
-          v-on:filterRideChange='setRideFilter($event)'
-          v-on:filterRunChange='setRunFilter($event)'
+        <filter-bar v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'
+          v-on:filterRideChange='setRideFilter($event)' v-on:filterRunChange='setRunFilter($event)'
           v-on:filterWorkoutChange='setWorkoutFilter($event)'>
         </filter-bar>
         <search-bar v-show='showSearch' v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
@@ -21,6 +18,7 @@
     </div>
   </div>
   <div class='activity-list'>
-    <activity-item v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity'></activity-item>
+    <activity-item v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity'>
+    </activity-item>
   </div>
 </div>
