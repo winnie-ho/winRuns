@@ -10,9 +10,9 @@ import activityItem from "../../components/activityItem/activityItem.vue";
 export default {
   name: "parkRunActivities",
   components: {
-    "nav-bar": navBar,
-    "activity-item": activityItem,
-    "park-run-sub-bar": parkRunSubBar
+    navBar,
+    activityItem,
+    parkRunSubBar
   },
   mixins: [renderData],
   data() {

@@ -7,7 +7,6 @@ import changePage from "../../mixins/changePage.js";
 
 export default {
   name: "weekActivitiesMini",
-  components: {},
   mixins: [renderData, changePage],
   props: ["weekInView"],
   data() {
@@ -16,13 +15,11 @@ export default {
       toggleWeekView: false
     };
   },
-  created() {},
   methods: {
     computeImage(type) {
       return type === "ride";
     },
     dayActivities(day) {
-      if (!this.weekInView) return;
       const dayIndex = Object.keys(this.dayLookUp).find(
         key => this.dayLookUp[key] === day
       );
@@ -46,7 +43,6 @@ export default {
     dayActivityCount(day) {
       return day.length;
     }
-  },
-  computed: {}
+  }
 };
 </script>

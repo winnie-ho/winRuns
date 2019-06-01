@@ -10,8 +10,8 @@ import renderData from "../../mixins/renderData.js";
 export default {
   name: "parkRun",
   components: {
-    "nav-bar": navBar,
-    "park-run-sub-bar": parkRunSubBar
+    navBar,
+    parkRunSubBar
   },
   data() {
     return {

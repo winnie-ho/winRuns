@@ -6,7 +6,7 @@ import navBarBtn from "../navBarBtn/navBarBtn.vue";
 export default {
   name: "navBar",
   components: {
-    "nav-bar-btn": navBarBtn
+    navBarBtn
   },
   data() {
     return {

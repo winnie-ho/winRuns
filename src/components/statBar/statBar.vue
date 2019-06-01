@@ -2,26 +2,25 @@
 <style scoped src='./statbar.css'></style>
 
 <script src>
-import renderData from '../../mixins/renderData.js'
+import renderData from "../../mixins/renderData.js";
 import statTotal from "../statTotal/statTotal.vue";
 
 export default {
-  name: 'statBar',
+  name: "statBar",
   components: {
-    'stat-total': statTotal
+    statTotal
   },
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   created() {
-    this.$store.dispatch("fetchStats")
+    this.$store.dispatch("fetchStats");
   },
   computed: {
     year() {
       return new Date().getFullYear();
     }
   }
-}
+};
 </script>
 

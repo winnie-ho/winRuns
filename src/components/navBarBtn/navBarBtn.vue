@@ -2,22 +2,19 @@
 <style scoped src='./navBarBtn.css'></style>
 
 <script>
-import changePage from '../../mixins/changePage.js';
+import changePage from "../../mixins/changePage.js";
 
 export default {
-  name: 'navBarBtn',
-  components: {
-  },
-  mixins: [ changePage ],
-  props: [ 'pages', 'btnIcon', 'path' ],
-  data () {
-    return {
-    }
+  name: "navBarBtn",
+  mixins: [changePage],
+  props: ["pages", "btnIcon", "path"],
+  data() {
+    return {};
   },
   computed: {
-    pageSelected(){
+    pageSelected() {
       return this.pages.find(page => page === this.$route.path);
     }
   }
-}
+};
 </script>

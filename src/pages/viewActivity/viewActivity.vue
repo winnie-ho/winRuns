@@ -12,10 +12,10 @@ import activitySession from "../../components/activitySession/activitySession.vu
 export default {
   name: "viewActivity",
   components: {
-    "nav-bar": navBar,
-    "google-map": googleMap,
-    "lap-item": lapItem,
-    "activity-session": activitySession
+    navBar,
+    googleMap,
+    lapItem,
+    activitySession
   },
   mixins: [renderData, changePage],
   data() {
@@ -29,17 +29,17 @@ export default {
       sessionEffortsMergeMarkers: []
     };
   },
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.$store.dispatch('fetchKudos', to.params.id)
-      vm.$store.dispatch('fetchPhotos', to.params.id)
-      vm.$store.dispatch('fetchComments', to.params.id)
-      vm.$store.dispatch('fetchActivity', to.params.id).then
-      next() 
-    })
+      vm.$store.dispatch("fetchKudos", to.params.id);
+      vm.$store.dispatch("fetchPhotos", to.params.id);
+      vm.$store.dispatch("fetchComments", to.params.id);
+      vm.$store.dispatch("fetchActivity", to.params.id).then;
+      next();
+    });
   },
-  beforeDestroy () {
-    this.$store.dispatch('resetActivity')
+  beforeDestroy() {
+    this.$store.dispatch("resetActivity");
   },
   methods: {
     setLapMarker(lap) {

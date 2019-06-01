@@ -12,9 +12,9 @@ import changePage from "../../mixins/changePage";
 export default {
   name: "parkRunSplits",
   components: {
-    "nav-bar": navBar,
-    parkRunSubBar: parkRunSubBar,
-    toggleSwitch: toggleSwitch
+    navBar,
+    parkRunSubBar,
+    toggleSwitch
   },
   mixins: [renderData, parkRunDict, changePage],
   data() {
