@@ -1,24 +1,20 @@
 <div id='home'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true' v-show='!toggleWeekView' v-on:toggleWeekViewStatus='setToggleWeekView'></nav-bar>
+  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true' v-show='!toggleWeekView'
+    v-on:toggleWeekViewStatus='setToggleWeekView'>
+  </nav-bar>
 
   <weather v-show='!toggleWeekView'></weather>
 
-  <week-changer 
-    v-on:mondayInViewChange='setMondayInView($event)'>
+  <week-changer v-on:mondayInViewChange='setMondayInView($event)'>
   </week-changer>
 
   <week-stats v-show='!toggleWeekView' v-bind:weekInView='weekInView'>
   </week-stats>
 
-  <week-activities-mini
-    v-bind:weekInView='weekInView'
-    v-on:toggleWeekViewChange='setToggleWeekView($event)'>
+  <week-activities-mini v-bind:weekInView='weekInView' v-on:toggleWeekViewChange='setToggleWeekView($event)'>
   </week-activities-mini>
 
-  <week-activities 
-    v-show='toggleWeekView'
-    v-bind:activities='activities'
-    v-bind:mondayInView='mondayInView'
+  <week-activities v-show='toggleWeekView' v-bind:activities='activities' v-bind:mondayInView='mondayInView'
     v-on:weekInViewChange='setWeekInView($event)'>
   </week-activities>
 

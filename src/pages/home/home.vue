@@ -14,13 +14,13 @@ import renderData from "../../mixins/renderData.js";
 export default {
   name: "home",
   components: {
-    "nav-bar": navBar,
-    "stat-bar": statBar,
-    "week-activities": weekActivities,
-    "week-changer": weekChanger,
-    "week-stats": weekStats,
-    "week-activities-mini": weekActivitiesMini,
-    weather: weather
+    navBar,
+    statBar,
+    weekActivities,
+    weekChanger,
+    weekStats,
+    weekActivitiesMini,
+    weather
   },
   mixins: [renderData],
   data() {
