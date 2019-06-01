@@ -10,8 +10,8 @@ import changePage from "../../mixins/changePage";
 export default {
   name: "kmSplits",
   components: {
-    "nav-bar": navBar,
-    toggleSwitch: toggleSwitch
+    navBar,
+    toggleSwitch
   },
   mixins: [renderData, changePage],
   data() {
@@ -22,8 +22,6 @@ export default {
   mounted() {
     this.$store.dispatch("fetchFullKmSessions");
   },
-  created() {},
-
   methods: {
     kmTime(kmSession, km) {
       const sessionZeroIndex = this.indexOfFirstRep(kmSession) - 2;
