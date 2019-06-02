@@ -20,6 +20,7 @@ export default {
       return type === "ride";
     },
     dayActivities(day) {
+      if (!this.weekInView) return;
       const dayIndex = Object.keys(this.dayLookUp).find(
         key => this.dayLookUp[key] === day
       );

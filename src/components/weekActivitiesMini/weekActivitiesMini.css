@@ -49,9 +49,8 @@
 }
 
 .week-detail-btn{
-  float: right;
-  margin-top: 0px;
-  margin-right: 10px;
+  text-align: center;
+  margin: 10px;
 }
 
 .el-button{

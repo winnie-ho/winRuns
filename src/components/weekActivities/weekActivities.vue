@@ -40,6 +40,8 @@ export default {
   },
   computed: {
     weekInView() {
+      if (!this.activities.length) return;
+      if (!this.mondayInView) return;
       let lastMonday = new Date(this.mondayInView).getTime();
       let nextMonday = lastMonday + 7 * 24 * 60 * 60 * 1000;
       let weekInView = this.activities.filter(
