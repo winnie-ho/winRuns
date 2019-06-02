@@ -3,6 +3,7 @@
   overflow-x:hidden;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-top: 20px;
   margin-right: 10px;
   width: 100vw;

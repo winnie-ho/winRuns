@@ -22,4 +22,10 @@
 .sub-bar__expanded{
   width: 100vw;
   align-items: center;
+
+}
+
+.selectedButton {
+  filter: opacity(40%) blur(1px);
+  box-sizing: content-box;
 }

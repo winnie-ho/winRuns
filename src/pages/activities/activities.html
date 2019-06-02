@@ -4,8 +4,10 @@
     <div class='sub-bar col'>
 
       <div class='sub-bar__buttons row'>
-        <img class='icon filter' src='../../../static/assets/icon_filter.png' v-on:click='expandFilters()' />
-        <img id='search-icon' class='icon' src='../../../static/assets/icon_search.png' v-on:click='expandSearch()'>
+        <img class='icon filter' v-bind:class='{ selectedButton: showFilters }'
+          src='../../../static/assets/icon_filter.png' v-on:click='expandFilters()' />
+        <img id='search-icon' class='icon' v-bind:class='{ selectedButton: showSearch }'
+          src='../../../static/assets/icon_search.png' v-on:click='expandSearch()'>
       </div>
 
       <div class='col sub-bar__expanded'>
