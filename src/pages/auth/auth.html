@@ -1,7 +1,7 @@
 <div id='auth' ref='auth'>
   <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='false'></nav-bar>
 
-  <div class='strava-container'>
+  <div class='strava-container' v-show='!athlete.id'>
     <el-button id="strava-button" v-on:click="login" type='primary'>
       <h3>CONNECT TO</h3>
       <img src="../../../static/assets/icon_strava.png" class='icon strava' />
