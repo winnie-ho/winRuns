@@ -1,9 +1,9 @@
 #stat-bar{
+  margin-bottom: 20px;
   bottom: 0;
-  position: relative;
+  position: absolute;
   width: 100%;
   justify-content: center;
-  margin-top: 40px;
 }
 
 .title-box{
