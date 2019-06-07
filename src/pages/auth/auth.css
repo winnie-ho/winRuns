@@ -20,7 +20,7 @@
 .strava {
   height: 15px;
   width: auto;
-  padding: 5px;
+  margin-top: 10px;
 }
 
 #strava-button{
