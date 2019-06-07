@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px 20px 100px 20px;
+  margin: 10px 20px 100px 20px;
   animation-name: expandDown;
   animation-duration: 1s;
 }
@@ -83,6 +83,10 @@
   pointer-events: none;
 }
 
+.spacer {
+  margin-right: 20px;
+}
+
 @keyframes daySettleActive {
   0% {
     width: 0%; 
@@ -120,7 +124,11 @@
 
 /* responsive css  */
 @media all and (max-width: 700px) {
-  .heading, .date, .data-metric{
+  .heading {
+    font-size: 14px;
+  }
+  
+  .date, .data-metric{
     font-size: 12px;
   }
 }
