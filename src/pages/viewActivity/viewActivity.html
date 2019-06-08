@@ -8,28 +8,35 @@
   <div id="activity-info" class="run-box__detail">
 
     <div id="activity-info__header">
-      <div class='header-background' :style="{ 'background-image': 'url(' + backgroundImage + ')' }"></div>
-      <div class='header'>
-        <div class='header-titles'>
-          <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
-          <h2>{{ activity.name }}</h2>
+      <div class='header-titles'>
+        <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
+        <h1>{{ activity.name }}</h1>
+      </div>
+      <div id='activity-info__main'>
+        <div v-show="activity.type === 'Swim'" class="row">
+          <h2 class='spacer'>{{ renderSwimDistance(activity.distance) }}</h2>
+          <h2 class='spacer'>{{ renderTime(activity.moving_time) }}</h2>
+          <h2 class='spacer'>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
         </div>
-        <div id='activity-info__main'>
-          <div v-show="activity.type === 'Swim'" class="row sa">
-            <h2>{{ renderSwimDistance(activity.distance) }}</h2>
-            <h2>{{ renderTime(activity.moving_time) }}</h2>
-            <h2>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
-          </div>
-          <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row sa">
-            <h2>{{ renderDistance(activity.distance) }}</h2>
-            <h2>{{ renderTime(activity.moving_time) }}</h2>
-            <h2>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
-          </div>
+        <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row">
+          <h2 class='spacer'>{{ renderDistance(activity.distance) }}</h2>
+          <h2 class='spacer'>{{ renderTime(activity.moving_time) }}</h2>
+          <h2 class='spacer'>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
         </div>
       </div>
     </div>
 
     <div class='description'>{{ activity.description }}</div>
+
+    <div show='photoCount> 0'>
+      <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
+        <el-carousel-item v-for="photo in photos" :key="photo.index">
+          <div class='col'>
+            <img class='photo' :src="photo.urls['1000']" />
+          </div>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
 
     <el-collapse accordion>
       <el-collapse-item name="1" v-show='lapsCount'>
@@ -102,20 +109,7 @@
         </div>
       </el-collapse-item>
 
-      <el-collapse-item name="4" v-show='photoCount > 0'>
-        <template slot="title">
-          <div class='row full-width'>
-            <img src='../../../static/assets/icon_picture.png' class='btn icon-btn icon' />{{ photoCount }} photos
-          </div>
-        </template>
-        <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
-          <el-carousel-item v-for="photo in photos" :key="photo.index">
-            <div class='col'>
-              <img class='photo' :src="photo.urls['1000']" />
-            </div>
-          </el-carousel-item>
-        </el-carousel>
-      </el-collapse-item>
+
     </el-collapse>
 
   </div>

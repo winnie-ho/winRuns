@@ -12,6 +12,7 @@
 #activity-info__header {
   width: 100%;
   position: relative;
+  padding: 20px;
 }
 
 .header-background{
@@ -21,14 +22,6 @@
   filter: opacity(30%);
   background-size: cover;
   background-position: top; 
-}
-
-.header{
-  position: absolute;
-  width: 95vw;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 #activity-info__main {
@@ -74,8 +67,8 @@
 }
 
 .photo{
-  width: 50%;
-  height: auto;
+  width: auto;
+  height: 300px;
 }
 
 
@@ -103,14 +96,13 @@
   margin: 20px;
   font-size: 14px;
   white-space: pre-wrap;
-  text-align: center;
   align-items: center;
 }
 
 /* responsive css  */
-@media all and (max-width: 700px) {
+@media all and (max-width: 420px) {
   .photo {
-    width: 98%;
+    width: 100%;
     height: auto;
   }
 }
