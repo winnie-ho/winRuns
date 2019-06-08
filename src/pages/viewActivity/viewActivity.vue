@@ -20,7 +20,6 @@ export default {
   mixins: [renderData, changePage],
   data() {
     return {
-      pageTitle: "ACTIVITY",
       openComments: false,
       openPhotos: false,
       lapMarkers: [],

@@ -25,7 +25,6 @@ export default {
   mixins: [renderData],
   data() {
     return {
-      pageTitle: "",
       toggleWeekView: false,
       mondayInView: "",
       weekInView: []

@@ -16,7 +16,7 @@ export default {
   props: {
     pageTitle: {
       type: String,
-      required: true
+      required: false
     },
     showNav: {
       type: Boolean,
