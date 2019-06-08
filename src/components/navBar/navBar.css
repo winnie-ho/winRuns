@@ -82,6 +82,7 @@
 #openNavBar {
   display: flex;
   height: 60px;
+  justify-content: flex-end;
 }
 
 #pagesBar {
