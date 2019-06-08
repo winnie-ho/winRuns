@@ -5,62 +5,53 @@
     <div id='page-title'>{{ pageTitle }}</div>
 
     <div id='pagesBar' v-show='showNav' class='row'>
-      <nav-bar-btn 
-        :pages='["/activities"]' 
-        :btnIcon='"../../../static/assets/icon_activities.png"' 
+      <nav-bar-btn :pages='["/activities"]' :btnIcon='"../../../static/assets/icon_activities.png"'
         :path="'/activities'">
       </nav-bar-btn>
 
-      <nav-bar-btn 
-        :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]' 
-        :btnIcon='"../../../static/assets/icon_park_run.png"' 
-        :path="'/parkRun'">
-      </nav-bar-btn>
-      
-      <nav-bar-btn 
-        :pages='["/swim"]' 
-        :btnIcon='"../../../static/assets/icon_swim.png"' 
-        :path='"/swim"'>
+      <nav-bar-btn :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
+        :btnIcon='"../../../static/assets/icon_park_run.png"' :path="'/parkRun'">
       </nav-bar-btn>
 
-      <nav-bar-btn 
-        :pages='["/kmSplits"]' 
-        :btnIcon='"../../../static/assets/icon_kilometer.png"' 
-        :path='"/kmSplits"'>
+      <nav-bar-btn :pages='["/swim"]' :btnIcon='"../../../static/assets/icon_swim.png"' :path='"/swim"'>
+      </nav-bar-btn>
+
+      <nav-bar-btn :pages='["/kmSplits"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/kmSplits"'>
       </nav-bar-btn>
     </div>
   </div>
 
-  <img id='burger' v-show='showNav' src='../../../static/assets/icon_burger.png' class='nav-icon' v-on:click='expandBurger = !expandBurger'/>
+  <img id='burger' v-show='showNav' src='../../../static/assets/icon_burger.png' class='nav-icon'
+    v-on:click='expandBurger = !expandBurger' />
 
   <div id='burger-menu' class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
-    <img class='close-icon' src='../../../static/assets/icon_cross.png'/>
+    <img class='close-icon' src='../../../static/assets/icon_cross.png' />
 
     <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
-      <img class='avatar-profile' :src='athlete.profile'/>
+      <img class='avatar-profile' :src='athlete.profile' />
       <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
-      <h6>{{ athlete.city }},  {{ athlete.state }}</h6>
+      <h6>{{ athlete.city }}, {{ athlete.state }}</h6>
     </router-link>
 
     <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>LOGIN</router-link>
     <router-link to="/home" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_home.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_home.png' class='burger-icon' />
       HOME
     </router-link>
     <router-link to="/activities" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_activities.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_activities.png' class='burger-icon' />
       ACTIVITIES
     </router-link>
     <router-link to="/parkRun" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_park_run_logo.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_park_run_logo.png' class='burger-icon' />
       PARK RUN
     </router-link>
     <router-link to="/swim" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_swim.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_swim.png' class='burger-icon' />
       SWIM
     </router-link>
     <router-link to="/kmSplits" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_kilometer.png' class='burger-icon'/>
+      <img src='../../../static/assets/icon_kilometer.png' class='burger-icon' />
       KM SPLITS
     </router-link>
   </div>
