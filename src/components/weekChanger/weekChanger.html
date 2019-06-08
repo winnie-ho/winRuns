@@ -1,16 +1,14 @@
 <div id='week-changer' class='row sa'>
-  
-    <div v-on:click='changeWeek(1)' class='arrow'>
-      <img src='../../../static/assets/icon_arrow_left.png'/>
-    </div>
-    
-    <div 
-      class="heading" 
-      id="dateInView">
-      <h3>{{ weekInViewString(mondayInView) }}</h3>
-    </div>
 
-    <div v-on:click='changeWeek(-1)' class='arrow' v-bind:class='{ disable: forwardArrowDisable }'>
-      <img src='../../../static/assets/icon_arrow_right.png'/>
-    </div>
+  <div @click='changeWeek(1)' class='arrow'>
+    <img src='../../../static/assets/icon_arrow_left.png' />
+  </div>
+
+  <div class="heading" id="dateInView">
+    <h3>{{ weekInViewString(mondayInView) }}</h3>
+  </div>
+
+  <div @click='changeWeek(-1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
+    <img src='../../../static/assets/icon_arrow_right.png' />
+  </div>
 </div>

@@ -1,9 +1,10 @@
-<div id='activity' class='run-box row sb' v-on:click='viewActivity(activity.id)'>
-  <img v-show="activity.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle'/>
-  <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon icon__circle'/>
-  <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle'/>
-  <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle'/>
-  <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png' class='icon icon__circle'/>
+<div id='activity' class='run-box row sb' @click='viewActivity(activity.id)'>
+  <img v-show="activity.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png'
+    class='icon icon__circle' />
 
   <div class='run-box__detail'>
     <div class='row sb'>
@@ -11,7 +12,8 @@
       <div class='date'>{{ renderDate(activity.start_date) }}</div>
     </div>
     <div class='run-box__detail row'>
-      <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'">
+      <div class='data-metric space'
+        v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'">
         {{ renderDistance(activity.distance) }}
       </div>
       <div class='data-metric space' v-show="activity.type === 'Swim'">
@@ -20,12 +22,13 @@
       <div class='data-metric space'>
         {{ renderTime(activity.moving_time) }}
       </div>
-      <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'">
+      <div class='data-metric space'
+        v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'">
         {{ renderPace(activity.moving_time, activity.distance) }}
       </div>
       <div class='data-metric space' v-show="activity.type === 'Swim'">
         {{ renderSwimPace(activity.moving_time, activity.distance) }}
       </div>
-    </div>  
+    </div>
   </div>
 </div>

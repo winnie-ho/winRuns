@@ -1,5 +1,5 @@
 <div id='parkRunSplits'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
+  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
   <park-run-sub-bar></park-run-sub-bar>
   <div class='splits-method row'>
     <h6>Split Method:</h6>
@@ -21,8 +21,9 @@
       <th v-show='lapSplitMethod'>*</th>
     </tr>
 
-    
-    <tr v-for='fullParkRun in dateOrderedFullParkRuns' :key='fullParkRun.index' v-on:click='viewActivity(fullParkRun.id)' class='hover'>
+
+    <tr v-for='fullParkRun in dateOrderedFullParkRuns' :key='fullParkRun.index' @click='viewActivity(fullParkRun.id)'
+      class='hover'>
       <td>{{ renderDate(fullParkRun.start_date) }}</td>
       <td class='name'>{{ fullParkRun.name }}</td>
       <td>{{ renderTime(fullParkRun.elapsed_time) }}</td>

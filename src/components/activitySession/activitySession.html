@@ -1,23 +1,25 @@
 <div id='activity-session' class='col sb' v-show='createSession'>
-  <img class="icon exit" src="../../../static/assets/icon_cross.png" v-on:click='closeSession'/>
+  <img class="icon exit" src="../../../static/assets/icon_cross.png" @click='closeSession' />
   <h4>SESSION EFFORTS</h4>
-  <p v-show='!sessionSaved' class='data-metric'>Select the efforts in your session and add it to your Strava activity description.</p>
+  <p v-show='!sessionSaved' class='data-metric'>Select the efforts in your session and add it to your Strava activity
+    description.</p>
   <div id="efforts-list" v-show='!sessionSaved'>
-    <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' v-bind:key='effort.index'>
+    <div class='row sa effort' v-for='(effort, index) in orderedSessionEfforts' :key='effort.index'>
       <h4>{{ index + 1 }}</h4>
       <h4>{{ renderDistance(effort.distance) }}</h4>
       <h4>{{ renderTime(effort.moving_time) }}</h4>
-      <h4 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderPace(effort.moving_time, effort.distance) }}</h4>
+      <h4 v-show="activity.type === 'Ride' || activity.type ==='Run'">
+        {{ renderPace(effort.moving_time, effort.distance) }}</h4>
       <h4 v-show="activity.type === 'Swim'">{{ renderSwimPace(effort.moving_time, effort.distance) }}</h4>
     </div>
   </div>
   <div id='session-saved' v-show='sessionSaved'>
     <p v-show='updateStravaActivityResponse'>Session saved</p>
-    <img v-show='updateStravaActivityResponse' class='tick-icon' src='../../../static/assets/icon_tick.png'/>
+    <img v-show='updateStravaActivityResponse' class='tick-icon' src='../../../static/assets/icon_tick.png' />
     <p v-show='updateStravaActivityResponseError'>Error in saving. Try again.</p>
   </div>
   <div class='row' v-show='!sessionSaved'>
-    <el-button v-on:click='resetSession' plain size='mini' type='info'>Reset</el-button>
-    <el-button v-on:click='saveSession' plain size='mini' type='primary'>Save session</el-button>
+    <el-button @click='resetSession' plain size='mini' type='info'>Reset</el-button>
+    <el-button @click='saveSession' plain size='mini' type='primary'>Save session</el-button>
   </div>
 </div>

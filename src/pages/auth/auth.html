@@ -1,8 +1,8 @@
 <div id='auth' ref='auth'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='false'></nav-bar>
+  <nav-bar :pageTitle='pageTitle' :showNav='false'></nav-bar>
 
   <div class='strava-container' v-show='!athlete.id'>
-    <el-button id="strava-button" v-on:click="login" type='primary'>
+    <el-button id="strava-button" @click="login" type='primary'>
       <h3>CONNECT TO</h3>
       <img src="../../../static/assets/icon_strava.png" class='icon strava' />
     </el-button>
@@ -15,6 +15,6 @@
     </router-link>
     <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
     <h6>{{ athlete.city }}, {{ athlete.state }}</h6>
-    <el-button plain icon='el-icon-menu' size='small' type='primary' v-on:click="changePage('/home')">Home</el-button>
+    <el-button plain icon='el-icon-menu' size='small' type='primary' @click="changePage('/home')">Home</el-button>
   </div>
 </div>

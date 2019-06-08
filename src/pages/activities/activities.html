@@ -1,12 +1,12 @@
 <div id='activities'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
+  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
   <div class='sub-bar col'>
 
     <div class='sub-bar__buttons row'>
-      <img class='icon filter' v-bind:class='{ selectedButton: showFilters }'
-        src='../../../static/assets/icon_filter.png' v-on:click='expandFilters()' />
-      <img id='search-icon' class='icon' v-bind:class='{ selectedButton: showSearch }'
-        src='../../../static/assets/icon_search.png' v-on:click='expandSearch()'>
+      <img class='icon filter' :class='{ selectedButton: showFilters }' src='../../../static/assets/icon_filter.png'
+        @click='expandFilters()' />
+      <img id='search-icon' class='icon' :class='{ selectedButton: showSearch }'
+        src='../../../static/assets/icon_search.png' @click='expandSearch()'>
     </div>
 
     <div class='col sub-bar__expanded'>
@@ -19,7 +19,7 @@
 
   </div>
   <div class='activity-list'>
-    <activity-item v-for='activity in filteredActivities' v-bind:key='activity.index' v-bind:activity='activity'>
+    <activity-item v-for='activity in filteredActivities' :key='activity.index' :activity='activity'>
     </activity-item>
   </div>
 </div>

@@ -1,26 +1,23 @@
 <div id='parkrun'>
-  <nav-bar v-bind:pageTitle='pageTitle' v-bind:showNav='true'></nav-bar>
+  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
   <park-run-sub-bar></park-run-sub-bar>
   <div id="park-run-latest" class="row">
-    <img id="park-run-logo" src="../../../static/assets/icon_park_run_logo.png"/>
+    <img id="park-run-logo" src="../../../static/assets/icon_park_run_logo.png" />
 
     <div id='last-pr'>
-      <select 
-        id="park-run-select" 
-        v-model='selectedParkRunName'
-        v-on:change='setParkRunLocation()'>
-        <option v-for='parkRun in parkRunDict' v-bind:key='parkRun.index' v-bind:value='parkRun.name'>{{ parkRun.name }}</option>
+      <select id="park-run-select" v-model='selectedParkRunName' v-on:change='setParkRunLocation()'>
+        <option v-for='parkRun in parkRunDict' :key='parkRun.index' :value='parkRun.name'>{{ parkRun.name }}</option>
       </select>
 
       <div>LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
 
       <div class="last-pr__metric">{{ latestParkRun.name }}</div>
-      
+
       <div class="last-pr__metric row sb">
         <div>{{ renderTime(latestParkRun.moving_time) }}</div>
         <div>{{ renderPace(latestParkRun.moving_time, latestParkRun.distance) }}</div>
       </div>
-      
+
       <div class="last-pr__summary">
         <div>Ran: {{ numOfAttempts }} times</div>
         <div>{{ computeLastPRContext() }}</div>
@@ -29,6 +26,6 @@
       </div>
     </div>
   </div>
-  
+
   <div id='pr-chart'></div>
 </div>

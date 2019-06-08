@@ -22,9 +22,9 @@
   </div>
 
   <img id='burger' v-show='showNav' src='../../../static/assets/icon_burger.png' class='nav-icon'
-    v-on:click='expandBurger = !expandBurger' />
+    @click='expandBurger = !expandBurger' />
 
-  <div id='burger-menu' class='expanded-burger' v-bind:hidden=!expandBurger v-on:click='expandBurger = !expandBurger'>
+  <div id='burger-menu' class='expanded-burger' :hidden=!expandBurger @click='expandBurger = !expandBurger'>
     <img class='close-icon' src='../../../static/assets/icon_cross.png' />
 
     <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
