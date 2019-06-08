@@ -2,14 +2,14 @@
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
   <div class='sub-bar col'>
 
-    <div class='sub-bar__buttons row'>
+    <div class='sub-bar__collapsed row'>
       <img class='icon filter' :class='{ selectedButton: showFilters }' src='../../../static/assets/icon_filter.png'
         @click='expandFilters()' />
       <img id='search-icon' class='icon' :class='{ selectedButton: showSearch }'
         src='../../../static/assets/icon_search.png' @click='expandSearch()'>
     </div>
 
-    <div class='col sub-bar__expanded'>
+    <div class='sub-bar__expanded col'>
       <filter-bar v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'
         v-on:filterRideChange='setRideFilter($event)' v-on:filterRunChange='setRunFilter($event)'
         v-on:filterWorkoutChange='setWorkoutFilter($event)'>

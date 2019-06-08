@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 10px 20px 100px 20px;
+  
   animation-name: expandDown;
   animation-duration: 0.2s;
 }
@@ -61,10 +62,6 @@
 
 .day > * {
   pointer-events: none;
-}
-
-.spacer {
-  margin-right: 20px;
 }
 
 @keyframes expandDown {

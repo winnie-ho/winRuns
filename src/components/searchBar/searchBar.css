@@ -2,6 +2,10 @@
   margin: 20px 5px 5px 5px;
   display: flex;
   align-items: center;
+
+  animation-name: expandSubBar;
+  animation-duration: 0.2s;
+
 }
 
 input{
