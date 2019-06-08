@@ -4,11 +4,7 @@
   justify-content: space-between;
   margin: 10px 20px 100px 20px;
   animation-name: expandDown;
-  animation-duration: 1s;
-}
-
-#week-activities .fullWeekView {
-  height: 10.5vh;
+  animation-duration: 0.2s;
 }
 
 .active {
@@ -19,17 +15,6 @@
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }  
-
-.fullWeekView .day-title {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
-}
-
-.fullWeekView .day {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  justify-content: center;
-}
 
 .day-bar {
   background-color: transparent;
@@ -46,11 +31,6 @@
   align-content: center;
   align-items: center;
   cursor: pointer;
-
-  /* animation-name: daySettleActive;
-  animation-duration: 2s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards; */
 }
 
 .day-title {
@@ -87,24 +67,13 @@
   margin-right: 20px;
 }
 
-@keyframes daySettleActive {
-  0% {
-    width: 0%; 
-    opacity: 0
-  }
-  100% {
-    width: 100%;
-    opacity: 100%;
-  }
-}
-
 @keyframes expandDown {
   0% {
     height: 0px;
     opacity: 0;
   }
   100% {
-    height: 400px;
+    height: 560px;
     opacity: 100%;
   }
 }
