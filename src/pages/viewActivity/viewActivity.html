@@ -104,7 +104,7 @@
         <div id="comments-detail" class="col sb ">
           <div class='row' v-for='comment in comments' :key='comment.index'>
             <img :src='comment.athlete.profile' class='avatar' />
-            <h5>{{ comment.text }}</h5>
+            <h4 class='text-content'>{{ comment.text }}</h4>
           </div>
         </div>
       </el-collapse-item>
