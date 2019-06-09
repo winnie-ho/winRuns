@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Avenir', Helvetica, sans-serif;
+  font-family: 'Abel', 'Lato', sans-serif;
   color: #fff;
   font-weight: 300;
 }
@@ -44,6 +44,10 @@ body {
 /* TEXT */
 h1, h2, h3, h4, h5, h6{
   font-weight: 100;
+}
+
+.text-content {
+  font-family: 'Lato';
 }
 
 .spacer {
