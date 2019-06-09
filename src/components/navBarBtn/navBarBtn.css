@@ -1,8 +1,14 @@
 .nav-button {
   cursor: pointer;
   z-index: 2;
+  width: 50px;
+  text-align: center;
 }
 
-.navBtnSelected{
+.nav-button:hover {
+  border-bottom: 2px solid #3066BE;
+}
+
+.navBtnSelected {
   border-bottom: 2px solid #AEECEF;
 }
