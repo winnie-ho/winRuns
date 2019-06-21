@@ -212,6 +212,10 @@ button[disabled]{
   overflow: unset;
 }
 
+.el-carousel__container {
+  overflow: hidden;
+}
+
 .profile{
   text-decoration: none;
   color: #AEECEF;
