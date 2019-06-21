@@ -28,8 +28,16 @@
       <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
     </div>
   </div>
+
   <div class='week-detail-btn'>
-    <i class='el-icon-arrow-down btn icon-btn' @click='triggerWeekView' v-show='!toggleWeekView'></i>
-    <i class='el-icon-arrow-up btn icon-btn' @click='triggerWeekView' v-show='toggleWeekView'></i>
+    <el-tooltip placement="right">
+      <div slot="content">View detailed week</div>
+      <i class='el-icon-arrow-down btn icon-btn' @click='triggerWeekView' v-show='!toggleWeekView'></i>
+    </el-tooltip>
+
+    <el-tooltip placement="left">
+      <div slot="content">Hide detailed week</div>
+      <i class='el-icon-arrow-up btn icon-btn' @click='triggerWeekView' v-show='toggleWeekView'></i>
+    </el-tooltip>
   </div>
 </div>
