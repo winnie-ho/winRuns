@@ -3,10 +3,11 @@
 
 <script>
 import renderData from "../../mixins/renderData";
+import appData from "../../mixins/appData";
 
 export default {
   name: "weekChanger",
-  mixins: [renderData],
+  mixins: [renderData, appData],
   data() {
     return {
       weekInViewIndex: 0,

@@ -1,7 +1,6 @@
 <div id='week-changer' class='row sa'>
 
-  <el-tooltip placement="top">
-    <div slot="content">Previous week</div>
+  <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Previous week">
     <div @click='changeWeek(1)' class='arrow'>
       <img src='../../../static/assets/icon_arrow_left.png' />
     </div>
@@ -12,8 +11,7 @@
   </div>
 
   <div @click='changeWeek(-1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
-    <el-tooltip placement="top" :disabled='forwardArrowDisable'>
-      <div slot="content">Next week</div>
+    <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Next week" :disabled='forwardArrowDisable'>
       <img src='../../../static/assets/icon_arrow_right.png' />
     </el-tooltip>
   </div>

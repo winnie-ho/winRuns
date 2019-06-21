@@ -4,10 +4,11 @@
 <script>
 import renderData from "../../mixins/renderData.js";
 import changePage from "../../mixins/changePage.js";
+import appData from "../../mixins/appData.js";
 
 export default {
   name: "weekActivitiesMini",
-  mixins: [renderData, changePage],
+  mixins: [renderData, changePage, appData],
   props: ["weekInView"],
   data() {
     return {
