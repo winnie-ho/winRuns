@@ -113,8 +113,7 @@ export default {
     },
     sortedLapMarkers() {
       if (!this.lapMarkers) return;
-      let result = this.lapMarkers.slice().sort((a, b) => a - b);
-      return result;
+      return this.lapMarkers.slice().sort((a, b) => a - b);
     },
     lapCalcTimeResult() {
       if (!this.sortedLapMarkers) return;

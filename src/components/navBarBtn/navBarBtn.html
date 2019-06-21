@@ -1,5 +1,7 @@
 <div id='navBarBtn' class='nav-button' :class='{ navBtnSelected: pageSelected }'>
-  <router-link :to="path" exact>
-    <img :src='btnIcon' class='nav-icon'/>
-  </router-link>
+  <el-tooltip placement="top" :content="title" :visibleArrow='false' effect='light'>
+    <router-link :to="path" exact>
+      <img :src='btnIcon' class='nav-icon' />
+    </router-link>
+  </el-tooltip>
 </div>

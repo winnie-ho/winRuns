@@ -7,7 +7,7 @@ import changePage from "../../mixins/changePage.js";
 export default {
   name: "navBarBtn",
   mixins: [changePage],
-  props: ["pages", "btnIcon", "path"],
+  props: ["pages", "btnIcon", "path", "title"],
   data() {
     return {};
   },

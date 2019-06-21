@@ -5,18 +5,25 @@
     <div id='page-title'>{{ pageTitle }}</div>
 
     <div id='pagesBar' v-show='showNav' class='row'>
+      <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/icon_home.png"' :path="'/home'" :title='"Home"'>
+      </nav-bar-btn>
+
       <nav-bar-btn :pages='["/activities"]' :btnIcon='"../../../static/assets/icon_activities.png"'
-        :path="'/activities'">
+        :path="'/activities'" :title='"Activities"'>
       </nav-bar-btn>
 
       <nav-bar-btn :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
-        :btnIcon='"../../../static/assets/icon_park_run_logo.png"' :path="'/parkRun'">
+        :btnIcon='"../../../static/assets/icon_park_run_logo.png"' :path="'/parkRun'" :title='"Park run"'>
       </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/swim"]' :btnIcon='"../../../static/assets/icon_swim.png"' :path='"/swim"'>
+      <nav-bar-btn :pages='["/swim"]' :btnIcon='"../../../static/assets/icon_swim.png"' :path='"/swim"' :title='"Swim"'>
       </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/kmSplits"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/kmSplits"'>
+      <nav-bar-btn :pages='["/kmSplits"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/kmSplits"'
+        :title='"km splits"'>
+      </nav-bar-btn>
+
+      <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"'>
       </nav-bar-btn>
     </div>
   </div>

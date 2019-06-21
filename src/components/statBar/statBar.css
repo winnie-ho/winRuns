@@ -4,6 +4,7 @@
   position: absolute;
   width: 100%;
   justify-content: center;
+  cursor: pointer;
 }
 
 .title-box{

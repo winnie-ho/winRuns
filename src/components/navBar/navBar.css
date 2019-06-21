@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+#navBar{
+  margin-bottom: 10px;
+}
+
 #page-title {
   justify-content: center;
   width: 100%;
@@ -89,7 +93,6 @@
   display: flex;
   visibility: visible;
   justify-content: space-around;
-  width: 300px;
   padding: 0 20px;
 }
 
