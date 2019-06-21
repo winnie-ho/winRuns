@@ -13,7 +13,7 @@
   <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :weekInView='weekInView'>
   </week-activities-mini>
 
-  <week-activities v-show='toggleWeekView' :activities='activities' :mondayInView='mondayInView'
+  <week-activities :toggleWeekView='toggleWeekView' :activities='activities' :mondayInView='mondayInView'
     v-on:weekInViewChange='setWeekInView($event)'>
   </week-activities>
 

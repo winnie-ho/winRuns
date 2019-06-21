@@ -8,7 +8,7 @@ import changePage from "../../mixins/changePage.js";
 export default {
   name: "weekActivities",
   mixins: [renderData, changePage],
-  props: ["mondayInView", "activities"],
+  props: ["mondayInView", "activities", "toggleWeekView"],
   data() {
     return {
       dayHasActivities: false
