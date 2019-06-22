@@ -21,10 +21,8 @@ export default {
     activities: activities,
     parkRunActivities: parkRunActivities
   },
-  name: "App",
   mounted() {
-    this.$store.dispatch("fetchWeatherNow");
-    this.$store.dispatch("fetchWeatherForecast");
+    this.$store.dispatch("fetchLocation");
   },
   methods: {},
   computed: {}

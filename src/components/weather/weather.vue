@@ -11,6 +11,9 @@ export default {
     return {};
   },
   mixins: [renderData],
+  created() {
+    this.$store.dispatch("fetchWeatherNow");
+  },
   computed: {
     temp() {
       if (!this.$store.state.weatherNow.main) return;
@@ -26,6 +29,10 @@ export default {
         (2.2369362920544 * this.$store.state.weatherNow.wind.speed).toFixed(0) +
         "mph"
       );
+    },
+    locationName() {
+      if (!this.$store.state.weatherNow.weather) return;
+      return this.$store.state.weatherNow.name;
     }
   }
 };

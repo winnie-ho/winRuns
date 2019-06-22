@@ -1,14 +1,18 @@
-<div id='weather' class='row sa'>
-  <div class='data'>
-    <img src='../../../static/assets/icon_forecast.png' class='icon'/>
-    <span id='weather-now-forecast'>{{ description }}</span>
+<div id='weather' class='row sa data'>
+  <div>
+    <i class="el-icon-place"></i>
+    {{ locationName }}
   </div>
-  <div class='data'>
-    <img src='../../../static/assets/icon_thermometer.png' class='icon'/>
-    <span id='weather-now-temperature'>{{ renderDegTemp(temp) }}</span>
+  <div>
+    <i class="el-icon-cloudy-and-sunny"></i>
+    {{ description }}
   </div>
-  <div class='data'>
-    <img src='../../../static/assets/icon_wind_sock.png' class='icon'/>
-    <span id='weather-now-wind' class='p'>{{ wind }}</span>
+  <div>
+    <img src='../../../static/assets/icon_thermometer.png' class='icon' />
+    {{ renderDegTemp(temp) }}
+  </div>
+  <div>
+    <i class="el-icon-wind-power"></i>
+    {{ wind }}
   </div>
 </div>

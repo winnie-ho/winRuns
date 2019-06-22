@@ -23,7 +23,8 @@ export const store = new Vuex.Store({
     sessions: [],
     updateStravaActivityResponse: {},
     uploadStravaActivityResponse: {},
-    stravaUpload: {}
+    stravaUpload: {},
+    position: {}
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -35,6 +36,12 @@ export const store = new Vuex.Store({
     setComments: (state, payload) => (state.comments = payload),
     setParkRuns: (state, payload) => (state.parkRuns = payload),
     setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
+    setPosition: (state, payload) => (
+      state.position = {
+        lat: payload.latitude,
+        lng: payload.longitude
+      }
+    ),
     setWeatherNow: (state, payload) => (state.weatherNow = payload),
     setWeatherForecast: (state, payload) => (state.weatherForecast = payload),
     setTimeOrderedParkRuns: (state, payload) => (state.timeOrderedParkRuns = payload),
@@ -119,17 +126,21 @@ export const store = new Vuex.Store({
     setSelectedParkRun: (context, selectedParkRun) => {
       context.commit('setSelectedParkRun', selectedParkRun)
     },
-    fetchWeatherNow: (context) => {
-      Vue.http.get('https://api.openweathermap.org/data/2.5/weather?q=Edinburgh,uk&appid=b7114aca731d927ad002d0a518f38dfe').then(
-        function (response) {
-          context.commit('setWeatherNow', response.data)
+    fetchLocation: async (context) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          context.commit('setPosition', position.coords)
+          context.dispatch('fetchWeatherNow')
         })
+      }
     },
-    fetchWeatherForecast: (context) => {
-      Vue.http.get('https://api.openweathermap.org/data/2.5/forecast?id=2650225&appid=b7114aca731d927ad002d0a518f38dfe').then(
-        function (response) {
-          context.commit('setWeatherForecast', response.data)
-        })
+    fetchWeatherNow: (context) => {
+      if (context.state.position.lat && context.state.position.lng) {
+        Vue.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${context.state.position.lat}&lon=${context.state.position.lng}&appid=b7114aca731d927ad002d0a518f38dfe`).then(
+          function (response) {
+            context.commit('setWeatherNow', response.data)
+          })
+      }
     },
     setTimeOrderedParkRuns: (context, timeOrderedParkRuns) => {
       context.commit('setTimeOrderedParkRuns', timeOrderedParkRuns)
