@@ -25,8 +25,12 @@ export default {
     description() {
       return this.weather && this.$store.state.weatherNow.weather[0].main;
     },
-    wind() {
+    windSpeed() {
       return this.weather && this.$store.state.weatherNow.wind.speed;
+    },
+    windDegreesStyle() {
+      return `--degrees: ${this.weather &&
+        this.$store.state.weatherNow.wind.deg + 180}deg;`;
     },
     locationName() {
       return this.weather && this.$store.state.weatherNow.name
