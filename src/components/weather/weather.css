@@ -4,5 +4,16 @@
 }
 
 .wind-direction {
-  transform: rotate(var(--degrees));
+  animation-name: rotateTo;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotateTo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--degrees));
+  }
 }
