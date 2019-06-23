@@ -20,24 +20,16 @@ export default {
       return this.$store.state.weatherNow.main;
     },
     temp() {
-      if (!this.$store.state.weatherNow.main) return;
-      return this.$store.state.weatherNow.main.temp;
+      return this.weather ? this.$store.state.weatherNow.main.temp : null;
     },
     description() {
-      if (!this.$store.state.weatherNow.weather) return;
-      return this.$store.state.weatherNow.weather[0].main;
+      return this.weather ? this.$store.state.weatherNow.weather[0].main : null;
     },
     wind() {
-      if (!this.$store.state.weatherNow.weather) return;
-      return (
-        (2.2369362920544 * this.$store.state.weatherNow.wind.speed).toFixed(0) +
-        "mph"
-      );
+      return this.weather ? this.$store.state.weatherNow.wind.speed : null;
     },
     locationName() {
-      if (!this.$store.state.weatherNow.weather) return;
-
-      return this.$store.state.weatherNow && this.$store.state.weatherNow.name
+      return this.weather && this.$store.state.weatherNow.name
         ? this.$store.state.weatherNow.name
         : "unknown location";
     }

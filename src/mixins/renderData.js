@@ -129,6 +129,9 @@ export default {
     },
     renderDegTemp (rawTemp) {
       return rawTemp ? (rawTemp - 273).toFixed(0) + '°C' : null
+    },
+    renderWindSpeed (rawWindSpeed) {
+      return rawWindSpeed ? `${(2.2369362920544 * rawWindSpeed).toFixed(0)}mph` : null
     }
   }
 }
