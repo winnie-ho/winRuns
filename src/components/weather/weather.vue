@@ -15,6 +15,10 @@ export default {
     this.$store.dispatch("fetchWeatherNow");
   },
   computed: {
+    weather() {
+      if (!this.$store.state.weatherNow.main) return;
+      return this.$store.state.weatherNow.main;
+    },
     temp() {
       if (!this.$store.state.weatherNow.main) return;
       return this.$store.state.weatherNow.main.temp;
@@ -32,7 +36,10 @@ export default {
     },
     locationName() {
       if (!this.$store.state.weatherNow.weather) return;
-      return this.$store.state.weatherNow.name;
+
+      return this.$store.state.weatherNow && this.$store.state.weatherNow.name
+        ? this.$store.state.weatherNow.name
+        : "unknown location";
     }
   }
 };
