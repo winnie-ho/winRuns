@@ -20,13 +20,13 @@ export default {
       return this.$store.state.weatherNow.main;
     },
     temp() {
-      return this.weather ? this.$store.state.weatherNow.main.temp : null;
+      return this.weather && this.$store.state.weatherNow.main.temp;
     },
     description() {
-      return this.weather ? this.$store.state.weatherNow.weather[0].main : null;
+      return this.weather && this.$store.state.weatherNow.weather[0].main;
     },
     wind() {
-      return this.weather ? this.$store.state.weatherNow.wind.speed : null;
+      return this.weather && this.$store.state.weatherNow.wind.speed;
     },
     locationName() {
       return this.weather && this.$store.state.weatherNow.name
