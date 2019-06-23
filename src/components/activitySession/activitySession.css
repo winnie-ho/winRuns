@@ -31,3 +31,26 @@
   top: 13px;
   position: absolute;
 }
+
+#session-saved {
+  text-align: center;
+}
+
+#session-saved .icon__large {
+  padding-top: 10px;
+}
+
+#session-saved {
+  animation-name: savedSuccess;
+  animation-duration: 2s;
+  animation-direction: forward;
+}
+
+@keyframes savedSuccess {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

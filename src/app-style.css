@@ -83,22 +83,18 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* IMAGES */
-.icon{
+.icon {
   height: 20px;
   width: auto;
   margin: 0 5px;
 }
 
-.dark-icon {
-  filter: invert(60%);
+.icon__large {
+  transform: scale(2, 2);
 }
 
-.tick-icon{
-  height: 40px;
-  width: auto;
-  margin: 20px;
-  animation-name: fade-in;
-  animation-duration: 2s;
+.dark-icon {
+  filter: invert(60%);
 }
 
 .avatar{

@@ -14,8 +14,9 @@
     </div>
   </div>
   <div id='session-saved' v-show='sessionSaved'>
-    <p v-show='updateStravaActivityResponse'>Session saved</p>
-    <img v-show='updateStravaActivityResponse' class='tick-icon' src='../../../static/assets/icon_tick.png' />
+    <p v-show='updateStravaActivityResponse'>Session saved successfully</p>
+    <i v-show='updateStravaActivityResponse' class='el-icon-circle-check icon__large'></i>
+    <i v-show='!updateStravaActivityResponse' class='el-icon-loading'></i>
     <p v-show='updateStravaActivityResponseError'>Error in saving. Try again.</p>
   </div>
   <div class='row' v-show='!sessionSaved'>
