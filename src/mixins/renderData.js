@@ -128,7 +128,7 @@ export default {
       return digit + 'th'
     },
     renderDegTemp (rawTemp) {
-      return (rawTemp - 273).toFixed(0) + '°C'
+      return rawTemp ? (rawTemp - 273).toFixed(0) + '°C' : null
     }
   }
 }
