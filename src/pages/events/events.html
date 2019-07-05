@@ -1,0 +1,18 @@
+<div id='events'>
+  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+  <div class='sub-bar col'>
+
+    <div class='sub-bar__collapsed row'>
+      <el-button @click='addEvent' circle icon="el-icon-plus" size='mini'></el-button>
+    </div>
+
+  </div>
+  <div class='event-list'>
+    <div v-for='event in events' :key='event.index' :event='event'>
+      {{ event.title }}
+      {{ renderDate(event.date) }}
+      {{ event.description }}
+      {{ event.category }}
+    </div>
+  </div>
+</div>

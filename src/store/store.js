@@ -21,6 +21,7 @@ export const store = new Vuex.Store({
     fullParkRuns: [],
     fullKmSessions: [],
     sessions: [],
+    events: [],
     updateStravaActivityResponse: {},
     uploadStravaActivityResponse: {},
     stravaUpload: {},
@@ -51,6 +52,7 @@ export const store = new Vuex.Store({
     setFullKmSessions: (state, payload) => (state.fullKmSessions.push(payload)),
     clearFullKmSessions: (state) => (state.fullKmSessions = []),
     setSessions: (state, payload) => (state.sessions = payload),
+    setEvents: (state, payload) => (state.events = payload),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
     setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload)
@@ -189,6 +191,19 @@ export const store = new Vuex.Store({
     //     context.commit('setSessions', sessions)
     //   })
     // },
+    fetchEvents: (context, events) => {
+      Vue.http.get('https://win-runs.firebaseio.com/events.json').then(function (data) {
+        return data.json()
+      }).then(function (data) {
+        let events = []
+        for (let key in data) {
+          data[key].id = key
+          events.push(data[key])
+        }
+        console.log('DATA', events)
+        context.commit('setEvents', events)
+      })
+    },
     updateStravaActivity: (context, actionParameters) => {
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=' + context.state.userToken, actionParameters[1]).then(
         function (response) {

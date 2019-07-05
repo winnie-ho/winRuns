@@ -23,6 +23,10 @@
         :title='"km splits"'>
       </nav-bar-btn>
 
+      <nav-bar-btn :pages='["/events"]' :btnIcon='"../../../static/assets/icon_medal.png"' :path='"/events"'
+        :title='"events"'>
+      </nav-bar-btn>
+
       <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"'>
       </nav-bar-btn>
     </div>
@@ -60,6 +64,10 @@
     <router-link to="/kmSplits" exact class='burger-item col'>
       <img src='../../../static/assets/icon_kilometer.png' class='burger-icon' />
       KM SPLITS
+    </router-link>
+    <router-link to="/events" exact class='burger-item col'>
+      <img src='../../../static/assets/icon_medal.png' class='burger-icon' />
+      EVENTS
     </router-link>
   </div>
 </div>

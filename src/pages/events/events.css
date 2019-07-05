@@ -1,0 +1,31 @@
+#events{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  padding-bottom: 20px;
+}
+
+.filter{
+  height: 16px;
+}
+
+.sub-bar__collapsed{
+  width: 100vw;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.sub-bar__expanded{
+  width: 100vw;
+  align-items: center;
+
+}
+
+.selectedButton {
+  filter: opacity(40%) blur(1px);
+  box-sizing: content-box;
+}
