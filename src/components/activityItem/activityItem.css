@@ -2,11 +2,24 @@
   overflow-x:hidden;
 }
 
+@keyframes enterActivity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 .run-box{
   margin: 1px 2px;;
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px #AEECEF solid;
+
+  animation-name: enterActivity;
+  animation-duration: 1s;
+  animation-direction: forward;
 }
 
 .run-box:hover{
