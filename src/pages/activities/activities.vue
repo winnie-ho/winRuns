@@ -29,7 +29,9 @@ export default {
       showSearch: false
     };
   },
-
+  mounted() {
+    this.$store.dispatch("fetchActivities", 200);
+  },
   methods: {
     filterWithSearchWord(searchWord) {
       this.wordToSearch = searchWord;
@@ -65,19 +67,21 @@ export default {
     }
   },
   computed: {
-    activities() {
-      return this.$store.state.activities;
-    },
     filteredActivities() {
-      if (!this.activities && !this.wordToSearch) return;
-      const filteredActivitiesByWordSearch = this.activities.filter(
-        activity => {
-          return activity.name
-            .toLowerCase()
-            .includes(this.wordToSearch.toLowerCase());
-        }
-      );
-      return this.filterByActivities(filteredActivitiesByWordSearch);
+      if (this.$store.state.activities && this.wordToSearch) {
+        const filteredActivitiesByWordSearch = this.$store.state.activities.filter(
+          activity => {
+            return activity.name
+              .toLowerCase()
+              .includes(this.wordToSearch.toLowerCase());
+          }
+        );
+        return this.filterByActivities(filteredActivitiesByWordSearch);
+      }
+
+      if (this.$store.state.activities && !this.wordToSearch) {
+        return this.$store.state.activities;
+      }
     }
   }
 };
