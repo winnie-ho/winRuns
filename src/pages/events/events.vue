@@ -20,7 +20,9 @@ export default {
       pageTitle: "EVENTS"
     };
   },
-
+  mounted() {
+    this.$store.dispatch("fetchEvents");
+  },
   methods: {
     addEvent() {
       console.log("ADD EVENT");
