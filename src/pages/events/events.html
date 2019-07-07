@@ -8,11 +8,11 @@
 
   </div>
   <div class='event-list'>
-    <div v-for='event in events' :key='event.index' :event='event'>
+    <eventItem v-for='event in events' :key='event.index' :event='event'>
       {{ event.title }}
       {{ renderDate(event.date) }}
       {{ event.description }}
       {{ event.category }}
-    </div>
+    </eventItem>
   </div>
 </div>

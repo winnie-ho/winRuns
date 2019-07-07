@@ -6,13 +6,15 @@ import navBar from "../../components/navBar/navBar.vue";
 import renderData from "../../mixins/renderData.js";
 import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
+import eventItem from "../../components/eventItem/eventItem.vue";
 
 export default {
   name: "events",
   components: {
     navBar,
     searchBar,
-    filterBar
+    filterBar,
+    eventItem
   },
   mixins: [renderData],
   data() {

@@ -1,0 +1,50 @@
+#event{
+  overflow-x:hidden;
+}
+
+@keyframes enterActivity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.run-box{
+  margin: 1px 2px;;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px #AEECEF solid;
+
+  animation-name: enterActivity;
+  animation-duration: 1s;
+  animation-direction: forward;
+}
+
+.run-box:hover{
+  background-color: #3066BE;
+  color: #AEECEF;
+}
+
+.run-box:hover .icon {
+  filter: invert(0%);
+}
+
+.run-box__detail{
+  width: 85%;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 0 5px;
+}
+
+.icon__circle {
+  background-color: #3066BE;
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: content-box;
+}
+
+.space{
+  margin-right: 30px;
+}
