@@ -11,15 +11,17 @@ import swim from "./pages/swim/swim.vue";
 import parkRun from "./pages/parkRun/parkRun.vue";
 import activities from "./pages/activities/activities.vue";
 import parkRunActivities from "./pages/parkRunActivities/parkRunActivities.vue";
+import events from "./pages/events/events.vue";
 
 export default {
   components: {
-    auth: auth,
-    home: home,
-    swim: swim,
-    parkRun: parkRun,
-    activities: activities,
-    parkRunActivities: parkRunActivities
+    auth,
+    home,
+    swim,
+    parkRun,
+    activities,
+    parkRunActivities,
+    events
   },
   mounted() {
     this.$store.dispatch("fetchLocation");
