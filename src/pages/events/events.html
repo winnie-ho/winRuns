@@ -5,6 +5,7 @@
     <div class='sub-bar__collapsed row'>
       <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm'>Event</el-button>
       <el-button @click='addEvent' size='mini' v-show='showForm'>Cancel</el-button>
+      <el-button @click='editEvent' icon='el-icon-edit' size='mini'></el-button>
     </div>
 
   </div>
@@ -12,7 +13,7 @@
   <eventForm v-show='showForm'></eventForm>
 
   <div class='event-list' v-show='!showForm'>
-    <eventItem v-for='event in events' :key='event.index' :event='event'>
+    <eventItem v-for='event in events' :key='event.index' :event='event' :showEdit='showEdit'>
       {{ event.title }}
       {{ renderDate(event.date) }}
       {{ event.description }}

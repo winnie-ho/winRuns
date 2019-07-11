@@ -14,5 +14,5 @@
       {{ event.distance }}
     </div>
   </div>
-  <i class="el-icon-delete" @click='deleteEvent(event.id)'></i>
+  <i class="el-icon-delete" @click='deleteEvent(event.id)' v-show='showEdit'></i>
 </div>

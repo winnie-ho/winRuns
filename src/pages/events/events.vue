@@ -22,7 +22,8 @@ export default {
   data() {
     return {
       pageTitle: "EVENTS",
-      showForm: false
+      showForm: false,
+      showEdit: false
     };
   },
   mounted() {
@@ -32,6 +33,10 @@ export default {
     addEvent() {
       console.log("ADD");
       this.showForm = !this.showForm;
+    },
+    editEvent() {
+      console.log("EDIT");
+      this.showEdit = !this.showEdit;
     }
   },
   computed: {

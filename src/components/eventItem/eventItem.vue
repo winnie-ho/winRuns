@@ -9,7 +9,7 @@ export default {
   name: "eventItem",
   components: {},
   mixins: [renderData, changePage],
-  props: ["event"],
+  props: ["event", "showEdit"],
   data() {
     return {};
   },
