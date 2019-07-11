@@ -1,13 +1,17 @@
 <div id='events'>
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
-  <div class='sub-bar col'>
-
+  <div class='sub-bar row'>
+    <span v-show='!showForm' class='events-summary'>{{ events.length }} events</span>
     <div class='sub-bar__collapsed row'>
-      <el-button @click='addEvent' circle icon="el-icon-plus" size='mini'></el-button>
+      <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm'>Event</el-button>
+      <el-button @click='addEvent' size='mini' v-show='showForm'>Cancel</el-button>
     </div>
 
   </div>
-  <div class='event-list'>
+
+  <eventForm v-show='showForm'></eventForm>
+
+  <div class='event-list' v-show='!showForm'>
     <eventItem v-for='event in events' :key='event.index' :event='event'>
       {{ event.title }}
       {{ renderDate(event.date) }}

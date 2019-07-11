@@ -1,28 +1,18 @@
-<div id='event' class='run-box row sb' @click='viewEvent(event.id)'>
+<div id='event' class='event-box row sb'>
   <img v-show="event.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
-  <img v-show="event.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
   <img v-show="event.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle' />
   <img v-show="event.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle' />
   <img v-show="event.type === 'Triathlon'" src='../../../static/assets/icon_activities.png' class='icon icon__circle' />
+  <div v-show="event.race" class='event-category'>Race</div>
 
-  <div class='run-box__detail'>
+  <div class='event-box__detail'>
     <div class='row sb'>
       <div class='heading truncate'>{{ event.title }}</div>
       <div class='date'>{{ renderDate(event.start_date) }}</div>
     </div>
-    <div class='run-box__detail row'>
-      <div class='data-metric space'>
-        {{ event.type }}
-      </div>
-      <div class='data-metric space'>
-        {{ event.description }}
-      </div>
-      <div class='data-metric space'>
-        {{ event.web }}
-      </div>
-      <div class='data-metric space'>
-        {{ event.category }}
-      </div>
+    <div class='run-box__detail'>
+      {{ event.distance }}
     </div>
   </div>
+  <i class="el-icon-delete" @click='deleteEvent(event.id)'></i>
 </div>

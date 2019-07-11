@@ -13,7 +13,17 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    deleteEvent(eventId) {
+      console.log("deleteEvent", eventId);
+      this.$store.dispatch("deleteOrder", eventId);
+      setTimeout(this.refreshEventList, 500);
+    },
+    async refreshEventList() {
+      await this.$store.dispatch("fetchEvents");
+      await this.$router.push("/events/");
+    }
+  },
   computed: {}
 };
 </script>

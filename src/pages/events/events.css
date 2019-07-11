@@ -3,10 +3,13 @@
   overflow: hidden;
 }
 
-.header{
+/* .header{
   position: sticky;
   top: 0;
   padding-bottom: 20px;
+} */
+.events-summary {
+  width: 100%;
 }
 
 .filter{

@@ -204,6 +204,21 @@ export const store = new Vuex.Store({
         context.commit('setEvents', events)
       })
     },
+    createEvent: (context, event) => {
+      Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(function (data) {
+        return data.json()
+      })
+    },
+    deleteOrder: (context, eventId) => {
+      Vue.http.delete('https://win-runs.firebaseio.com/events/' + eventId + '.json').then(function (data) {
+        return data.json()
+      })
+    },
+    updateEvent: (context, event) => {
+      Vue.http.put('https://win-runs.firebaseio.com/events/' + event.id + '.json', event).then(function (data) {
+        return data.json()
+      })
+    },
     updateStravaActivity: (context, actionParameters) => {
       Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=' + context.state.userToken, actionParameters[1]).then(
         function (response) {

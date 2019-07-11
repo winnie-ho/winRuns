@@ -7,6 +7,7 @@ import renderData from "../../mixins/renderData.js";
 import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
 import eventItem from "../../components/eventItem/eventItem.vue";
+import eventForm from "../../components/eventForm/eventForm.vue";
 
 export default {
   name: "events",
@@ -14,12 +15,14 @@ export default {
     navBar,
     searchBar,
     filterBar,
-    eventItem
+    eventItem,
+    eventForm
   },
   mixins: [renderData],
   data() {
     return {
-      pageTitle: "EVENTS"
+      pageTitle: "EVENTS",
+      showForm: false
     };
   },
   mounted() {
@@ -27,7 +30,8 @@ export default {
   },
   methods: {
     addEvent() {
-      console.log("ADD EVENT");
+      console.log("ADD");
+      this.showForm = !this.showForm;
     }
   },
   computed: {
