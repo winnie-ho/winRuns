@@ -83,6 +83,11 @@ h1, h2, h3, h4, h5, h6{
   text-overflow: ellipsis;
 }
 
+.el-form-item__label,
+.el-checkbox {
+  color: white;
+}
+
 /* IMAGES */
 .icon {
   height: 20px;
@@ -253,7 +258,7 @@ button[disabled]{
   padding: 10px;
   margin: 5px 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* responsive css  */
