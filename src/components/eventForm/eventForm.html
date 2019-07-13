@@ -12,14 +12,8 @@
       </el-select>
     </el-form-item>
     <el-form-item label="Event time">
-      <el-col :span="11">
-        <el-date-picker type="date" placeholder="Select a date" v-model="form.date" style="width: 100%;">
-        </el-date-picker>
-      </el-col>
-      <el-col class="line" :span="2">-</el-col>
-      <el-col :span="11">
-        <el-time-picker placeholder="Start time" v-model="form.time" style="width: 100%;"></el-time-picker>
-      </el-col>
+      <el-date-picker type="date" placeholder="Select a date" v-model="form.date">
+      </el-date-picker>
     </el-form-item>
     <el-form-item label="Category">
       <el-checkbox-group v-model="form.category">

@@ -16,7 +16,6 @@ export default {
         title: this.event.title,
         type: this.event.type,
         date: this.event.date,
-        time: this.event.time,
         race: this.event.race,
         description: this.event.description
       }
@@ -29,28 +28,20 @@ export default {
   },
   methods: {
     createEvent() {
-      const { date, time } = this.form;
+      const { date } = this.form;
       if (!date) return;
       this.$store.dispatch("createEvent", {
-        ...this.form,
-        start_date: this.getStartDate(date, time)
+        ...this.form
       });
       this.$emit("onCloseForm");
     },
     updateEvent() {
-      const { date, time } = this.form;
+      const { date } = this.form;
       if (!date) return;
       this.$store.dispatch("updateEvent", {
-        ...this.form,
-        start_date: this.getStartDate(date, time)
+        ...this.form
       });
       this.$emit("onCloseForm");
-    },
-    getStartDate(date, time) {
-      return date
-        .toISOString()
-        .substr(0, 11)
-        .concat(time.toISOString().substr(11, 20));
     }
   },
   computed: {}
