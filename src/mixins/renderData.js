@@ -91,7 +91,7 @@ export default {
 
       if (rawDateOnly === todayDateOnly) return 'Today'
       if (rawDateOnly === yesterdayDateOnly) return 'Yesterday'
-      if (convertedRawDate > lastWeek) {
+      if (convertedRawDate > lastWeek && convertedRawDate < today) {
         return convertedRawDate.getDay() === 0 ? this.dayLookUp[6] : this.dayLookUp[convertedRawDate.getDay() - 1]
       }
       if (format === 'long') {
