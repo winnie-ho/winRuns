@@ -30,7 +30,8 @@
       <el-input type="textarea" v-model="form.description"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="createEvent">Create</el-button>
+      <el-button type="primary" @click="createEvent" v-show='!isEditing'>Create</el-button>
+      <el-button type="primary" @click="updateEvent" v-show='isEditing'>Update</el-button>
     </el-form-item>
   </el-form>
 </div>

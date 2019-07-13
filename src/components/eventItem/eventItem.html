@@ -1,18 +1,25 @@
-<div id='event' class='event-box row sb'>
+<div id='event' class='event-box row sb' @click='viewEvent=!viewEvent'>
   <img v-show="event.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
   <img v-show="event.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle' />
   <img v-show="event.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle' />
   <img v-show="event.type === 'Triathlon'" src='../../../static/assets/icon_activities.png' class='icon icon__circle' />
-  <div v-show="event.race" class='event-category'>Race</div>
 
   <div class='event-box__detail'>
-    <div class='row sb'>
-      <div class='heading truncate'>{{ event.title }}</div>
-      <div class='date'>{{ renderDate(event.start_date) }}</div>
-    </div>
-    <div class='run-box__detail'>
+    <h5 class='event-date'>{{ renderDate(event.start_date) }}</h5>
+    <div class='truncate'>{{ event.title }}</div>
+
+    <div v-show='viewEvent'>
       {{ event.distance }}
+      {{ event.description }}
+      <div class='event-category'>Race</div>
     </div>
+
   </div>
-  <i class="el-icon-delete" @click='deleteEvent(event.id)' v-show='showEdit'></i>
+
+  <i class="el-icon-more-outline" @click='toggleEditButtons' v-show='!viewEditButtons'></i>
+  <div class='edit-buttons'>
+    <i class='el-icon-edit' @click='editEvent(event)' size='mini' v-show='viewEditButtons'></i>
+    <i class="el-icon-delete" @click='deleteEvent(event.id)' v-show='viewEditButtons'></i>
+    <i class="el-icon-close" @click='toggleEditButtons' v-show='viewEditButtons'></i>
+  </div>
 </div>

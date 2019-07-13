@@ -23,7 +23,8 @@ export default {
     return {
       pageTitle: "EVENTS",
       showForm: false,
-      showEdit: false
+      event: {},
+      isEditing: false
     };
   },
   mounted() {
@@ -31,12 +32,16 @@ export default {
   },
   methods: {
     addEvent() {
-      console.log("ADD");
       this.showForm = !this.showForm;
+      this.isEditing = false;
     },
-    editEvent() {
-      console.log("EDIT");
-      this.showEdit = !this.showEdit;
+    editEvent(event) {
+      this.event = event;
+      this.showForm = true;
+      this.isEditing = true;
+    },
+    closeForm() {
+      this.showForm = false;
     }
   },
   computed: {

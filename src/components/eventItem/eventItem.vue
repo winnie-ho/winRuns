@@ -9,13 +9,21 @@ export default {
   name: "eventItem",
   components: {},
   mixins: [renderData, changePage],
-  props: ["event", "showEdit"],
+  props: ["event"],
   data() {
-    return {};
+    return {
+      viewEvent: false,
+      viewEditButtons: false
+    };
   },
   methods: {
+    toggleEditButtons() {
+      this.viewEditButtons = !this.viewEditButtons;
+    },
+    editEvent(event) {
+      this.$emit("onEditEvent", event);
+    },
     deleteEvent(eventId) {
-      console.log("deleteEvent", eventId);
       this.$store.dispatch("deleteOrder", eventId);
       setTimeout(this.refreshEventList, 500);
     },

@@ -5,15 +5,14 @@
     <div class='sub-bar__collapsed row'>
       <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm'>Event</el-button>
       <el-button @click='addEvent' size='mini' v-show='showForm'>Cancel</el-button>
-      <el-button @click='editEvent' icon='el-icon-edit' size='mini'></el-button>
     </div>
 
   </div>
 
-  <eventForm v-show='showForm'></eventForm>
+  <eventForm v-show='showForm' :event='event' :isEditing='isEditing' @onCloseForm='closeForm'></eventForm>
 
   <div class='event-list' v-show='!showForm'>
-    <eventItem v-for='event in events' :key='event.index' :event='event' :showEdit='showEdit'>
+    <eventItem v-for='event in events' :key='event.index' :event='event' v-on:onEditEvent='editEvent($event)'>
       {{ event.title }}
       {{ renderDate(event.date) }}
       {{ event.description }}

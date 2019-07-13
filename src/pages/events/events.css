@@ -3,11 +3,12 @@
   overflow: hidden;
 }
 
-/* .header{
-  position: sticky;
-  top: 0;
-  padding-bottom: 20px;
-} */
+.events-list {
+  height: 85vh;
+overflow-y: scroll;
+padding: 0 5%;
+}
+
 .events-summary {
   width: 100%;
 }
@@ -25,7 +26,6 @@
 .sub-bar__expanded{
   width: 100vw;
   align-items: center;
-
 }
 
 .selectedButton {
