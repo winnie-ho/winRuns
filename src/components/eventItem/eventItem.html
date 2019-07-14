@@ -15,10 +15,10 @@
 
   </div>
 
-  <i class="el-icon-more-outline" @click='toggleEditButtons' v-show='!viewEditButtons'></i>
+  <i class="el-icon-more-outline" @click='showEditButtons' v-show='!viewEditButtons'></i>
   <div class='edit-buttons'>
     <i class='el-icon-edit' @click='editEvent(event)' size='mini' v-show='viewEditButtons'></i>
     <i class="el-icon-delete" @click='deleteEvent(event.id)' v-show='viewEditButtons'></i>
-    <i class="el-icon-close" @click='toggleEditButtons' v-show='viewEditButtons'></i>
+    <i class="el-icon-close" @click='hideEditButtons' v-show='viewEditButtons'></i>
   </div>
 </div>

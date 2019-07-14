@@ -17,8 +17,11 @@ export default {
     };
   },
   methods: {
-    toggleEditButtons() {
-      this.viewEditButtons = !this.viewEditButtons;
+    hideEditButtons() {
+      this.viewEditButtons = false;
+    },
+    showEditButtons() {
+      this.viewEditButtons = true;
     },
     editEvent(event) {
       this.$emit("onEditEvent", event);
