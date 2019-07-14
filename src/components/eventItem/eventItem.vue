@@ -4,6 +4,7 @@
 <script>
 import renderData from "../../mixins/renderData.js";
 import changePage from "../../mixins/changePage.js";
+import moment from "moment";
 
 export default {
   name: "eventItem",
@@ -33,6 +34,9 @@ export default {
     async refreshEventList() {
       await this.$store.dispatch("fetchEvents");
       await this.$router.push("/events/");
+    },
+    daysUntilEvent(event) {
+      return moment(event.date).toNow(true);
     }
   },
   computed: {}
