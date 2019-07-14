@@ -87,10 +87,8 @@
           </div>
         </template>
         <div id="kudos-detail">
-          <div class='col' v-for='kudo in kudos' :key='kudo.index'>
-            <img :src='kudo.profile' v-show='kudo.profile !== "avatar/athlete/large.png"' class='avatar' />
-            <i class='el-icon-user icon__large avatar' v-show='kudo.profile === "avatar/athlete/large.png"'></i>
-            <h5>{{ kudo.firstname }}</h5>
+          <div class='col kudo' v-for='kudo in kudos' :key='kudo.index'>
+            <h5>{{ kudo.firstname }} {{ kudo.lastname }}</h5>
           </div>
         </div>
       </el-collapse-item>
