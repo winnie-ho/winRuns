@@ -16,8 +16,8 @@ export default {
         title: this.event.title,
         type: this.event.type,
         date: this.event.date,
-        race: this.event.race,
-        description: this.event.description
+        category: this.event.category,
+        description: this.event.description,
       }
     };
   },

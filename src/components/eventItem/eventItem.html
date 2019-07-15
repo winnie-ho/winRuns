@@ -11,7 +11,7 @@
 
     <div v-show='viewEvent'>
       {{ event.description }}
-      <div class='event-category'>Race</div>
+      <div class='event-category' v-show='event.category'>Race</div>
     </div>
 
   </div>

@@ -48,14 +48,10 @@ export default {
     events() {
       return this.$store.state.events;
     },
-    filteredEvents() {
-      if (!this.events && !this.wordToSearch) return;
-      const filteredEventsByWordSearch = this.events.filter(event => {
-        return event.title
-          .toLowerCase()
-          .includes(this.wordToSearch.toLowerCase());
-      });
-      return this.filterByEvents(filteredEventsByWordSearch);
+    numberOfRaces() {
+      return this.$store.state.events.reduce((total, event) => {
+        return total + (event.category === true);
+      }, 0)
     }
   }
 };
