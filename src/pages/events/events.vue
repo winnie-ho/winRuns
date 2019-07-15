@@ -56,6 +56,11 @@ export default {
           .includes(this.wordToSearch.toLowerCase());
       });
       return this.filterByEvents(filteredEventsByWordSearch);
+    },
+    numberOfRaces() {
+      return this.$store.state.events.reduce((total, event) => {
+        return total + (event.category === true);
+      }, 0)
     }
   }
 };
