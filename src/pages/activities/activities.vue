@@ -79,8 +79,8 @@ export default {
         return this.filterByActivities(filteredActivitiesByWordSearch);
       }
 
-      if (this.$store.state.activities && !this.wordToSearch) {
-        return this.$store.state.activities;
+      if (this.$store.state.activities && !this.wordToSearch && (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)) {
+        return this.filterByActivities(this.$store.state.activities);
       }
     }
   }
