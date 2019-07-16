@@ -8,9 +8,9 @@
     </el-button>
   </div>
 
-  <div class='col profile'>
+  <div class='col profile' v-show='athlete.id'>
     <h4>You're connected!</h4>
-    <router-link to="/home" exact v-show='athlete.id'>
+    <router-link to="/home" exact>
       <img class='avatar-profile' :src='athlete.profile' />
     </router-link>
     <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>

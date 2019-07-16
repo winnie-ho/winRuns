@@ -5,11 +5,10 @@
 }
 
 .strava-container{
-  align-items: center;
+  margin-top: 20%;
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 100%;
 }
 
 .button-contents{
