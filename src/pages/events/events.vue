@@ -47,9 +47,11 @@ export default {
   },
   computed: {
     events() {
+      if (!this.$store.state.events) return;
       return this.$store.state.events;
     },
     upComingEvents() {
+      if (!this.events) return;
       return this.events
         .filter(event => {
           return new Date(event.date) >= new Date();
@@ -67,6 +69,7 @@ export default {
       }, 0);
     },
     timeToNextEvent() {
+      if (!this.upComingEvents || !this.upComingEvents.length) return;
       const msTimeToNextEvent =
         new Date(this.upComingEvents[0].date) - new Date();
       return moment.duration(msTimeToNextEvent).humanize();
