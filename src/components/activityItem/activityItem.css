@@ -20,6 +20,7 @@
   animation-name: enterActivity;
   animation-duration: 1s;
   animation-direction: forward;
+  transition: 0.5s;
 }
 
 .run-box:hover{

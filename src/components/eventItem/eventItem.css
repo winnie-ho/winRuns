@@ -2,7 +2,7 @@
   overflow-x:hidden;
 }
 
-@keyframes enterActivity {
+@keyframes enterEvent {
   0% {
     opacity: 0;
   }
@@ -19,9 +19,10 @@
   position: relative;
   min-height: 80px;
 
-  animation-name: enterActivity;
+  animation-name: enterEvent;
   animation-duration: 1s;
   animation-direction: forward;
+  transition: 0.5s;
 }
 
 .event-box:hover{
