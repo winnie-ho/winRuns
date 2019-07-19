@@ -5,10 +5,10 @@
   <img v-show="event.type === 'Triathlon'" src='../../../static/assets/icon_activities.png' class='icon icon__circle' />
 
   <div class='event-box__detail'>
-    <h5 class='event-date'>{{ renderDate(event.start_date) }}</h5>
+    <h5 class='event-date'>{{ renderDate(event.date) }}</h5>
     <div class='truncate'>{{ event.title }}</div>
-    in {{ daysUntilEvent(event) }}
-
+    <span v-show='!pastEvent'>in {{ daysUntilEvent(event) }}</span>
+    <span v-show='pastEvent'>{{ daysUntilEvent(event) }} ago</span>
     <div v-show='viewEvent'>
       {{ event.description }}
       <div class='event-category' v-show='event.category'>Race</div>

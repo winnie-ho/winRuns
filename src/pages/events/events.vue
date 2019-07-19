@@ -48,10 +48,20 @@ export default {
     events() {
       return this.$store.state.events;
     },
+    upComingEvents() {
+      return this.events.filter(event => {
+        return new Date(event.date) >= new Date();
+      });
+    },
+    pastEvents() {
+      return this.events.filter(event => {
+        return new Date(event.date) < new Date();
+      });
+    },
     numberOfRaces() {
       return this.$store.state.events.reduce((total, event) => {
         return total + (event.category === true);
-      }, 0)
+      }, 0);
     }
   }
 };

@@ -10,7 +10,7 @@ export default {
   name: "eventItem",
   components: {},
   mixins: [renderData, changePage],
-  props: ["event"],
+  props: ["event", "pastEvent"],
   data() {
     return {
       viewEvent: false,

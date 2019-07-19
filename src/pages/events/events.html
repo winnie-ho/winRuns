@@ -12,11 +12,18 @@
   <eventForm v-show='showForm' :event='event' :isEditing='isEditing' @onCloseForm='closeForm'></eventForm>
 
   <div class='event-list' v-show='!showForm'>
-    <eventItem v-for='event in events' :key='event.index' :event='event' v-on:onEditEvent='editEvent($event)'>
-      {{ event.title }}
-      {{ renderDate(event.date) }}
-      {{ event.description }}
-      {{ event.category }}
+    <eventItem v-for='event in upComingEvents' :key='event.index' :event='event' v-on:onEditEvent='editEvent($event)'
+      :pastEvent='false'>
+    </eventItem>
+  </div>
+
+
+  <div class='sub-bar row'>
+    <span v-show='!showForm' class='events-summary'>{{ pastEvents.length }} past events</span>
+  </div>
+  <div class='event-list' v-show='!showForm'>
+    <eventItem v-for='event in pastEvents' :key='event.index' :event='event' v-on:onEditEvent='editEvent($event)'
+      :pastEvent='true'>
     </eventItem>
   </div>
 </div>

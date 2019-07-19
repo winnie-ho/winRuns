@@ -17,7 +17,7 @@
   cursor: pointer;
   border-bottom: 1px #AEECEF solid;
   position: relative;
-
+  min-height: 80px;
 
   animation-name: enterActivity;
   animation-duration: 1s;
