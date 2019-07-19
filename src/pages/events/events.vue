@@ -8,6 +8,7 @@ import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
 import eventItem from "../../components/eventItem/eventItem.vue";
 import eventForm from "../../components/eventForm/eventForm.vue";
+import moment from "moment";
 
 export default {
   name: "events",
@@ -49,9 +50,11 @@ export default {
       return this.$store.state.events;
     },
     upComingEvents() {
-      return this.events.filter(event => {
-        return new Date(event.date) >= new Date();
-      });
+      return this.events
+        .filter(event => {
+          return new Date(event.date) >= new Date();
+        })
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
     },
     pastEvents() {
       return this.events.filter(event => {
@@ -62,6 +65,11 @@ export default {
       return this.$store.state.events.reduce((total, event) => {
         return total + (event.category === true);
       }, 0);
+    },
+    timeToNextEvent() {
+      const msTimeToNextEvent =
+        new Date(this.upComingEvents[0].date) - new Date();
+      return moment.duration(msTimeToNextEvent).humanize();
     }
   }
 };
