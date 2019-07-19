@@ -38,7 +38,9 @@
 #burger-menu {
   z-index: 10;
   overflow-y: scroll;
-  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   
   animation-name: expandVertical;
   animation-duration: 0.4s;
@@ -62,17 +64,22 @@
 }
 
 .burger-item {
-  margin: 25px;
+  margin: 15px;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: #AEECEF;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 .burger-item:hover {
   border-left: 3px solid #AEECEF;
   color:#80DED9;
+}
+
+.burger-item:hover .burger-icon{
+  transform: scale(1.2)
 }
 
 .close-icon {
@@ -97,17 +104,10 @@
 }
 
 .burger-icon {
-  width: 50px;
+  width: 30px;
   height: auto;
   margin: 0 10px;
   filter: invert(0%)
-}
-
-.button-active {
-  background-color: #AEECEF;
-  transform: scale(1.1);
-  padding: 0 7px;
-  border-radius: 5px;
 }
 
 .home-button {
