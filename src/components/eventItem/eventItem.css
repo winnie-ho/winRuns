@@ -41,6 +41,21 @@
   margin: 0 5px;
 }
 
+.animExpandVertical {
+  animation-name: expandVertical;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes expandVertical {
+  0% {
+    transform: rotatex(90deg)
+  }
+  100% {
+    transform: rotatex(0px)
+  }
+}
+
 .icon__circle {
   background-color: #3066BE;
   border-radius: 50%;
