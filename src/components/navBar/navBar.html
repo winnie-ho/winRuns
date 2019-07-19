@@ -27,7 +27,10 @@
         :title='"events"'>
       </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"'>
+      <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete.profile'>
+      </nav-bar-btn>
+      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/icon_profile.png"' :path="'/'" :title='"Sign In"'
+        v-show='!athlete.profile'>
       </nav-bar-btn>
     </div>
   </div>
@@ -44,7 +47,11 @@
       <h6>{{ athlete.city }}, {{ athlete.state }}</h6>
     </router-link>
 
-    <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>LOGIN</router-link>
+    <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>
+      <img class='burger-icon' src='../../../static/assets/icon_profile.png' />
+      LOGIN
+    </router-link>
+
     <router-link to="/home" exact class='burger-item col'>
       <img src='../../../static/assets/icon_home.png' class='burger-icon' />
       HOME
