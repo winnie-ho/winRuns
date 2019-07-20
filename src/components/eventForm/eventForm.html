@@ -11,9 +11,18 @@
         <el-option label="Swim" value="Swim"></el-option>
       </el-select>
     </el-form-item>
-    <el-form-item label="Event time">
+    <el-form-item label="Date">
       <el-date-picker type="date" placeholder="Select a date" v-model="form.date">
       </el-date-picker>
+    </el-form-item>
+    <el-form-item label="Time">
+      <el-time-select v-model="form.time" :picker-options="{
+      start: '06:00',
+      step: '00:15',
+      end: '23:45'
+    }" placeholder="Select time">
+      </el-time-select>
+
     </el-form-item>
     <el-form-item label="Category">
       <el-checkbox-group v-model="form.category">

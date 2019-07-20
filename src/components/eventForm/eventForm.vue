@@ -4,11 +4,12 @@
 <script>
 import renderData from "../../mixins/renderData.js";
 import changePage from "../../mixins/changePage.js";
+import refresh from "../../mixins/refresh.js";
 
 export default {
   name: "eventForm",
   components: {},
-  mixins: [renderData],
+  mixins: [renderData, refresh],
   props: ["event", "isEditing"],
   data() {
     return {
@@ -16,8 +17,9 @@ export default {
         title: this.event.title,
         type: this.event.type,
         date: this.event.date,
+        time: this.event.time,
         category: this.event.category,
-        description: this.event.description,
+        description: this.event.description
       }
     };
   },
@@ -28,20 +30,31 @@ export default {
   },
   methods: {
     createEvent() {
-      const { date } = this.form;
-      if (!date) return;
+      const { date, time } = this.form;
+      if (!date && !time) return;
       this.$store.dispatch("createEvent", {
-        ...this.form
+        ...this.form,
+        date: this.prepareDateTime(date, time)
       });
       this.$emit("onCloseForm");
+      setTimeout(this.refreshEvents, 500);
     },
     updateEvent() {
-      const { date } = this.form;
-      if (!date) return;
+      const { date, time } = this.form;
+      if (!date && !time) return;
       this.$store.dispatch("updateEvent", {
-        ...this.form
+        ...this.form,
+        date: this.prepareDateTime(date, time)
       });
       this.$emit("onCloseForm");
+      setTimeout(this.refreshEvents, 500);
+    },
+    prepareDateTime(date, time) {
+      const dateBase = new Date(date);
+      dateBase.setHours(time.slice(0, 2));
+      dateBase.setMinutes(time.slice(3, 5));
+      dateBase.setSeconds("00");
+      return dateBase;
     }
   },
   computed: {}
