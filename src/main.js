@@ -8,6 +8,8 @@ import { store } from './store/store'
 import xml2js from 'xml2js'
 import * as fs from 'fs-web'
 import ElementUI from 'element-ui'
+import i18n from 'vue-i18n'
+import locale from 'element-ui/lib/locale/lang/en'
 
 // import * as VueGoogleMaps from 'vue2-google-maps'
 
@@ -20,8 +22,10 @@ import ElementUI from 'element-ui'
 Vue.use(VueResource)
 Vue.use(xml2js)
 Vue.use(fs)
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 Vue.config.productionTip = false
+Vue.use(i18n)
+Vue.config.lang = 'en'
 
 /* eslint-disable no-new */
 new Vue({
