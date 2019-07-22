@@ -1,37 +1,22 @@
 #events{
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
-.events-list {
-  height: 85vh;
-overflow-y: scroll;
-padding: 0 5%;
+.sub-bar{
+  flex-grow: 1;
 }
 
 .events-summary {
   width: 15%;
   padding: 0 10px;
+  text-align: center;
 }
 
 .events-summary-time{
   padding: 0 10px;
   width: 50%;
-}
-
-.filter{
-  height: 16px;
-}
-
-.sub-bar__collapsed{
-  width: 100vw;
-  justify-content: flex-end;
-  padding-right: 10px;
-}
-
-.sub-bar__expanded{
-  width: 100vw;
-  align-items: center;
+  flex-grow: 1;
 }
 
 .selectedButton {

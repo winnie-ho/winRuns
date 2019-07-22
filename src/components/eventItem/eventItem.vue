@@ -21,6 +21,7 @@ export default {
   methods: {
     hideEditButtons() {
       this.viewEditButtons = false;
+      this.viewEvent = true;
     },
     showEditButtons() {
       this.viewEditButtons = true;

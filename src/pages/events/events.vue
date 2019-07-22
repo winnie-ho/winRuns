@@ -73,6 +73,10 @@ export default {
       const msTimeToNextEvent =
         new Date(this.upComingEvents[0].date) - new Date();
       return moment.duration(msTimeToNextEvent).humanize();
+    },
+    nextEvent(){
+      if (!this.upComingEvents.length) return;
+      return this.upComingEvents[0].title;
     }
   }
 };

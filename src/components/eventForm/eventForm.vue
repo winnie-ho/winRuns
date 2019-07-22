@@ -14,12 +14,12 @@ export default {
   data() {
     return {
       form: {
-        title: this.event.title,
-        type: this.event.type,
-        date: this.event.date,
-        time: this.event.time,
-        category: this.event.category,
-        description: this.event.description
+        title: this.isEditing ? this.event.title : '',
+        type: this.isEditing ? this.event.type: '',
+        date: this.isEditing ? this.event.date: '',
+        time: this.isEditing ? this.event.time: '',
+        category: this.isEditing ? this.event.category: '',
+        description: this.isEditing ? this.event.description: '',
       }
     };
   },
