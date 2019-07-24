@@ -8,18 +8,34 @@
 }
 
 .events-summary {
-  width: 15%;
   padding: 0 10px;
   text-align: center;
 }
 
 .events-summary-time{
   padding: 0 10px;
-  width: 50%;
   flex-grow: 1;
 }
 
 .selectedButton {
   filter: opacity(40%) blur(1px);
   box-sizing: content-box;
+}
+
+.create-button--label {
+  display: block;
+}
+
+.create-button--no-label {
+  display: none;
+}
+
+@media all and (max-width: 700px) {
+  .create-button--label {
+    display: none;
+  }
+
+  .create-button--no-label {
+    display: block;
+  }
 }
