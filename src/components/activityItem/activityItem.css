@@ -11,7 +11,7 @@
   }
 }
 
-.run-box{
+.activity-box{
   margin: 1px 2px;;
   padding: 10px;
   cursor: pointer;
@@ -23,20 +23,20 @@
   transition: 0.5s;
 }
 
-.run-box:hover{
+.activity-box:hover{
   background-color: #3066BE;
   color: #AEECEF;
 }
 
-.run-box:hover .icon {
+.activity-box:hover .icon {
   filter: invert(0%);
 }
 
-.run-box__detail{
-  width: 85%;
+.activity-box__detail{
+  width: 95%;
   justify-content: flex-start;
   text-align: left;
-  margin: 0 5px;
+  margin-left: 10px;
 }
 
 .icon__circle {

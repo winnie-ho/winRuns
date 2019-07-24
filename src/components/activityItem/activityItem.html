@@ -1,4 +1,4 @@
-<div id='activity' class='run-box row sb' @click='viewActivity(activity.id)'>
+<div id='activity' class='activity-box row sb' @click='viewActivity(activity.id)'>
   <img v-show="activity.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
   <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
   <img v-show="activity.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle' />
@@ -6,12 +6,12 @@
   <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png'
     class='icon icon__circle' />
 
-  <div class='run-box__detail'>
+  <div class='activity-box__detail'>
     <div class='row sb'>
       <div class='heading truncate'>{{ activity.name }}</div>
       <div class='date'>{{ renderDate(activity.start_date) }}</div>
     </div>
-    <div class='run-box__detail row'>
+    <div class='row'>
       <div class='data-metric space'
         v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'">
         {{ renderDistance(activity.distance) }}
