@@ -5,9 +5,9 @@
     <span v-show='!showForm' class='events-summary'>Races<h2>{{ numberOfRaces }}</h2></span>
     <span v-show='!showForm' class='events-summary-time'>{{ nextEvent }} in <h2>{{ timeToNextEvent }}</h2></span>
     <div class='row'>
-      <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm' class='create-button--label'>
-      </el-button>
       <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm' class='create-button--no-label'>
+      </el-button>
+      <el-button @click='addEvent' icon="el-icon-plus" size='mini' v-show='!showForm' class='create-button--label'>
         Event
       </el-button>
       <el-button @click='addEvent' size='mini' v-show='showForm'>Cancel</el-button>
