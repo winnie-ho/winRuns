@@ -5,6 +5,7 @@
 
 .sub-bar{
   flex-grow: 1;
+  margin: 0px;
 }
 
 .events-summary {
