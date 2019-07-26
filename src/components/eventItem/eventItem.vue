@@ -19,11 +19,18 @@ export default {
     };
   },
   methods: {
-    hideEditButtons() {
+    resetEvent(e) {
+      this.viewEvent = !this.viewEvent;
+    },
+    hideEditButtons(e) {
+      e.stopPropagation();
+
       this.viewEditButtons = false;
       this.viewEvent = true;
     },
-    showEditButtons() {
+    showEditButtons(e) {
+      e.stopPropagation();
+
       this.viewEditButtons = true;
     },
     editEvent(event) {

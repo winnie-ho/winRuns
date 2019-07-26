@@ -30,15 +30,21 @@
   color: #AEECEF;
 }
 
-.event-box:hover .icon {
-  filter: invert(0%);
+.event-item__more {
+  display: none;
 }
+
+.event-box:hover .event-item__more {
+  display: block;
+}
+
 
 .event-box__detail{
   width: 95%;
   justify-content: flex-start;
   text-align: left;
   margin-left: 10px;
+
 }
 
 .animExpandVertical {
@@ -77,6 +83,10 @@
 
 .edit-buttons{
   display: flex;
+}
+
+.event-item__more i {
+  padding: 5px;
 }
 
 .event-date{

@@ -1,4 +1,4 @@
-<div id='event' class='event-box row sb' @click='viewEvent=!viewEvent' :class='{ animExpandVertical: viewEvent }'>
+<div id='event' class='event-box row sb' @click='viewEvent = !viewEvent;' :class='{ animExpandVertical: viewEvent }'>
   <img v-show="event.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
   <img v-show="event.type === 'Run'" src='../../../static/assets/icon_run.png' class='icon icon__circle' />
   <img v-show="event.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle' />
@@ -6,20 +6,22 @@
 
   <div class='event-box__detail'>
     <h5 class='event-date'>{{ renderDate(event.date) }}</h5>
-    <div class='truncate'>{{ event.title }}</div>
+    <h3 class='truncate heading'>{{ event.title }}</h3>
     <span v-show='!pastEvent'>in {{ daysUntilEvent(event) }}</span>
     <span v-show='pastEvent'>{{ daysUntilEvent(event) }} ago</span>
+
     <div v-show='viewEvent'>
-      {{ event.description }}
       <div class='event-category' v-show='event.category'>Race</div>
+      <span>{{ event.description }}</span>
     </div>
 
   </div>
-
-  <i class="el-icon-more-outline" @click='showEditButtons' v-show='viewEvent && !viewEditButtons'></i>
-  <div class='edit-buttons' v-show='viewEvent && viewEditButtons'>
-    <i class='el-icon-edit' @click='editEvent(event)' size='mini' ></i>
-    <i class="el-icon-delete" @click='deleteEvent(event.id)'></i>
-    <i class="el-icon-close" @click='hideEditButtons'></i>
+  <div class='event-item__more'>
+    <i class="el-icon-more-outline " @click='showEditButtons' v-show='!viewEditButtons'></i>
+    <div class='edit-buttons' v-show='viewEditButtons'>
+      <i class='el-icon-edit' @click='editEvent(event)' size='mini'></i>
+      <i class="el-icon-delete" @click='deleteEvent(event.id)' size='mini'></i>
+      <i class="el-icon-close" @click='hideEditButtons' size='mini'></i>
+    </div>
   </div>
 </div>
