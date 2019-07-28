@@ -59,9 +59,11 @@ export default {
         .sort((a, b) => new Date(a.date) - new Date(b.date));
     },
     pastEvents() {
-      return this.events.filter(event => {
-        return new Date(event.date) < new Date();
-      });
+      return this.events
+        .filter(event => {
+          return new Date(event.date) < new Date();
+        })
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
     },
     numberOfRaces() {
       return this.$store.state.events.reduce((total, event) => {
@@ -74,7 +76,7 @@ export default {
         new Date(this.upComingEvents[0].date) - new Date();
       return moment.duration(msTimeToNextEvent).humanize();
     },
-    nextEvent(){
+    nextEvent() {
       if (!this.upComingEvents.length) return;
       return this.upComingEvents[0].title;
     }
