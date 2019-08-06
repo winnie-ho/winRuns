@@ -2,10 +2,6 @@
   margin: 20px 5px 5px 5px;
   display: flex;
   align-items: center;
-
-  animation-name: expandSubBar;
-  animation-duration: 0.2s;
-
 }
 
 input{
@@ -17,6 +13,8 @@ input{
   color: #3066BE;
   padding: 0 12px;
   z-index: 1;
+  animation-name: expandSubBar;
+  animation-duration: 0.7s;
 }
 
 #search-clear{

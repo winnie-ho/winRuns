@@ -2,11 +2,11 @@
 
 @keyframes expandSubBar {
   0% {
-    height: 0px;
+    width: 0px;
     opacity: 0;
   }
   100% {
-    height: 30px;
+    width: 90vw;
     opacity: 100%;
   }
 }
