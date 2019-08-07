@@ -6,6 +6,9 @@
   margin-top: 20px;
   margin-right: 10px;
   width: 100vw;
+
+  animation-name: expandSubBar;
+  animation-duration: 0.5s;
 }
 
 .filter-icon {
