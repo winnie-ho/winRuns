@@ -146,6 +146,10 @@ export default {
     photoCount() {
       if (!this.$store.state.activity.photos) return;
       return this.$store.state.activity.photos.count;
+    },
+    hasMapPolyline() {
+      if (!this.$store.state.activity.map) return;
+      return this.$store.state.activity.map.summary_polyline;
     }
   }
 };

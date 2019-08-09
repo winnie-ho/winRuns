@@ -5,7 +5,7 @@
 export default {
   name: "googleMap",
   components: {},
-  props: ["activity"],
+  props: ["activity", "hasMapPolyline"],
   data() {
     return {
       map: {}
@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     createActivityMap() {
+      if (!this.hasMapPolyline) return;
       this.routeLine.setMap(this.map);
       this.map.setCenter(this.centreCoords);
     }
@@ -38,6 +39,7 @@ export default {
       };
     },
     routeLine() {
+      if (!this.activity.map.polyline) return;
       const routeLine = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(
           this.activity.map.polyline

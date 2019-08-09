@@ -113,7 +113,7 @@
 
   </div>
 
-  <google-map :activity='activity'>
+  <google-map v-show='hasMapPolyline' :hasMapPolyline='hasMapPolyline' :activity='activity'>
   </google-map>
 
 </div>
