@@ -30,6 +30,16 @@ export default {
       if (!this.hasMapPolyline) return;
       this.routeLine.setMap(this.map);
       this.map.setCenter(this.centreCoords);
+
+      this.zoomToRouteLine(this.routeLine);
+    },
+    zoomToRouteLine(routeLine) {
+      const bounds = new google.maps.LatLngBounds();
+      const points = routeLine.getPath().getArray();
+      for (let i = 0; i < points.length; i++) {
+        bounds.extend(points[i]);
+      }
+      this.map.fitBounds(bounds);
     }
   },
   computed: {
