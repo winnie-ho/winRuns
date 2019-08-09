@@ -16,7 +16,8 @@ export default {
 
     let options = {
       zoom: 13,
-      center: new google.maps.LatLng({ lat: 0, lng: 0 })
+      center: new google.maps.LatLng({ lat: 0, lng: 0 }),
+      mapTypeControl: false
     };
 
     this.map = new google.maps.Map(mapContainer, options);
