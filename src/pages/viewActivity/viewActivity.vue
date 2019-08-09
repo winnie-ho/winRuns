@@ -5,7 +5,7 @@
 import navBar from "../../components/navBar/navBar.vue";
 import renderData from "../../mixins/renderData.js";
 import changePage from "../../mixins/changePage.js";
-import googleMap from "../../components/googleMap.vue";
+import googleMap from "../../components/googleMap/googleMap.vue";
 import lapItem from "../../components/lapItem/lapItem.vue";
 import activitySession from "../../components/activitySession/activitySession.vue";
 
@@ -98,18 +98,6 @@ export default {
     },
     laps() {
       return this.$store.state.activity.laps;
-    },
-    lat() {
-      if (!this.$store.state.activity.start_latlng) return;
-      return this.$store.state.activity.start_latlng[0];
-    },
-    lng() {
-      if (!this.$store.state.activity.start_latlng) return;
-      return this.$store.state.activity.start_latlng[1];
-    },
-    polyline() {
-      if (!this.$store.state.activity.map) return;
-      return this.$store.state.activity.map.polyline;
     },
     sortedLapMarkers() {
       if (!this.lapMarkers) return;
