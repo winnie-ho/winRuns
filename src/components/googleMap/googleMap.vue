@@ -2,6 +2,7 @@
 <style scoped src='./googleMap.css'></style>
 
 <script>
+import styledMap from "./styleMap.js";
 export default {
   name: "googleMap",
   components: {},
@@ -17,10 +18,19 @@ export default {
     let options = {
       zoom: 13,
       center: new google.maps.LatLng({ lat: 0, lng: 0 }),
-      mapTypeControl: false
+      mapTypeControl: false,
+      mapTypeControlOptions: {
+        mapTypeIds: ["styled_map"]
+      }
     };
 
     this.map = new google.maps.Map(mapContainer, options);
+
+    const styledMapType = new google.maps.StyledMapType(styledMap, {
+      name: "Styled Map"
+    });
+    this.map.mapTypes.set("styled_map", styledMapType);
+    this.map.setMapTypeId("styled_map");
   },
   created() {
     setTimeout(this.createActivityMap, 1000);
@@ -56,9 +66,9 @@ export default {
           this.activity.map.polyline
         ),
         geodesic: true,
-        strokeColor: "#FF0000",
+        strokeColor: "#FF595E",
         strokeOpacity: 1.0,
-        strokeWeight: 2
+        strokeWeight: 3
       });
       return routeLine;
     }
