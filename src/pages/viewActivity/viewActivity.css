@@ -10,8 +10,21 @@
 
 #activity-info__header {
   width: 100%;
-  position: relative;
+  position: sticky;
   padding: 20px;
+  padding-bottom: 30px;
+  top: 0;
+  z-index: 10;
+  background-color: #6D9DC5;
+}
+
+.activity-info__subbar{
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.activity-info__subbar h2{
+  padding: 0px
 }
 
 .header-background{
