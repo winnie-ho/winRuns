@@ -21,7 +21,8 @@ export default {
       mapTypeControl: false,
       mapTypeControlOptions: {
         mapTypeIds: ["styled_map"]
-      }
+      },
+      disableDefaultUI: true
     };
 
     this.map = new google.maps.Map(mapContainer, options);
