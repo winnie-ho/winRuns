@@ -7,6 +7,7 @@ import renderData from "../../mixins/renderData.js";
 import activityItem from "../../components/activityItem/activityItem.vue";
 import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
+import monthChanger from "../../components/monthChanger/monthChanger.vue";
 
 export default {
   name: "activities",
@@ -14,7 +15,8 @@ export default {
     navBar,
     activityItem,
     searchBar,
-    filterBar
+    filterBar,
+    monthChanger
   },
   mixins: [renderData],
   data() {
@@ -79,7 +81,11 @@ export default {
         return this.filterByActivities(filteredActivitiesByWordSearch);
       }
 
-      if (this.$store.state.activities && !this.wordToSearch && (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)) {
+      if (
+        this.$store.state.activities &&
+        !this.wordToSearch &&
+        (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)
+      ) {
         return this.filterByActivities(this.$store.state.activities);
       }
     }
