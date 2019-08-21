@@ -7,13 +7,7 @@
   </el-tooltip>
 
   <div class="heading" id="dateInView">
-    <h3>{{ currentMonthString }}</h3>
-
-    <h3>{{ monthInViewIndex }}</h3>
-    <h3>{{ yearInView }}</h3>
-
-
-    <h3>{{ daysInMonthInView }}</h3>
+    <h3>{{ currentMonthString }} {{ yearInView }}</h3>
   </div>
 
   <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
