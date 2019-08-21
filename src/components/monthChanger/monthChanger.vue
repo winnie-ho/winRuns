@@ -21,13 +21,14 @@ export default {
   methods: {
     changeMonth(num) {
       this.monthInViewIndex += num;
-      if (this.monthInViewIndex < 0) {
+      if (this.monthInViewIndex === -1) {
         this.monthInViewIndex = 11;
+        this.yearInView -= 1;
       }
-      if (this.monthInViewIndex === 11) {
+      if (this.monthInViewIndex === 12) {
         this.monthInViewIndex = 0;
+        this.yearInView += 1;
       }
-      console.log("NUM", this.monthInViewIndex);
     }
   },
   computed: {
@@ -38,14 +39,14 @@ export default {
       return this.today.getMonth();
     },
     currentMonthString() {
-      return this.monthLookUp[this.currentMonthIndex];
+      return this.monthLookUp[this.monthInViewIndex];
     },
     currentYear() {
       return this.today.getYear();
     },
     daysInMonthInView() {
       return moment(
-        `${this.yearInView}-${this.monthInViewIndex}`
+        `${this.yearInView}-${this.monthInViewIndex + 1}`
       ).daysInMonth();
     },
     lastMonday() {
