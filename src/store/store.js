@@ -98,6 +98,19 @@ export const store = new Vuex.Store({
           context.commit('setActivities', response.data)
         })
     },
+    fetchActivitiesByPage: (context, pageInstructions) => {
+      console.log('INPUTS', pageInstructions)
+      const {
+        pageNumber,
+        activitiesPerPage
+      } = pageInstructions
+
+      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${context.state.userToken}`).then(
+        function (response) {
+          console.log('RESPONSE', response)
+          // context.commit('setActivities', response.data)
+        })
+    },
     fetchActivity: (context, activityId) => {
       Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '\?access_token=' + context.state.userToken).then(
         function (response) {
