@@ -16,6 +16,15 @@ export default {
       dayHasActivities: false
     };
   },
+  mounted() {
+    this.$emit("onMonthChange", {
+      before: new Date().getTime() / 1000,
+      after:
+        new Date(
+          `${this.currentYear}-${this.currentMonthIndex + 1}-1`
+        ).getTime() / 1000
+    });
+  },
   methods: {
     changeMonth(num) {
       this.monthInViewIndex += num;
@@ -27,6 +36,28 @@ export default {
         this.monthInViewIndex = 0;
         this.yearInView += 1;
       }
+
+      const timeMarkers = {
+        before: this.getBeforeMarker(),
+        after: this.getAfterMarker()
+      };
+      this.$emit("onMonthChange", timeMarkers);
+    },
+    getBeforeMarker() {
+      return (
+        new Date(
+          `${this.yearInView}-${this.monthInViewIndex + 1}-${
+            this.daysInMonthInView
+          }`
+        ).getTime() / 1000
+      );
+    },
+    getAfterMarker() {
+      return (
+        new Date(
+          `${this.yearInView}-${this.monthInViewIndex + 1}-1`
+        ).getTime() / 1000
+      );
     }
   },
   computed: {

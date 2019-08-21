@@ -66,11 +66,19 @@ export default {
     },
     expandSearch() {
       this.showSearch = !this.showSearch;
+    },
+    fetchMonthActivities(timeMarkers) {
+      this.$store.dispatch("fetchActivitiesByMonth", {
+        before: timeMarkers.before,
+        after: timeMarkers.after,
+        pageNumber: 1,
+        activitiesPerPage: 200
+      });
     }
   },
   computed: {
     filteredActivities() {
-      if (this.$store.state.activities && this.wordToSearch) {
+      if (this.$store.state.activitiesByMonth && this.wordToSearch) {
         const filteredActivitiesByWordSearch = this.$store.state.activities.filter(
           activity => {
             return activity.name
@@ -86,7 +94,7 @@ export default {
         !this.wordToSearch &&
         (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)
       ) {
-        return this.filterByActivities(this.$store.state.activities);
+        return this.filterByActivities(this.$store.state.activitiesByMonth);
       }
     }
   }

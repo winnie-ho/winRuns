@@ -25,7 +25,8 @@ export const store = new Vuex.Store({
     updateStravaActivityResponse: {},
     uploadStravaActivityResponse: {},
     stravaUpload: {},
-    position: {}
+    position: {},
+    activitiesByMonth: []
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -55,7 +56,8 @@ export const store = new Vuex.Store({
     setEvents: (state, payload) => (state.events = payload),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
-    setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload)
+    setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload),
+    setActivitiesByMonth: (state, payload) => (state.activitiesByMonth = payload)
   },
   getters: {
     parkRuns: (state) => {
@@ -98,17 +100,18 @@ export const store = new Vuex.Store({
           context.commit('setActivities', response.data)
         })
     },
-    fetchActivitiesByPage: (context, pageInstructions) => {
-      console.log('INPUTS', pageInstructions)
+    fetchActivitiesByMonth: (context, pageInstructions) => {
       const {
         pageNumber,
-        activitiesPerPage
+        activitiesPerPage,
+        before,
+        after
       } = pageInstructions
 
-      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${context.state.userToken}`).then(
+      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${context.state.userToken}`).then(
         function (response) {
           console.log('RESPONSE', response)
-          // context.commit('setActivities', response.data)
+          context.commit('setActivitiesByMonth', response.data)
         })
     },
     fetchActivity: (context, activityId) => {
