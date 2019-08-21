@@ -13,9 +13,7 @@ export default {
     return {
       monthInViewIndex: new Date().getMonth(),
       yearInView: new Date().getFullYear(),
-      dayHasActivities: false,
-      toggleWeekView: true,
-      forwardArrowDisable: false
+      dayHasActivities: false
     };
   },
   methods: {
@@ -42,28 +40,18 @@ export default {
       return this.monthLookUp[this.monthInViewIndex];
     },
     currentYear() {
-      return this.today.getYear();
+      return this.today.getFullYear();
     },
     daysInMonthInView() {
       return moment(
         `${this.yearInView}-${this.monthInViewIndex + 1}`
       ).daysInMonth();
     },
-    lastMonday() {
-      const todayDate = new Date();
-      const msHour = 60 * 60 * 1000;
-      const timeNowZeroed = todayDate.setHours(0, 0, 0, 0);
-      const todayDay = todayDate.getDay();
-      const diff = todayDay - (todayDay === 0 ? -6 : 1);
-      return new Date(timeNowZeroed - diff * 24 * msHour);
-    },
-    mondayInView() {
-      const mondayInView = new Date(
-        this.lastMonday - this.monthInViewIndex * 7 * 24 * 60 * 60 * 1000
+    forwardArrowDisable() {
+      return (
+        this.monthInViewIndex === this.currentMonthIndex &&
+        this.yearInView === this.currentYear
       );
-      const mondayInViewString = this.renderDate(mondayInView, "long");
-      this.$emit("mondayInViewChange", mondayInView);
-      return mondayInViewString;
     }
   }
 };
