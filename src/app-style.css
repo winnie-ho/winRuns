@@ -248,7 +248,7 @@ button[disabled]{
 }
 
 .activity-list{
-  height: 85vh;
+  height: 100%;
   overflow-y: scroll;
 }
 

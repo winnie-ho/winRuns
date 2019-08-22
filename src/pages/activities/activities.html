@@ -1,5 +1,6 @@
 <div id='activities'>
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+  <monthChanger v-on:onMonthChange='fetchMonthActivities($event)'></monthChanger>
   <div class='sub-bar col'>
 
     <div class='sub-bar__collapsed row'>
@@ -18,7 +19,6 @@
     </div>
 
   </div>
-  <monthChanger v-on:onMonthChange='fetchMonthActivities($event)'></monthChanger>
   <div class='activity-list'>
     <activity-item v-for='activity in filteredActivities' :key='activity.index' :activity='activity'>
     </activity-item>
