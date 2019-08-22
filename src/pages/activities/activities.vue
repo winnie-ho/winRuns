@@ -31,9 +31,6 @@ export default {
       showSearch: false
     };
   },
-  mounted() {
-    this.$store.dispatch("fetchActivities", 200);
-  },
   methods: {
     filterWithSearchWord(searchWord) {
       this.wordToSearch = searchWord;
