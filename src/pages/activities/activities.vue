@@ -76,7 +76,7 @@ export default {
   computed: {
     filteredActivities() {
       if (this.$store.state.activitiesByMonth && this.wordToSearch) {
-        const filteredActivitiesByWordSearch = this.$store.state.activities.filter(
+        const filteredActivitiesByWordSearch = this.$store.state.activitiesByMonth.filter(
           activity => {
             return activity.name
               .toLowerCase()
@@ -87,7 +87,7 @@ export default {
       }
 
       if (
-        this.$store.state.activities &&
+        this.$store.state.activitiesByMonth &&
         !this.wordToSearch &&
         (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)
       ) {
