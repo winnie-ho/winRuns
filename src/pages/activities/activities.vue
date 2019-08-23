@@ -8,6 +8,7 @@ import activityItem from "../../components/activityItem/activityItem.vue";
 import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
 import monthChanger from "../../components/monthChanger/monthChanger.vue";
+import statBar from "../../components/statBar/statBar.vue";
 
 export default {
   name: "activities",
@@ -16,7 +17,8 @@ export default {
     activityItem,
     searchBar,
     filterBar,
-    monthChanger
+    monthChanger,
+    statBar
   },
   mixins: [renderData],
   data() {
@@ -28,7 +30,8 @@ export default {
       showRuns: true,
       showWorkouts: true,
       showFilters: false,
-      showSearch: false
+      showSearch: false,
+      monthInView: ""
     };
   },
   methods: {
@@ -71,6 +74,22 @@ export default {
         pageNumber: 1,
         activitiesPerPage: 200
       });
+
+      const utcSeconds = timeMarkers.before;
+      const d = new Date(0);
+      this.monthInView = this.monthLookUp[
+        new Date(d.setUTCSeconds(utcSeconds)).getMonth()
+      ].toUpperCase();
+    },
+    getStatCount(activityType) {
+      return this.filteredActivities.filter(
+        activity => activity.type === activityType
+      ).length;
+    },
+    getStatValue(activityType, statMetric) {
+      return this.filteredActivities
+        .filter(activity => activity.type === activityType)
+        .reduce((total, i) => total + i[statMetric], 0);
     }
   },
   computed: {
@@ -93,6 +112,34 @@ export default {
       ) {
         return this.filterByActivities(this.$store.state.activitiesByMonth);
       }
+    },
+    stats() {
+      if (!this.filteredActivities) return;
+      const result = {
+        swim: {
+          count: this.getStatCount("Swim"),
+          distance: this.getStatValue("Swim", "distance"),
+          elapsed_time: this.getStatValue("Swim", "elapsed_time"),
+          elevation_gain: this.getStatValue("Swim", "total_elevation_gain"),
+          moving_time: this.getStatValue("Swim", "moving_time")
+        },
+        ride: {
+          count: this.getStatCount("Ride"),
+          distance: this.getStatValue("Ride", "distance"),
+          elapsed_time: this.getStatValue("Ride", "elapsed_time"),
+          elevation_gain: this.getStatValue("Ride", "total_elevation_gain"),
+          moving_time: this.getStatValue("Ride", "moving_time")
+        },
+        run: {
+          count: this.getStatCount("Swim"),
+          distance: this.getStatValue("Swim", "distance"),
+          elapsed_time: this.getStatValue("Swim", "elapsed_time"),
+          elevation_gain: this.getStatValue("Swim", "total_elevation_gain"),
+          moving_time: this.getStatValue("Swim", "moving_time")
+        }
+      };
+      console.log("result", result);
+      return result;
     }
   }
 };

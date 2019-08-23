@@ -36,6 +36,10 @@ export default {
       }
       return ((rawDistance) / 1000).toFixed(2) + 'km'
     },
+    renderElevation (rawElevation, short) {
+      if (!rawElevation) return
+      return short ? ((rawElevation) / 1000).toFixed(0) + 'm' : ((rawElevation) / 1000).toFixed(2) + 'm'
+    },
     renderSwimDistance (rawDistance) {
       if (rawDistance === 0) return '0m'
       if (!rawDistance) return

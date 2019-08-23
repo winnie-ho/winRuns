@@ -10,17 +10,29 @@ export default {
   components: {
     statTotal
   },
+  props: ["stats", "title"],
   data() {
     return {};
   },
   created() {
     this.$store.dispatch("fetchStats");
   },
-  computed: {
-    year() {
-      return new Date().getFullYear();
+  methods: {
+    statType(activityType) {
+      switch (activityType) {
+        case "run":
+          return this.stats.run;
+          break;
+        case "ride":
+          return this.stats.ride;
+          break;
+        case "swim":
+          return this.stats.swim;
+          break;
+      }
     }
-  }
+  },
+  computed: {}
 };
 </script>
 

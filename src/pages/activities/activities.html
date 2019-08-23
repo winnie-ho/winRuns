@@ -1,6 +1,9 @@
 <div id='activities'>
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+
   <monthChanger v-on:onMonthChange='fetchMonthActivities($event)'></monthChanger>
+  <stat-bar :title='monthInView' :stats='stats'></stat-bar>
+
   <div class='sub-bar col'>
 
     <div class='sub-bar__collapsed row'>
