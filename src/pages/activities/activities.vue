@@ -79,7 +79,9 @@ export default {
       const d = new Date(0);
       this.monthInView = this.monthLookUp[
         new Date(d.setUTCSeconds(utcSeconds)).getMonth()
-      ].toUpperCase();
+      ]
+        .toUpperCase()
+        .substr(0, 3);
     },
     getStatCount(activityType) {
       return this.filteredActivities.filter(
@@ -93,9 +95,13 @@ export default {
     }
   },
   computed: {
+    activitiesByMonth() {
+      if (!this.$store.state.activitiesByMonth) return;
+      return this.$store.state.activitiesByMonth;
+    },
     filteredActivities() {
-      if (this.$store.state.activitiesByMonth && this.wordToSearch) {
-        const filteredActivitiesByWordSearch = this.$store.state.activitiesByMonth.filter(
+      if (this.activitiesByMonth && this.wordToSearch) {
+        const filteredActivitiesByWordSearch = this.activitiesByMonth.filter(
           activity => {
             return activity.name
               .toLowerCase()
@@ -106,11 +112,11 @@ export default {
       }
 
       if (
-        this.$store.state.activitiesByMonth &&
+        this.activitiesByMonth &&
         !this.wordToSearch &&
         (this.showSwims || this.showRides || this.showRuns || this.showWorkouts)
       ) {
-        return this.filterByActivities(this.$store.state.activitiesByMonth);
+        return this.filterByActivities(this.activitiesByMonth);
       }
     },
     stats() {
