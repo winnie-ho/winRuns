@@ -68,20 +68,25 @@ export default {
       this.showSearch = !this.showSearch;
     },
     fetchMonthActivities(timeMarkers) {
-      this.$store.dispatch("fetchActivitiesByMonth", {
+      const options = {
         before: timeMarkers.before,
         after: timeMarkers.after,
         pageNumber: 1,
         activitiesPerPage: 200
-      });
+      };
 
-      const utcSeconds = timeMarkers.before;
-      const d = new Date(0);
+      this.$store.dispatch("fetchActivitiesByMonth", options);
+    },
+    setMonthInView() {
       this.monthInView = this.monthLookUp[
-        new Date(d.setUTCSeconds(utcSeconds)).getMonth()
+        new Date(new Date(0).setUTCSeconds(timeMarkers.before)).getMonth()
       ]
         .toUpperCase()
         .substr(0, 3);
+    },
+    setMonth(timeMarkers) {
+      this.fetchMonthActivities(timeMarkers);
+      this.setMonthInView(timeMarkers);
     },
     getStatCount(activityType) {
       return this.filteredActivities.filter(
