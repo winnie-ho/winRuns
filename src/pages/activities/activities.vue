@@ -77,7 +77,7 @@ export default {
 
       this.$store.dispatch("fetchActivitiesByMonth", options);
     },
-    setMonthInView() {
+    setMonthInView(timeMarkers) {
       this.monthInView = this.monthLookUp[
         new Date(new Date(0).setUTCSeconds(timeMarkers.before)).getMonth()
       ]
