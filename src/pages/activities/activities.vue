@@ -31,7 +31,9 @@ export default {
       showWorkouts: true,
       showFilters: false,
       showSearch: false,
-      monthInView: ""
+      monthInView: "",
+      beforeDate: "",
+      afterDate: ""
     };
   },
   methods: {
@@ -68,6 +70,7 @@ export default {
       this.showSearch = !this.showSearch;
     },
     fetchMonthActivities(timeMarkers) {
+      console.log("TM", timeMarkers.before);
       const options = {
         before: timeMarkers.before,
         after: timeMarkers.after,
@@ -78,13 +81,20 @@ export default {
       this.$store.dispatch("fetchActivitiesByMonth", options);
     },
     setMonthInView(timeMarkers) {
-      this.monthInView = this.monthLookUp[
-        new Date(new Date(0).setUTCSeconds(timeMarkers.before)).getMonth()
-      ]
-        .toUpperCase()
-        .substr(0, 3);
+      if (!timeMarkers.before) {
+        this.monthInView = this.monthLookUp[new Date().getMonth + 1];
+      } else {
+        const month = this.monthLookUp[
+          new Date(new Date(0).setUTCSeconds(timeMarkers.before)).getMonth()
+        ]
+          .toUpperCase()
+          .substr(0, 3);
+
+        this.monthInView = month;
+      }
     },
     setMonth(timeMarkers) {
+      console.log("TM here", timeMarkers);
       this.fetchMonthActivities(timeMarkers);
       this.setMonthInView(timeMarkers);
     },
@@ -126,7 +136,7 @@ export default {
     },
     stats() {
       if (!this.filteredActivities) return;
-      const result = {
+      return {
         swim: {
           count: this.getStatCount("Swim"),
           distance: this.getStatValue("Swim", "distance"),
@@ -149,8 +159,6 @@ export default {
           moving_time: this.getStatValue("Swim", "moving_time")
         }
       };
-      console.log("result", result);
-      return result;
     }
   }
 };

@@ -12,17 +12,26 @@ export default {
   data() {
     return {
       monthInViewIndex: new Date().getMonth(),
-      yearInView: new Date().getFullYear(),
-      dayHasActivities: false
+      yearInView: new Date().getFullYear()
     };
   },
-  mounted() {
+  created() {
+    const zeroedMonth =
+      this.currentMonthIndex + 1 < 10
+        ? `0${this.currentMonthIndex + 1}`
+        : `${this.currentMonthIndex + 1}`;
+
+    const initBeforeMarker =
+      new Date(
+        `${this.currentYear}-${zeroedMonth}-${this.daysInMonthInView}`
+      ).getTime() / 1000;
+
+    const initAfterMarker =
+      new Date(`${this.currentYear}-${zeroedMonth}-01`).getTime() / 1000;
+
     this.$emit("onMonthChange", {
-      before: new Date().getTime() / 1000,
-      after:
-        new Date(
-          `${this.currentYear}-${this.currentMonthIndex + 1}-1`
-        ).getTime() / 1000
+      before: initBeforeMarker,
+      after: initAfterMarker
     });
   },
   methods: {
@@ -44,20 +53,23 @@ export default {
       this.$emit("onMonthChange", timeMarkers);
     },
     getBeforeMarker() {
+      const zeroedMonth =
+        this.monthInViewIndex + 1 < 10
+          ? `0${this.monthInViewIndex + 1}`
+          : `${this.monthInViewIndex + 1}`;
+
       return (
         new Date(
-          `${this.yearInView}-${this.monthInViewIndex + 1}-${
-            this.daysInMonthInView
-          }`
+          `${this.yearInView}-${zeroedMonth}-${this.daysInMonthInView}`
         ).getTime() / 1000
       );
     },
     getAfterMarker() {
-      return (
-        new Date(
-          `${this.yearInView}-${this.monthInViewIndex + 1}-1`
-        ).getTime() / 1000
-      );
+      const zeroedMonth =
+        this.monthInViewIndex + 1 < 10
+          ? `0${this.monthInViewIndex + 1}`
+          : `${this.monthInViewIndex + 1}`;
+      return new Date(`${this.yearInView}-${zeroedMonth}-01`).getTime() / 1000;
     }
   },
   computed: {
@@ -75,7 +87,8 @@ export default {
     },
     daysInMonthInView() {
       return moment(
-        `${this.yearInView}-${this.monthInViewIndex + 1}`
+        `${this.yearInView}-${this.monthInViewIndex + 1}`,
+        "YYYY-MM"
       ).daysInMonth();
     },
     forwardArrowDisable() {
