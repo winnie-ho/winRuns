@@ -94,7 +94,6 @@ export default {
       }
     },
     setMonth(timeMarkers) {
-      console.log("TM here", timeMarkers);
       this.fetchMonthActivities(timeMarkers);
       this.setMonthInView(timeMarkers);
     },
@@ -152,11 +151,11 @@ export default {
           moving_time: this.getStatValue("Ride", "moving_time")
         },
         run: {
-          count: this.getStatCount("Swim"),
-          distance: this.getStatValue("Swim", "distance"),
-          elapsed_time: this.getStatValue("Swim", "elapsed_time"),
-          elevation_gain: this.getStatValue("Swim", "total_elevation_gain"),
-          moving_time: this.getStatValue("Swim", "moving_time")
+          count: this.getStatCount("Run"),
+          distance: this.getStatValue("Run", "distance"),
+          elapsed_time: this.getStatValue("Run", "elapsed_time"),
+          elevation_gain: this.getStatValue("Run", "total_elevation_gain"),
+          moving_time: this.getStatValue("Run", "moving_time")
         }
       };
     }
