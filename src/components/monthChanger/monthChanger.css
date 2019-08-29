@@ -1,6 +1,8 @@
 #month-changer {
   justify-content: center;
-  padding-top: 20px;
+  position: absolute;
+  right: calc(50vw - 100px);
+  width: 200px;
 }
 
 .arrow {
