@@ -2,7 +2,6 @@
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
 
   <monthChanger v-on:onMonthChange='setMonth($event)'></monthChanger>
-  <stat-bar :title='monthInView' :stats='stats'></stat-bar>
   <div class='sub-bar col'>
 
     <div class='sub-bar__collapsed row'>
@@ -11,6 +10,8 @@
       <img id='search-icon' class='icon' :class='{ selectedButton: showSearch }'
         src='../../../static/assets/icon_search.png' @click='expandSearch()'>
     </div>
+
+    <!-- <month-stat-bar :title='monthInView' :stats='stats'></month-stat-bar> -->
 
     <div class='sub-bar__expanded col'>
       <filter-bar v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'

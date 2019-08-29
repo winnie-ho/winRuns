@@ -1,0 +1,20 @@
+#month-stat-bar{
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+  border: solid 1px white;
+  margin-top: 20px;
+}
+
+.title-box{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  border: #fff solid 1px;
+  margin: 0px;
+}
