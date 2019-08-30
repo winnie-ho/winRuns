@@ -31,16 +31,16 @@ export default {
   methods: {
     renderDistance (rawDistance, roundedWhole) {
       if (!rawDistance) return '-'
-      return roundedWhole ? ((rawDistance) / 1000).toFixed(0) + 'km' : ((rawDistance) / 1000).toFixed(2) + 'km'
+      return roundedWhole ? `${((rawDistance) / 1000).toFixed(0)}km` : `${((rawDistance) / 1000).toFixed(2)}km`
     },
     renderElevation (rawElevation, short) {
       if (!rawElevation) return
-      return short ? ((rawElevation) / 1000).toFixed(0) + 'm' : ((rawElevation) / 1000).toFixed(2) + 'm'
+      return short ? `${(rawElevation).toFixed(0)}m` : `${(rawElevation).toFixed(2)}m`
     },
     renderSwimDistance (rawDistance) {
       if (rawDistance === 0) return '-'
       if (!rawDistance) return
-      return rawDistance.toFixed(0) + 'm'
+      return `${rawDistance.toFixed(0)}m`
     },
     renderTime (rawTime, short) {
       if (!rawTime) return '-'
@@ -50,12 +50,12 @@ export default {
       const rawMinutes = (Math.floor(totalMinutes - (hours * 60))).toFixed(0)
       let minutes = rawMinutes
       if (rawMinutes < 10) {
-        minutes = '0' + rawMinutes
+        minutes = `0${rawMinutes}`
       }
       const rawSeconds = (((totalMinutes - (hours * 60)) - minutes) * 60).toFixed(0)
       let seconds = rawSeconds
       if (rawSeconds < 10) {
-        seconds = '0' + rawSeconds
+        seconds = `0${rawSeconds}`
       }
       if (hours === 0) {
         return short ? `${minutes}mins` : `${minutes}:${seconds}`
@@ -70,9 +70,9 @@ export default {
       let rawPaceSeconds = (((totalMinutes / (rawDistance / 1000)) - paceMinutes) * 60).toFixed(0)
       let paceSeconds = rawPaceSeconds
       if (rawPaceSeconds < 10) {
-        paceSeconds = '0' + rawPaceSeconds
+        paceSeconds = `0${rawPaceSeconds}`
       }
-      return paceMinutes + ':' + paceSeconds + '/km'
+      return `${paceMinutes}:${paceSeconds}/km`
     },
     renderSwimPace (rawTime, rawDistance) {
       if (rawDistance === 0) return '-'
@@ -83,9 +83,9 @@ export default {
       let rawPaceSeconds = (((totalMinutes) - paceMinutes) * 60).toFixed(0)
       let paceSeconds = rawPaceSeconds
       if (rawPaceSeconds < 10) {
-        paceSeconds = '0' + rawPaceSeconds
+        paceSeconds = `0${rawPaceSeconds}`
       }
-      return paceMinutes + ':' + paceSeconds + '/100m'
+      return `${paceMinutes}:${paceSeconds}/100m`
     },
     renderDate (rawDate, format) {
       if (!rawDate) return
@@ -133,7 +133,7 @@ export default {
       return digit + 'th'
     },
     renderDegTemp (rawTemp) {
-      return rawTemp ? (rawTemp - 273).toFixed(0) + '°C' : null
+      return rawTemp ? `${(rawTemp - 273).toFixed(0)}°C` : null
     },
     renderWindSpeed (rawWindSpeed) {
       return rawWindSpeed ? `${(2.2369362920544 * rawWindSpeed).toFixed(0)} mph` : null
