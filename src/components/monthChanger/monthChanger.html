@@ -1,6 +1,6 @@
 <div id='month-changer' class='row sa'>
 
-  <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Previous week">
+  <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Last month">
     <div @click='changeMonth(-1)' class='arrow'>
       <img src='../../../static/assets/icon_arrow_left.png' />
     </div>
@@ -11,7 +11,7 @@
   </div>
 
   <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
-    <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Next week" :disabled='forwardArrowDisable'>
+    <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Next month" :disabled='forwardArrowDisable'>
       <img src='../../../static/assets/icon_arrow_right.png' />
     </el-tooltip>
   </div>
