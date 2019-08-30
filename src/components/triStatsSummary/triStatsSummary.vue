@@ -22,7 +22,7 @@ export default {
     totalDistance() {
       if (!this.activitiesInView) return;
       const totalDistance = this.activitiesInView.reduce(
-        (acc, activity) => acc + activity.distance,
+        (total, activity) => total + activity.distance,
         0
       );
       return this.renderDistance(totalDistance, true);
@@ -30,10 +30,10 @@ export default {
     totalTime() {
       if (!this.activitiesInView) return;
       const totalTime = this.activitiesInView.reduce(
-        (acc, activity) => acc + activity.moving_time,
+        (total, activity) => total + activity.moving_time,
         0
       );
-      return this.renderTime(totalTime, true);
+      return this.renderTime(totalTime);
     },
     totalActivitiesCount() {
       if (!this.activitiesInView) return;
