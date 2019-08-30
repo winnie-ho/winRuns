@@ -7,8 +7,8 @@
   <week-changer v-on:mondayInViewChange='setMondayInView($event)'>
   </week-changer>
 
-  <week-stats :weekInView='weekInView'>
-  </week-stats>
+  <tri-stats-summary :activitiesInView='weekInView'>
+  </tri-stats-summary>
 
   <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :weekInView='weekInView'>
   </week-activities-mini>

@@ -4,14 +4,16 @@
 <script src>
 import renderData from "../../mixins/renderData.js";
 import statTotal from "../statTotal/statTotal.vue";
+import triStatsSummary from "../triStatsSummary/triStatsSummary.vue";
 
 export default {
   name: "monthStatBar",
   mixins: [renderData],
   components: {
-    statTotal
+    statTotal,
+    triStatsSummary
   },
-  props: ["stats"],
+  props: ["stats", "activities"],
   data() {
     return {};
   },

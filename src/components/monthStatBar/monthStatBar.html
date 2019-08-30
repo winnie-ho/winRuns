@@ -1,22 +1,24 @@
 <div id='month-stat-bar' class='row'>
+  <tri-stats-summary :activitiesInView='activities'></tri-stats-summary>
+
   <div class='month-stat-box col'>
     <img class='icon' src='../../../static/assets/icon_swim.png' />
     <p>{{ stats.swim.count }}</p>
-    <p>{{ renderSwimDistance(stats.swim.distance, 'short') }}</p>
-    <p>{{ renderTime(stats.swim.moving_time, 'short') }}</p>
+    <p>{{ renderSwimDistance(stats.swim.distance) }}</p>
+    <p>{{ renderTime(stats.swim.moving_time, true) }}</p>
   </div>
 
   <div class='month-stat-box col'>
     <img class='icon' src='../../../static/assets/icon_bike.png' />
     <p>{{ stats.ride.count }}</p>
-    <p>{{ renderDistance(stats.ride.distance, 'short') }}</p>
-    <p>{{ renderTime(stats.ride.moving_time, 'short') }}</p>
+    <p>{{ renderDistance(stats.ride.distance, true) }}</p>
+    <p>{{ renderTime(stats.ride.moving_time, true) }}</p>
   </div>
 
   <div class='month-stat-box col'>
     <img class='icon' src='../../../static/assets/icon_run.png' />
     <p>{{ stats.run.count }}</p>
-    <p>{{ renderDistance(stats.run.distance, 'short') }}</p>
-    <p>{{ renderTime(stats.run.moving_time, 'short') }}</p>
+    <p>{{ renderDistance(stats.run.distance, true) }}</p>
+    <p>{{ renderTime(stats.run.moving_time, true) }}</p>
   </div>
 </div>

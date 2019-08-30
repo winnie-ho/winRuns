@@ -1,0 +1,29 @@
+<div id='tri-stats-summary' class='col sa'>
+  <div class="stat-row">
+    <div class='row total-stat'>
+      <div class='total-stat__value'>{{ totalActivitiesCount }}</div>
+      <div class='col'>
+        <div class='row total-stat__substat'>
+          <img class='icon' src='../../../static/assets/icon_run.png' />
+          <h4>{{ countActivityType('Run') }}</h4>
+        </div>
+        <div class='row total-stat__substat'>
+          <img class='icon' src='../../../static/assets/icon_bike.png' />
+          <h4>{{ countActivityType('Ride') }}</h4>
+        </div>
+        <div class='row total-stat__substat'>
+          <img class='icon' src='../../../static/assets/icon_swim.png' />
+          <h4>{{ countActivityType('Swim') }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class='col total-stat'>
+      <img class='icon icon-large' src='../../../static/assets/icon_distance.png' />
+      <h2>{{ totalDistance }}</h2>
+    </div>
+    <div class='col total-stat'>
+      <img class='icon icon-large' src='../../../static/assets/icon_time.png' />
+      <h2>{{ renderTime(totalTime) }}</h2>
+    </div>
+  </div>
+</div>

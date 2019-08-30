@@ -29,19 +29,16 @@ export default {
     }
   },
   methods: {
-    renderDistance (rawDistance, short) {
-      if (!rawDistance) return
-      if (short === 'short') {
-        return ((rawDistance) / 1000).toFixed(0) + 'km'
-      }
-      return ((rawDistance) / 1000).toFixed(2) + 'km'
+    renderDistance (rawDistance, roundedWhole) {
+      if (!rawDistance) return '-'
+      return roundedWhole ? ((rawDistance) / 1000).toFixed(0) + 'km' : ((rawDistance) / 1000).toFixed(2) + 'km'
     },
     renderElevation (rawElevation, short) {
       if (!rawElevation) return
       return short ? ((rawElevation) / 1000).toFixed(0) + 'm' : ((rawElevation) / 1000).toFixed(2) + 'm'
     },
     renderSwimDistance (rawDistance) {
-      if (rawDistance === 0) return '0m'
+      if (rawDistance === 0) return '-'
       if (!rawDistance) return
       return rawDistance.toFixed(0) + 'm'
     },
@@ -61,15 +58,9 @@ export default {
         seconds = '0' + rawSeconds
       }
       if (hours === 0) {
-        if (short === 'short') {
-          return minutes + 'mins'
-        }
-        return minutes + ':' + seconds
+        return short ? `${minutes}mins` : `${minutes}:${seconds}`
       } else {
-        if (short === 'short') {
-          return hours + ' hrs'
-        }
-        return hours + ':' + minutes + ':' + seconds
+        return short ? `${hours}hrs` : `${hours}:${minutes}:${seconds}`
       }
     },
     renderPace (rawTime, rawDistance) {
@@ -145,7 +136,7 @@ export default {
       return rawTemp ? (rawTemp - 273).toFixed(0) + '°C' : null
     },
     renderWindSpeed (rawWindSpeed) {
-      return rawWindSpeed ? `${(2.2369362920544 * rawWindSpeed).toFixed(0)}mph` : null
+      return rawWindSpeed ? `${(2.2369362920544 * rawWindSpeed).toFixed(0)} mph` : null
     }
   }
 }

@@ -6,7 +6,7 @@ import navBar from "../../components/navBar/navBar.vue";
 import weekActivities from "../../components/weekActivities/weekActivities.vue";
 import weekActivitiesMini from "../../components/weekActivitiesMini/weekActivitiesMini.vue";
 import weekChanger from "../../components/weekChanger/weekChanger.vue";
-import weekStats from "../../components/weekStats/weekStats.vue";
+import triStatsSummary from "../../components/triStatsSummary/triStatsSummary.vue";
 import statBar from "../../components/statBar/statBar.vue";
 import weather from "../../components/weather/weather.vue";
 import renderData from "../../mixins/renderData.js";
@@ -18,7 +18,7 @@ export default {
     statBar,
     weekActivities,
     weekChanger,
-    weekStats,
+    triStatsSummary,
     weekActivitiesMini,
     weather
   },
@@ -42,6 +42,7 @@ export default {
       this.mondayInView = mondayInView;
     },
     setWeekInView(weekInView) {
+      console.log("Week In View", weekInView);
       this.weekInView = weekInView;
     }
   },

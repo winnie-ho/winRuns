@@ -1,19 +1,19 @@
-#week-stats {
+#tri-stats-summary {
   margin: 20px 0px;
 }  
 
-.week-total-stat {
+.total-stat {
   text-align: center;
   animation-name: expandIn;
   animation-duration: 1s;
   animation-timing-function: ease-in;
 }
 
-.week-total-stat-value {
+.total-stat__value {
   font-size: 60px;
 }
 
-.substat h4 {
+.total-stat__substat h4 {
   margin: 0px;
 }  
 
