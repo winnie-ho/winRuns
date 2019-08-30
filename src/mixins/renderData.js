@@ -121,10 +121,6 @@ export default {
       if (!rawDate) return
       return rawDate.substr(11, 5)
     },
-    renderElevation (rawElevation) {
-      if (!rawElevation) return
-      return rawElevation.toFixed(0) + 'm'
-    },
     ordinalSuffixOf (num) {
       if (!num) return
       let digit = num

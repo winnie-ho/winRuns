@@ -7,10 +7,11 @@ import statTotal from "../statTotal/statTotal.vue";
 
 export default {
   name: "monthStatBar",
+  mixins: [renderData],
   components: {
     statTotal
   },
-  props: ["stats", "title"],
+  props: ["stats"],
   data() {
     return {};
   },
@@ -27,8 +28,7 @@ export default {
           return this.stats.swim;
           break;
       }
-    },
-    stats() {}
+    }
   },
   computed: {}
 };

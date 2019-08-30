@@ -2,19 +2,16 @@
   width: 100%;
   justify-content: center;
   cursor: pointer;
-  border: solid 1px white;
   margin-top: 20px;
+  border: #fff solid 1px;
 }
 
-.title-box{
-  width: 50px;
-  height: 50px;
+.month-stat-box{
   display: flex;
+  width: 100px;
+  height: 100px;
+  color: #fff;
   align-items: center;
   text-align: center;
   justify-content: center;
-  color: #fff;
-  font-size: 12px;
-  border: #fff solid 1px;
-  margin: 0px;
 }

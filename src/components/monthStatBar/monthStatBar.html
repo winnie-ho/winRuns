@@ -1,6 +1,22 @@
 <div id='month-stat-bar' class='row'>
-  <div class='title-box'>{{ title }}</div>
-  <div class='title-box'>{{ stats.swim.count }}</div>
-  <div class='title-box'>{{ stats.ride.count }}</div>
-  <div class='title-box'>{{ stats.run.count }}</div>
+  <div class='month-stat-box col'>
+    <img class='icon' src='../../../static/assets/icon_swim.png' />
+    <p>{{ stats.swim.count }}</p>
+    <p>{{ renderSwimDistance(stats.swim.distance, 'short') }}</p>
+    <p>{{ renderTime(stats.swim.moving_time, 'short') }}</p>
+  </div>
+
+  <div class='month-stat-box col'>
+    <img class='icon' src='../../../static/assets/icon_bike.png' />
+    <p>{{ stats.ride.count }}</p>
+    <p>{{ renderDistance(stats.ride.distance, 'short') }}</p>
+    <p>{{ renderTime(stats.ride.moving_time, 'short') }}</p>
+  </div>
+
+  <div class='month-stat-box col'>
+    <img class='icon' src='../../../static/assets/icon_run.png' />
+    <p>{{ stats.run.count }}</p>
+    <p>{{ renderDistance(stats.run.distance, 'short') }}</p>
+    <p>{{ renderTime(stats.run.moving_time, 'short') }}</p>
+  </div>
 </div>
