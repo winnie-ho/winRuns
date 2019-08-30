@@ -1,15 +1,16 @@
 #month-stat-bar{
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
   cursor: pointer;
   margin-top: 20px;
   border: #fff solid 1px;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 .month-stat-box{
   display: flex;
   width: 100px;
-  height: 100px;
   color: #fff;
   align-items: center;
   text-align: center;
