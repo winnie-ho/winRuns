@@ -8,6 +8,7 @@ import weekActivitiesMini from "../../components/weekActivitiesMini/weekActiviti
 import weekChanger from "../../components/weekChanger/weekChanger.vue";
 import triStatsSummary from "../../components/triStatsSummary/triStatsSummary.vue";
 import statBar from "../../components/statBar/statBar.vue";
+import bigStatTotal from "../../components/bigStatTotal/bigStatTotal.vue";
 import weather from "../../components/weather/weather.vue";
 import renderData from "../../mixins/renderData.js";
 
@@ -16,6 +17,7 @@ export default {
   components: {
     navBar,
     statBar,
+    bigStatTotal,
     weekActivities,
     weekChanger,
     triStatsSummary,
