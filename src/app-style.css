@@ -96,7 +96,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .icon__large {
-  transform: scale(2, 2);
+  height: 30px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
