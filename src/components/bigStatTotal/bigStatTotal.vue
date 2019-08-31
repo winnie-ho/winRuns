@@ -11,29 +11,34 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    getTotalStat(activities, statToTotal) {
+      if (!activities) return;
+      const totalStat = activities.reduce(
+        (total, activity) => total + activity[statToTotal],
+        0
+      );
+      return totalStat;
+    }
+  },
   computed: {
     totalDistance() {
       if (!this.activitiesInView) return;
-      const totalDistance = this.activitiesInView.reduce(
-        (total, activity) => total + activity.distance,
-        0
+      const totalDistance = this.getTotalStat(
+        this.activitiesInView,
+        "distance"
       );
       return this.renderDistance(totalDistance, true);
     },
     totalTime() {
       if (!this.activitiesInView) return;
-      const totalTime = this.activitiesInView.reduce(
-        (total, activity) => total + activity.moving_time,
-        0
-      );
+      const totalTime = this.getTotalStat(this.activitiesInView, "moving_time");
       return this.renderTime(totalTime);
     },
     totalElevation() {
-      if (!this.activitiesInView) return;
-      const totalElevation = this.activitiesInView.reduce(
-        (total, activity) => total + activity.total_elevation_gain,
-        0
+      const totalElevation = this.getTotalStat(
+        this.activitiesInView,
+        "total_elevation_gain"
       );
       return this.renderElevation(totalElevation, true);
     }
