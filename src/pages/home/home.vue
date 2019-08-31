@@ -44,7 +44,6 @@ export default {
       this.mondayInView = mondayInView;
     },
     setWeekInView(weekInView) {
-      console.log("Week In View", weekInView);
       this.weekInView = weekInView;
     }
   },
