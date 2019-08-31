@@ -96,9 +96,9 @@
         </div>
       </template>
       <div id="comments-detail" class="col sb ">
-        <div class='row' v-for='comment in comments' :key='comment.index'>
-          <img :src='comment.athlete.profile' class='avatar' />
-          <h4 class='text-content'>{{ comment.text }}</h4>
+        <div v-for='comment in comments' :key='comment.index'>
+          <h3 class='text-content'>{{ comment.athlete.firstname }} {{ comment.athlete.lastname }}</h3>
+          <h4 class='text-content'> {{ comment.text }}</h4>
         </div>
       </div>
     </el-collapse-item>
