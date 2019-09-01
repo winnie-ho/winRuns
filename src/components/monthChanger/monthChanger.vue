@@ -52,10 +52,16 @@ export default {
       const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex);
       return (
         new Date(
-          `${this.yearInView}-${zeroedMonth}-${this.daysInMonthInView}`
+          this.yearInView,
+          zeroedMonth,
+          this.daysInMonthInView,
+          0,
+          0,
+          0
         ).getTime() / 1000
       );
     },
+
     getAfterMarker() {
       const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex);
       return new Date(`${this.yearInView}-${zeroedMonth}-01`).getTime() / 1000;
