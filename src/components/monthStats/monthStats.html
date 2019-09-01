@@ -1,19 +1,19 @@
-<div id='month-stat-bar' class='row'>
+<div id='month-stats' class='row'>
   <tri-stats-summary :activitiesInView='activities'></tri-stats-summary>
 
 
-  <div class='month-stat-bar__chart-box'>
-    <div class='row month-stat-bar__chart-bar'>
+  <div class='month-stats__chart-box'>
+    <div class='row month-stats__chart-bar'>
       <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/1000}px`}'>
         <img class='icon' src='../../../static/assets/icon_swim.png' />
         {{ renderDistance(stats.swim.distance, true) }}</div>
     </div>
-    <div class='row month-stat-bar__chart-bar'>
+    <div class='row month-stats__chart-bar'>
       <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/1000}px`}'>
         <img class='icon' src='../../../static/assets/icon_bike.png' />
         {{ renderDistance(stats.ride.distance, true) }}</div>
     </div>
-    <div class='row month-stat-bar__chart-bar'>
+    <div class='row month-stats__chart-bar'>
       <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/1000}px`}'>
         <img class='icon' src='../../../static/assets/icon_run.png' />
         {{ renderDistance(stats.run.distance, true) }}</div>

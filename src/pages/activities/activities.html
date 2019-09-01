@@ -11,7 +11,7 @@
         src='../../../static/assets/icon_search.png' @click='expandSearch()'>
     </div>
 
-    <month-stat-bar :stats='stats' :activities='activitiesByMonth'></month-stat-bar>
+    <month-stats :stats='stats' :activities='activitiesByMonth'></month-stats>
 
     <div class='sub-bar__expanded col'>
       <filter-bar v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'

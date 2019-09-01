@@ -1,4 +1,4 @@
-#month-stat-bar{
+#month-stats{
   width: 100%;
   cursor: pointer;
   margin-top: 20px;
@@ -7,7 +7,7 @@
   padding: 10px 20px;
 }
 
-.month-stat-bar__chart-box{
+.month-stats__chart-box{
   margin-left: 20px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   animation-timing-function: ease-in;
 }
 
-.month-stat-bar__chart-bar {
+.month-stats__chart-bar {
   margin: 2px;
 }
 

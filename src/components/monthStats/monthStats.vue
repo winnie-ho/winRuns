@@ -1,5 +1,5 @@
-<template src="./monthStatBar.html"></template>
-<style scoped src='./monthStatbar.css'></style>
+<template src="./monthStats.html"></template>
+<style scoped src='./monthStats.css'></style>
 
 <script src>
 import renderData from "../../mixins/renderData.js";

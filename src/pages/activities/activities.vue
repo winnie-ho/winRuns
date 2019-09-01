@@ -8,7 +8,7 @@ import activityItem from "../../components/activityItem/activityItem.vue";
 import searchBar from "../../components/searchBar/searchBar.vue";
 import filterBar from "../../components/filterBar/filterBar.vue";
 import monthChanger from "../../components/monthChanger/monthChanger.vue";
-import monthStatBar from "../../components/monthStatBar/monthStatBar.vue";
+import monthStats from "../../components/monthStats/monthStats.vue";
 
 export default {
   name: "activities",
@@ -18,7 +18,7 @@ export default {
     searchBar,
     filterBar,
     monthChanger,
-    monthStatBar
+    monthStats
   },
   mixins: [renderData],
   data() {
