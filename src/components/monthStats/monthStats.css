@@ -23,7 +23,7 @@
 }
 
 .chart-bar {
-  background: #3066BE;
+  border-bottom: #3066BE solid 6px;
   padding: 5px;
   display: flex;
 }
