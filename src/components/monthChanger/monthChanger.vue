@@ -16,18 +16,20 @@ export default {
     };
   },
   created() {
-    const zeroedMonth = this.getZeroedMonth(this.currentMonthIndex);
-    const initBeforeMarker =
-      new Date(
-        `${this.currentYear}-${zeroedMonth}-${this.daysInMonthInView}`
-      ).getTime() / 1000;
+    const zeroedMonth = this.getZeroedMonth(this.currentMonthIndex - 1);
+    const initBeforeMarker = new Date(
+      this.currentYear,
+      zeroedMonth,
+      this.daysInMonthInView,
+      0,
+      0,
+      0
+    );
 
-    const initAfterMarker =
-      new Date(`${this.currentYear}-${zeroedMonth}-01`).getTime() / 1000;
-
+    const initAfterMarker = new Date(this.yearInView, zeroedMonth, 1, 0, 0, 0);
     this.$emit("onMonthChange", {
-      before: initBeforeMarker,
-      after: initAfterMarker
+      before: initBeforeMarker.getTime() / 1000,
+      after: initAfterMarker.getTime() / 1000
     });
   },
   methods: {
@@ -49,7 +51,7 @@ export default {
       this.$emit("onMonthChange", timeMarkers);
     },
     getBeforeMarker() {
-      const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex);
+      const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex - 1);
       return (
         new Date(
           this.yearInView,
