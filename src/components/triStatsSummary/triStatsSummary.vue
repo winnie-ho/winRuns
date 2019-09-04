@@ -6,7 +6,7 @@ import renderData from "../../mixins/renderData.js";
 
 export default {
   name: "triStatsSummary",
-  props: ["activitiesInView"],
+  props: ["activitiesInView", "showDisciplineCount"],
   data() {
     return {};
   },
