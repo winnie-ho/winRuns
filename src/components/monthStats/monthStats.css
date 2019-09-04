@@ -17,8 +17,15 @@
   animation-timing-function: ease-in;
 }
 
+.month-stats__count {
+  justify-content: center;
+  display: flex;
+  width: 40px;
+  font-size: 24px;
+}
+
 .month-stats__chart-bar {
-  margin: 2px;
+  margin: 1px;
 }
 
 .chart-bar {
@@ -26,7 +33,7 @@
   padding: 5px;
   display: flex;
   flex-direction: row;
-  margin-left: 25px;
+  margin-left: 5px;
 }
 
 @keyframes expandIn {
