@@ -32,7 +32,11 @@ export default {
       }
     }
   },
-  computed: {}
+  computed: {
+    screenWidth() {
+      return document.getElementById("month-stats__chart-box").clientWidth;
+    }
+  }
 };
 </script>
 

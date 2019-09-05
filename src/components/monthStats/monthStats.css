@@ -6,7 +6,7 @@
   padding: 10px 20px;
 }
 
-.month-stats__chart-box{
+#month-stats__chart-box{
   margin-left: 5px;
   display: flex;
   flex-direction: column;

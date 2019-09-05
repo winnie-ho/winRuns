@@ -1,24 +1,22 @@
 <div id='month-stats' class='row'>
   <tri-stats-summary :activitiesInView='activities' :showDisciplineCount='false'></tri-stats-summary>
-
-
-  <div class='month-stats__chart-box'>
+  <div id='month-stats__chart-box'>
     <div class='row month-stats__chart-bar'>
       <img class='icon' src='../../../static/assets/icon_swim.png' />
       <div class='month-stats__count'>{{ stats.swim.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/1000}px`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/(screenWidth*5)}px`}'>
         {{ renderDistance(stats.swim.distance, true) }}</div>
     </div>
     <div class='row month-stats__chart-bar'>
       <img class='icon' src='../../../static/assets/icon_bike.png' />
       <div class='month-stats__count'>{{ stats.ride.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/1000}px`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/(screenWidth*5)}px`}'>
         {{ renderDistance(stats.ride.distance, true) }}</div>
     </div>
     <div class='row month-stats__chart-bar'>
       <img class='icon' src='../../../static/assets/icon_run.png' />
       <div class='month-stats__count'>{{ stats.run.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/1000}px`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/(screenWidth*5)}px`}'>
         {{ renderDistance(stats.run.distance, true) }}</div>
     </div>
   </div>
