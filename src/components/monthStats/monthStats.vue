@@ -34,7 +34,10 @@ export default {
   },
   computed: {
     screenWidth() {
-      return document.getElementById("month-stats__chart-box").clientWidth;
+      return (
+        document.getElementById("month-stats__chart-box") &&
+        document.getElementById("month-stats__chart-box").clientWidth
+      );
     }
   }
 };
