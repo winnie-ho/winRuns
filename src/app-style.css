@@ -103,6 +103,11 @@ h1, h2, h3, h4, h5, h6{
   align-items: center;
 }
 
+.icon__xlarge {
+  height: 5rem;
+  width: auto;
+}
+
 .dark-icon {
   filter: invert(60%);
 }
