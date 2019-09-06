@@ -16,6 +16,11 @@
   width: 100vw;
   justify-content: flex-end;
   padding-right: 10px;
+  z-index: 2;
+}
+
+.sub-bar__collapsed .icon {
+  cursor: pointer;
 }
 
 .sub-bar__expanded{

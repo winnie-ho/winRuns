@@ -16,6 +16,7 @@
   padding: 5px;
   filter: opacity(40%) blur(1px);
   box-sizing: content-box;
+  cursor: pointer;
 }
 
 .selectedFilter {
