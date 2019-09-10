@@ -8,14 +8,14 @@
   padding-bottom: 20px;
 }
 
-.filter{
-  height: 16px;
+.tool-icon{
+  z-index: 2;
 }
 
 .sub-bar__collapsed{
   width: 100vw;
   justify-content: flex-end;
-  padding-right: 10px;
+  padding: 10px;
   z-index: 2;
 }
 
