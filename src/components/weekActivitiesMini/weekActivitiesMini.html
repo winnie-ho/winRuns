@@ -29,13 +29,15 @@
     </div>
   </div>
 
-  <div class='week-detail-btn'>
-    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View detailed week'>
-      <i class='el-icon-arrow-down btn icon-btn' @click='triggerWeekView' v-show='!toggleWeekView'></i>
+  <div class='week-detail-btn' @click='triggerWeekView'>
+    <i class='el-icon-files btn icon-btn'></i>
+    detailed week
+    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
+      <i class='el-icon-arrow-down btn icon-btn' v-show='!toggleWeekView'></i>
     </el-tooltip>
 
-    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide detailed week'>
-      <i class='el-icon-arrow-up btn icon-btn' @click='triggerWeekView' v-show='toggleWeekView'></i>
+    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
+      <i class='el-icon-arrow-up btn icon-btn' v-show='toggleWeekView'></i>
     </el-tooltip>
   </div>
 </div>
