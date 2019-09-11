@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  width: 100%;
 
   animation-name: expandIn;
   animation-duration: 1s;
@@ -29,7 +30,6 @@
 
 .chart-bar {
   border-bottom: #3066BE solid 6px;
-  padding: 5px;
   display: flex;
   flex-direction: row;
   margin-left: 5px;
