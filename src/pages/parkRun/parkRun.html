@@ -5,7 +5,7 @@
     <img id="park-run-logo" src="../../../static/assets/icon_park_run_logo.png" />
 
     <div id='last-pr'>
-      <select id="park-run-select" v-model='selectedParkRunName' v-on:change='setParkRunLocation()'>
+      <select id="park-run-select" v-model='selectedParkRunName' @change='setParkRunLocation()'>
         <option v-for='parkRun in parkRunDict' :key='parkRun.index' :value='parkRun.name'>{{ parkRun.name }}</option>
       </select>
 
