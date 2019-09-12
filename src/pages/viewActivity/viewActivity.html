@@ -82,8 +82,10 @@
         </div>
       </template>
       <div id="kudos-detail">
-        <div class='col kudo' v-for='kudo in kudos' :key='kudo.index'>
-          <h5>{{ kudo.firstname }} {{ kudo.lastname }}</h5>
+        <div class='col' v-for='kudo in kudos' :key='kudo.index'>
+          <div class='kudo'>
+            <h5>{{ kudo.firstname }} {{ kudo.lastname }}</h5>
+          </div>
         </div>
       </div>
     </el-collapse-item>
