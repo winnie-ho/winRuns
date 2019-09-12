@@ -4,8 +4,14 @@
     <img src='../../../static/assets/icon_arrow_left.png' />
   </div>
 
-  <div class="heading" id="dateInView">
-    <h3>{{ currentMonthString }} {{ yearInView }}</h3>
+  <div class="heading col" id="dateInView">
+    <select class='select-text sub-heading' v-model='monthInViewString' @change='setMonthInView($event)'
+      :value='monthInViewString'>
+      <option v-for='month in monthLookUp' :value='month' :key='month.index'>
+        {{ month }}
+      </option>
+    </select>
+    <h3>{{ yearInView }}</h3>
   </div>
 
   <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>

@@ -23,3 +23,12 @@
   cursor: none;
   filter: opacity(10%);
 }
+
+.select-text{
+  font-family: 'Abel';
+  font-size: 16px;
+  color:#fff;
+  background: transparent;
+  text-align: center;
+  text-align-last: center;
+}
