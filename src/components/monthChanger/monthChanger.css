@@ -3,6 +3,7 @@
   position: absolute;
   width: 100%;
   display: flex;
+  margin-left: 10px;
 }
 
 .arrow {
@@ -24,21 +25,7 @@
   filter: opacity(10%);
 }
 
-.select-text{
-  font-family: 'Abel';
-  font-size: 18px;
-  color:#fff;
-  background: transparent;
-  text-align: center;
-  text-align-last: center;
+.el-date-editor.el-input {
+  width: 168px;
 }
 
-select {
-  border: transparent;
-  cursor: pointer;
-}
-
-select:hover {
-  background: #3066BE;
-  border-radius: 5px;
-}
