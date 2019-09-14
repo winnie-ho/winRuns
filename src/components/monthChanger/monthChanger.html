@@ -5,9 +5,8 @@
   </div>
 
   <div class="heading col" id="dateInView">
-    <select class='select-text sub-heading' v-model='monthInViewString' @change='setMonthInView($event)'
-      :value='monthInViewString'>
-      <option v-for='month in monthLookUp' :value='month' :key='month.index'>
+    <select class='select-text sub-heading' @change='setMonthInView($event)' ref='monthInViewString'>
+      <option v-for='(month, index) in monthLookUp' :value='month' :selected='month == currentMonthString'>
         {{ month }}
       </option>
     </select>
