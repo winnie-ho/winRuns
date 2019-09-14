@@ -26,9 +26,19 @@
 
 .select-text{
   font-family: 'Abel';
-  font-size: 16px;
+  font-size: 18px;
   color:#fff;
   background: transparent;
   text-align: center;
   text-align-last: center;
+}
+
+select {
+  border: transparent;
+  cursor: pointer;
+}
+
+select:hover {
+  background: #3066BE;
+  border-radius: 5px;
 }
