@@ -5,7 +5,7 @@
   </div>
 
   <el-date-picker v-model="rawTimeInView" type="month" placeholder="Select month" :default-value='today'
-    @change='setMonthInView($event)' format='MMMM-yyyy'>
+    @change='setMonthInView($event)' format='MMMM-yyyy' size='small'>
   </el-date-picker>
 
   <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
