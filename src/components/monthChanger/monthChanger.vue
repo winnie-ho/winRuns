@@ -13,7 +13,8 @@ export default {
     return {
       monthInViewIndex: new Date().getMonth(),
       monthInViewString: "",
-      yearInView: new Date().getFullYear()
+      yearInView: new Date().getFullYear(),
+      rawTimeInView: ""
     };
   },
   created() {
@@ -52,18 +53,22 @@ export default {
         after: this.getAfterMarker()
       };
       this.$emit("onMonthChange", timeMarkers);
+
+      const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex);
+      this.rawTimeInView = new Date(`${this.yearInView}-${zeroedMonth}-01`);
     },
-    setMonthInView(e) {
-      const keys = Object.keys(this.monthLookUp);
-      const values = Object.values(this.monthLookUp);
-      const indexOfSelected = values.indexOf(e.target.value);
-      this.monthInViewIndex = indexOfSelected;
+    setMonthInView() {
+      this.monthInViewIndex = this.rawTimeInView.getMonth();
+      this.yearInView = this.rawTimeInView.getFullYear();
 
       const timeMarkers = {
         before: this.getBeforeMarker(),
         after: this.getAfterMarker()
       };
       this.$emit("onMonthChange", timeMarkers);
+    },
+    getZeroedMonth() {
+      return this.getZeroedMonth(this.monthInViewIndex);
     },
     getBeforeMarker() {
       const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex - 1);
