@@ -14,7 +14,7 @@ export default {
       monthInViewIndex: new Date().getMonth(),
       monthInViewString: "",
       yearInView: new Date().getFullYear(),
-      rawTimeInView: ""
+      rawTimeInView: new Date()
     };
   },
   created() {

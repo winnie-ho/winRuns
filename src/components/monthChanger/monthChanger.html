@@ -4,8 +4,8 @@
     <img src='../../../static/assets/icon_arrow_left.png' />
   </div>
 
-  <el-date-picker v-model="rawTimeInView" type="month" placeholder="Select month" @change='setMonthInView($event)'
-    format='MMMM-yyyy'>
+  <el-date-picker v-model="rawTimeInView" type="month" placeholder="Select month" :default-value='today'
+    @change='setMonthInView($event)' format='MMMM-yyyy'>
   </el-date-picker>
 
   <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
