@@ -188,7 +188,7 @@ export const store = new Vuex.Store({
     fetchFullKmSessions: (context) => {
       context.commit('clearFullKmSessions')
       context.getters.kmSessions.forEach(kmSession => {
-        return Vue.http.get(`https://www.strava.com/api/v3/activities/${kmSession.id}\?access_token='${localStorage.userToken || context.state.userToken}`).then(
+        return Vue.http.get(`https://www.strava.com/api/v3/activities/${kmSession.id}\?access_token=${localStorage.userToken || context.state.userToken}`).then(
           function (response) {
             context.commit('setFullKmSessions', response.body)
           }
