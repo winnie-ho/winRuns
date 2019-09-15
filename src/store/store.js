@@ -91,7 +91,6 @@ export const store = new Vuex.Store({
     fetchStats: (context) => {
       Vue.http.get(`https://www.strava.com/api/v3/athletes/${localStorage.athleteId || context.state.athlete.id}/stats?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
-          console.log('REPONSE', response)
           context.commit('setStats', response.data)
         })
     },
@@ -131,7 +130,7 @@ export const store = new Vuex.Store({
         })
     },
     fetchPhotos: (context, activityId) => {
-      Vue.http.get(`https://www.strava.com/api/v3/activities/'${activityId}/photos?photo_sources=true&size=1000&access_token=${localStorage.userToken || context.state.userToken}`).then(
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/photos?photo_sources=true&size=1000&access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setPhotos', response.data)
         })
@@ -179,7 +178,7 @@ export const store = new Vuex.Store({
     fetchFullParkRuns: (context) => {
       context.commit('clearFullParkRuns')
       context.getters.parkRuns.forEach(parkRun => {
-        return Vue.http.get(`https://www.strava.com/api/v3/activities/${parkRun.id}\?access_token=$localStorage.userToken || context.state.userToken}`).then(
+        return Vue.http.get(`https://www.strava.com/api/v3/activities/${parkRun.id}\?access_token=${localStorage.userToken || context.state.userToken}`).then(
           function (response) {
             context.commit('setFullParkRuns', response.body)
           }
