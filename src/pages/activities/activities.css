@@ -15,7 +15,6 @@
 .sub-bar__collapsed{
   width: 100vw;
   justify-content: flex-end;
-  padding: 10px;
   z-index: 2;
 }
 

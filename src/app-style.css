@@ -264,8 +264,8 @@ button[disabled]{
 }
 
 .sub-bar{
-  background-color: #6D9DC5;
-  margin: 15px;
+  background: #3066BE;
+  padding: 15px;
   display: flex;
   align-items: center;
 }

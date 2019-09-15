@@ -1,7 +1,6 @@
 #parkrun {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom right, #6D9DC5 , #3066BE);
   font-size: 16px;
   height: 115vh;
   overflow-x: hidden;
@@ -43,6 +42,7 @@
   font-size: 14px;
   align-items: flex-start;
   width: 100%;
+  margin-top: 15px;
 }
 
 .last-pr__metric{

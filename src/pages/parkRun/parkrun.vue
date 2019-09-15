@@ -30,8 +30,9 @@ export default {
   },
   mixins: [parkRunDict, renderData],
   mounted() {
-    this.createParkRunChart(this.parkRuns);
+    this.$store.dispatch("fetchActivities", 200);
     this.$store.dispatch("fetchFullParkRuns");
+    this.createParkRunChart(this.parkRuns);
   },
 
   created() {
