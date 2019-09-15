@@ -83,19 +83,20 @@ export const store = new Vuex.Store({
   },
   actions: {
     fetchAthlete: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete\?access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/athlete\?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setAthlete', response.data)
         })
     },
     fetchStats: (context) => {
-      Vue.http.get('https://www.strava.com/api/v3/athletes/' + context.state.athlete.id + '/stats?access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/athletes/${localStorage.athleteId || context.state.athlete.id}/stats?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
+          console.log('REPONSE', response)
           context.commit('setStats', response.data)
         })
     },
     fetchActivities: (context, numberOfActivities) => {
-      Vue.http.get('https://www.strava.com/api/v3/athlete/activities?per_page=' + numberOfActivities + '&access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?per_page=${numberOfActivities}&access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setActivities', response.data)
         })
@@ -108,14 +109,14 @@ export const store = new Vuex.Store({
         after
       } = pageInstructions
 
-      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${context.state.userToken}`).then(
+      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           console.log('RESPONSE', response)
           context.commit('setActivitiesByMonth', response.data)
         })
     },
     fetchActivity: (context, activityId) => {
-      Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '\?access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}\?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setActivity', response.data)
         })
@@ -124,19 +125,19 @@ export const store = new Vuex.Store({
       context.commit('setActivity', {})
     },
     fetchKudos: (context, activityId) => {
-      Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '/kudos\?access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/kudos\?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setKudos', response.data)
         })
     },
     fetchPhotos: (context, activityId) => {
-      Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '/photos?photo_sources=true&size=1000&access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/activities/'${activityId}/photos?photo_sources=true&size=1000&access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setPhotos', response.data)
         })
     },
     fetchComments: (context, activityId) => {
-      Vue.http.get('https://www.strava.com/api/v3/activities/' + activityId + '/comments\?access_token=' + context.state.userToken).then(
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/comments\?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setComments', response.data)
         })
@@ -178,7 +179,7 @@ export const store = new Vuex.Store({
     fetchFullParkRuns: (context) => {
       context.commit('clearFullParkRuns')
       context.getters.parkRuns.forEach(parkRun => {
-        return Vue.http.get('https://www.strava.com/api/v3/activities/' + parkRun.id + '\?access_token=' + context.state.userToken).then(
+        return Vue.http.get(`https://www.strava.com/api/v3/activities/${parkRun.id}\?access_token=$localStorage.userToken || context.state.userToken}`).then(
           function (response) {
             context.commit('setFullParkRuns', response.body)
           }
@@ -188,25 +189,13 @@ export const store = new Vuex.Store({
     fetchFullKmSessions: (context) => {
       context.commit('clearFullKmSessions')
       context.getters.kmSessions.forEach(kmSession => {
-        return Vue.http.get('https://www.strava.com/api/v3/activities/' + kmSession.id + '\?access_token=' + context.state.userToken).then(
+        return Vue.http.get(`https://www.strava.com/api/v3/activities/${kmSession.id}\?access_token='${localStorage.userToken || context.state.userToken}`).then(
           function (response) {
             context.commit('setFullKmSessions', response.body)
           }
         )
       })
     },
-    // fetchSessions: (context, sessions) => {
-    //   Vue.http.get('https://win-runs.firebaseio.com/sessions.json').then(function (data) {
-    //     return data.json()
-    //   }).then(function (data) {
-    //     let sessions = []
-    //     for (let key in data) {
-    //       data[key].id = key
-    //       sessions.push(data[key])
-    //     }
-    //     context.commit('setSessions', sessions)
-    //   })
-    // },
     fetchEvents: (context, events) => {
       Vue.http.get('https://win-runs.firebaseio.com/events.json').then(function (data) {
         return data.json()
@@ -216,7 +205,6 @@ export const store = new Vuex.Store({
           data[key].id = key
           events.push(data[key])
         }
-        console.log('DATA', events)
         context.commit('setEvents', events)
       })
     },
@@ -226,24 +214,24 @@ export const store = new Vuex.Store({
       })
     },
     deleteOrder: (context, eventId) => {
-      Vue.http.delete('https://win-runs.firebaseio.com/events/' + eventId + '.json').then(function (data) {
+      Vue.http.delete(`https://win-runs.firebaseio.com/events/${eventId}.json`).then(function (data) {
         return data.json()
       })
     },
     updateEvent: (context, event) => {
-      Vue.http.put('https://win-runs.firebaseio.com/events/' + event.id + '.json', event).then(function (data) {
+      Vue.http.put(`https://win-runs.firebaseio.com/events/${event.id}.json`, event).then(function (data) {
         return data.json()
       })
     },
     updateStravaActivity: (context, actionParameters) => {
-      Vue.http.put('https://www.strava.com/api/v3/activities/' + actionParameters[0] + '\?access_token=' + context.state.userToken, actionParameters[1]).then(
+      Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}\?access_token=${localStorage.userToken || context.state.userToken}, ${actionParameters[1]}`).then(
         function (response) {
           console.log('response', response)
           context.commit('setUpdateStravaActivityResponse', response)
         })
     },
     uploadStravaActivity: (context, actionParameters) => {
-      Vue.http.post('https://www.strava.com/api/v3/uploads\?access_token=' + context.state.userToken, actionParameters
+      Vue.http.post(`https://www.strava.com/api/v3/uploads\?access_token=${localStorage.userToken || context.state.userToken}, ${actionParameters}`
       ).then(
         function (response) {
           console.log('RES', response.body.status)
@@ -259,7 +247,7 @@ export const store = new Vuex.Store({
       context.commit('setUploadStravaActivityResponse', {})
     },
     getStravaUpload: (context, uploadId) => {
-      Vue.http.post('https://www.strava.com/api/v3/uploads/' + uploadId + '\?access_token=' + context.state.userToken).then(
+      Vue.http.post(`https://www.strava.com/api/v3/uploads/${uploadId}\?access_token=${localStorage.userToken || context.state.userToken}`).then(
         function (response) {
           context.commit('setStravaUploadResponse', response.body.id)
           console.log('GET UPLOAD ID', response.body)
