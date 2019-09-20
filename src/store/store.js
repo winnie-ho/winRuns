@@ -223,14 +223,14 @@ export const store = new Vuex.Store({
       })
     },
     updateStravaActivity: (context, actionParameters) => {
-      Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}\?access_token=${localStorage.userToken || context.state.userToken}, ${actionParameters[1]}`).then(
+      Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}\?access_token=${localStorage.userToken || context.state.userToken}`, actionParameters[1]).then(
         function (response) {
           console.log('response', response)
           context.commit('setUpdateStravaActivityResponse', response)
         })
     },
     uploadStravaActivity: (context, actionParameters) => {
-      Vue.http.post(`https://www.strava.com/api/v3/uploads\?access_token=${localStorage.userToken || context.state.userToken}, ${actionParameters}`
+      Vue.http.post(`https://www.strava.com/api/v3/uploads\?access_token=${localStorage.userToken || context.state.userToken}`, actionParameters
       ).then(
         function (response) {
           console.log('RES', response.body.status)
