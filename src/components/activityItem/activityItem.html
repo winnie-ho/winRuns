@@ -1,8 +1,9 @@
 <div id='activity' class='activity-box row sb' @click='viewActivity(activity.id)'>
-  <img v-show="activity.type === 'Ride'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
-  <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/icon_bike.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike.svg' class='icon icon__circle' />
+  <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike.svg'
+    class='icon icon__circle' />
   <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run.svg' class='icon icon__circle' />
-  <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon icon__circle' />
+  <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg' class='icon icon__circle' />
   <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png'
     class='icon icon__circle' />
 

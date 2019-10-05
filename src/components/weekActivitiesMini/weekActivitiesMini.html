@@ -7,7 +7,7 @@
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
             {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
           <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'"
-            src='../../../static/assets/icon_bike.png' class='icon btn'>
+            src='../../../static/assets/svgs/icon_bike.svg' class='icon btn'>
         </el-tooltip>
         <el-tooltip placement="top">
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
@@ -23,7 +23,8 @@
         <el-tooltip placement="top">
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
             {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-          <img v-show="activity.type === 'Swim'" src='../../../static/assets/icon_swim.png' class='icon btn tool-tip' />
+          <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg'
+            class='icon btn tool-tip' />
         </el-tooltip>
       </div>
       <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>

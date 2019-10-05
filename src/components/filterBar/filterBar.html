@@ -1,9 +1,9 @@
 <div id='filter-bar'>
   <p>Filter showing: </p>
-  <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterSwim }' src='../../../static/assets/icon_swim.png'
-    @click='setFilter("SWIM")'>
-  <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterRide }' src='../../../static/assets/icon_bike.png'
-    @click='setFilter("RIDE")'>
+  <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterSwim }'
+    src='../../../static/assets/svgs/icon_swim.svg' @click='setFilter("SWIM")'>
+  <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterRide }'
+    src='../../../static/assets/svgs/icon_bike.svg' @click='setFilter("RIDE")'>
   <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterRun }'
     src='../../../static/assets/svgs/icon_run.svg' @click='setFilter("RUN")'>
   <img class='icon filter-icon' :class='{ selectedFilter: toggleFilterWorkout }'
