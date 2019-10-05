@@ -5,7 +5,8 @@
     <div id='page-title'>{{ pageTitle }}</div>
 
     <div id='pagesBar' v-show='showNav' class='row'>
-      <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/icon_home.png"' :path="'/home'" :title='"Home"'>
+      <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/svgs/icon_home.svg"' :path="'/home'"
+        :title='"Home"'>
       </nav-bar-btn>
 
       <nav-bar-btn :pages='["/activities"]' :btnIcon='"../../../static/assets/icon_activities.png"'
@@ -54,7 +55,7 @@
     </router-link>
 
     <router-link to="/home" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_home.png' class='burger-icon' />
+      <img src='../../../static/assets/svgs/icon_home.svg' class='burger-icon' />
       HOME
     </router-link>
     <router-link to="/activities" exact class='burger-item col'>
