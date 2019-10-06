@@ -24,7 +24,7 @@
         <input id='fileInput' type="file" accept=".tcx" @change='readFile'>
       </div>
     </form>
-    <img class='tick-icon' src='../../../static/assets/icon_tick.png' :hidden='!successfulStravaStatus' />
+    <img class='tick-icon' src='../../../static/assets/svgs/icon_tick.svg' :hidden='!successfulStravaStatus' />
     <p class='heading strava-status'>{{ stravaStatus }}</p>
     <el-button v-show='!successfulStravaStatus' :disabled='disableButton' @click='generateSwim' size='mini'
       type='primary'>Upload
