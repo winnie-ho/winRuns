@@ -41,6 +41,11 @@ body {
   width: 100%;
 }
 
+/* ROTATIONS */
+.rotate-180{
+  transform: rotate(180deg);
+}
+
 /* TEXT */
 h1, h2, h3, h4, h5, h6{
   font-weight: 100;
