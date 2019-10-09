@@ -23,6 +23,12 @@ export default {
       required: false
     }
   },
+  methods: {
+    toggle() {
+      document.getElementById("nav-icon3").classList.add("open");
+      this.expandBurger = !this.expandBurger;
+    }
+  },
   computed: {
     athlete() {
       if (!this.$store.state.athlete) return;

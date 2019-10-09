@@ -13,18 +13,6 @@
   display: flex;
 }
 
-#burger {
-  visibility: hidden;
-  position: absolute;
-  top: 7px;
-  right: 10px;
-  cursor: pointer;
-}
-
-#burger img {
-  pointer-events: none;
-}
-
 .expanded-burger {
   position: absolute;
   top: 0px;  
@@ -167,6 +155,63 @@
   height: 25px;
   margin: 0 5px;
 }
+
+
+/* Burger animation */
+#burger {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 10000;
+  width: 30px;
+  height: 20px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#burger span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+#burger span:nth-child(1) {
+  top: 0px;
+}
+
+#burger span:nth-child(2),#burger span:nth-child(3) {
+  top: 10px;
+}
+
+#burger span:nth-child(4) {
+  top: 20px;
+}
+
+#burger.open span:nth-child(1) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+
+#burger.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+#burger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+#burger.open span:nth-child(4) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+
 
 /* responsive css  */
 @media all and (max-width: 1000px) {

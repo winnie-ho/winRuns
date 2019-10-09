@@ -37,11 +37,14 @@
     </div>
   </div>
 
-  <img id='burger' v-show='showNav' src='../../../static/assets/icon_burger.png' class='nav-icon'
-    @click='expandBurger = !expandBurger' />
+  <div id="burger" :class='{open: expandBurger}' class='nav-icon' @click='expandBurger = !expandBurger'>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-  <div id='burger-menu' class='expanded-burger' :hidden=!expandBurger @click='expandBurger = !expandBurger'>
-    <img class='close-icon' src='../../../static/assets/icon_cross.png' />
+  <div id='burger-menu' class='expanded-burger' :hidden=!expandBurger>
 
     <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
       <img class='avatar-profile' :src='athlete.profile' />
