@@ -51,7 +51,7 @@
           <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">
             {{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
           <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
-          <img src='../../../static/assets/icon_cross.png' class='icon' @click='clearLapMarkers()' />
+          <img src='../../../static/assets/svgs/icon_cross.svg' class='icon' @click='clearLapMarkers()' />
         </div>
 
         <div class='row create-session'>

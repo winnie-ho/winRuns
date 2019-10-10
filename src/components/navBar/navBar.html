@@ -44,7 +44,7 @@
     <span></span>
   </div>
 
-  <div id='burger-menu' class='expanded-burger' :hidden=!expandBurger>
+  <div id='burger-menu' :class='{expandedBurger: expandBurger}' :hidden=!expandBurger>
 
     <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
       <img class='avatar-profile' :src='athlete.profile' />

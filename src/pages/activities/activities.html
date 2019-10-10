@@ -7,8 +7,8 @@
       <monthChanger v-on:onMonthChange='setMonth($event)'></monthChanger>
       <img class='icon icon__medium tool-icon' :class='{ selectedButton: showFilters }'
         src='../../../static/assets/icon_filter.png' @click='expandFilters()' />
-      <img class='icon tool-icon' :class='{ selectedButton: showSearch }' src='../../../static/assets/icon_search.png'
-        @click='expandSearch()'>
+      <img class='icon tool-icon' :class='{ selectedButton: showSearch }'
+        src='../../../static/assets/svgs/icon_search.svg' @click='expandSearch()'>
     </div>
 
     <div class='sub-bar__expanded col'>

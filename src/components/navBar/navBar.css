@@ -13,7 +13,7 @@
   display: flex;
 }
 
-.expanded-burger {
+.expandedBurger {
   position: absolute;
   top: 0px;  
   right: 0px;
@@ -21,6 +21,10 @@
   background-color: #3066be;
   padding: 10px;
   z-index: 9;
+
+  animation-name: expandVertical;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 }
 
 #burger-menu {
@@ -28,10 +32,6 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  
-  animation-name: expandVertical;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
 }
 
 
@@ -184,7 +184,8 @@
   top: 0px;
 }
 
-#burger span:nth-child(2),#burger span:nth-child(3) {
+#burger span:nth-child(2),
+#burger span:nth-child(3) {
   top: 10px;
 }
 
@@ -192,6 +193,7 @@
   top: 20px;
 }
 
+/* 'open' toggle state */
 #burger.open span:nth-child(1) {
   top: 10px;
   width: 0%;
