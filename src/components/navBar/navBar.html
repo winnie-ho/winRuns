@@ -31,8 +31,8 @@
 
       <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete.profile'>
       </nav-bar-btn>
-      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/icon_profile.png"' :path="'/'" :title='"Sign In"'
-        v-show='!athlete.profile'>
+      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/svgs/icon_profile_female.png"' :path="'/'"
+        :title='"Sign In"' v-show='!athlete.profile'>
       </nav-bar-btn>
     </div>
   </div>
@@ -53,7 +53,7 @@
     </router-link>
 
     <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>
-      <img class='burger-icon' src='../../../static/assets/icon_profile.png' />
+      <img class='burger-icon' src='../../../static/assets/svgs/icon_profile_female.svg' />
       LOGIN
     </router-link>
 
