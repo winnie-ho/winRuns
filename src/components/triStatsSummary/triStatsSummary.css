@@ -10,10 +10,11 @@
 
 .total-stat__value {
   font-size: 60px;
+  margin-right: 10px;
 }
 
-.total-stat__substat h4 {
-  margin: 0px;
+.total-stat__substat h2 {
+  margin: 0px 5px;
 }  
 
 .stat-row {
