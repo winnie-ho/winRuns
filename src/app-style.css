@@ -95,22 +95,21 @@ h1, h2, h3, h4, h5, h6{
 
 /* IMAGES */
 .icon {
-  height: 20px;
+  height: 1rem;
   width: auto;
   margin: 0 5px;
 }
 
+.icon__medium {
+  height: 1.5rem;
+}
+
 .icon__large {
-  height: 30px;
+  height: 2rem;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.icon__medium {
-  height: 16px;
-  width: auto;
 }
 
 .icon__xlarge {
