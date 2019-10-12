@@ -3,7 +3,7 @@
 
   <div id="activity-info__header">
     <div class='activity-info__subbar row'>
-      <i class='el-icon-arrow-left btn icon-btn' @click='$router.go(-1)'></i>
+      <i class='el-icon-arrow-left btn' @click='$router.go(-1)'></i>
       <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
     </div>
     <h1>{{ activity.name }}</h1>
@@ -37,7 +37,7 @@
     <el-collapse-item name="1" v-show='lapsCount'>
       <template slot="title">
         <div class='row full-width'>
-          <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon-btn icon' />{{ lapsCount }} laps
+          <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon__medium' />{{ lapsCount }} laps
         </div>
       </template>
 
@@ -78,7 +78,7 @@
     <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
       <template slot="title">
         <div class='row full-width'>
-          <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon-btn icon' />{{ activity.kudos_count }}
+          <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon__medium' />{{ activity.kudos_count }}
           kudos
         </div>
       </template>
@@ -95,7 +95,7 @@
       <template slot="title">
         <div class='row full-width'>
           <img src='../../../static/assets/svgs/icon_comment.svg'
-            class='btn icon-btn icon' />{{ activity.comment_count }}
+            class='btn icon__medium' />{{ activity.comment_count }}
           comments
         </div>
       </template>

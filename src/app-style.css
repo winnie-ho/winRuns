@@ -188,18 +188,11 @@ button[disabled]{
 
 .btn{
   cursor: pointer;
+  margin: 0.5rem;
 }
 
 .btn:hover{
-  transform: scale(1.2);
-}
-
-.icon-btn{
-  /* padding: 5px; */
-}
-
-.icon-btn:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .nav-icon {
