@@ -26,8 +26,10 @@
     <activity-item v-for='activity in filteredActivities' :key='activity.index' :activity='activity'>
     </activity-item>
   </div>
-  <div v-show='activitiesByMonth.length===0' class='col'>
-    <img class='icon__xlarge' src='../../../static/assets/icon_start.png'>
-    <p>You have yet to get off the start line this month!</p>
+
+  <div v-show='activitiesByMonth.length===0' class='col loader'>
+    <i class='el-icon-loading'></i>
+    <h4>LOADING ACTIVITIES</h4>
   </div>
+
 </div>

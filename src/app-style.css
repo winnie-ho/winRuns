@@ -94,6 +94,10 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* IMAGES */
+.el-icon {
+  height: 100px;
+}
+
 .icon {
   height: 1rem;
   width: auto;
@@ -211,6 +215,7 @@ button[disabled]{
   border-bottom: none;
   width: 100%;
 }
+
 .el-collapse-item > div{
   background-color: transparent;
 }
