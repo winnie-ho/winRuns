@@ -40,6 +40,7 @@ export default {
         this.$store.dispatch("setUserToken", localStorage.userToken);
         this.$store.dispatch("fetchAthlete", localStorage.athleteId);
       } else {
+        localStorage.clear();
         this.setAuthCode();
       }
     },
