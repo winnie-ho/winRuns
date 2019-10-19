@@ -23,7 +23,7 @@ export default {
       userToken: "",
       athleteId: "",
       redirect_url: "https://win-runs.firebaseapp.com"
-      // redirect_url: "http://localhost:8080",
+      // redirect_url: "http://localhost:8080"
     };
   },
   mounted() {
@@ -44,29 +44,25 @@ export default {
       }
     },
     setAuthCode() {
-      let location = window.location.search;
+      const location = window.location.search;
       if (location.search("code=") === -1) {
         return;
       } else {
-        let start = location.search("code=") + 5;
+        const start = location.search("code=") + 5;
         this.authCode = location.substr(start, 40);
         this.tokenExchange();
       }
     },
     login() {
       console.log("LOGGING IN...");
-      window.location = `https://www.strava.com/oauth/authorize?client_id=${
-        this.client_id
-      }&response_type=code&redirect_uri=${
-        this.redirect_url
-      }&scope=view_private,write&state=mystate&approval_prompt=auto`;
+      window.location = `https://www.strava.com/oauth/authorize?client_id=${this.client_id}&response_type=code&redirect_uri=${this.redirect_url}&scope=read_all,activity:read_all,activity:write&state=mystate&approval_prompt=auto`;
 
       if (this.authCode) {
         this.tokenExchange();
       }
     },
     tokenExchange() {
-      let exchangeData = {
+      const exchangeData = {
         client_id: this.client_id,
         client_secret: this.client_secret,
         code: this.authCode
