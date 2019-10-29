@@ -27,7 +27,6 @@ export default {
     };
   },
   mounted() {
-    localStorage.clear();
     this.checkStoredCreds();
   },
 
