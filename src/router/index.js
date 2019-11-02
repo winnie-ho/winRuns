@@ -17,7 +17,6 @@ export default new Router({
   routes: [
     { path: '/', component: auth },
     { path: '/home', component: home },
-    { path: '/swim', component: swim },
     { path: '/parkRun', component: parkRun },
     { path: '/activities', component: activities },
     { path: '/activity/:id', component: viewActivity },
