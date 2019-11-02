@@ -28,19 +28,18 @@ export default {
   },
   mounted() {
     this.checkStoredCreds();
+    this.setAuthCode();
   },
-
-  created() {},
 
   methods: {
     checkStoredCreds() {
-      if (localStorage.userToken) {
-        this.userToken = localStorage.userToken;
-        this.athleteId = localStorage.athleteId;
-        this.$store.dispatch("setUserToken", localStorage.userToken);
-        this.$store.dispatch("fetchAthlete", localStorage.athleteId);
+      if (sessionStorage.userToken) {
+        this.userToken = sessionStorage.userToken;
+        this.athleteId = sessionStorage.athleteId;
+        this.$store.dispatch("setUserToken", sessionStorage.userToken);
+        this.$store.dispatch("fetchAthlete", sessionStorage.athleteId);
       } else {
-        localStorage.clear();
+        sessionStorage.clear();
         this.setAuthCode();
       }
     },
