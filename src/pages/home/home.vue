@@ -11,6 +11,7 @@ import statBar from "../../components/statBar/statBar.vue";
 import bigStatTotal from "../../components/bigStatTotal/bigStatTotal.vue";
 import weather from "../../components/weather/weather.vue";
 import renderData from "../../mixins/renderData.js";
+import appData from "../../mixins/appData.js";
 
 export default {
   name: "home",
@@ -24,7 +25,7 @@ export default {
     weekActivitiesMini,
     weather
   },
-  mixins: [renderData],
+  mixins: [renderData, appData],
   data() {
     return {
       toggleWeekView: false,

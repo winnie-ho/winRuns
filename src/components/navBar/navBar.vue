@@ -23,11 +23,19 @@ export default {
       required: false
     }
   },
-  methods: {},
+  methods: {
+    handleBurgerMenu() {
+      this.expandBurger = !this.expandBurger;
+      this.$emit("onBurgerMenu", false);
+    }
+  },
   computed: {
     athlete() {
       if (!this.$store.state.athlete) return;
       return this.$store.state.athlete;
+    },
+    scrollHeight() {
+      return (scrollHeight = document.body.scrollHeight);
     }
   }
 };

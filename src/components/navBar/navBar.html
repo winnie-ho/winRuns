@@ -33,8 +33,7 @@
     </div>
   </div>
 
-  <div id="burger" v-show='showNav' :class='{open: expandBurger}' class='nav-icon'
-    @click='expandBurger = !expandBurger'>
+  <div id="burger" v-show='showNav' :class='{open: expandBurger}' class='nav-icon' @click='handleBurgerMenu'>
     <span></span>
     <span></span>
     <span></span>

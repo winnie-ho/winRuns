@@ -30,16 +30,4 @@
       <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
     </div>
   </div>
-
-  <div class='week-detail-btn' @click='triggerWeekView'>
-    <i class='el-icon-files btn'></i>
-    detailed week
-    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
-      <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
-    </el-tooltip>
-
-    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
-      <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
-    </el-tooltip>
-  </div>
 </div>

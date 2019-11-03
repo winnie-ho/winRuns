@@ -39,25 +39,6 @@
   margin: 5px 0;
 }
 
-.day{
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  pointer-events: none;
-  color: white;
-  font-size: 10px;
-}
-
-.week-detail-btn{
-  text-align: center;
-  margin: 20px;
-  cursor: pointer;
-}
-
-.el-button{
-  color: white;
-}
-
 .activity-hover {
   cursor: pointer;
 }

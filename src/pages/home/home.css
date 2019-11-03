@@ -7,3 +7,9 @@
 .week-stats{
   justify-content: space-around;
 }
+
+.week-detail-btn{
+  text-align: center;
+  margin: 20px;
+  cursor: pointer;
+}

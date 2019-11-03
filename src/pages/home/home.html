@@ -1,5 +1,5 @@
 <div id='home'>
-  <nav-bar :showNav='true' v-on:toggleWeekViewStatus='setToggleWeekView'>
+  <nav-bar :showNav='true' v-on:toggleWeekViewStatus='setToggleWeekView' v-on:onBurgerMenu='toggleWeekView=false'>
   </nav-bar>
 
   <weather></weather>
@@ -17,6 +17,18 @@
 
   <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :activitiesInWeek='activitiesInWeek'>
   </week-activities-mini>
+
+  <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
+    <i class='el-icon-files btn'></i>
+    detailed week
+    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
+      <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
+    </el-tooltip>
+
+    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
+      <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
+    </el-tooltip>
+  </div>
 
   <week-activities :toggleWeekView='toggleWeekView' :activitiesInWeek='activitiesInWeek'>
   </week-activities>
