@@ -4,11 +4,10 @@
 <script>
 import renderData from "../../mixins/renderData";
 import appData from "../../mixins/appData";
-import timeMarkers from "../../mixins/timeMarkers";
 
 export default {
   name: "weekChanger",
-  mixins: [renderData, appData, timeMarkers],
+  mixins: [renderData, appData],
   data() {
     return {
       weekInViewIndex: 0,
