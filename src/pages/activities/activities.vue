@@ -77,7 +77,7 @@ export default {
         activitiesPerPage: 200
       };
 
-      this.$store.dispatch("fetchActivitiesByMonth", options);
+      this.$store.dispatch("fetchActivitiesInPeriod", options);
     },
     setMonthInView(timeMarkers) {
       if (!timeMarkers.before) {
@@ -109,8 +109,8 @@ export default {
   },
   computed: {
     activitiesByMonth() {
-      if (!this.$store.state.activitiesByMonth) return;
-      return this.$store.state.activitiesByMonth;
+      if (!this.$store.state.activitiesInPeriod) return;
+      return this.$store.state.activitiesInPeriod;
     },
     filteredActivities() {
       if (this.activitiesByMonth && this.wordToSearch) {

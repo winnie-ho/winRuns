@@ -4,22 +4,21 @@
 
   <weather></weather>
 
-  <week-changer v-on:mondayInViewChange='setMondayInView($event)'>
+  <week-changer v-on:weekInViewChange='setWeekInView($event)'>
   </week-changer>
 
   <div class='week-stats row'>
-    <tri-stats-summary :activitiesInView='weekInView' :showDisciplineCount='true'>
+    <tri-stats-summary :activitiesInView='activitiesInWeek' :showDisciplineCount='true'>
     </tri-stats-summary>
-    <big-stat-total :activitiesInView='weekInView' type='distance'></big-stat-total>
-    <big-stat-total :activitiesInView='weekInView' type='time'></big-stat-total>
-    <big-stat-total :activitiesInView='weekInView' type='elevation'></big-stat-total>
+    <big-stat-total :activitiesInView='activitiesInWeek' type='distance'></big-stat-total>
+    <big-stat-total :activitiesInView='activitiesInWeek' type='time'></big-stat-total>
+    <big-stat-total :activitiesInView='activitiesInWeek' type='elevation'></big-stat-total>
   </div>
 
-  <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :weekInView='weekInView'>
+  <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :activitiesInWeek='activitiesInWeek'>
   </week-activities-mini>
 
-  <week-activities :toggleWeekView='toggleWeekView' :activities='activities' :mondayInView='mondayInView'
-    v-on:weekInViewChange='setWeekInView($event)'>
+  <week-activities :toggleWeekView='toggleWeekView' :activitiesInWeek='activitiesInWeek'>
   </week-activities>
 
   <stat-bar :title='currentYear' :stats='stats'></stat-bar>

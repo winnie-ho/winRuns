@@ -9,7 +9,7 @@ import appData from "../../mixins/appData.js";
 export default {
   name: "weekActivitiesMini",
   mixins: [renderData, changePage, appData],
-  props: ["weekInView"],
+  props: ["activitiesInWeek"],
   data() {
     return {
       dayHasActivities: false,
@@ -17,11 +17,8 @@ export default {
     };
   },
   methods: {
-    computeImage(type) {
-      return type === "ride";
-    },
     dayActivities(day) {
-      if (!this.weekInView) return;
+      if (!this.activitiesInWeek) return;
       const dayIndex = Object.keys(this.dayLookUp).find(
         key => this.dayLookUp[key] === day
       );
@@ -30,7 +27,7 @@ export default {
       if (dayIndex == 6) {
         realIndex = 0;
       }
-      let dayActivities = this.weekInView.filter(
+      let dayActivities = this.activitiesInWeek.filter(
         activity => new Date(activity.start_date).getDay() === realIndex
       );
       let sortedDayActivities = dayActivities.sort(
@@ -41,9 +38,6 @@ export default {
     triggerWeekView() {
       this.toggleWeekView = !this.toggleWeekView;
       this.$emit("toggleWeekViewChange", this.toggleWeekView);
-    },
-    dayActivityCount(day) {
-      return day.length;
     }
   }
 };

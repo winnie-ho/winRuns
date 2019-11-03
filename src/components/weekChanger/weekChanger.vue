@@ -4,10 +4,11 @@
 <script>
 import renderData from "../../mixins/renderData";
 import appData from "../../mixins/appData";
+import timeMarkers from "../../mixins/timeMarkers";
 
 export default {
   name: "weekChanger",
-  mixins: [renderData, appData],
+  mixins: [renderData, appData, timeMarkers],
   data() {
     return {
       weekInViewIndex: 0,
@@ -23,7 +24,7 @@ export default {
         this.weekInViewIndex = 0;
       }
     },
-    weekInViewString(mondayInView) {
+    weekInViewString(weekInView) {
       if (this.weekInViewIndex <= 0) {
         this.forwardArrowDisable = true;
         return "THIS WEEK";
@@ -34,7 +35,7 @@ export default {
       }
       if (this.weekInViewIndex > 1) {
         this.forwardArrowDisable = false;
-        return mondayInView;
+        return weekInView;
       }
     }
   },
@@ -47,13 +48,21 @@ export default {
       const diff = todayDay - (todayDay === 0 ? -6 : 1);
       return new Date(timeNowZeroed - diff * 24 * msHour);
     },
-    mondayInView() {
-      const mondayInView = new Date(
+    weekInView() {
+      const afterMarker = new Date(
         this.lastMonday - this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000
       );
-      const mondayInViewString = this.renderDate(mondayInView, "long");
-      this.$emit("mondayInViewChange", mondayInView);
-      return mondayInViewString;
+
+      const beforeMarker = new Date(
+        this.lastMonday - (this.weekInViewIndex - 1) * 7 * 24 * 60 * 60 * 1000
+      );
+
+      this.$emit("weekInViewChange", {
+        before: new Date(beforeMarker).getTime() / 1000,
+        after: new Date(afterMarker).getTime() / 1000
+      });
+
+      return this.renderDate(afterMarker, "long");
     }
   }
 };

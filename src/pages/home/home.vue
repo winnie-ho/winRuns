@@ -41,17 +41,28 @@ export default {
     setToggleWeekView(event) {
       this.toggleWeekView = event;
     },
-    setMondayInView(mondayInView) {
-      this.mondayInView = mondayInView;
+    setWeekInView(timeMarkers) {
+      this.fetchWeekActivities(timeMarkers);
     },
-    setWeekInView(weekInView) {
-      this.weekInView = weekInView;
+    fetchWeekActivities(timeMarkers) {
+      const options = {
+        before: timeMarkers.before,
+        after: timeMarkers.after,
+        pageNumber: 1,
+        activitiesPerPage: 50
+      };
+
+      this.$store.dispatch("fetchActivitiesInPeriod", options);
     }
   },
   computed: {
     activities() {
       if (!this.$store.state.activities) return;
       return this.$store.state.activities;
+    },
+    activitiesInWeek() {
+      if (!this.$store.state.activitiesInPeriod) return;
+      return this.$store.state.activitiesInPeriod;
     },
     userToken() {
       let result = !this.$store.state.userToken;

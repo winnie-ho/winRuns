@@ -1,18 +1,15 @@
 <div id='week-changer' class='row sa'>
 
-  <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Previous week">
-    <div @click='changeWeek(1)' class='arrow'>
-      <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-    </div>
-  </el-tooltip>
+  <div @click='changeWeek(1)' class='arrow'>
+    <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
+  </div>
 
   <div class="heading" id="dateInView">
-    <h3>{{ weekInViewString(mondayInView) }}</h3>
+    <h3>{{ weekInViewString(weekInView) }}</h3>
   </div>
 
   <div @click='changeWeek(-1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
-    <el-tooltip placement="top" :hideAfter='toggleTipTimeout' content="Next week" :disabled='forwardArrowDisable'>
-      <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-    </el-tooltip>
+    <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
   </div>
+
 </div>
