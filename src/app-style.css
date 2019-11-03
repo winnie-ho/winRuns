@@ -8,11 +8,11 @@ body {
   font-family: 'Abel', 'Lato', sans-serif;
   color: #fff;
   font-weight: 300;
+  background: #6D9DC5 ;
 }
 
 #app {
   min-height: 100vh;
-  background: #6D9DC5 ;
 }
 
 .row{
