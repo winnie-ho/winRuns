@@ -28,7 +28,7 @@ export default {
   mixins: [renderData, appData],
   data() {
     return {
-      toggleWeekView: false,
+      toggleWeekView: true,
       mondayInView: "",
       weekInView: []
     };

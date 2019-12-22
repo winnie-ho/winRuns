@@ -1,7 +1,6 @@
 #stat-bar{
   margin-bottom: 20px;
   bottom: 0;
-  position: absolute;
   width: 100%;
   justify-content: center;
   cursor: pointer;
