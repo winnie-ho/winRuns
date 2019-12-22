@@ -8,7 +8,7 @@
       <h4>{{ index + 1 }}</h4>
       <h4>{{ renderDistance(effort.distance) }}</h4>
       <h4>{{ renderTime(effort.moving_time) }}</h4>
-      <h4 v-show="activity.type === 'Ride' || activity.type ==='Run'">
+      <h4 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
         {{ renderPace(effort.moving_time, effort.distance) }}</h4>
       <h4 v-show="activity.type === 'Swim'">{{ renderSwimPace(effort.moving_time, effort.distance) }}</h4>
     </div>

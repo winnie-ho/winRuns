@@ -13,7 +13,7 @@
         <h2 class='spacer'>{{ renderTime(activity.moving_time) }}</h2>
         <h2 class='spacer'>{{ renderSwimPace(activity.moving_time, activity.distance) }}</h2>
       </div>
-      <div v-show="activity.type === 'Ride' || activity.type ==='Run'" class="row">
+      <div v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'" class="row">
         <h2 class='spacer'>{{ renderDistance(activity.distance) }}</h2>
         <h2 class='spacer'>{{ renderTime(activity.moving_time) }}</h2>
         <h2 class='spacer'>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
@@ -44,11 +44,12 @@
       <div id="laps-detail" class="col sb">
         <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
           <h2>{{ lapCountInCalc }}</h2>
-          <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lapCalcDistanceResult) }}
+          <h2 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
+            {{ renderDistance(lapCalcDistanceResult) }}
           </h2>
           <h2 v-show="activity.type === 'Swim'">{{ renderSwimDistance(lapCalcDistanceResult) }}</h2>
           <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
-          <h2 v-show="activity.type === 'Ride' || activity.type ==='Run'">
+          <h2 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
             {{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
           <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
           <img src='../../../static/assets/svgs/icon_cross.svg' class='icon' @click='clearLapMarkers()' />

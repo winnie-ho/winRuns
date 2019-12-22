@@ -1,11 +1,12 @@
 <div class='lap' :class='{ selectedLap: isSelectedLap }'>
   <div @click='markLap()' class='row sa lap-detail'>
     <div class='lap'>{{ lap.lap_index }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">{{ renderDistance(lap.distance) }}
+    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
+      {{ renderDistance(lap.distance) }}
     </div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimDistance(lap.distance) }}</div>
     <div class='lap'>{{ renderTime(lap.moving_time) }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run'">
+    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
       {{ renderPace(lap.moving_time, lap.distance) }}</div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
     <div v-show='createSession' class='merge-buttons'>
