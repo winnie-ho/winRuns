@@ -34,7 +34,7 @@ export default {
       return roundedWhole ? `${((rawDistance) / 1000).toFixed(0)}km` : `${((rawDistance) / 1000).toFixed(2)}km`
     },
     renderElevation (rawElevation, short) {
-      if (!rawElevation) return
+      if (!rawElevation) return '-'
       return short ? `${(rawElevation).toFixed(0)}m` : `${(rawElevation).toFixed(2)}m`
     },
     renderSwimDistance (rawDistance) {
