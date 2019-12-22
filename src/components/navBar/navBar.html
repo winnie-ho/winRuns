@@ -21,8 +21,8 @@
         :title='"km splits"'>
       </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/events"]' :btnIcon='"../../../static/assets/svgs/icon_events.svg"' :path='"/events"'
-        :title='"events"'>
+      <nav-bar-btn v-show='athlete.id===3752965' :pages='["/events"]'
+        :btnIcon='"../../../static/assets/svgs/icon_events.svg"' :path='"/events"' :title='"events"'>
       </nav-bar-btn>
 
       <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete.profile'>
@@ -69,7 +69,7 @@
       <img src='../../../static/assets/icon_kilometer.png' class='burger-icon' />
       KM SPLITS
     </router-link>
-    <router-link to="/events" exact class='burger-item col'>
+    <router-link to="/events" exact class='burger-item col' v-show='athlete.id===3752965'>
       <img src='../../../static/assets/svgs/icon_events.svg' class='burger-icon' />
       EVENTS
     </router-link>
