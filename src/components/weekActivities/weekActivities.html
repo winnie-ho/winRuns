@@ -4,7 +4,8 @@
     <div class='day' :class='{ active: dayHasActivities }' v-for='activity in dayActivities(day)' :key='activity.index'
       @click='viewActivity(activity.id)'>
       <div class='heading'>{{ activity.name }}</div>
-      <div class='row data-metric' v-show="activity.type === 'Ride' || activity.type ==='Run'">
+      <div class='row data-metric'
+        v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
         <p class='spacer'>{{ renderDistance(activity.distance) }}</p>
         <p class='spacer'>{{ renderTime(activity.moving_time) }}</p>
         <p class='spacer'>{{ renderPace(activity.moving_time, activity.distance) }}</p>
