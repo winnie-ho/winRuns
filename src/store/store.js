@@ -14,6 +14,7 @@ export const store = new Vuex.Store({
     kudos: {},
     photos: {},
     comments: {},
+    activityStream: [],
     selectedParkRun: {},
     weatherNow: {},
     weatherForecast: {},
@@ -36,6 +37,7 @@ export const store = new Vuex.Store({
     setKudos: (state, payload) => (state.kudos = payload),
     setPhotos: (state, payload) => (state.photos = payload),
     setComments: (state, payload) => (state.comments = payload),
+    setActivityStream: (state, payload) => (state.activityStream = payload),
     setParkRuns: (state, payload) => (state.parkRuns = payload),
     setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
     setPosition: (state, payload) => (
@@ -132,6 +134,15 @@ export const store = new Vuex.Store({
     fetchComments: (context, activityId) => {
       Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/comments\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
         response => context.commit('setComments', response.data)
+      )
+    },
+    fetchActivityStream: (context, activityId) => {
+      const keys = ['time', 'heartrate']
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/streams?keys=${keys}&key_by_type=true&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
+        response => {
+          console.log('RESPONSE', response)
+          context.commit('setActivityStream', response.data)
+        }
       )
     },
     setSelectedParkRun: (context, selectedParkRun) => context.commit('setSelectedParkRun', selectedParkRun),
