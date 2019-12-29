@@ -63,12 +63,11 @@ export default {
       return this.$store.state.events.reduce((total, race) => total + (race.category === true), 0);
     },
     timeToNextEvent() {
-      const msTimeToNextEvent = new Date(this.upComingEvents[0].date) - new Date();
-      return this.upComingEvents
-      && this.upComingEvents.length && moment.duration(msTimeToNextEvent).humanize();
+      const msTimeToNextEvent = this.upComingEvents.length ? new Date(this.upComingEvents[0].date) - new Date() : 0;
+      return this.upComingEvents.length && moment.duration(msTimeToNextEvent).humanize();
     },
     nextEvent() {
-      return this.upComintEvents.length && this.upComingEvents[0].title;
+      return this.upComingEvents.length && this.upComingEvents[0].title;
     },
   },
 };
