@@ -1,14 +1,14 @@
 export default {
-  data () {
+  data() {
     return {
-    }
+    };
   },
   methods: {
-    changePage (page) {
-      this.$router.push(page)
+    changePage(page) {
+      this.$router.push(page);
     },
-    viewActivity (activityId) {
-      this.changePage(`/activity/${activityId}`)
-    }
-  }
-}
+    viewActivity(activityId) {
+      this.changePage(`/activity/${activityId}`);
+    },
+  },
+};

@@ -2,59 +2,50 @@
 <style scoped src='./parkRunSplits.css'></style>
 
 <script>
-import navBar from "../../components/navBar/navBar.vue";
-import parkRunSubBar from "../../components/parkRunSubBar/parkRunSubBar.vue";
-import toggleSwitch from "../../components/toggleSwitch/toggleSwitch.vue";
-import renderData from "../../mixins/renderData.js";
-import parkRunDict from "../../mixins/parkRunDict";
-import changePage from "../../mixins/changePage";
+import navBar from '../../components/navBar/navBar.vue';
+import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
+import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue';
+import renderData from '../../mixins/renderData';
+import parkRunDict from '../../mixins/parkRunDict';
+import changePage from '../../mixins/changePage';
 
 export default {
-  name: "parkRunSplits",
+  name: 'parkRunSplits',
   components: {
     navBar,
     parkRunSubBar,
-    toggleSwitch
+    toggleSwitch,
   },
   mixins: [renderData, parkRunDict, changePage],
   data() {
     return {
-      pageTitle: "PARK RUN SPLITS",
-      lapSplitMethod: true
+      pageTitle: 'PARK RUN SPLITS',
+      lapSplitMethod: true,
     };
   },
-  mounted() {},
-  created() {},
-
   methods: {
     kmTime(fullParkRun, km) {
       if (this.lapSplitMethod) {
         const kmLap = fullParkRun.laps[km - 1];
-        if (!kmLap) return;
-        return kmLap.moving_time;
+        return kmLap && kmLap.moving_time;
       }
 
       const segment = fullParkRun.segment_efforts.find(
-        seg => seg.name === this.selectedParkRunSegs[km]
+        seg => seg.name === this.selectedParkRunSegs[km],
       );
-      if (!segment) return;
-      return segment.moving_time;
+      return segment && segment.moving_time;
     },
     setSplitMethod(method) {
       this.lapSplitMethod = method;
-    }
+    },
   },
   computed: {
     dateOrderedFullParkRuns() {
-      if (!this.$store.getters.dateOrderedFullParkRuns) return;
       return this.$store.getters.dateOrderedFullParkRuns;
     },
     selectedParkRunSegs() {
-      if (!this.$store.state.selectedParkRun) return;
       return this.$store.state.selectedParkRun.segDict;
-    }
-  }
+    },
+  },
 };
 </script>
-
-

@@ -1,12 +1,12 @@
 export default {
-  data () {
+  data() {
     return {
-    }
+    };
   },
   methods: {
-    async refreshEvents () {
-      await this.$store.dispatch('fetchEvents')
-      await this.$router.push('/events/')
-    }
-  }
-}
+    async refreshEvents() {
+      await this.$store.dispatch('fetchEvents');
+      await this.$router.push('/events/');
+    },
+  },
+};

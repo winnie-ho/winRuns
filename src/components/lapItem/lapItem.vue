@@ -1,17 +1,17 @@
-<template src="./lapItem.html"></template>
+<template src='./lapItem.html'></template>
 <style scoped src='./lapItem.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
+import renderData from '../../mixins/renderData';
 
 export default {
-  name: "lapItem",
-  props: ["lap", "activity", "lapMarkers", "createSession", "sessionEfforts"],
+  name: 'lapItem',
+  props: ['lap', 'activity', 'lapMarkers', 'createSession', 'sessionEfforts'],
   mixins: [renderData],
   data() {
     return {
       selected: false,
-      merged: false
+      merged: false,
     };
   },
   methods: {
@@ -19,17 +19,17 @@ export default {
       this.selected = true;
 
       if (this.createSession) {
-        this.$emit("onSessionMarkLapChange", this.lap);
+        this.$emit('onSessionMarkLapChange', this.lap);
       }
 
       if (!this.createSession) {
-        this.$emit("onMarkLapChange", this.lap);
+        this.$emit('onMarkLapChange', this.lap);
       }
     },
     mergeLap() {
-      this.$emit("onSessionMarkLapMerge", this.lap);
+      this.$emit('onSessionMarkLapMerge', this.lap);
       this.merged = !this.merged;
-    }
+    },
   },
   computed: {
     isSelectedLap() {
@@ -43,16 +43,16 @@ export default {
       }
     },
     isMergeable() {
-      let isSelectedLap = this.sessionEfforts.find(
-        effort => effort.lap_index === this.lap.lap_index
+      const isSelectedLap = this.sessionEfforts.find(
+        effort => effort.lap_index === this.lap.lap_index,
       );
       if (isSelectedLap) {
-        let result = this.sessionEfforts
+        const result = this.sessionEfforts
           .map(index => index.lap_index)
           .indexOf(this.lap.lap_index - 1);
         return result !== -1;
       }
-    }
-  }
+    },
+  },
 };
 </script>

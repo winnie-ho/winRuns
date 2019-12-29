@@ -2,32 +2,31 @@
 <style scoped src='./kmSplits.css'></style>
 
 <script>
-import navBar from "../../components/navBar/navBar.vue";
-import toggleSwitch from "../../components/toggleSwitch/toggleSwitch.vue";
-import renderData from "../../mixins/renderData.js";
-import changePage from "../../mixins/changePage";
+import navBar from '../../components/navBar/navBar.vue';
+import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue';
+import renderData from '../../mixins/renderData';
+import changePage from '../../mixins/changePage';
 
 export default {
-  name: "kmSplits",
+  name: 'kmSplits',
   components: {
     navBar,
-    toggleSwitch
+    toggleSwitch,
   },
   mixins: [renderData, changePage],
   data() {
     return {
-      pageTitle: "KM SPLITS"
+      pageTitle: 'KM SPLITS',
     };
   },
   mounted() {
-    this.$store.dispatch("fetchFullKmSessions");
+    this.$store.dispatch('fetchFullKmSessions');
   },
   methods: {
     kmTime(kmSession, km) {
       const sessionZeroIndex = this.indexOfFirstRep(kmSession) - 2;
       const kmLap = kmSession.laps[sessionZeroIndex + 2 * km - 1];
-      if (!kmLap) return;
-      return kmLap.moving_time;
+      return kmLap && kmLap.moving_time;
     },
     indexOfFirstRep(kmSessionLaps) {
       return kmSessionLaps.laps.findIndex(lap => lap.elapsed_time === 75);
@@ -41,19 +40,15 @@ export default {
         timeCount += lapTime;
       }
       return timeCount;
-    }
+    },
   },
   computed: {
     kmSessions() {
-      if (!this.$store.getters.kmSessions) return;
       return this.$store.getters.kmSessions;
     },
     dateOrderedFullKmSessions() {
-      if (!this.$store.getters.dateOrderedFullKmSessions) return;
       return this.$store.getters.dateOrderedFullKmSessions;
-    }
-  }
+    },
+  },
 };
 </script>
-
-

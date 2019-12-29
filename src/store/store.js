@@ -1,9 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueResource from 'vue-resource'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueResource from 'vue-resource';
+import { actions } from './actions';
 
-Vue.use(Vuex)
-Vue.use(VueResource)
+Vue.use(Vuex);
+Vue.use(VueResource);
 
 export const store = new Vuex.Store({
   state: {
@@ -27,7 +28,7 @@ export const store = new Vuex.Store({
     uploadStravaActivityResponse: {},
     stravaUpload: {},
     position: {},
-    activitiesInPeriod: []
+    activitiesInPeriod: [],
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -43,7 +44,7 @@ export const store = new Vuex.Store({
     setPosition: (state, payload) => (
       state.position = {
         lat: payload.latitude,
-        lng: payload.longitude
+        lng: payload.longitude,
       }
     ),
     setWeatherNow: (state, payload) => (state.weatherNow = payload),
@@ -59,192 +60,29 @@ export const store = new Vuex.Store({
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
     setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload),
-    setActivitiesInPeriod: (state, payload) => (state.activitiesInPeriod = payload)
+    setActivitiesInPeriod: (state, payload) => (state.activitiesInPeriod = payload),
   },
   getters: {
     parkRuns: (state) => {
-      if (!state.selectedParkRun.startCoords) return
-      return state.activities.filter(activity => {
+      if (!state.selectedParkRun.startCoords) return;
+      return state.activities.filter((activity) => {
         if (activity.start_latitude && activity.start_longitude) {
-          return activity.start_latitude.toFixed(2) == state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) == state.selectedParkRun.startCoords[1]
+          return activity.start_latitude.toFixed(2) === state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) === state.selectedParkRun.startCoords[1];
         }
-      })
+      });
     },
     dateOrderedFullParkRuns: (state) => {
-      if (!state.fullParkRuns) return
-      return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
+      if (!state.fullParkRuns) return;
+      return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
     },
     kmSessions: (state) => {
-      if (!state.activities.length) return
-      return state.activities.filter(activity => activity.name.search('5x 1km') !== -1)
+      if (!state.activities.length) return;
+      return state.activities.filter((activity) => activity.name.search('5x 1km') !== -1);
     },
     dateOrderedFullKmSessions: (state) => {
-      if (!state.fullKmSessions) return
-      return state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date))
-    }
+      if (!state.fullKmSessions) return;
+      return state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
+    },
   },
-  actions: {
-    fetchAthlete: (context) => {
-      Vue.http.get(`https://www.strava.com/api/v3/athlete\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setAthlete', response.data)
-      )
-    },
-    fetchStats: (context) => {
-      Vue.http.get(`https://www.strava.com/api/v3/athletes/${sessionStorage.athleteId || context.state.athlete.id}/stats?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setStats', response.data)
-      )
-    },
-    fetchActivities: (context, numberOfActivities) => {
-      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?per_page=${numberOfActivities}&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        (response) => {
-          context.commit('setActivities', response.data)
-        }
-      )
-    },
-    fetchActivitiesInPeriod: (context, pageInstructions) => {
-      const {
-        pageNumber,
-        activitiesPerPage,
-        before,
-        after
-      } = pageInstructions
-
-      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setActivitiesInPeriod', response.data)
-      )
-    },
-    fetchActivity: (context, activityId) => {
-      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setActivity', response.data)
-      )
-    },
-    resetActivity: (context) => {
-      context.commit('setActivity', {})
-    },
-    fetchKudos: (context, activityId) => {
-      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/kudos\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setKudos', response.data)
-      )
-    },
-    fetchPhotos: (context, activityId) => {
-      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/photos?photo_sources=true&size=1000&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setPhotos', response.data)
-      )
-    },
-    fetchComments: (context, activityId) => {
-      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/comments\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setComments', response.data)
-      )
-    },
-    fetchActivityStream: (context, activityId) => {
-      const keys = ['time', 'heartrate']
-      Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/streams?keys=${keys}&key_by_type=true&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => {
-          console.log('RESPONSE', response)
-          context.commit('setActivityStream', response.data)
-        }
-      )
-    },
-    setSelectedParkRun: (context, selectedParkRun) => context.commit('setSelectedParkRun', selectedParkRun),
-    fetchLocation: async (context) => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          context.commit('setPosition', position.coords)
-          context.dispatch('fetchWeatherNow')
-        })
-      }
-    },
-    fetchWeatherNow: (context) => {
-      if (context.state.position.lat && context.state.position.lng) {
-        Vue.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${context.state.position.lat}&lon=${context.state.position.lng}&appid=b7114aca731d927ad002d0a518f38dfe`).then(
-          response => context.commit('setWeatherNow', response.data)
-        )
-      }
-    },
-    setTimeOrderedParkRuns: (context, timeOrderedParkRuns) => {
-      context.commit('setTimeOrderedParkRuns', timeOrderedParkRuns)
-    },
-    tokenExchange: (context, exchangeData) => {
-      Vue.http.post('https://www.strava.com/oauth/token', exchangeData).then(
-        response => {
-          sessionStorage.setItem('userToken', response.body.access_token)
-          sessionStorage.setItem('athleteId', response.body.athlete.id)
-          context.commit('setUserToken', response.body.access_token)
-          context.commit('setAthlete', response.body.athlete)
-        }
-      )
-    },
-    setUserToken: (context, userToken) => context.commit('setUserToken', userToken),
-    fetchFullParkRuns: (context) => {
-      context.commit('clearFullParkRuns')
-      context.getters.parkRuns.forEach(parkRun => {
-        return Vue.http.get(`https://www.strava.com/api/v3/activities/${parkRun.id}\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-          response => context.commit('setFullParkRuns', response.body)
-        )
-      })
-    },
-    fetchFullKmSessions: (context) => {
-      context.commit('clearFullKmSessions')
-      context.getters.kmSessions.forEach(kmSession => {
-        return Vue.http.get(`https://www.strava.com/api/v3/activities/${kmSession.id}\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-          response => context.commit('setFullKmSessions', response.body)
-        )
-      })
-    },
-    fetchEvents: (context, events) => {
-      Vue.http.get('https://win-runs.firebaseio.com/events.json').then(data => {
-        return data.json()
-      }).then(data => {
-        let events = []
-        for (let key in data) {
-          data[key].id = key
-          events.push(data[key])
-        }
-        context.commit('setEvents', events)
-      })
-    },
-    createEvent: (event) => {
-      Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(
-        data => data.json()
-      )
-    },
-    deleteOrder: (eventId) => {
-      Vue.http.delete(`https://win-runs.firebaseio.com/events/${eventId}.json`).then(
-        data => data.json()
-      )
-    },
-    updateEvent: (context, event) => {
-      Vue.http.put(`https://win-runs.firebaseio.com/events/${event.id}.json`, event).then(
-        data => data.json()
-      )
-    },
-    updateStravaActivity: (context, actionParameters) => {
-      Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}\?access_token=${sessionStorage.userToken || context.state.userToken}`, actionParameters[1]).then(
-        response => {
-          console.log('response', response)
-          context.commit('setUpdateStravaActivityResponse', response)
-        })
-    },
-    uploadStravaActivity: (context, actionParameters) => {
-      Vue.http.post(`https://www.strava.com/api/v3/uploads\?access_token=${sessionStorage.userToken || context.state.userToken}`, actionParameters
-      ).then(
-        response => {
-          console.log('RES', response.body.status)
-          context.commit('setUploadStravaActivityResponse', response.body)
-        },
-        response => {
-          console.log('RES', response.body.status)
-          context.commit('setUploadStravaActivityResponse', response.body)
-        }
-      )
-    },
-    resetUploadStravaActivityResponse: (context) => {
-      context.commit('setUploadStravaActivityResponse', {})
-    },
-    getStravaUpload: (context, uploadId) => {
-      Vue.http.post(`https://www.strava.com/api/v3/uploads/${uploadId}\?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-        response => context.commit('setStravaUploadResponse', response.body.id)
-      )
-    }
-  }
-})
+  actions: actions,
+});

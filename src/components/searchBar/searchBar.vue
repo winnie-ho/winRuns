@@ -1,25 +1,23 @@
-<template src="./searchBar.html"></template>
+<template src='./searchBar.html'></template>
 <style scoped src='./searchBar.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
-
 export default {
-  name: "search-bar",
+  name: 'search-bar',
   data() {
     return {
-      searchWord: ""
+      searchWord: '',
     };
   },
   methods: {
     setWordSearch(e) {
       this.searchWord = e.srcElement.value;
-      this.$emit("searchWordChange", this.searchWord);
+      this.$emit('searchWordChange', this.searchWord);
     },
     resetSearch() {
-      document.getElementById("search-input").value = "";
-      this.$emit("searchWordChange", "");
-    }
-  }
+      document.getElementById('search-input').value = '';
+      this.$emit('searchWordChange', '');
+    },
+  },
 };
 </script>

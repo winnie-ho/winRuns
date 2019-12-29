@@ -1,20 +1,20 @@
-<template src="./monthChanger.html"></template>
+<template src='./monthChanger.html'></template>
 <style scoped src='./monthChanger.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData";
-import appData from "../../mixins/appData";
-import moment from "moment";
+import moment from 'moment';
+import renderData from '../../mixins/renderData';
+import appData from '../../mixins/appData';
 
 export default {
-  name: "monthChanger",
+  name: 'monthChanger',
   mixins: [renderData, appData],
   data() {
     return {
       monthInViewIndex: new Date().getMonth(),
-      monthInViewString: "",
+      monthInViewString: '',
       yearInView: new Date().getFullYear(),
-      rawTimeInView: new Date()
+      rawTimeInView: new Date(),
     };
   },
   created() {
@@ -25,13 +25,13 @@ export default {
       this.daysInMonthInView,
       0,
       0,
-      0
+      0,
     );
 
     const initAfterMarker = new Date(this.yearInView, zeroedMonth, 1, 0, 0, 0);
-    this.$emit("onMonthChange", {
+    this.$emit('onMonthChange', {
       before: initBeforeMarker.getTime() / 1000,
-      after: initAfterMarker.getTime() / 1000
+      after: initAfterMarker.getTime() / 1000,
     });
   },
   methods: {
@@ -50,9 +50,9 @@ export default {
 
       const timeMarkers = {
         before: this.getBeforeMarker(),
-        after: this.getAfterMarker()
+        after: this.getAfterMarker(),
       };
-      this.$emit("onMonthChange", timeMarkers);
+      this.$emit('onMonthChange', timeMarkers);
 
       const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex);
       this.rawTimeInView = new Date(`${this.yearInView}-${zeroedMonth}-01`);
@@ -63,12 +63,9 @@ export default {
 
       const timeMarkers = {
         before: this.getBeforeMarker(),
-        after: this.getAfterMarker()
+        after: this.getAfterMarker(),
       };
-      this.$emit("onMonthChange", timeMarkers);
-    },
-    getZeroedMonth() {
-      return this.getZeroedMonth(this.monthInViewIndex);
+      this.$emit('onMonthChange', timeMarkers);
     },
     getBeforeMarker() {
       const zeroedMonth = this.getZeroedMonth(this.monthInViewIndex - 1);
@@ -79,7 +76,7 @@ export default {
           this.daysInMonthInView,
           0,
           0,
-          0
+          0,
         ).getTime() / 1000
       );
     },
@@ -90,7 +87,7 @@ export default {
     },
     getZeroedMonth(rawMonth) {
       return rawMonth + 1 < 10 ? `0${rawMonth + 1}` : `${rawMonth + 1}`;
-    }
+    },
   },
   computed: {
     today() {
@@ -108,15 +105,15 @@ export default {
     daysInMonthInView() {
       return moment(
         `${this.yearInView}-${this.monthInViewIndex + 1}`,
-        "YYYY-MM"
+        'YYYY-MM',
       ).daysInMonth();
     },
     forwardArrowDisable() {
       return (
-        this.monthInViewIndex === this.currentMonthIndex &&
-        this.yearInView === this.currentYear
+        this.monthInViewIndex === this.currentMonthIndex
+        && this.yearInView === this.currentYear
       );
-    }
-  }
+    },
+  },
 };
 </script>

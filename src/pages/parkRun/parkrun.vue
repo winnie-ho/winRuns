@@ -1,37 +1,37 @@
-<template src="./parkRun.html"></template>
+<template src='./parkRun.html'></template>
 <style scoped src='./parkRun.css'></style>
 
 <script>
-import navBar from "../../components/navBar/navBar.vue";
-import parkRunDict from "../../mixins/parkRunDict.js";
-import parkRunSubBar from "../../components/parkRunSubBar/parkRunSubBar.vue";
-import renderData from "../../mixins/renderData.js";
+import navBar from '../../components/navBar/navBar.vue';
+import parkRunDict from '../../mixins/parkRunDict';
+import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
+import renderData from '../../mixins/renderData';
 
 export default {
-  name: "parkRun",
+  name: 'parkRun',
   components: {
     navBar,
-    parkRunSubBar
+    parkRunSubBar,
   },
   data() {
     return {
-      pageTitle: "PARK RUN",
-      selectedParkRunName: "",
+      pageTitle: 'PARK RUN',
+      selectedParkRunName: '',
       defaultParkRun: {
-        name: "",
+        name: '',
         distance: 0,
         moving_time: 0,
         elapsed_time: 0,
-        start_date: "",
+        start_date: '',
         start_latlng: null,
-        end_latlng: null
-      }
+        end_latlng: null,
+      },
     };
   },
   mixins: [parkRunDict, renderData],
   mounted() {
-    this.$store.dispatch("fetchActivities", 200);
-    this.$store.dispatch("fetchFullParkRuns");
+    this.$store.dispatch('fetchActivities', 200);
+    this.$store.dispatch('fetchFullParkRuns');
     this.createParkRunChart(this.parkRuns);
   },
 
@@ -41,58 +41,50 @@ export default {
   },
 
   methods: {
-    setDefaultParkRunName: function() {
+    setDefaultParkRunName() {
       this.selectedParkRunName = this.parkRunDict.find(
-        parkRun => parkRun.default === true
+        parkRun => parkRun.default === true,
       ).name;
     },
-    setParkRunLocation: function() {
+    setParkRunLocation() {
       const selectedParkRun = this.parkRunDict.find(
-        parkRun => parkRun.name === this.selectedParkRunName
+        parkRun => parkRun.name === this.selectedParkRunName,
       );
-      this.$store.dispatch("setSelectedParkRun", selectedParkRun);
+      this.$store.dispatch('setSelectedParkRun', selectedParkRun);
     },
-    computeYBContext: function() {
+    computeYBContext() {
       if (!this.latestParkRun || !this.fastestParkRun) return;
       if (
-        this.latestParkRun.moving_time < this.fastestParkRun &&
-        this.latestParkRun.distance >= 5000
+        this.latestParkRun.moving_time < this.fastestParkRun && this.latestParkRun.distance >= 5000
       ) {
-        return (
-          "Fastest time this year! " +
-          this.renderTime(this.latestParkRun.moving_time)
-        );
+        return `Fastest time this year! ${this.renderTime(
+          this.latestParkRun.moving_time,
+        )}`;
       }
-      return "Year best " + this.renderTime(this.fastestParkRun.moving_time);
+      return `Year best ${this.renderTime(this.fastestParkRun.moving_time)}`;
     },
-    computeLastPRContext: function() {
+    computeLastPRContext() {
       const latestPRRank = this.timeOrderedParkRuns.indexOf(this.latestParkRun);
 
       if (latestPRRank === 0 && this.latestParkRun.distance >= 5000) {
-        return "Fastest this year!";
+        return 'Fastest this year!';
       }
 
       if (this.latestParkRun.distance < 5000) {
-        return (
-          "RUN INCOMPLETE! " +
-          this.renderDistance(this.latestParkRun.distance) +
-          " of 5km in " +
-          this.renderTime(this.latestParkRun.moving_time)
-        );
+        return `RUN INCOMPLETE! ${this.renderDistance(
+          this.latestParkRun.distance,
+        )} of 5km in ${this.renderTime(this.latestParkRun.moving_time)}`;
       }
 
-      return this.ordinalSuffixOf(latestPRRank) + " fastest this year";
+      return `${this.ordinalSuffixOf(latestPRRank)} fastest this year`;
     },
     computePBContext() {
-      let pb = 1374;
-      if (
-        this.latestParkRun.moving_time < pb &&
-        this.latestParkRun.distance >= 5000
-      ) {
-        return "NEW PB! " + this.renderTime(this.latestParkRun.moving_time);
+      const pb = 1374;
+      if (this.latestParkRun.moving_time < pb && this.latestParkRun.distance >= 5000) {
+        return `NEW PB! ${this.renderTime(this.latestParkRun.moving_time)}`;
       }
-      return "PB remains at " + this.renderTime(pb);
-    }
+      return `PB remains at ${this.renderTime(pb)}`;
+    },
   },
   computed: {
     parkRuns() {
@@ -109,15 +101,14 @@ export default {
       return this.$store.state.fullParkRuns[0].similar_activities.effort_count;
     },
     completeParkRuns() {
-      if (!this.parkRuns) return;
-      return this.parkRuns.filter(parkRun => parkRun.distance > 5000);
+      return this.parkRuns && this.parkRuns.filter(parkRun => parkRun.distance > 5000);
     },
     timeOrderedParkRuns() {
       if (!this.parkRuns) return [];
-      let timeOrderedParkRuns = this.completeParkRuns
+      const timeOrderedParkRuns = this.completeParkRuns
         .slice()
         .sort((a, b) => a.moving_time - b.moving_time);
-      this.$store.dispatch("setTimeOrderedParkRuns", timeOrderedParkRuns);
+      this.$store.dispatch('setTimeOrderedParkRuns', timeOrderedParkRuns);
       return timeOrderedParkRuns;
     },
     fastestParkRun() {
@@ -125,9 +116,9 @@ export default {
         return this.defaultParkRun;
       }
       return this.completeParkRuns.sort(
-        (a, b) => a.moving_time - b.moving_time
+        (a, b) => a.moving_time - b.moving_time,
       )[0];
-    }
-  }
+    },
+  },
 };
 </script>

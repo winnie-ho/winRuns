@@ -2,18 +2,18 @@
 <style scoped src='./weekChanger.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData";
-import appData from "../../mixins/appData";
+import renderData from '../../mixins/renderData';
+import appData from '../../mixins/appData';
 
 export default {
-  name: "weekChanger",
+  name: 'weekChanger',
   mixins: [renderData, appData],
   data() {
     return {
       weekInViewIndex: 0,
       dayHasActivities: false,
       toggleWeekView: true,
-      forwardArrowDisable: false
+      forwardArrowDisable: false,
     };
   },
   methods: {
@@ -26,17 +26,15 @@ export default {
     weekInViewString(weekInView) {
       if (this.weekInViewIndex <= 0) {
         this.forwardArrowDisable = true;
-        return "THIS WEEK";
+        return 'THIS WEEK';
       }
       if (this.weekInViewIndex === 1) {
         this.forwardArrowDisable = false;
-        return "LAST WEEK";
+        return 'LAST WEEK';
       }
-      if (this.weekInViewIndex > 1) {
-        this.forwardArrowDisable = false;
-        return weekInView;
-      }
-    }
+      this.forwardArrowDisable = false;
+      return weekInView;
+    },
   },
   computed: {
     lastMonday() {
@@ -49,20 +47,20 @@ export default {
     },
     weekInView() {
       const afterMarker = new Date(
-        this.lastMonday - this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000
+        this.lastMonday - this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000,
       );
 
       const beforeMarker = new Date(
-        this.lastMonday - (this.weekInViewIndex - 1) * 7 * 24 * 60 * 60 * 1000
+        this.lastMonday - (this.weekInViewIndex - 1) * 7 * 24 * 60 * 60 * 1000,
       );
 
-      this.$emit("weekInViewChange", {
+      this.$emit('weekInViewChange', {
         before: new Date(beforeMarker).getTime() / 1000,
-        after: new Date(afterMarker).getTime() / 1000
+        after: new Date(afterMarker).getTime() / 1000,
       });
 
-      return this.renderDate(afterMarker, "long");
-    }
-  }
+      return this.renderDate(afterMarker, 'long');
+    },
+  },
 };
 </script>

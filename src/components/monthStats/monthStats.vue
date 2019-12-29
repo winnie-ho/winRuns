@@ -1,45 +1,39 @@
-<template src="./monthStats.html"></template>
+<template src='./monthStats.html'></template>
 <style scoped src='./monthStats.css'></style>
 
 <script src>
-import renderData from "../../mixins/renderData.js";
-import statTotal from "../statTotal/statTotal.vue";
-import triStatsSummary from "../triStatsSummary/triStatsSummary.vue";
+import renderData from '../../mixins/renderData';
+import statTotal from '../statTotal/statTotal.vue';
+import triStatsSummary from '../triStatsSummary/triStatsSummary.vue';
 
 export default {
-  name: "monthStatBar",
+  name: 'monthStatBar',
   mixins: [renderData],
   components: {
     statTotal,
-    triStatsSummary
+    triStatsSummary,
   },
-  props: ["stats", "activities"],
-  data() {
-    return {};
-  },
+  props: ['stats', 'activities'],
   methods: {
     statType(activityType) {
       switch (activityType) {
-        case "run":
+        case 'run':
           return this.stats.run;
-          break;
-        case "ride":
+        case 'ride':
           return this.stats.ride;
-          break;
-        case "swim":
+        case 'swim':
           return this.stats.swim;
-          break;
+        default:
+          return {};
       }
-    }
+    },
   },
   computed: {
     screenWidth() {
       return (
-        document.getElementById("month-stats__chart-box") &&
-        document.getElementById("month-stats__chart-box").clientWidth
+        document.getElementById('month-stats__chart-box') && document.getElementById('month-stats__chart-box').clientWidth
       );
-    }
-  }
+    },
+  },
 };
 </script>
-

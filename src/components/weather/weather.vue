@@ -1,22 +1,21 @@
-<template src="./weather.html"></template>
+<template src='./weather.html'></template>
 <style scoped src='./weather.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
+import renderData from '../../mixins/renderData';
 
 export default {
-  name: "weather",
+  name: 'weather',
   props: [],
   data() {
     return {};
   },
   mixins: [renderData],
   created() {
-    this.$store.dispatch("fetchWeatherNow");
+    this.$store.dispatch('fetchWeatherNow');
   },
   computed: {
     weather() {
-      if (!this.$store.state.weatherNow.main) return;
       return this.$store.state.weatherNow.main;
     },
     temp() {
@@ -29,14 +28,13 @@ export default {
       return this.weather && this.$store.state.weatherNow.wind.speed;
     },
     windDegreesStyle() {
-      return `--degrees: ${this.weather &&
-        this.$store.state.weatherNow.wind.deg + 180}deg;`;
+      return `--degrees: ${this.weather && this.$store.state.weatherNow.wind.deg + 180}deg;`;
     },
     locationName() {
       return this.weather && this.$store.state.weatherNow.name
         ? this.$store.state.weatherNow.name
-        : "unknown location";
-    }
-  }
+        : 'unknown location';
+    },
+  },
 };
 </script>

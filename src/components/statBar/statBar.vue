@@ -1,38 +1,22 @@
-<template src="./statBar.html"></template>
+<template src='./statBar.html'></template>
 <style scoped src='./statbar.css'></style>
 
 <script src>
-import renderData from "../../mixins/renderData.js";
-import statTotal from "../statTotal/statTotal.vue";
+import statTotal from '../statTotal/statTotal.vue';
 
 export default {
-  name: "statBar",
+  name: 'statBar',
   components: {
-    statTotal
+    statTotal,
   },
-  props: ["stats", "title"],
-  data() {
-    return {};
-  },
+  props: ['stats', 'title'],
   created() {
-    this.$store.dispatch("fetchStats");
+    this.$store.dispatch('fetchStats');
   },
   methods: {
     statType(activityType) {
-      switch (activityType) {
-        case "run":
-          return this.stats.run;
-          break;
-        case "ride":
-          return this.stats.ride;
-          break;
-        case "swim":
-          return this.stats.swim;
-          break;
-      }
-    }
+      return this.stats[activityType];
+    },
   },
-  computed: {}
 };
 </script>
-

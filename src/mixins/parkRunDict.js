@@ -1,5 +1,5 @@
 export default {
-  data () {
+  data() {
     return {
       parkRunDict: [
         {
@@ -11,9 +11,9 @@ export default {
             2: 'Edinburgh Parkrun 2nd Kilometre',
             3: 'Edinburgh Parkrun 3rd Kilometre',
             4: 'Edinburgh Parkrun 4th Kilometre',
-            5: 'Edinburgh Parkrun 5th "Kilometre"'
+            5: 'Edinburgh Parkrun 5th "Kilometre"',
           },
-          default: true
+          default: true,
         },
         {
           name: 'Edinburgh Portobello',
@@ -21,7 +21,7 @@ export default {
           segmentId: '9342203',
           segDict: {
           },
-          default: false
+          default: false,
         },
         {
           name: 'Inverness',
@@ -29,40 +29,40 @@ export default {
           segmentId: '11829562',
           segDict: {
           },
-          default: false
-        }
-      ]
-    }
+          default: false,
+        },
+      ],
+    };
   },
   methods: {
-    createParkRunChart: function (dataArray) {
-      const container = document.querySelector('#pr-chart')
-      const distanceCheck = dataArray.slice().filter(run => run.distance > 5000)
-      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date) - new Date(b.start_date))
-      const dataArrayTime = sortedDataArray.map(run => run.moving_time * 1000)
-      const dateFormatted = sortedDataArray.map(run => this.renderDate(run.start_date))
+    createParkRunChart(dataArray) {
+      const container = document.querySelector('#pr-chart');
+      const distanceCheck = dataArray.slice().filter((run) => run.distance > 5000);
+      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+      const dataArrayTime = sortedDataArray.map((run) => run.moving_time * 1000);
+      const dateFormatted = sortedDataArray.map((run) => this.renderDate(run.start_date));
 
-      const chart = new Highcharts.Chart({
+      return new Highcharts.Chart({
         chart: {
           type: 'line',
           renderTo: container,
           backgroundColor: 'rgba(0, 0, 0, 0)',
-          zoomType: 'xy'
+          zoomType: 'xy',
         },
         title: {
           text: 'Park Run Results',
           style: {
-            'fontSize': '10px',
-            'color': 'white'
-          }
+            fontSize: '10px',
+            color: 'white',
+          },
         },
         tooltip: {
-          pointFormatter: function () {
-            var ser = this.series
-            return '<span style="color:' + ser.color + '" >●</span> ' +
-              ser.name + ': <b>' +
-              Highcharts.dateFormat('%H:%M:%S', this.y) + '</b><br>'
-          }
+          pointFormatter() {
+            const ser = this.series;
+            return `<span style="color:${ser.color}" >●</span> ${
+              ser.name}: <b>${
+              Highcharts.dateFormat('%H:%M:%S', this.y)}</b><br>`;
+          },
         },
         series: [
           {
@@ -70,29 +70,29 @@ export default {
             data: dataArrayTime,
             color: '#AEECEF',
             style: {
-              'fontSize': '10px',
-              'color': '#AEECEF'
-            }
-          }
+              fontSize: '10px',
+              color: '#AEECEF',
+            },
+          },
         ],
         xAxis: {
           title: {
             enabled: true,
             text: 'Date',
             style: {
-              'fontSize': '10px',
-              'color': 'white'
-            }
+              fontSize: '10px',
+              color: 'white',
+            },
           },
           categories: dateFormatted,
           labels: {
             style: {
-              color: 'white'
-            }
+              color: 'white',
+            },
           },
           startOnTick: true,
           endOnTick: true,
-          showLastLabel: true
+          showLastLabel: true,
         },
         yAxis: {
           type: 'datetime',
@@ -102,23 +102,23 @@ export default {
             text: 'Time (s)',
             color: 'white',
             style: {
-              'fontSize': '10px',
-              'color': 'white'
-            }
+              fontSize: '10px',
+              color: 'white',
+            },
           },
           labels: {
             style: {
-              color: 'white'
-            }
+              color: 'white',
+            },
           },
           startOnTick: true,
           endOnTick: true,
-          showLastLabel: true
+          showLastLabel: true,
         },
         legend: {
-          itemStyle: { 'color': 'white' }
-        }
-      })
-    }
-  }
-}
+          itemStyle: { color: 'white' },
+        },
+      });
+    },
+  },
+};

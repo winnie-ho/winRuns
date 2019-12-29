@@ -1,24 +1,24 @@
-<template src="./weekActivities.html"></template>
+<template src='./weekActivities.html'></template>
 <style scoped src='./weekActivities.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
-import changePage from "../../mixins/changePage.js";
+import renderData from '../../mixins/renderData';
+import changePage from '../../mixins/changePage';
 
 export default {
-  name: "weekActivities",
+  name: 'weekActivities',
   mixins: [renderData, changePage],
-  props: ["activitiesInWeek", "toggleWeekView"],
+  props: ['activitiesInWeek', 'toggleWeekView'],
   data() {
     return {
-      dayHasActivities: false
+      dayHasActivities: false,
     };
   },
   methods: {
     dayActivities(day) {
       if (!this.activitiesInWeek) return;
       const dayIndex = Object.keys(this.dayLookUp).find(
-        key => this.dayLookUp[key] === day
+        key => this.dayLookUp[key] === day,
       );
 
       let realIndex = parseInt(dayIndex) + 1;
@@ -26,9 +26,9 @@ export default {
         realIndex = 0;
       }
       if (!this.activitiesInWeek) return;
-      let dayActivities = this.activitiesInWeek
+      const dayActivities = this.activitiesInWeek
         .filter(
-          activity => new Date(activity.start_date).getDay() === realIndex
+          activity => new Date(activity.start_date).getDay() === realIndex,
         )
         .sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
 
@@ -36,7 +36,7 @@ export default {
         this.dayHasActivities = true;
       }
       return dayActivities;
-    }
-  }
+    },
+  },
 };
 </script>

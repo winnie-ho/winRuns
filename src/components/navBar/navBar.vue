@@ -1,43 +1,39 @@
-<template src="./navBar.html"></template>
+<template src='./navBar.html'></template>
 <style scoped src='./navBar.css'></style>
 
 <script src>
-import navBarBtn from "../navBarBtn/navBarBtn.vue";
+import navBarBtn from '../navBarBtn/navBarBtn.vue';
+
 export default {
-  name: "navBar",
+  name: 'navBar',
   components: {
-    navBarBtn
+    navBarBtn,
   },
   data() {
     return {
-      expandBurger: false
+      expandBurger: false,
     };
   },
   props: {
     pageTitle: {
       type: String,
-      required: false
+      required: false,
     },
     showNav: {
       type: Boolean,
-      required: false
-    }
+      required: false,
+    },
   },
   methods: {
     handleBurgerMenu() {
       this.expandBurger = !this.expandBurger;
-      this.$emit("onBurgerMenu", false);
-    }
+      this.$emit('onBurgerMenu', false);
+    },
   },
   computed: {
     athlete() {
-      if (!this.$store.state.athlete) return;
       return this.$store.state.athlete;
     },
-    scrollHeight() {
-      return (scrollHeight = document.body.scrollHeight);
-    }
-  }
+  },
 };
 </script>
-

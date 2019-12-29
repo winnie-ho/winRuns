@@ -2,17 +2,16 @@
 <style scoped src='./parkRunSubBar.css'></style>
 
 <script src>
-  export default {
-    name: 'parkRunSubBar',
-    data () {
-      return {
-      }
-    },
-    props: [],
-    methods: {
-    },
-    computed: {
-    }
-  }
+export default {
+  name: 'parkRunSubBar',
+  data() {
+    return {
+    };
+  },
+  props: [],
+  methods: {
+  },
+  computed: {
+  },
+};
 </script>
-

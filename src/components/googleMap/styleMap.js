@@ -1,134 +1,134 @@
 export const styledMap = [
   {
-    'elementType': 'labels.text.fill',
-    'stylers': [
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        'color': '#3066be'
+        color: '#3066be',
       },
       {
-        'visibility': 'on'
-      }
-    ]
+        visibility: 'on',
+      },
+    ],
   },
   {
-    'featureType': 'administrative.land_parcel',
-    'elementType': 'labels',
-    'stylers': [
+    featureType: 'administrative.land_parcel',
+    elementType: 'labels',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'landscape',
-    'elementType': 'geometry.fill',
-    'stylers': [
+    featureType: 'landscape',
+    elementType: 'geometry.fill',
+    stylers: [
       {
-        'lightness': 55
-      }
-    ]
+        lightness: 55,
+      },
+    ],
   },
   {
-    'featureType': 'poi',
-    'elementType': 'labels.text',
-    'stylers': [
+    featureType: 'poi',
+    elementType: 'labels.text',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'poi.business',
-    'stylers': [
+    featureType: 'poi.business',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'poi.business',
-    'elementType': 'labels',
-    'stylers': [
+    featureType: 'poi.business',
+    elementType: 'labels',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'poi.medical',
-    'stylers': [
+    featureType: 'poi.medical',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'poi.park',
-    'elementType': 'labels.text',
-    'stylers': [
+    featureType: 'poi.park',
+    elementType: 'labels.text',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'poi.school',
-    'stylers': [
+    featureType: 'poi.school',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'road',
-    'elementType': 'geometry.fill',
-    'stylers': [
+    featureType: 'road',
+    elementType: 'geometry.fill',
+    stylers: [
       {
-        'lightness': 85
-      }
-    ]
+        lightness: 85,
+      },
+    ],
   },
   {
-    'featureType': 'road',
-    'elementType': 'geometry.stroke',
-    'stylers': [
+    featureType: 'road',
+    elementType: 'geometry.stroke',
+    stylers: [
       {
-        'lightness': 20
-      }
-    ]
+        lightness: 20,
+      },
+    ],
   },
   {
-    'featureType': 'road.local',
-    'elementType': 'labels',
-    'stylers': [
+    featureType: 'road.local',
+    elementType: 'labels',
+    stylers: [
       {
-        'visibility': 'off'
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    'featureType': 'water',
-    'stylers': [
+    featureType: 'water',
+    stylers: [
       {
-        'lightness': 15
-      }
-    ]
+        lightness: 15,
+      },
+    ],
   },
   {
-    'featureType': 'water',
-    'elementType': 'geometry.fill',
-    'stylers': [
+    featureType: 'water',
+    elementType: 'geometry.fill',
+    stylers: [
       {
-        'color': '#1368c4'
+        color: '#1368c4',
       },
       {
-        'lightness': 55
+        lightness: 55,
       },
       {
-        'visibility': 'on'
-      }
-    ]
-  }
-]
+        visibility: 'on',
+      },
+    ],
+  },
+];
 
-export default styledMap
+export default styledMap;

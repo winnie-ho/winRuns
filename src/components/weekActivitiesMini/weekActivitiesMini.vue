@@ -1,44 +1,40 @@
-<template src="./weekActivitiesMini.html"></template>
+<template src='./weekActivitiesMini.html'></template>
 <style scoped src='./weekActivitiesMini.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
-import changePage from "../../mixins/changePage.js";
-import appData from "../../mixins/appData.js";
+import renderData from '../../mixins/renderData';
+import changePage from '../../mixins/changePage';
+import appData from '../../mixins/appData';
 
 export default {
-  name: "weekActivitiesMini",
+  name: 'weekActivitiesMini',
   mixins: [renderData, changePage, appData],
-  props: ["activitiesInWeek"],
+  props: ['activitiesInWeek'],
   data() {
     return {
       dayHasActivities: false,
-      toggleWeekView: false
+      toggleWeekView: false,
     };
   },
   methods: {
     dayActivities(day) {
       if (!this.activitiesInWeek) return;
       const dayIndex = Object.keys(this.dayLookUp).find(
-        key => this.dayLookUp[key] === day
+        key => this.dayLookUp[key] === day,
       );
 
       let realIndex = parseInt(dayIndex) + 1;
-      if (dayIndex == 6) {
+      if (dayIndex === 6) {
         realIndex = 0;
       }
-      let dayActivities = this.activitiesInWeek.filter(
-        activity => new Date(activity.start_date).getDay() === realIndex
+      return this.activitiesInWeek.filter(
+        activity => new Date(activity.start_date).getDay() === realIndex,
       );
-      let sortedDayActivities = dayActivities.sort(
-        (a, b) => new Date(a.start_date) - new Date(b.start_date)
-      );
-      return dayActivities;
     },
     triggerWeekView() {
       this.toggleWeekView = !this.toggleWeekView;
-      this.$emit("toggleWeekViewChange", this.toggleWeekView);
-    }
-  }
+      this.$emit('toggleWeekViewChange', this.toggleWeekView);
+    },
+  },
 };
 </script>

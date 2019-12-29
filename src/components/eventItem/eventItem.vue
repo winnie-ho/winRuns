@@ -1,25 +1,25 @@
-<template src="./eventItem.html"></template>
+<template src='./eventItem.html'></template>
 <style scoped src='./eventItem.css'></style>
 
 <script>
-import renderData from "../../mixins/renderData.js";
-import changePage from "../../mixins/changePage.js";
-import refresh from "../../mixins/refresh.js";
-import moment from "moment";
+import moment from 'moment';
+import renderData from '../../mixins/renderData';
+import changePage from '../../mixins/changePage';
+import refresh from '../../mixins/refresh';
 
 export default {
-  name: "eventItem",
+  name: 'eventItem',
   components: {},
   mixins: [renderData, changePage, refresh],
-  props: ["event", "pastEvent"],
+  props: ['event', 'pastEvent'],
   data() {
     return {
       viewEvent: false,
-      viewEditButtons: false
+      viewEditButtons: false,
     };
   },
   methods: {
-    resetEvent(e) {
+    resetEvent() {
       this.viewEvent = !this.viewEvent;
     },
     hideEditButtons(e) {
@@ -34,16 +34,15 @@ export default {
       this.viewEditButtons = true;
     },
     editEvent(event) {
-      this.$emit("onEditEvent", event);
+      this.$emit('onEditEvent', event);
     },
     deleteEvent(eventId) {
-      this.$store.dispatch("deleteOrder", eventId);
+      this.$store.dispatch('deleteOrder', eventId);
       setTimeout(this.refreshEvents, 500);
     },
     daysUntilEvent(event) {
       return moment(event.date).toNow(true);
-    }
+    },
   },
-  computed: {}
 };
 </script>
