@@ -110,21 +110,15 @@ export const actions = {
       context.commit('setEvents', transformedEvents);
     });
   },
-  createEvent: (event) => {
-    Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(
-      (data) => data.json(),
-    );
-  },
-  deleteOrder: (eventId) => {
-    Vue.http.delete(`https://win-runs.firebaseio.com/events/${eventId}.json`).then(
-      (data) => data.json(),
-    );
-  },
-  updateEvent: (context, event) => {
-    Vue.http.put(`https://win-runs.firebaseio.com/events/${event.id}.json`, event).then(
-      (data) => data.json(),
-    );
-  },
+  createEvent: (event) => Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(
+    (data) => data.json(),
+  ),
+  deleteOrder: (context, eventId) => Vue.http.delete(`https://win-runs.firebaseio.com/events/${eventId}.json`).then(
+    (data) => data.json(),
+  ),
+  updateEvent: (context, event) => Vue.http.put(`https://win-runs.firebaseio.com/events/${event.id}.json`, event).then(
+    (data) => data.json(),
+  ),
   updateStravaActivity: (context, actionParameters) => {
     Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}?access_token=${sessionStorage.userToken || context.state.userToken}`, actionParameters[1]).then(
       (response) => context.commit('setUpdateStravaActivityResponse', response),
