@@ -110,7 +110,7 @@ export const actions = {
       context.commit('setEvents', transformedEvents);
     });
   },
-  createEvent: (event) => Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(
+  createEvent: (context, event) => Vue.http.post('https://win-runs.firebaseio.com/events.json', event).then(
     (data) => data.json(),
   ),
   deleteOrder: (context, eventId) => Vue.http.delete(`https://win-runs.firebaseio.com/events/${eventId}.json`).then(
