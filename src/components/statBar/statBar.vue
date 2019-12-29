@@ -9,13 +9,19 @@ export default {
   components: {
     statTotal,
   },
-  props: ['stats', 'title'],
   created() {
     this.$store.dispatch('fetchStats');
   },
-  methods: {
-    statType(activityType) {
-      return this.stats[activityType];
+  computed: {
+    stats() {
+      return this.$store.state.stats && {
+        swim: this.$store.state.stats.ytd_swim_totals,
+        ride: this.$store.state.stats.ytd_ride_totals,
+        run: this.$store.state.stats.ytd_run_totals,
+      };
+    },
+    currentYear() {
+      return new Date().getFullYear();
     },
   },
 };

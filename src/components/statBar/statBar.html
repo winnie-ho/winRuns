@@ -1,6 +1,6 @@
 <div id='stat-bar' class='row'>
-  <div class='title-box'>{{ title }}</div>
-  <stat-total type='run' :statType='statType("run")'></stat-total>
-  <stat-total type='ride' :statType='statType("ride")'></stat-total>
-  <stat-total type='swim' :statType='statType("swim")'></stat-total>
+  <div class='title-box'>{{ currentYear }}</div>
+  <stat-total type='run' :statType='stats.run'></stat-total>
+  <stat-total type='ride' :statType='stats.ride'></stat-total>
+  <stat-total type='swim' :statType='stats.swim'></stat-total>
 </div>

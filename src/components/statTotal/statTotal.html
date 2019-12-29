@@ -5,25 +5,25 @@
         {{ title }}
       </div>
       <div>
-        {{ statTypeCount }}
+        {{ statType && statType.count }}
       </div>
       <div>
         <img class='icon--stat' src='../../../static/assets/svgs/icon_distance.svg' />
       </div>
       <div>
-        {{ renderDistance(statTypeDistance, true) }}
+        {{ renderDistance(statType && statType.distance, true) }}
       </div>
       <div>
         <img class='icon--stat' src='../../../static/assets/svgs/icon_time.svg' />
       </div>
       <div>
-        {{ renderTime(statTypeTime, true) }}
+        {{ renderTime(statType && statType.moving_time, true) }}
       </div>
       <div>
         <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation.svg' />
       </div>
       <div>
-        {{ renderElevation(statTypeElevation, true) }}
+        {{ renderElevation(statType && statType.elevation_gain, true) }}
       </div>
     </li>
   </ul>
