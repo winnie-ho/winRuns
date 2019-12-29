@@ -51,7 +51,6 @@ export default {
       this.tokenExchange();
     },
     login() {
-      console.log('LOGGING IN...');
       window.location = `https://www.strava.com/oauth/authorize?client_id=${this.client_id}&response_type=code&redirect_uri=${this.redirect_url}&scope=read_all,activity:read_all,activity:write&state=mystate&approval_prompt=auto`;
 
       if (this.authCode) {

@@ -6,6 +6,10 @@ import { actions } from './actions';
 Vue.use(Vuex);
 Vue.use(VueResource);
 
+/* eslint-disable no-return-assign */
+/* eslint-disable no-param-reassign */
+/* eslint-disable import/prefer-default-export */
+
 export const store = new Vuex.Store({
   state: {
     athlete: {},
@@ -63,26 +67,15 @@ export const store = new Vuex.Store({
     setActivitiesInPeriod: (state, payload) => (state.activitiesInPeriod = payload),
   },
   getters: {
-    parkRuns: (state) => {
-      if (!state.selectedParkRun.startCoords) return;
-      return state.activities.filter((activity) => {
-        if (activity.start_latitude && activity.start_longitude) {
-          return activity.start_latitude.toFixed(2) === state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) === state.selectedParkRun.startCoords[1];
-        }
-      });
-    },
-    dateOrderedFullParkRuns: (state) => {
-      if (!state.fullParkRuns) return;
-      return state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
-    },
-    kmSessions: (state) => {
-      if (!state.activities.length) return;
-      return state.activities.filter((activity) => activity.name.search('5x 1km') !== -1);
-    },
-    dateOrderedFullKmSessions: (state) => {
-      if (!state.fullKmSessions) return;
-      return state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
-    },
+    parkRuns: (state) => state.selectedParkRun.startCoords && state.activities.filter((activity) => {
+      if (activity.start_latitude && activity.start_longitude) {
+        return activity.start_latitude.toFixed(2) === state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) === state.selectedParkRun.startCoords[1];
+      }
+      return [];
+    }),
+    dateOrderedFullParkRuns: (state) => state.full && state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
+    kmSessions: (state) => state.activities.length && state.activities.filter((activity) => activity.name.search('5x 1km') !== -1),
+    dateOrderedFullKmSessions: (state) => state.fullKmSessions && state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
   },
-  actions: actions,
+  actions,
 });

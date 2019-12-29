@@ -102,7 +102,6 @@ export default {
       return this.lapMarkers && this.lapMarkers.slice().sort((a, b) => a - b);
     },
     lapCalcTimeResult() {
-      if (!this.sortedLapMarkers) return;
       let lapTimeCounter = 0;
       for (
         let i = this.sortedLapMarkers[0];
@@ -111,10 +110,9 @@ export default {
       ) {
         lapTimeCounter += this.laps[i].moving_time;
       }
-      return lapTimeCounter;
+      return this.sortedLapMarkers && lapTimeCounter;
     },
     lapCalcDistanceResult() {
-      if (!this.sortedLapMarkers) return;
       let lapDistanceCounter = 0;
       for (
         let i = this.sortedLapMarkers[0];
@@ -123,7 +121,7 @@ export default {
       ) {
         lapDistanceCounter += this.laps[i].distance;
       }
-      return lapDistanceCounter;
+      return this.sortedLapMarkers && lapDistanceCounter;
     },
     lapCountInCalc() {
       if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;

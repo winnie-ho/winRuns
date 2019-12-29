@@ -5,6 +5,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import auth from './pages/auth/auth.vue';
 import home from './pages/home/home.vue';
 import parkRun from './pages/parkRun/parkRun.vue';

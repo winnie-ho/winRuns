@@ -2,6 +2,8 @@
 <style scoped src='./googleMap.css'></style>
 
 <script>
+/* eslint-disable no-undef */
+
 import styledMap from './styleMap';
 
 export default {

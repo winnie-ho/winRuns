@@ -97,8 +97,7 @@ export default {
       return this.parkRuns[0];
     },
     numOfAttempts() {
-      if (!this.$store.state.fullParkRuns[0]) return;
-      return this.$store.state.fullParkRuns[0].similar_activities.effort_count;
+      return this.$store.state.fullParkRuns.length && this.$store.state.fullParkRuns[0].similar_activities.effort_count;
     },
     completeParkRuns() {
       return this.parkRuns && this.parkRuns.filter(parkRun => parkRun.distance > 5000);
@@ -112,12 +111,7 @@ export default {
       return timeOrderedParkRuns;
     },
     fastestParkRun() {
-      if (!this.completeParkRuns) {
-        return this.defaultParkRun;
-      }
-      return this.completeParkRuns.sort(
-        (a, b) => a.moving_time - b.moving_time,
-      )[0];
+      return !this.completeParkRuns ? this.defaultParkRun : this.completeParkRuns.sort((a, b) => a.moving_time - b.moving_time)[0];
     },
   },
 };
