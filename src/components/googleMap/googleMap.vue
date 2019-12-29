@@ -4,7 +4,7 @@
 <script>
 /* eslint-disable no-undef */
 
-import styledMap from './styleMap';
+import { styledMap } from './styleMap';
 
 export default {
   name: 'googleMap',

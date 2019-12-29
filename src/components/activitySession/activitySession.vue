@@ -56,17 +56,16 @@ export default {
 
         if (this.finalLaps.length > 6) {
           rankMark = '';
-          for (let i = 0; i < this.fastestSessionEffortIds.length; i++) {
-            if (this.fastestSessionEffortIds[i] === effort.id) {
-              rankMark = this.rankMarkIcon[i];
+          for (let j = 0; j < this.fastestSessionEffortIds.length; j++) {
+            if (this.fastestSessionEffortIds[j] === effort.id) {
+              rankMark = this.rankMarkIcon[j];
             }
           }
         }
 
         if (type === 'Swim') {
           sessionString = `${sessionString + index} - ${this.renderSwimDistance(effort.distance)},
-          ${this.renderTime(effort.moving_time)} (${this.renderSwimPace(effort.moving_time,
-          effort.distance)}) ${rankMark}\n`;
+          ${this.renderTime(effort.moving_time)} (${this.renderSwimPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
         } else {
           sessionString = `${sessionString + index}\t - \t${this.renderDistance(effort.distance)},
           \t${this.renderTime(effort.moving_time)}\t(${this.renderPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
