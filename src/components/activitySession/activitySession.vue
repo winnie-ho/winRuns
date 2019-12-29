@@ -64,11 +64,9 @@ export default {
         }
 
         if (type === 'Swim') {
-          sessionString = `${sessionString + index} - ${this.renderSwimDistance(effort.distance)},
-          ${this.renderTime(effort.moving_time)} (${this.renderSwimPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
+          sessionString = `${sessionString + index} - ${this.renderSwimDistance(effort.distance)}, ${this.renderTime(effort.moving_time)} (${this.renderSwimPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
         } else {
-          sessionString = `${sessionString + index}\t - \t${this.renderDistance(effort.distance)},
-          \t${this.renderTime(effort.moving_time)}\t(${this.renderPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
+          sessionString = `${sessionString + index} - ${this.renderDistance(effort.distance)}, ${this.renderTime(effort.moving_time)} (${this.renderPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
         }
 
         i++;
@@ -79,9 +77,6 @@ export default {
   computed: {
     activity() {
       return this.$store.state.activity;
-    },
-    laps() {
-      return this.$store.state.activity.laps;
     },
     finalLaps() {
       if (!this.sessionEfforts) return [];
