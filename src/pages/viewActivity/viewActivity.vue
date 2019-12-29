@@ -137,7 +137,7 @@ export default {
       return this.$store.state.activity.photos.count;
     },
     hasMapPolyline() {
-      return this.$store.state.activity.map.summary_polyline;
+      return this.$store.state.activity.map && this.$store.state.activity.map.summary_polyline;
     },
   },
 };
