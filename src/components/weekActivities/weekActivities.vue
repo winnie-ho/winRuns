@@ -22,10 +22,9 @@ export default {
       );
 
       let realIndex = parseInt(dayIndex) + 1;
-      if (dayIndex == 6) {
+      if (dayIndex === 6) {
         realIndex = 0;
       }
-      if (!this.activitiesInWeek) return;
       const dayActivities = this.activitiesInWeek
         .filter(
           activity => new Date(activity.start_date).getDay() === realIndex,
@@ -35,7 +34,7 @@ export default {
       if (dayActivities.length === 0) {
         this.dayHasActivities = true;
       }
-      return dayActivities;
+      return this.activitiesInWeek && dayActivities;
     },
   },
 };
