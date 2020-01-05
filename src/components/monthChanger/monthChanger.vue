@@ -74,9 +74,9 @@ export default {
           this.yearInView,
           zeroedMonth,
           this.daysInMonthInView,
-          0,
-          0,
-          0,
+          23,
+          59,
+          59,
         ).getTime() / 1000
       );
     },
