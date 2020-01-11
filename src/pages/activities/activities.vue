@@ -71,8 +71,8 @@ export default {
       const options = {
         before: timeMarkers.before,
         after: timeMarkers.after,
-        pageNumber: 1,
         activitiesPerPage: 200,
+        pageRequests: 1,
       };
 
       this.$store.dispatch('fetchActivitiesInPeriod', options);

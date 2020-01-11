@@ -34,9 +34,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch('fetchActivities', 15);
     this.$store.dispatch('fetchStats');
-    this.$store.dispatch('fetchActivities', 200);
   },
   methods: {
     setToggleWeekView(event) {
@@ -49,8 +47,8 @@ export default {
       const options = {
         before: timeMarkers.before,
         after: timeMarkers.after,
-        pageNumber: 1,
         activitiesPerPage: 50,
+        pageRequests: 1,
       };
 
       this.$store.dispatch('fetchActivitiesInPeriod', options);

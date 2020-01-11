@@ -67,12 +67,7 @@ export const store = new Vuex.Store({
     setActivitiesInPeriod: (state, payload) => (state.activitiesInPeriod = payload),
   },
   getters: {
-    parkRuns: (state) => state.selectedParkRun.startCoords && state.activities.filter((activity) => {
-      if (activity.start_latitude && activity.start_longitude) {
-        return activity.start_latitude.toFixed(2) === state.selectedParkRun.startCoords[0] && activity.start_longitude.toFixed(2) === state.selectedParkRun.startCoords[1];
-      }
-      return [];
-    }),
+    parkRuns: (state) => state.selectedParkRun.startCoords && state.activitiesInPeriod.filter((activity) => activity.start_latitude && activity.start_latitude.toFixed(2) == 55.98 && activity.start_longitude && activity.start_longitude.toFixed(2) == -3.29).sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
     dateOrderedFullParkRuns: (state) => state.full && state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
     kmSessions: (state) => state.activities.length && state.activities.filter((activity) => activity.name.search('5x 1km') !== -1),
     dateOrderedFullKmSessions: (state) => state.fullKmSessions && state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),

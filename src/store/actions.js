@@ -16,17 +16,24 @@ export const actions = {
       (response) => context.commit('setActivities', response.data),
     );
   },
-  fetchActivitiesInPeriod: (context, pageInstructions) => {
+  fetchActivitiesInPeriod: (context, options) => {
     const {
-      pageNumber,
       activitiesPerPage,
       before,
       after,
-    } = pageInstructions;
+      pageRequests,
+    } = options;
 
-    Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${pageNumber}&per_page=${activitiesPerPage}&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-      (response) => context.commit('setActivitiesInPeriod', response.data),
-    );
+    const activities = [];
+
+    for (let i = 1; i <= pageRequests; i++) {
+      Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?before=${before}&after=${after}&page=${i}&per_page=${activitiesPerPage}&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
+        (response) => {
+          activities.push(...response.data);
+        },
+      );
+    }
+    context.commit('setActivitiesInPeriod', activities);
   },
   fetchActivity: (context, activityId) => {
     Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
