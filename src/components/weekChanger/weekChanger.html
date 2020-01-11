@@ -5,7 +5,7 @@
   </div>
 
   <div class="heading" id="dateInView">
-    <h3>{{ weekInViewString(weekInView) }}</h3>
+    <h3>{{ weekInViewString() }}</h3>
   </div>
 
   <div @click='changeWeek(-1)' class='arrow' :class='{ disable: forwardArrowDisable }'>

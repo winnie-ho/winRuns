@@ -14,7 +14,11 @@ export default {
       dayHasActivities: false,
       toggleWeekView: true,
       forwardArrowDisable: false,
+      msInWeek: 7 * 24 * 60 * 60 * 1000,
     };
+  },
+  created() {
+    this.changeWeek(0);
   },
   methods: {
     changeWeek(num) {
@@ -22,8 +26,12 @@ export default {
       if (this.weekInViewIndex < 0) {
         this.weekInViewIndex = 0;
       }
+      const afterMarker = new Date(this.lastMonday - this.weekInViewIndex * this.msInWeek);
+      const beforeMarker = new Date(this.lastMonday - (this.weekInViewIndex - 1) * this.msInWeek);
+
+      this.getWeekInView(beforeMarker, afterMarker);
     },
-    weekInViewString(weekInView) {
+    weekInViewString() {
       if (this.weekInViewIndex <= 0) {
         this.forwardArrowDisable = true;
         return 'THIS WEEK';
@@ -33,7 +41,14 @@ export default {
         return 'LAST WEEK';
       }
       this.forwardArrowDisable = false;
-      return weekInView;
+      const date = new Date(this.lastMonday - this.weekInViewIndex * this.msInWeek);
+      return this.renderDate(date, 'long');
+    },
+    getWeekInView(beforeMarker, afterMarker) {
+      this.$emit('weekInViewChange', {
+        before: new Date(beforeMarker).getTime() / 1000,
+        after: new Date(afterMarker).getTime() / 1000,
+      });
     },
   },
   computed: {
@@ -44,22 +59,6 @@ export default {
       const todayDay = todayDate.getDay();
       const diff = todayDay - (todayDay === 0 ? -6 : 1);
       return new Date(timeNowZeroed - diff * 24 * msHour);
-    },
-    weekInView() {
-      const afterMarker = new Date(
-        this.lastMonday - this.weekInViewIndex * 7 * 24 * 60 * 60 * 1000,
-      );
-
-      const beforeMarker = new Date(
-        this.lastMonday - (this.weekInViewIndex - 1) * 7 * 24 * 60 * 60 * 1000,
-      );
-
-      this.$emit('weekInViewChange', {
-        before: new Date(beforeMarker).getTime() / 1000,
-        after: new Date(afterMarker).getTime() / 1000,
-      });
-
-      return this.renderDate(afterMarker, 'long');
     },
   },
 };
