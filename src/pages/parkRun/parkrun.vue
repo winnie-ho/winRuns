@@ -23,19 +23,15 @@ export default {
         moving_time: 0,
         elapsed_time: 0,
         start_date: '',
-        start_latlng: null,
-        end_latlng: null,
+        start_latlng: 0,
+        end_latlng: 0,
       },
     };
   },
   mixins: [parkRunDict, renderData],
-  mounted() {
-    this.$store.dispatch('fetchActivities', 200);
+  created() {
     this.$store.dispatch('fetchFullParkRuns');
     this.createParkRunChart(this.parkRuns);
-  },
-
-  created() {
     this.setDefaultParkRunName();
     this.setParkRunLocation();
   },

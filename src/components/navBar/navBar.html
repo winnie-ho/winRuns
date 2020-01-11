@@ -14,7 +14,7 @@
       </nav-bar-btn>
 
       <nav-bar-btn v-show='athlete.id===3752965' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
-        :btnIcon='"../../../static/assets/icon_park_run_logo.png"' :path="'/parkRun'" :title='"Park run"'>
+        :btnIcon='"../../../static/assets/icon_park_run_logo.png"' :path="'/parkRunMain'" :title='"Park run"'>
       </nav-bar-btn>
 
       <nav-bar-btn :pages='["/kmSplits"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/kmSplits"'
@@ -61,7 +61,7 @@
       <img src='../../../static/assets/icon_activities.png' class='burger-icon' />
       ACTIVITIES
     </router-link>
-    <router-link to="/parkRun" exact class='burger-item col' v-show='athlete.id===3752965'>
+    <router-link to="/parkRunMain" exact class='burger-item col' v-show='athlete.id===3752965'>
       <img src='../../../static/assets/icon_park_run_logo.png' class='burger-icon' />
       PARK RUN
     </router-link>

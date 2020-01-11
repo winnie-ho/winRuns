@@ -9,6 +9,7 @@
 /* eslint-disable import/no-unresolved */
 import auth from './pages/auth/auth.vue';
 import home from './pages/home/home.vue';
+import parkRunMain from './pages/parkRunMain/parkRunMain.vue';
 import parkRun from './pages/parkRun/parkRun.vue';
 import activities from './pages/activities/activities.vue';
 import parkRunActivities from './pages/parkRunActivities/parkRunActivities.vue';
@@ -18,6 +19,7 @@ export default {
   components: {
     auth,
     home,
+    parkRunMain,
     parkRun,
     activities,
     parkRunActivities,

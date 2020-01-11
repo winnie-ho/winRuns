@@ -1,0 +1,8 @@
+<div id='parkrunMain'>
+  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+  <div class='sub-bar sub-bar__collapsed row'>
+  </div>
+  <h1>{{ yearInView }}</h1>
+  <h2>{{ parkRuns.length }}</h2>
+  <div v-for='parkRun in parkRuns' :key='parkRun.index'>{{ parkRun.start_date }} {{ parkRun.name }}</div>
+</div>
