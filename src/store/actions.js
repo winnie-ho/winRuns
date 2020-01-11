@@ -11,11 +11,6 @@ export const actions = {
       (response) => context.commit('setStats', response.data),
     );
   },
-  fetchActivities: (context, numberOfActivities) => {
-    Vue.http.get(`https://www.strava.com/api/v3/athlete/activities?per_page=${numberOfActivities}&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
-      (response) => context.commit('setActivities', response.data),
-    );
-  },
   fetchActivitiesInPeriod: (context, options) => {
     const {
       activitiesPerPage,

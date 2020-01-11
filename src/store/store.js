@@ -15,7 +15,6 @@ export const store = new Vuex.Store({
   state: {
     athlete: {},
     stats: {},
-    activities: {},
     activity: {},
     kudos: {},
     photos: {},
@@ -38,7 +37,6 @@ export const store = new Vuex.Store({
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
     setStats: (state, payload) => (state.stats = payload),
-    setActivities: (state, payload) => (state.activities = payload),
     setActivity: (state, payload) => (state.activity = payload),
     setKudos: (state, payload) => (state.kudos = payload),
     setPhotos: (state, payload) => (state.photos = payload),

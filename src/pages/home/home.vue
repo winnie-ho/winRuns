@@ -55,9 +55,6 @@ export default {
     },
   },
   computed: {
-    activities() {
-      return this.$store.state.activities;
-    },
     activitiesInWeek() {
       return this.$store.state.activitiesInPeriod;
     },
