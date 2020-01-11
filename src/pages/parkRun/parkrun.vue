@@ -3,7 +3,7 @@
 
 <script>
 import navBar from '../../components/navBar/navBar.vue';
-import parkRunDict from '../../mixins/parkRunDict';
+import parkRunDirectory from '../../mixins/parkRunDirectory';
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
 import renderData from '../../mixins/renderData';
 
@@ -28,22 +28,22 @@ export default {
       },
     };
   },
-  mixins: [parkRunDict, renderData],
+  mixins: [parkRunDirectory, renderData],
   created() {
-    this.$store.dispatch('fetchFullParkRuns');
-    this.createParkRunChart(this.parkRuns);
+    // this.$store.dispatch('fetchFullParkRuns');
+    // this.createParkRunChart(this.parkRuns);
     this.setDefaultParkRunName();
     this.setParkRunLocation();
   },
 
   methods: {
     setDefaultParkRunName() {
-      this.selectedParkRunName = this.parkRunDict.find(
+      this.selectedParkRunName = this.parkRunDirectory.find(
         parkRun => parkRun.default === true,
       ).name;
     },
     setParkRunLocation() {
-      const selectedParkRun = this.parkRunDict.find(
+      const selectedParkRun = this.parkRunDirectory.find(
         parkRun => parkRun.name === this.selectedParkRunName,
       );
       this.$store.dispatch('setSelectedParkRun', selectedParkRun);

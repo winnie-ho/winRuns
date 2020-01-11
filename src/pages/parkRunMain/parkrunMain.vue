@@ -4,7 +4,6 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
-import parkRunDict from '../../mixins/parkRunDict';
 
 export default {
   name: 'parkRunMain',
@@ -17,7 +16,7 @@ export default {
       yearInView: new Date().getFullYear() - 1,
     };
   },
-  mixins: [renderData, parkRunDict],
+  mixins: [renderData],
   created() {
     const beforeMarker = new Date(
       this.yearInView,

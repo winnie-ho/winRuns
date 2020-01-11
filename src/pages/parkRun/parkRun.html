@@ -6,7 +6,8 @@
 
     <div id='last-pr'>
       <select id="park-run-select" v-model='selectedParkRunName' @change='setParkRunLocation()'>
-        <option v-for='parkRun in parkRunDict' :key='parkRun.index' :value='parkRun.name'>{{ parkRun.name }}</option>
+        <option v-for='parkRun in parkRunDirectory' :key='parkRun.index' :value='parkRun.name'>{{ parkRun.name }}
+        </option>
       </select>
 
       <div>LAST RAN: {{ renderDate(latestParkRun.start_date, "long") }}</div>
