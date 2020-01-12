@@ -21,7 +21,7 @@
 }
 
 .disable{
-  cursor: none;
+  pointer-events: none;
   filter: opacity(10%);
 }
 
