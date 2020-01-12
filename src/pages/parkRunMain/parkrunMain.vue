@@ -51,6 +51,16 @@ export default {
   methods: {
     setYear(yearInView) {
       this.yearInView = yearInView;
+      const beforeMarker = new Date(this.yearInView, 11, 31, 23, 59, 59).getTime() / 1000;
+      const afterMarker = new Date(this.yearInView, 0, 1, 0, 0, 0).getTime() / 1000;
+
+      const options = {
+        before: beforeMarker,
+        after: afterMarker,
+        activitiesPerPage: 200,
+        pageRequests: 2,
+      };
+      this.$store.dispatch('fetchActivitiesInPeriod', options);
     },
   },
   computed: {

@@ -73,12 +73,12 @@ export const store = new Vuex.Store({
         new Date(activity.start_date_local).getDay() === 6
         || (new Date(activity.start_date_local).getMonth() === 11 && new Date(activity.start_date_local).getDate() === 25)
         || (new Date(activity.start_date_local).getMonth() === 0 && new Date(activity.start_date_local).getDate() === 1)
-
       ));
+      console.log('final runs', runsOnCorrectDay);
       const finalRuns = [];
       runsOnCorrectDay.forEach(run => {
         parkRunDirectory.forEach(parkRunLocation => {
-          if (run.start_latitude.toFixed(2) == parkRunLocation.startCoords[0] && run.start_longitude.toFixed(2) == parkRunLocation.startCoords[1]) {
+          if (run.start_latitude && run.start_latitude.toFixed(2) == parkRunLocation.startCoords[0] && run.start_longitude && run.start_longitude.toFixed(2) == parkRunLocation.startCoords[1]) {
             finalRuns.push(run);
           }
         });
