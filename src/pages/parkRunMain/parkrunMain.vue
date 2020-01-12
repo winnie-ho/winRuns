@@ -67,6 +67,10 @@ export default {
     parkRuns() {
       return this.$store.getters.parkRuns;
     },
+    fastestParkRunOfYear() {
+      const completeParkRuns = this.parkRuns.slice().filter(parkRun => parkRun.distance >= 5000);
+      return completeParkRuns.sort((b, a) => b.moving_time - a.moving_time)[0];
+    },
   },
 };
 </script>

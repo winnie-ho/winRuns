@@ -5,6 +5,9 @@
   </div>
   <h1>{{ yearInView }}</h1>
   <h2>{{ parkRuns.length }} Park runs</h2>
+  <h2>Fastest: {{ renderTime(fastestParkRunOfYear.moving_time) }}</h2>
+  <h2>{{ renderDate(fastestParkRunOfYear.start_date) }}</h2>
+  <h2>{{ renderPace(fastestParkRunOfYear.moving_time, fastestParkRunOfYear.distance) }}</h2>
   <tr>
   <tr>
     <th>Date</th>

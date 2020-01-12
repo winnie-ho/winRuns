@@ -74,7 +74,6 @@ export const store = new Vuex.Store({
         || (new Date(activity.start_date_local).getMonth() === 11 && new Date(activity.start_date_local).getDate() === 25)
         || (new Date(activity.start_date_local).getMonth() === 0 && new Date(activity.start_date_local).getDate() === 1)
       ));
-      console.log('final runs', runsOnCorrectDay);
       const finalRuns = [];
       runsOnCorrectDay.forEach(run => {
         parkRunDirectory.forEach(parkRunLocation => {
@@ -84,7 +83,7 @@ export const store = new Vuex.Store({
         });
       });
 
-      return finalRuns;
+      return finalRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
     },
     dateOrderedFullParkRuns: (state) => state.full && state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
     kmSessions: (state) => state.activities.length && state.activities.filter((activity) => activity.name.search('5x 1km') !== -1),
