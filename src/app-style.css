@@ -188,6 +188,7 @@ button[disabled]{
   border: 1px solid #3066BE;
   background-color: #6D9DC5;
   color: #3066BE;
+  pointer-events: none;
 }
 
 .btn{
