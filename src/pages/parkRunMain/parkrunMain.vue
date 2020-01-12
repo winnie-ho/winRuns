@@ -4,6 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
+import parkRunDirectory from '../../mixins/parkRunDirectory';
 import yearChanger from '../../components/yearChanger/yearChanger.vue';
 
 export default {
@@ -18,7 +19,7 @@ export default {
       yearInView: new Date().getFullYear(),
     };
   },
-  mixins: [renderData],
+  mixins: [renderData, parkRunDirectory],
   created() {
     const beforeMarker = new Date(
       this.yearInView,
@@ -70,6 +71,18 @@ export default {
     fastestParkRunOfYear() {
       const completeParkRuns = this.parkRuns.slice().filter(parkRun => parkRun.distance >= 5000);
       return completeParkRuns.sort((b, a) => b.moving_time - a.moving_time)[0];
+    },
+    numberOfDifferentParkRuns() {
+      const uniqueParkRuns = [...new Set(this.parkRuns.map(parkRun => parkRun.start_latlng[0].toFixed(2) && parkRun.start_latlng[1].toFixed(2)))];
+      return uniqueParkRuns;
+    },
+    averageTime() {
+      const totalTimeInSeconds = this.parkRuns.reduce((totalTime, parkRun) => totalTime + parkRun.moving_time, 0);
+      return totalTimeInSeconds / this.parkRuns.length;
+    },
+    averageDistance() {
+      const totalDistance = this.parkRuns.reduce((total, parkRun) => total + parkRun.distance, 0);
+      return totalDistance / this.parkRuns.length;
     },
   },
 };

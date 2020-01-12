@@ -5,25 +5,35 @@
   </div>
   <h1>{{ yearInView }}</h1>
   <h2>{{ parkRuns.length }} Park runs</h2>
-  <h2>Fastest: {{ renderTime(fastestParkRunOfYear.moving_time) }}</h2>
-  <h2>{{ renderDate(fastestParkRunOfYear.start_date) }}</h2>
-  <h2>{{ renderPace(fastestParkRunOfYear.moving_time, fastestParkRunOfYear.distance) }}</h2>
-  <tr>
-  <tr>
-    <th>Date</th>
-    <th>Name</th>
-    <th>Time</th>
-  </tr>
-  <tr v-for='parkRun in parkRuns' :key='parkRun.index'>
-    <td>
-      {{ renderDate(parkRun.start_date) }}
-    </td>
-    <td>
-      {{ parkRun.name }}
-    </td>
-    <td>
-      {{ renderTime(parkRun.moving_time) }}
-    </td>
-  </tr>
+  <h3>Fastest Park Run</h3>
+  <h4>
+    {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date) }}
+  </h4>
+  <h2>
+    {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}
+    {{ renderTime(fastestParkRunOfYear && fastestParkRunOfYear.moving_time) }}
+    {{ renderPace(fastestParkRunOfYear && fastestParkRunOfYear.moving_time, fastestParkRunOfYear && fastestParkRunOfYear.distance) }}
+  </h2>
+  <h3>Average time: {{ renderTime(averageTime) }}</h3>
+  <h3>Average pace: {{ renderPace(averageTime, averageDistance) }}</h3>
+  {{ numberOfDifferentParkRuns.length }} different Park Run(s)
+  <hr>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Time</th>
+    </tr>
+    <tr v-for='parkRun in parkRuns' :key='parkRun.index'>
+      <td>
+        {{ renderDate(parkRun.start_date) }}
+      </td>
+      <td>
+        {{ parkRun.name }}
+      </td>
+      <td>
+        {{ renderTime(parkRun.moving_time) }}
+      </td>
+    </tr>
   </table>
 </div>
