@@ -19,6 +19,8 @@ export default {
       this.yearInView += num;
       if (this.yearInView > this.currentYear) {
         this.yearInView = this.currentYear;
+      } else if (this.yearInView < 2011) {
+        this.yearInView = 2011;
       }
       this.rawTimeInView = new Date(`${this.yearInView}`);
       this.$emit('onYearChange', this.yearInView);
@@ -31,9 +33,6 @@ export default {
   computed: {
     currentYear() {
       return new Date(new Date().getFullYear());
-    },
-    isCurrentYear() {
-      return this.yearInView >= this.currentYear;
     },
   },
 };

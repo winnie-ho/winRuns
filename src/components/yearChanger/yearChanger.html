@@ -1,6 +1,6 @@
 <div id='year-changer' class='row sa'>
 
-  <div @click='changeYear(-1)' class='arrow'>
+  <div @click='changeYear(-1)' class='arrow' :class='{ disable: yearInView === 2011 }'>
     <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
   </div>
 
@@ -8,7 +8,7 @@
     @change='setYearInView($event)' format='yyyy' size='small'>
   </el-date-picker>
 
-  <div @click='changeYear(1)' class='arrow' :class='{ disable: isCurrentYear }'>
+  <div @click='changeYear(1)' class='arrow' :class='{ disable: yearInView >= currentYear }'>
     <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
   </div>
 </div>
