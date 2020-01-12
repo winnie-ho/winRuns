@@ -24,7 +24,7 @@ export default {
       );
 
       let realIndex = parseInt(dayIndex) + 1;
-      if (dayIndex === 6) {
+      if (dayIndex == 6) {
         realIndex = 0;
       }
       return this.activitiesInWeek.filter(
