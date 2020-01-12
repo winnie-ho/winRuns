@@ -1,8 +1,26 @@
 <div id='parkrunMain'>
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
-  <div class='sub-bar sub-bar__collapsed row'>
+  <div class='sub-bar row'>
+    <year-changer v-on:onYearChange='setYear($event)'></year-changer>
   </div>
   <h1>{{ yearInView }}</h1>
-  <h2>{{ parkRuns.length }}</h2>
-  <div v-for='parkRun in parkRuns' :key='parkRun.index'>{{ parkRun.start_date }} {{ parkRun.name }}</div>
+  <h2>{{ parkRuns.length }} Park runs</h2>
+  <tr>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Time</th>
+  </tr>
+  <tr v-for='parkRun in parkRuns' :key='parkRun.index'>
+    <td>
+      {{ renderDate(parkRun.start_date) }}
+    </td>
+    <td>
+      {{ parkRun.name }}
+    </td>
+    <td>
+      {{ renderTime(parkRun.moving_time) }}
+    </td>
+  </tr>
+  </table>
 </div>

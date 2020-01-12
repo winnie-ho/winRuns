@@ -4,16 +4,18 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
+import yearChanger from '../../components/yearChanger/yearChanger.vue';
 
 export default {
   name: 'parkRunMain',
   components: {
     navBar,
+    yearChanger,
   },
   data() {
     return {
       pageTitle: 'PARK RUN',
-      yearInView: new Date().getFullYear() - 1,
+      yearInView: new Date().getFullYear(),
     };
   },
   mixins: [renderData],
@@ -47,7 +49,9 @@ export default {
 
 
   methods: {
-
+    setYear(yearInView) {
+      this.yearInView = yearInView;
+    },
   },
   computed: {
     parkRuns() {
