@@ -6,12 +6,14 @@ import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
 import parkRunDirectory from '../../mixins/parkRunDirectory';
 import yearChanger from '../../components/yearChanger/yearChanger.vue';
+import googleMap from '../../components/googleMap/googleMap.vue';
 
 export default {
   name: 'parkRunMain',
   components: {
     navBar,
     yearChanger,
+    googleMap,
   },
   data() {
     return {

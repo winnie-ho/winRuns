@@ -66,7 +66,7 @@ export default {
     routeLine() {
       const routeLine = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(
-          this.activity.map.polyline,
+          this.activity.map.polyline || this.activity.map.summary_polyline,
         ),
         geodesic: true,
         strokeColor: '#FF595E',
