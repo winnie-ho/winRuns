@@ -1,12 +1,10 @@
 <div id='auth' ref='auth'>
   <nav-bar :pageTitle='pageTitle' :showNav='false'></nav-bar>
 
-  <div class='strava-container' v-show='!athlete.id'>
-    <el-button id="strava-button" @click="login" type='primary'>
-      <h3>CONNECT TO</h3>
-      <img src="../../../static/assets/icon_strava.png" class='icon strava' />
-    </el-button>
-  </div>
+  <el-button id="strava-button" @click="login" type='primary' v-show='!athlete.id'>
+    <h3>CONNECT TO</h3>
+    <img src="../../../static/assets/icon_strava.png" class='icon strava' />
+  </el-button>
 
   <div class='col profile' v-show='athlete.id'>
     <h4>You're connected!</h4>
