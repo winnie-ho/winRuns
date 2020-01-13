@@ -86,6 +86,9 @@ export default {
       const totalDistance = this.parkRuns.reduce((total, parkRun) => total + parkRun.distance, 0);
       return totalDistance / this.parkRuns.length;
     },
+    totalParkRunKudosInYear() {
+      return this.parkRuns.reduce((totalKudos, parkRun) => totalKudos + parkRun.kudos_count, 0);
+    },
   },
 };
 </script>

@@ -12,6 +12,7 @@
   <div v-show='parkRuns.length > 0'>
     <h1>{{ yearInView }}</h1>
     <h2>{{ parkRuns.length }} Park runs</h2>
+    <h2>{{ totalParkRunKudosInYear }}x 👍🏻</h2>
     <h3>Fastest Park Run</h3>
     <h4>
       {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date) }}
