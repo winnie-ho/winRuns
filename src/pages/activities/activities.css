@@ -32,10 +32,3 @@
   filter: opacity(40%) blur(1px);
   box-sizing: content-box;
 }
-
-.loader {
-  position: absolute;
-  top: 50%;
-  width: 100vw;
-  margin: auto;
-}

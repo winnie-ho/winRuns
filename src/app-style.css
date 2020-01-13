@@ -273,6 +273,13 @@ button[disabled]{
   align-items: center;
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  width: 100vw;
+  margin: auto;
+}
+
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric {
