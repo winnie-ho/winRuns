@@ -49,7 +49,11 @@ export default {
       pageRequests: 2,
     };
     this.$store.dispatch('fetchActivitiesInPeriod', options);
-    setTimeout(() => this.createParkRunFinishTimesChart(this.parkRuns), 1000);
+  },
+  watch: {
+    parkRuns: function () {
+      this.createParkRunFinishTimesChart(this.parkRuns);
+    },
   },
   methods: {
     setYear(yearInView) {
@@ -64,7 +68,6 @@ export default {
         pageRequests: 2,
       };
       this.$store.dispatch('fetchActivitiesInPeriod', options);
-      setTimeout(() => this.createParkRunFinishTimesChart(this.parkRuns), 4000);
     },
   },
   computed: {
