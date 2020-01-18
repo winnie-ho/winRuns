@@ -64,7 +64,7 @@ export default {
       };
     },
     routeLine() {
-      const routeLine = new google.maps.Polyline({
+      return new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(
           this.activity.map.polyline || this.activity.map.summary_polyline,
         ),
@@ -73,7 +73,6 @@ export default {
         strokeOpacity: 1.0,
         strokeWeight: 3,
       });
-      return routeLine;
     },
   },
 };
