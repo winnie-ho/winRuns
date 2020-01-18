@@ -6,3 +6,14 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+#park-run-summary {
+  position: relative;
+  z-index: 20;
+}
+
+#park-run-hero-map {
+  border: red dashed 1px;
+  height: 300px;
+  width: 100vw;
+}

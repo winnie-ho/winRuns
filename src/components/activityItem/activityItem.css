@@ -39,6 +39,12 @@
   margin-left: 10px;
 }
 
+.activity-item-map {
+  border: red 1px solid;
+  height: 100px;
+  width: 300px;
+}
+
 .icon__circle {
   background-color: #3066BE;
   border-radius: 30%;

@@ -4,12 +4,13 @@
 <script>
 /* eslint-disable no-undef */
 
-import { styledMap } from './styleMap';
+import { styledMap } from './styledMap';
+import { styledMapPlain } from './styledMapPlain';
 
 export default {
   name: 'googleMap',
   components: {},
-  props: ['activity', 'hasMapPolyline'],
+  props: ['activity', 'hasMapPolyline', 'mapStyle'],
   data() {
     return {
       map: {},
@@ -17,24 +18,30 @@ export default {
   },
   mounted() {
     const mapContainer = document.getElementById('googleMap');
-
     const options = {
       zoom: 13,
       center: new google.maps.LatLng({ lat: 0, lng: 0 }),
       mapTypeControl: false,
       mapTypeControlOptions: {
-        mapTypeIds: ['styled_map'],
+        mapTypeIds: [this.mapStyle],
       },
       disableDefaultUI: true,
     };
 
     this.map = new google.maps.Map(mapContainer, options);
 
-    const styledMapType = new google.maps.StyledMapType(styledMap, {
-      name: 'Styled Map',
-    });
-    this.map.mapTypes.set('styled_map', styledMapType);
-    this.map.setMapTypeId('styled_map');
+    let styledMapType;
+    if (this.mapStyle === 'styled-map-plain') {
+      styledMapType = new google.maps.StyledMapType(styledMapPlain, {
+        name: this.mapStyle,
+      });
+    } else {
+      styledMapType = new google.maps.StyledMapType(styledMap, {
+        name: this.mapStyle,
+      });
+    }
+    this.map.mapTypes.set(this.mapStyle, styledMapType);
+    this.map.setMapTypeId(this.mapStyle);
   },
   created() {
     setTimeout(this.createActivityMap, 1000);
