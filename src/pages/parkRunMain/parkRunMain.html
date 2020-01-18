@@ -37,6 +37,7 @@
         <th>Date</th>
         <th>Name</th>
         <th>Time</th>
+        <th>Location</th>
       </tr>
       <tr v-for='parkRun in parkRuns' :key='parkRun.index'>
         <td>
@@ -47,6 +48,9 @@
         </td>
         <td>
           {{ renderTime(parkRun.moving_time) }}
+        </td>
+        <td>
+          {{ getParkRunLocation(parkRun) }}
         </td>
       </tr>
     </table>

@@ -22,7 +22,7 @@ export default {
       yearInView: new Date().getFullYear(),
     };
   },
-  mixins: [renderData, parkRunDirectory, parkRunCharts],
+  mixins: [renderData, parkRunCharts],
   created() {
     const beforeMarker = new Date(
       this.yearInView,
@@ -68,6 +68,11 @@ export default {
         pageRequests: 2,
       };
       this.$store.dispatch('fetchActivitiesInPeriod', options);
+    },
+    getParkRunLocation(parkRun) {
+      const matchedParkRun = parkRunDirectory.find(parkRunLocation => parkRunLocation.startCoords[0] == parkRun.start_latitude.toFixed(2) && parkRunLocation.startCoords[1] == parkRun.start_longitude.toFixed(2));
+
+      return matchedParkRun ? matchedParkRun.name : 'Unknown';
     },
   },
   computed: {

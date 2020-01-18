@@ -9,10 +9,10 @@
 
 #park-run-summary {
   position: relative;
+  padding: 25px;
 }
 
 #park-run-hero-map {
-  border: red dashed 1px;
   height: 300px;
   width: 100vw;
 }
