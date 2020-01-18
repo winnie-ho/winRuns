@@ -5,6 +5,7 @@
 import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
 import parkRunDirectory from '../../mixins/parkRunDirectory';
+import parkRunCharts from '../../mixins/parkRunCharts';
 import yearChanger from '../../components/yearChanger/yearChanger.vue';
 import googleMap from '../../components/googleMap/googleMap.vue';
 
@@ -21,7 +22,7 @@ export default {
       yearInView: new Date().getFullYear(),
     };
   },
-  mixins: [renderData, parkRunDirectory],
+  mixins: [renderData, parkRunDirectory, parkRunCharts],
   created() {
     const beforeMarker = new Date(
       this.yearInView,
@@ -48,9 +49,8 @@ export default {
       pageRequests: 2,
     };
     this.$store.dispatch('fetchActivitiesInPeriod', options);
+    setTimeout(() => this.createParkRunFinishTimesChart(this.parkRuns), 1000);
   },
-
-
   methods: {
     setYear(yearInView) {
       this.yearInView = yearInView;
@@ -64,6 +64,7 @@ export default {
         pageRequests: 2,
       };
       this.$store.dispatch('fetchActivitiesInPeriod', options);
+      setTimeout(() => this.createParkRunFinishTimesChart(this.parkRuns), 4000);
     },
   },
   computed: {
@@ -88,6 +89,12 @@ export default {
     },
     totalParkRunKudosInYear() {
       return this.parkRuns.reduce((totalKudos, parkRun) => totalKudos + parkRun.kudos_count, 0);
+    },
+    parkRunTimes() {
+      return this.parkRuns.map(parkRun => parkRun.moving_time * 1000);
+    },
+    parkRunDates() {
+      return this.parkRuns.map(parkRun => parkRun.start_date);
     },
   },
 };
