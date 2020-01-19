@@ -27,12 +27,9 @@
       <h3>Average pace: {{ renderPace(averageTime, averageDistance) }}</h3>
       {{ numberOfDifferentParkRuns.length }} different Park Run(s)
     </div>
-    <google-map hasMapPolyline='true' :activity='fastestParkRunOfYear' mapStyle='styled-map-plain' width='500px'
-      height='200px'>
-    </google-map>
   </div>
 
-  <div id='pr-finish-time-chart'></div>
+  <div v-show='parkRuns.length > 0' id='pr-finish-time-chart'></div>
 
 
   <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'

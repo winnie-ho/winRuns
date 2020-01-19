@@ -8,7 +8,6 @@ import parkRunDirectory from '../../mixins/parkRunDirectory';
 import parkRunCharts from '../../mixins/parkRunCharts';
 import yearChanger from '../../components/yearChanger/yearChanger.vue';
 import activityItem from '../../components/activityItem/activityItem.vue';
-import googleMap from '../../components/googleMap/googleMap.vue';
 
 export default {
   name: 'parkRunMain',
@@ -16,7 +15,6 @@ export default {
     navBar,
     yearChanger,
     activityItem,
-    googleMap,
   },
   data() {
     return {

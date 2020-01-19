@@ -74,8 +74,26 @@ export const store = new Vuex.Store({
         || (new Date(activity.start_date_local).getMonth() === 11 && new Date(activity.start_date_local).getDate() === 25)
         || (new Date(activity.start_date_local).getMonth() === 0 && new Date(activity.start_date_local).getDate() === 1)
       ));
+
+      const runsOnCorrectDayInTimeFrame = runsOnCorrectDay.filter(run => {
+        const startTime = new Date(run.start_date_local);
+
+        const dayStart = new Date(
+          startTime.getFullYear(),
+          startTime.getMonth(),
+          startTime.getDate(),
+          0,
+          0,
+          0,
+        );
+        const nine40Milliseconds = ((((9 * 60) + 40) * 60) * 1000);
+        const timeMilliseconds = ((startTime.getTime() - run.utc_offset * 1000) - dayStart.getTime());
+        // keep the runs that start before 09:40.
+        return timeMilliseconds <= nine40Milliseconds;
+      });
+
       const finalRuns = [];
-      runsOnCorrectDay.forEach(run => {
+      runsOnCorrectDayInTimeFrame.forEach(run => {
         parkRunDirectory.forEach(parkRunLocation => {
           if (run.start_latitude && run.start_latitude.toFixed(2) == parkRunLocation.startCoords[0] && run.start_longitude && run.start_longitude.toFixed(2) == parkRunLocation.startCoords[1]) {
             finalRuns.push(run);
