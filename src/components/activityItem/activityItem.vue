@@ -9,6 +9,6 @@ export default {
   name: 'activityItem',
   components: {},
   mixins: [renderData, changePage],
-  props: ['activity'],
+  props: ['activity', 'activityLocation'],
 };
 </script>

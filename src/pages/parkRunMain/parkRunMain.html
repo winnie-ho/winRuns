@@ -31,28 +31,9 @@
     <google-map hasMapPolyline='true' :activity='fastestParkRunOfYear' mapStyle='styled-map-plain'>
     </google-map>
 
-    <hr>
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Name</th>
-        <th>Time</th>
-        <th>Location</th>
-      </tr>
-      <tr v-for='parkRun in parkRuns' :key='parkRun.index'>
-        <td>
-          {{ renderDate(parkRun.start_date) }}
-        </td>
-        <td>
-          {{ parkRun.name }}
-        </td>
-        <td>
-          {{ renderTime(parkRun.moving_time) }}
-        </td>
-        <td>
-          {{ getParkRunLocation(parkRun) }}
-        </td>
-      </tr>
-    </table>
+    <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'
+      :activityLocation='getParkRunLocation(parkRun)'>
+    </activity-item>
+
   </div>
 </div>
