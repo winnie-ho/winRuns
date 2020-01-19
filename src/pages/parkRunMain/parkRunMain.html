@@ -9,31 +9,34 @@
     <h4>LOADING ACTIVITIES</h4>
   </div>
 
-  <div id='park-run-summary' v-show='parkRuns.length > 0'>
-    <h1>{{ yearInView }}</h1>
-    <h2>{{ parkRuns.length }} Park runs</h2>
-    <h2>{{ totalParkRunKudosInYear }}x 👍🏻</h2>
-    <h3>Fastest Park Run</h3>
-    <h4>
-      {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date) }}
-    </h4>
-    <h2>
-      {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}
-      {{ renderTime(fastestParkRunOfYear && fastestParkRunOfYear.moving_time) }}
-      {{ renderPace(fastestParkRunOfYear && fastestParkRunOfYear.moving_time, fastestParkRunOfYear && fastestParkRunOfYear.distance) }}
-    </h2>
-    <h3>Average time: {{ renderTime(averageTime) }}</h3>
-    <h3>Average pace: {{ renderPace(averageTime, averageDistance) }}</h3>
-    {{ numberOfDifferentParkRuns.length }} different Park Run(s)
-
-    <div id='pr-finish-time-chart'></div>
-
-    <google-map hasMapPolyline='true' :activity='fastestParkRunOfYear' mapStyle='styled-map-plain'>
+  <div id='park-run-summary' class='row' v-show='parkRuns.length > 0'>
+    <div>
+      <h1>{{ yearInView }}</h1>
+      <h2>{{ parkRuns.length }} Park runs</h2>
+      <h2>{{ totalParkRunKudosInYear }}x 👍🏻</h2>
+      <h3>Fastest Park Run</h3>
+      <h4>
+        {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date) }}
+      </h4>
+      <h2>
+        {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}
+        {{ renderTime(fastestParkRunOfYear && fastestParkRunOfYear.moving_time) }}
+        {{ renderPace(fastestParkRunOfYear && fastestParkRunOfYear.moving_time, fastestParkRunOfYear && fastestParkRunOfYear.distance) }}
+      </h2>
+      <h3>Average time: {{ renderTime(averageTime) }}</h3>
+      <h3>Average pace: {{ renderPace(averageTime, averageDistance) }}</h3>
+      {{ numberOfDifferentParkRuns.length }} different Park Run(s)
+    </div>
+    <google-map hasMapPolyline='true' :activity='fastestParkRunOfYear' mapStyle='styled-map-plain' width='500px'
+      height='200px'>
     </google-map>
-
-    <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'
-      :activityLocation='getParkRunLocation(parkRun)'>
-    </activity-item>
-
   </div>
+
+  <div id='pr-finish-time-chart'></div>
+
+
+  <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'
+    :activityLocation='getParkRunLocation(parkRun)'>
+  </activity-item>
+
 </div>

@@ -10,7 +10,7 @@ import { styledMapPlain } from './styledMapPlain';
 export default {
   name: 'googleMap',
   components: {},
-  props: ['activity', 'hasMapPolyline', 'mapStyle'],
+  props: ['activity', 'hasMapPolyline', 'mapStyle', 'width', 'height'],
   data() {
     return {
       map: {},
@@ -18,6 +18,8 @@ export default {
   },
   mounted() {
     const mapContainer = document.getElementById('googleMap');
+    mapContainer.style.width = `${this.width}`;
+    mapContainer.style.height = `${this.height}`;
     const options = {
       zoom: 13,
       center: new google.maps.LatLng({ lat: 0, lng: 0 }),
