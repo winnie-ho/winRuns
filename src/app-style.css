@@ -121,6 +121,10 @@ h1, h2, h3, h4, h5, h6{
   width: auto;
 }
 
+.icon-space-right {
+  padding-right: 5px;
+}
+
 .dark-icon {
   filter: invert(60%);
 }
