@@ -6,13 +6,20 @@
 
 body {
   font-family: 'Abel', 'Lato', sans-serif;
-  color: #fff;
+  color: #fff ;
+  background: #6D9DC5;
   font-weight: 300;
-  background: #6D9DC5 ;
 }
 
 #app {
   min-height: 100vh;
+}
+
+.component-container {
+  border-radius: 3px;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: #fff 1px solid;
 }
 
 .row{
@@ -265,23 +272,11 @@ button[disabled]{
   color: #3066BE;
 }
 
-.activity-list{
-  height: 100%;
-  overflow-y: scroll;
-}
-
 .sub-bar{
   background: #3066BE;
   padding: 15px;
   display: flex;
   align-items: center;
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  width: 100vw;
-  margin: auto;
 }
 
 /* responsive css  */

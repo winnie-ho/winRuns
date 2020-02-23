@@ -3,7 +3,5 @@
     <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
     <park-run-sub-bar></park-run-sub-bar>
   </div>
-  <div class='activity-list'>
-    <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'></activity-item>
-  </div>
+  <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'></activity-item>
 </div>

@@ -1,6 +1,11 @@
-<div id='stat-bar' class='row'>
-  <div class='title-box'>{{ currentYear }}</div>
-  <stat-total type='run' :statType='stats.run'></stat-total>
-  <stat-total type='ride' :statType='stats.ride'></stat-total>
-  <stat-total type='swim' :statType='stats.swim'></stat-total>
+<div id='stat-bar' class='component-container'>
+  <div>
+    <h2>This year</h2>
+  </div>
+  <div class='row sa'>
+    <div class='title-box'>{{ currentYear }}</div>
+    <stat-total type='run' :statType='stats.run'></stat-total>
+    <stat-total type='ride' :statType='stats.ride'></stat-total>
+    <stat-total type='swim' :statType='stats.swim'></stat-total>
+  </div>
 </div>
