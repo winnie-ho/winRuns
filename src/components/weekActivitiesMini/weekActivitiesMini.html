@@ -7,7 +7,7 @@
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
             {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
           <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'"
-            src='../../../static/assets/svgs/icon_bike.svg' class='icon__medium btn'>
+            src='../../../static/assets/svgs/icon_bike.svg' class='icon--medium btn'>
         </el-tooltip>
         <el-tooltip placement="top">
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
@@ -18,13 +18,13 @@
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
             {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
           <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run.svg'
-            class='icon__medium btn tool-tip' />
+            class='icon--medium btn tool-tip' />
         </el-tooltip>
         <el-tooltip placement="top">
           <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
             {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
           <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg'
-            class='icon__medium btn tool-tip' />
+            class='icon--medium btn tool-tip' />
         </el-tooltip>
       </div>
       <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>

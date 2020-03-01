@@ -32,6 +32,7 @@ export default {
 </script>
 
 <style>
-@import "./app-style.css";
-@import "./app-animations.css";
+@import "./styles/app-style.css";
+@import "./styles/icon-style.css";
+@import "./styles/app-animation-style.css";
 </style>

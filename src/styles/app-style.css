@@ -100,41 +100,6 @@ h1, h2, h3, h4, h5, h6{
   color: white;
 }
 
-/* IMAGES */
-.el-icon {
-  height: 100px;
-}
-
-.icon {
-  height: 1rem;
-  width: auto;
-  margin: 0 5px;
-}
-
-.icon__medium {
-  height: 1.5rem;
-}
-
-.icon__large {
-  height: 2rem;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon__xlarge {
-  height: 5rem;
-  width: auto;
-}
-
-.icon-space-right {
-  padding-right: 5px;
-}
-
-.dark-icon {
-  filter: invert(60%);
-}
 
 .avatar{
   height: 35px;

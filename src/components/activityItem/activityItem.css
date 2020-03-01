@@ -27,10 +27,6 @@
   color: #AEECEF;
 }
 
-.activity-box:hover .icon {
-  filter: invert(0%);
-}
-
 .activity-box__detail{
   width: 95%;
   justify-content: flex-start;
@@ -42,13 +38,6 @@
   border: red 1px solid;
   height: 100px;
   width: 300px;
-}
-
-.icon__circle {
-  background-color: #3066BE;
-  border-radius: 30%;
-  padding: 10px;
-  box-sizing: content-box;
 }
 
 .space{

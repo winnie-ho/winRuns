@@ -1,0 +1,42 @@
+/* Element Icons */
+.el-icon--small {
+  font-size: 1rem;
+}
+
+.el-icon--medium {
+  font-size: 1.5rem;
+}
+
+.el-icon--large {
+  font-size: 2rem;
+}
+
+
+/* Non Element Icons */
+.icon {
+  width: auto;
+  margin: 0 5px;
+}
+
+.icon--small {
+  height: 1rem;
+}
+
+.icon--medium {
+  height: 1.5rem;
+}
+
+.icon--large {
+  height: 2rem;
+}
+
+.icon-space-right {
+  padding-right: 5px;
+}
+
+.icon__circle {
+  background-color: #3066BE;
+  border-radius: 30%;
+  padding: 10px;
+  box-sizing: content-box;
+}

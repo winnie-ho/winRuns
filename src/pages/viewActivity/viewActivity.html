@@ -37,7 +37,7 @@
     <el-collapse-item name="1" v-show='lapsCount'>
       <template slot="title">
         <div class='row full-width'>
-          <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon__medium' />{{ lapsCount }} laps
+          <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon--medium' />{{ lapsCount }} laps
         </div>
       </template>
 
@@ -79,7 +79,7 @@
     <el-collapse-item name="2" v-show='activity.kudos_count > 0'>
       <template slot="title">
         <div class='row full-width'>
-          <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon__medium' />{{ activity.kudos_count }}
+          <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon--medium' />{{ activity.kudos_count }}
           kudos
         </div>
       </template>
@@ -96,7 +96,7 @@
       <template slot="title">
         <div class='row full-width'>
           <img src='../../../static/assets/svgs/icon_comment.svg'
-            class='btn icon__medium' />{{ activity.comment_count }}
+            class='btn icon--medium' />{{ activity.comment_count }}
           comments
         </div>
       </template>

@@ -1,14 +1,14 @@
 <div id='activity' class='activity-box row sb' @click='viewActivity(activity.id)'>
   <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike.svg'
-    class='icon__large icon__circle' />
+    class='icon--large icon__circle' />
   <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike.svg'
-    class='icon__large icon__circle' />
+    class='icon--large icon__circle' />
   <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run.svg'
-    class='icon__large icon__circle' />
+    class='icon--large icon__circle' />
   <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg'
-    class='icon__large icon__circle' />
+    class='icon--large icon__circle' />
   <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png'
-    class='icon__large icon__circle' />
+    class='icon--large icon__circle' />
 
   <div class='activity-box__detail'>
     <div class='row sb'>

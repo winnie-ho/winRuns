@@ -62,13 +62,6 @@
   }
 }
 
-.icon__circle {
-  background-color: #3066BE;
-  border-radius: 50%;
-  padding: 5px;
-  box-sizing: content-box;
-}
-
 .event-category {
   text-transform: uppercase;
   background-color: #AEECEF;
