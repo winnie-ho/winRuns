@@ -1,0 +1,21 @@
+.component-container {
+  border-radius: 3px;
+  padding: 1rem;
+  margin: 0.5rem;
+  background: #6D9DC5;
+  border: white 1px solid;
+}
+
+/* dynamic containers */
+.col-to-row{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* responsive css  */
+@media all and (max-width: 1000px) {
+  .col-to-row {
+    flex-direction: row;
+  }
+}

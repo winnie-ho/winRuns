@@ -35,4 +35,5 @@ export default {
 @import "./styles/app-style.css";
 @import "./styles/icon-style.css";
 @import "./styles/app-animation-style.css";
+@import "./styles/container-style.css";
 </style>
