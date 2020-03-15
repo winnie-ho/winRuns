@@ -1,44 +1,53 @@
 <div id='home'>
   <nav-bar :showNav='true' v-on:toggleWeekViewStatus='setToggleWeekView' v-on:onBurgerMenu='toggleWeekView=false'>
   </nav-bar>
-
-  <weather></weather>
-
-  <div class='component-container'>
-    <div>
-      <h2>Activities</h2>
+  <div id='content'>
+    <div id='content_side--left' class='col'>
+      <weather></weather>
+      <stat-bar></stat-bar>
     </div>
 
-    <week-changer v-on:weekInViewChange='setWeekInView($event)'>
-    </week-changer>
+    <div id='content_main' class='col'>
+      <div class='component-container'>
+        <div>
+          <h2>Activities</h2>
+        </div>
 
-    <div class='week-stats row'>
-      <tri-stats-summary :activitiesInView='activitiesInWeek' :showDisciplineCount='true'>
-      </tri-stats-summary>
-      <big-stat-total :activitiesInView='activitiesInWeek' type='distance'></big-stat-total>
-      <big-stat-total :activitiesInView='activitiesInWeek' type='time'></big-stat-total>
-      <big-stat-total :activitiesInView='activitiesInWeek' type='elevation'></big-stat-total>
+        <week-changer v-on:weekInViewChange='setWeekInView($event)'>
+        </week-changer>
+
+        <div class='week-stats row'>
+          <tri-stats-summary :activitiesInView='activitiesInWeek' :showDisciplineCount='true'>
+          </tri-stats-summary>
+          <big-stat-total :activitiesInView='activitiesInWeek' type='distance'></big-stat-total>
+          <big-stat-total :activitiesInView='activitiesInWeek' type='time'></big-stat-total>
+          <big-stat-total :activitiesInView='activitiesInWeek' type='elevation'></big-stat-total>
+        </div>
+
+        <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)'
+          :activitiesInWeek='activitiesInWeek'>
+        </week-activities-mini>
+
+        <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
+          <i class='el-icon-files btn'></i>
+          detailed week
+          <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
+            <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
+          </el-tooltip>
+
+          <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
+            <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
+          </el-tooltip>
+        </div>
+
+        <week-activities :toggleWeekView='toggleWeekView' :activitiesInWeek='activitiesInWeek'>
+        </week-activities>
+      </div>
     </div>
 
-    <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :activitiesInWeek='activitiesInWeek'>
-    </week-activities-mini>
-
-    <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
-      <i class='el-icon-files btn'></i>
-      detailed week
-      <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
-        <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
-      </el-tooltip>
-
-      <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
-        <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
-      </el-tooltip>
-    </div>
-
-    <week-activities :toggleWeekView='toggleWeekView' :activitiesInWeek='activitiesInWeek'>
-    </week-activities>
   </div>
 
 
-  <stat-bar></stat-bar>
+
+
 </div>
