@@ -1,26 +1,15 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Abel', 'Lato', sans-serif;
   color: #fff ;
-  background: #6D9DC5;
+  background: #CDD6DD;
   font-weight: 300;
+  margin: 0;
 }
 
-#app {
-  min-height: 100vh;
-}
-
-.component-container {
-  border-radius: 3px;
-  padding: 1rem;
-  margin: 0.5rem;
-  border: #fff 1px solid;
-}
 
 .row{
   display: flex;
