@@ -2,10 +2,10 @@
   <div>
     <h2>Weather</h2>
   </div>
-  <div class='row sb data'>
+  <div class='col-to-row'>
     <div class='row'>
       <i class="el-icon--medium el-icon-place icon-space-right"></i>
-      <h4>{{ locationName }}</h4>
+      <p>{{ locationName }}</p>
     </div>
     <div class='row'>
       <i v-show="description === 'Rain'" class="el-icon--medium el-icon-heavy-rain icon-space-right"></i>
@@ -15,16 +15,16 @@
       <i v-show="description === 'Drizzle'" class="el-icon--medium el-icon-light-rain icon-space-right"></i>
       <i v-show="description === 'Snow'" class="el-icon--medium el-icon-light-rain icon-space-right"></i>
       <i v-show="description === null" class="el-icon--medium el-icon-cloudy-and-sunny icon-space-right"></i>
-      <h4>{{ description }}</h4>
+      <p>{{ description }}</p>
     </div>
     <div class='row'>
       <img src='../../../static/assets/svgs/icon_thermometer.svg' class='icon icon--medium' />
-      <h4>{{ renderDegTemp(temp) }}</h4>
+      <p>{{ renderDegTemp(temp) }}</p>
     </div>
     <el-tooltip placement='bottom' content='Wind speed and direction' :openDelay='1500'>
       <div class='row'>
         <i class="el-icon--medium el-icon-wind-power icon-space-right"></i>
-        <h4>{{ renderWindSpeed(windSpeed) }}</h4>
+        <p>{{ renderWindSpeed(windSpeed) }}</p>
         <i class="el-icon--medium el-icon-top wind-direction icon-space-right" :style='windDegreesStyle'></i>
       </div>
     </el-tooltip>
