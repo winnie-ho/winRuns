@@ -201,7 +201,6 @@ button[disabled]{
 
 .profile{
   text-decoration: none;
-  color: #AEECEF;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -215,10 +214,6 @@ button[disabled]{
 
 .profile > h4, h6 {
   margin: 10px;
-}
-
-.profile:hover > img{
-  box-shadow: 10px 10px 20px #3066BE;
 }
 
 .el-tooltip__popper{
