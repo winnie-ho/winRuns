@@ -11,8 +11,8 @@
 
 .wind-arrow {
   position: absolute;
-  left: 1.25rem;
-  top: -1.25rem;
+  left: 1.2rem;
+  top: -1.3rem;
 }
 
 .wind-direction {
@@ -29,6 +29,10 @@
   margin: 10px;
 }
 
+.temperature {
+  margin-bottom: 35px;
+}
+
 
 @keyframes rotateTo {
   0% {
@@ -43,5 +47,9 @@
 @media all and (max-width: 1000px) {
   .weather-item{
     margin: 0px;
+  }
+
+  .temperature {
+    margin-bottom: 1.5rem;
   }
 }

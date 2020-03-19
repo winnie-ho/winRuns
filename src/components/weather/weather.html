@@ -11,7 +11,7 @@
       <i v-show="description === 'Snow'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
       <i v-show="description === null" class="el-icon--xxlarge el-icon-cloudy-and-sunny icon-space-right"></i>
     </div>
-    <h1>{{ renderDegTemp(temp) }}</h1>
+    <h1 class='temperature'>{{ renderDegTemp(temp) }}</h1>
 
     <div class='wind-circle'>
       <h2>{{ windSpeed }}</h2>
