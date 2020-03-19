@@ -3,7 +3,8 @@
 }
 
 #navBar{
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background: #CDD6DD;
 }
 
 #page-title {
