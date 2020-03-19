@@ -28,7 +28,7 @@ export default {
       return this.weather && this.$store.state.weatherNow.wind.speed;
     },
     windDegreesStyle() {
-      return `--degrees: ${this.weather && this.$store.state.weatherNow.wind.deg + 180}deg;`;
+      return `--degrees: ${this.weather && this.$store.state.weatherNow.wind.deg - 180}deg;`;
     },
     locationName() {
       return this.weather && this.$store.state.weatherNow.name
