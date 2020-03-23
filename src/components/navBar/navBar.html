@@ -6,7 +6,7 @@
       <h3>{{ pageTitle }}</h3>
     </div>
 
-    <div id='pagesBar' v-show='showNav' class='row'>
+    <div id='pagesBar' v-show='showNav' class='row' :class='{showNav: expandBurger}'>
       <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/svgs/icon_home.svg"' :path="'/home'"
         :title='"Home"'>
       </nav-bar-btn>

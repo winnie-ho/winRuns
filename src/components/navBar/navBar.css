@@ -4,7 +4,10 @@
 
 #navBar{
   padding-bottom: 10px;
-  background: #CDD6DD;
+}
+
+.showNav {
+  background: #6D9DC5;
 }
 
 #page-title {
