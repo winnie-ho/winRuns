@@ -29,14 +29,18 @@
         </week-activities-mini>
 
         <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
-          <i class='el-icon-files btn'></i>
-          detailed week
           <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
-            <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
+            <span v-show='!toggleWeekView'>
+              Show detailed week
+              <i class='el-icon-arrow-down btn' v-show='!toggleWeekView'></i>
+            </span>
           </el-tooltip>
 
           <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
-            <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
+            <span v-show='toggleWeekView'>
+              Hide detailed week
+              <i class='el-icon-arrow-up btn' v-show='toggleWeekView'></i>
+            </span>
           </el-tooltip>
         </div>
 
