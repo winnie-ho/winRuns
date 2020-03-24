@@ -16,7 +16,7 @@
       </nav-bar-btn>
 
       <nav-bar-btn v-show='athlete.id===3752965' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
-        :btnIcon='"../../../static/assets/icon_park_run_logo.png"' :path="'/parkRunMain'" :title='"Park run"'>
+        :btnIcon='"../../../static/assets/svgs/icon_park_run_logo.svg"' :path="'/parkRunMain'" :title='"Park run"'>
       </nav-bar-btn>
 
       <nav-bar-btn :pages='["/kmSplits"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/kmSplits"'
@@ -54,25 +54,19 @@
       <img class='burger-icon' src='../../../static/assets/svgs/icon_profile_female.svg' />
       LOGIN
     </router-link>
-
     <router-link to="/home" exact class='burger-item col'>
-      <img src='../../../static/assets/svgs/icon_home.svg' class='burger-icon' />
       HOME
     </router-link>
     <router-link to="/activities" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_activities.png' class='burger-icon' />
       ACTIVITIES
     </router-link>
     <router-link to="/parkRunMain" exact class='burger-item col' v-show='athlete.id===3752965'>
-      <img src='../../../static/assets/icon_park_run_logo.png' class='burger-icon' />
       PARK RUN
     </router-link>
     <router-link to="/kmSplits" exact class='burger-item col'>
-      <img src='../../../static/assets/icon_kilometer.png' class='burger-icon' />
       KM SPLITS
     </router-link>
     <router-link to="/events" exact class='burger-item col' v-show='athlete.id===3752965'>
-      <img src='../../../static/assets/svgs/icon_events.svg' class='burger-icon' />
       EVENTS
     </router-link>
   </div>
