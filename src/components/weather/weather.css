@@ -17,9 +17,11 @@
 
 .wind-direction {
   transform-origin: 0.75rem 3.25rem;
+
   animation-name: rotateTo;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
+  animation-delay: 1s;
 }
 
 .weather-item {
@@ -27,6 +29,10 @@
   justify-content: space-around;
   align-items: center;
   margin: 10px;
+
+  animation-name: expandIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
 }
 
 .temperature {
