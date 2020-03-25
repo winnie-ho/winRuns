@@ -12,7 +12,6 @@
 .strava {
   height: 15px;
   width: auto;
-  margin-top: 10px;
 }
 
 #strava-button{
@@ -23,18 +22,18 @@
   top: 0;
   bottom: 0;
   cursor: pointer;
-  background-color: #3066BE;
   height: 100px;
   width: 160px;
   border-radius: 5px;
   font-family: "gill sans";
   font-size: 10px;
-  color: #80DED9;
+  color: #3066BE;
+  background: #fff;
   z-index: 3;
 }
 
 #strava-button:hover{
-  border: 1px solid #80DED9;
+  border: 1px solid #3066BE;
   box-shadow: 5px 5px 10px #3066BE;
 }
 
