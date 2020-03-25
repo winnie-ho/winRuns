@@ -1,12 +1,11 @@
-<div class='container'>
-  <ul>
+<div class='col'>
+  <div class='stat-total row'>
+    <img class='icon--large' :src='imgPath' />
+    <h1>{{ statType && statType.count }}</h1>
+  </div>
+
+  <!-- <ul>
     <li>
-      <div>
-        {{ title }}
-      </div>
-      <div>
-        {{ statType && statType.count }}
-      </div>
       <div>
         <img class='icon--stat' src='../../../static/assets/svgs/icon_distance.svg' />
       </div>
@@ -26,5 +25,5 @@
         {{ renderElevation(statType && statType.elevation_gain, true) }}
       </div>
     </li>
-  </ul>
+  </ul> -->
 </div>

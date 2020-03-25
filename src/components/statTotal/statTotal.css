@@ -1,8 +1,8 @@
-.container{
-  margin-right: 50px;
+.stat-total{
   display: flex;
-  justify-content: center;
   position: relative;
+  justify-content: space-between;
+  width: 75px;
 }
 
 .icon--stat{

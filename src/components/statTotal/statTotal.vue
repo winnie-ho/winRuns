@@ -25,6 +25,12 @@ export default {
     title() {
       return `${this.type}s`.toUpperCase();
     },
+    imgPath() {
+      if (this.type === 'ride') {
+        return '../../../static/assets/svgs/icon_bike.svg';
+      }
+      return `../../../static/assets/svgs/icon_${this.type}.svg`;
+    },
   },
 };
 </script>
