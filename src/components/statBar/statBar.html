@@ -9,14 +9,14 @@
   </div>
 
   <div class='year-detail-toggle' @click='toggleYearDetailView=!toggleYearDetailView'>
-    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
+    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View year detail'>
       <span v-show='!toggleYearDetailView'>
         Show details
         <i class='el-icon-arrow-down btn' v-show='!toggleYearDetailView'></i>
       </span>
     </el-tooltip>
 
-    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
+    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide year detail'>
       <span v-show='toggleYearDetailView'>
         Hide details
         <i class='el-icon-arrow-up btn' v-show='toggleYearDetailView'></i>
