@@ -15,3 +15,9 @@
   background: #3066BE;
   margin: 0px;
 }
+
+.year-detail-toggle {
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}

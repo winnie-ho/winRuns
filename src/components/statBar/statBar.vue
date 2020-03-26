@@ -3,11 +3,18 @@
 
 <script src>
 import statTotal from '../statTotal/statTotal.vue';
+import appData from '../../mixins/appData';
 
 export default {
   name: 'statBar',
   components: {
     statTotal,
+  },
+  mixins: [appData],
+  data() {
+    return {
+      toggleYearDetailView: false,
+    };
   },
   created() {
     this.$store.dispatch('fetchStats');

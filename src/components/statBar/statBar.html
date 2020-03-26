@@ -3,8 +3,24 @@
     {{ currentYear }} Totals
   </div>
   <div class='col-to-row'>
-    <stat-total type='run' :statType='stats.run'></stat-total>
-    <stat-total type='ride' :statType='stats.ride'></stat-total>
-    <stat-total type='swim' :statType='stats.swim'></stat-total>
+    <stat-total type='run' :statType='stats.run' :toggleYearDetailView='toggleYearDetailView'></stat-total>
+    <stat-total type='ride' :statType='stats.ride' :toggleYearDetailView='toggleYearDetailView'></stat-total>
+    <stat-total type='swim' :statType='stats.swim' :toggleYearDetailView='toggleYearDetailView'></stat-total>
+  </div>
+
+  <div class='year-detail-toggle' @click='toggleYearDetailView=!toggleYearDetailView'>
+    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
+      <span v-show='!toggleYearDetailView'>
+        Show details
+        <i class='el-icon-arrow-down btn' v-show='!toggleYearDetailView'></i>
+      </span>
+    </el-tooltip>
+
+    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide week'>
+      <span v-show='toggleYearDetailView'>
+        Hide details
+        <i class='el-icon-arrow-up btn' v-show='toggleYearDetailView'></i>
+      </span>
+    </el-tooltip>
   </div>
 </div>

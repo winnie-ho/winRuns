@@ -4,26 +4,23 @@
     <h1>{{ statType && statType.count }}</h1>
   </div>
 
-  <!-- <ul>
-    <li>
-      <div>
-        <img class='icon--stat' src='../../../static/assets/svgs/icon_distance.svg' />
-      </div>
-      <div>
-        {{ renderDistance(statType && statType.distance, true) }}
-      </div>
-      <div>
-        <img class='icon--stat' src='../../../static/assets/svgs/icon_time.svg' />
-      </div>
-      <div>
-        {{ renderTime(statType && statType.moving_time, true) }}
-      </div>
-      <div>
-        <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation.svg' />
-      </div>
-      <div>
-        {{ renderElevation(statType && statType.elevation_gain, true) }}
-      </div>
-    </li>
-  </ul> -->
+
+  <div :class='{collapsed: !toggleYearDetailView, expanded: toggleYearDetailView}'
+    :style='animationHeightStyleInstruction'>
+    <div class='col'>
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_distance.svg' />
+      {{ renderDistance(statType && statType.distance, true) }}
+    </div>
+
+    <div class='col'>
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_time.svg' />
+      {{ renderTime(statType && statType.moving_time, true) }}
+    </div>
+
+    <div class='col'>
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation.svg' />
+      {{ renderElevation(statType && statType.elevation_gain, true) }}
+    </div>
+  </div>
+
 </div>

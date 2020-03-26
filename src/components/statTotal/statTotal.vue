@@ -20,6 +20,15 @@ export default {
       type: Object,
       required: false,
     },
+    toggleYearDetailView: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      animationHeightStyleInstruction: '--animationHeightStyle: 170px;',
+    };
   },
   computed: {
     title() {
