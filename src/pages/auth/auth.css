@@ -27,13 +27,13 @@
   border-radius: 5px;
   font-family: "gill sans";
   font-size: 10px;
-  color: #3066BE;
-  background: #fff;
+  color: #fff;
+  background: #3066BE;
   z-index: 3;
 }
 
 #strava-button:hover{
-  border: 1px solid #3066BE;
+  border: 1px solid #fff;
   box-shadow: 5px 5px 10px #3066BE;
 }
 
