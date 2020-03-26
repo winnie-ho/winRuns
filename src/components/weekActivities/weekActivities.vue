@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       dayHasActivities: false,
+      animationHeightStyleInstruction: '--animationHeightStyle: 560px;',
     };
   },
   methods: {
