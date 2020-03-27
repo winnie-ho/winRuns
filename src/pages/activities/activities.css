@@ -25,6 +25,7 @@
 .sub-bar__expanded{
   width: 100vw;
   align-items: center;
+  background: #3066BE;
 }
 
 .selectedButton {
