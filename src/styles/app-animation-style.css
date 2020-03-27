@@ -24,3 +24,39 @@
     transform: scale(1);
   }
 }
+
+/* EXPAND PANELS / COLLAPSE PANELS */
+
+.expanded {
+  animation-name: expandDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.collapsed {
+  animation-name: closeUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes expandDown {
+  0% {
+    height: 0px;
+    opacity: 0%;
+  }
+  100% {
+    height: var(--animationHeightStyle);
+    opacity: 100%;
+  }
+}
+
+@keyframes closeUp {
+  0% {
+    height: var(--animationHeightStyle);
+    opacity: 100%;
+  }
+  100% {
+    height: 0px;
+    opacity: 0%;
+  }
+}
