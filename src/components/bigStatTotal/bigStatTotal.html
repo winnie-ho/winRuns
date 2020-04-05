@@ -1,15 +1,18 @@
 <div class='big-stat-total col'>
   <div v-show='type === "distance"' class='col'>
+    <h6>DISTANCE</h6>
     <img class='icon--large' src='../../../static/assets/svgs/icon_distance.svg' />
     <h2>{{ totalDistance }}</h2>
   </div>
 
   <div v-show='type === "time"' class='col'>
+    <h6>TIME</h6>
     <img class='icon--large' src='../../../static/assets/svgs/icon_time.svg' />
     <h2>{{ totalTime }}</h2>
   </div>
 
   <div v-show='type === "elevation"' class='col'>
+    <h6>ELEVATION</h6>
     <img class='icon--large' src='../../../static/assets/svgs/icon_elevation.svg' />
     <h2>{{ totalElevation }}</h2>
   </div>
