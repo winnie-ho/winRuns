@@ -15,6 +15,9 @@ export default {
     pageSelected() {
       return this.pages.find((page) => page === this.$route.path);
     },
+    uppercaseTitle() {
+      return this.title.toUpperCase();
+    },
   },
 };
 </script>

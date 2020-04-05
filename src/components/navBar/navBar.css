@@ -15,10 +15,10 @@
   width: 100%;
   position: absolute;
   display: flex;
+  color: #3066be;
 }
 
 #burger-menu {
-  z-index: 100;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -76,8 +76,6 @@
 }
 
 #openNavBar {
-  display: flex;
-  height: 60px;
   justify-content: flex-end;
 }
 
@@ -85,7 +83,6 @@
   display: flex;
   visibility: visible;
   justify-content: space-around;
-  padding: 0 20px;
 }
 
 .burger-icon {
