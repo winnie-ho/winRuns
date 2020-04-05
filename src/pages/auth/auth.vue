@@ -15,7 +15,7 @@ export default {
   mixins: [renderData, changePage],
   data() {
     return {
-      pageTitle: 'LOGIN',
+      pageTitle: '',
       authCode: '',
       client_id: '15869',
       client_secret: '63fec0d321558ea536b0be0f155c6adf29b7b278',
