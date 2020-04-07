@@ -12,7 +12,7 @@
 
   <div class='activity-box__detail'>
     <div class='row sb'>
-      <span class='heading truncate'>{{ activity.name }} - <span v-show='activityLocation'>{{ activityLocation }}</span>
+      <span class='heading truncate'>{{ activity.name }}<span v-show='activityLocation'>- {{ activityLocation }}</span>
       </span>
       <div class='date'>
         {{ renderDate(activity.start_date) }}
