@@ -1,14 +1,9 @@
-#view-activity {
-  background: #6D9DC5;
-}
-
 #activity-info{
   z-index: 1;
   color: white;
 }
 
 #activity-info__header {
-  width: 100%;
   position: sticky;
   padding: 20px;
   padding-bottom: 30px;
@@ -103,7 +98,7 @@
 }
 
 .description{
-  margin: 20px;
+  margin: 20px 0px;
   font-size: 14px;
   white-space: pre-wrap;
   align-items: center;
