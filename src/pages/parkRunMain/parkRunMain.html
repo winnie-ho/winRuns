@@ -7,12 +7,11 @@
   <div class='component-container'>
     <div id='park-run-summary' class='row' v-show='parkRuns.length > 0'>
       <div>
-        <h1>{{ yearInView }}</h1>
-        <h2>{{ parkRuns.length }} Park runs</h2>
+        <h1>{{ parkRuns.length }} Park runs completed in {{ yearInView }}</h1>
         <h2>{{ totalParkRunKudosInYear }}x 👍🏻</h2>
         <h3>Fastest Park Run</h3>
         <h4>
-          {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date) }}
+          {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date_local) }}
         </h4>
         <h2>
           {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}

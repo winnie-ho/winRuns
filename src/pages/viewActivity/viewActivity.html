@@ -4,7 +4,8 @@
   <div id="activity-info__header" class='component-container'>
     <div class='activity-info__subbar row'>
       <i class='el-icon-arrow-left btn' @click='$router.go(-1)'></i>
-      <h2 class="date">{{ renderDate(activity.start_date, 'long') }} {{ renderDateTime(activity.start_date) }}</h2>
+      <h2 class="date">{{ renderDate(activity.start_date_local, 'long') }}
+        {{ renderDateTime(activity.start_date_local) }}</h2>
     </div>
     <h1>{{ activity.name }}</h1>
     <div id='activity-info__main'>

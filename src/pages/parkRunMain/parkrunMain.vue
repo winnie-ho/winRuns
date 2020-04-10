@@ -102,7 +102,7 @@ export default {
       return this.parkRuns.map(parkRun => parkRun.moving_time * 1000);
     },
     parkRunDates() {
-      return this.parkRuns.map(parkRun => parkRun.start_date);
+      return this.parkRuns.map(parkRun => parkRun.start_date_local);
     },
   },
 };

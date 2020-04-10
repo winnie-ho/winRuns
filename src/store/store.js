@@ -98,14 +98,18 @@ export const store = new Vuex.Store({
           if (run.start_latitude && run.start_latitude.toFixed(2) == parkRunLocation.startCoords[0] && run.start_longitude && run.start_longitude.toFixed(2) == parkRunLocation.startCoords[1]) {
             finalRuns.push(run);
           }
+          // else {
+          // console.log('checking park ran start location at the start time frame');
+          // actions.fetchActivityStream(run.id);
+          // }
         });
       });
 
-      return finalRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
+      return finalRuns.sort((a, b) => new Date(b.start_date_local) - new Date(a.start_date_local));
     },
-    dateOrderedFullParkRuns: (state) => state.full && state.fullParkRuns.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
+    dateOrderedFullParkRuns: (state) => state.full && state.fullParkRuns.sort((a, b) => new Date(b.start_date_local) - new Date(a.start_date_local)),
     kmSessions: (state) => state.activities.length && state.activities.filter((activity) => activity.name.search('5x 1km') !== -1),
-    dateOrderedFullKmSessions: (state) => state.fullKmSessions && state.fullKmSessions.sort((a, b) => new Date(b.start_date) - new Date(a.start_date)),
+    dateOrderedFullKmSessions: (state) => state.fullKmSessions && state.fullKmSessions.sort((a, b) => new Date(b.start_date_local) - new Date(a.start_date_local)),
   },
   actions,
 });

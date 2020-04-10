@@ -28,7 +28,7 @@ export default {
         realIndex = 0;
       }
       return this.activitiesInWeek.filter(
-        activity => new Date(activity.start_date).getDay() === realIndex,
+        activity => new Date(activity.start_date_local).getDay() === realIndex,
       );
     },
     triggerWeekView() {

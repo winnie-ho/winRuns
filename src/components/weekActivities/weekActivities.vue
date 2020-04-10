@@ -28,9 +28,9 @@ export default {
       }
       const dayActivities = this.activitiesInWeek
         .filter(
-          activity => new Date(activity.start_date).getDay() === realIndex,
+          activity => new Date(activity.start_date_local).getDay() === realIndex,
         )
-        .sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+        .sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
 
       if (dayActivities.length === 0) {
         this.dayHasActivities = true;
