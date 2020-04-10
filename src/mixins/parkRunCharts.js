@@ -7,9 +7,9 @@ export default {
     createParkRunFinishTimesChart(dataArray) {
       const container = document.querySelector('#pr-finish-time-chart');
       const distanceCheck = dataArray.slice().filter((run) => run.distance > 5000);
-      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
       const dataArrayTime = sortedDataArray.map((run) => run.moving_time * 1000);
-      const dateFormatted = sortedDataArray.map((run) => this.renderDate(run.start_date));
+      const dateFormatted = sortedDataArray.map((run) => this.renderDate(run.start_date_local));
 
       return new Highcharts.Chart({
         chart: {
@@ -92,9 +92,9 @@ export default {
     createParkRunChart(dataArray) {
       const container = document.querySelector('#pr-chart');
       const distanceCheck = dataArray.slice().filter((run) => run.distance > 5000);
-      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date) - new Date(b.start_date));
+      const sortedDataArray = distanceCheck.sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
       const dataArrayTime = sortedDataArray.map((run) => run.moving_time * 1000);
-      const dateFormatted = sortedDataArray.map((run) => this.renderDate(run.start_date));
+      const dateFormatted = sortedDataArray.map((run) => this.renderDate(run.start_date_local));
 
       return new Highcharts.Chart({
         chart: {
