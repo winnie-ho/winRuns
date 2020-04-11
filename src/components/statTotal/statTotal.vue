@@ -38,7 +38,7 @@ export default {
       if (this.type === 'ride') {
         return '../../../static/assets/svgs/icon_bike--light.svg';
       }
-      return `../../../static/assets/svgs/icon_${this.type}.svg`;
+      return `../../../static/assets/svgs/icon_${this.type}--light.svg`;
     },
   },
 };
