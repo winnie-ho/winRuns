@@ -1,8 +1,9 @@
 <div id='event' class='event-box row sb' @click='viewEvent = !viewEvent;' :class='{ animExpandVertical: viewEvent }'>
-  <img v-show="event.type === 'Ride'" src='../../../static/assets/svgs/icon_bike.svg'
+  <img v-show="event.type === 'Ride'" src='../../../static/assets/svgs/icon_bike--light.svg'
     class='icon--large icon__circle' />
-  <img v-show="event.type === 'Run'" src='../../../static/assets/svgs/icon_run.svg' class='icon--large icon__circle' />
-  <img v-show="event.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg'
+  <img v-show="event.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg'
+    class='icon--large icon__circle' />
+  <img v-show="event.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg'
     class='icon--large icon__circle' />
   <img v-show="event.type === 'Triathlon'" src='../../../static/assets/icon_activities.png'
     class='icon--large icon__circle' />
