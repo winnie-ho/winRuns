@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0.5rem;
 }
 
 .active {
@@ -14,12 +15,11 @@
   background-color: transparent;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
-  height: 70px;
+  height: 75px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 5px -5px;
   overflow-x: scroll;
   overflow-y: hidden;
   align-content: center;
@@ -44,11 +44,12 @@
 .day{
   display: flex;
   color: var(--palette-white);
+  background: var(--palette-cerulean);
   height: 100%;
   justify-content: flex-start;
   flex-direction: column;
+  justify-content: center;
   padding: 10px;
-  background: var(--palette-cerulean);
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
