@@ -2,20 +2,12 @@
   display: none !important;
 }
 
-#navBar{
-  padding-bottom: 10px;
-}
-
-.showNav {
-  background: #6D9DC5;
-}
-
 #page-title {
   justify-content: center;
   width: 100%;
   position: absolute;
   display: flex;
-  color: #3066be;
+  color: var(--palette-cerulean);
 }
 
 #burger-menu {
@@ -40,7 +32,7 @@
   height: 100%;
   width: 100vw;
   opacity: 1;
-  background-color: #3066be;
+  background-color: var(--palette-cerulean);
   transform: rotate(0deg);
 }
 
@@ -53,18 +45,14 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #AEECEF;
+  color: var(--palette-white);
   text-decoration: none;
   transition: 0.5s;
 }
 
 .burger-item:hover {
-  border-left: 3px solid #AEECEF;
-  color:#80DED9;
-}
-
-.burger-item:hover .burger-icon{
-  transform: scale(1.2)
+  border-left: 3px solid var(--palette-eerie-black);
+  color: var(--palette-eerie-black);
 }
 
 .close-icon {
@@ -75,14 +63,22 @@
   top: 15px;
 }
 
+#navBar{
+  display: flex;
+}
+
 #openNavBar {
-  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+  box-shadow: 0px 5px 10px var(--palette-columbian);
+  justify-content: space-between;
 }
 
 #pagesBar {
   display: flex;
   visibility: visible;
   justify-content: space-around;
+  margin-bottom: 5px;
 }
 
 .burger-icon {
@@ -94,10 +90,10 @@
 
 .home-button {
   font-family: 'Major Mono Display';
+  color: var(--palette-white);
   font-size: 18px;
   cursor: pointer;
   text-decoration: none;
-  position: absolute;
   padding: 10px;
   top: 4px;
   left: 0px;
@@ -120,9 +116,8 @@
   }
   100% {
     width: 74px;
-    background-color: #3066BE;
+    background-color: var(--palette-cerulean);
     opacity: 100%;
-    color: #AEECEF;
   }
 }
 
@@ -151,8 +146,8 @@
 /* Burger animation */
 #burger {
   position: absolute;
-  top: 15px;
-  right: 10px;
+  top: 30px;
+  right: 15px;
   z-index: 10000;
   width: 30px;
   height: 20px;
@@ -166,7 +161,7 @@
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #fff;
+  background: var(--palette-cerulean);
   border-radius: 2px;
   transform: rotate(0deg);
   transition: .25s ease-in-out;
