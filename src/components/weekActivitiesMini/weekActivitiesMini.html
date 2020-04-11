@@ -1,4 +1,4 @@
-<div id='week-activities-mini' class='component-container container-colour--primary row sb'>
+<div id='week-activities-mini' class='row sb'>
   <div class='day-container' v-for='day in dayLookUp' :key='day.index'>
     <div class='day-bar' v-for='activity in dayActivities(day)' :key='activity.index'
       @click='viewActivity(activity.id)'>
@@ -6,7 +6,7 @@
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
           {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
         <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'"
-          src='../../../static/assets/svgs/icon_bike.svg' class='icon--medium btn'>
+          src='../../../static/assets/svgs/icon_bike--light.svg' class='icon--medium btn'>
       </el-tooltip>
       <el-tooltip placement="top">
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
@@ -16,13 +16,13 @@
       <el-tooltip placement="top">
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
           {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run.svg'
+        <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg'
           class='icon--medium btn tool-tip' />
       </el-tooltip>
       <el-tooltip placement="top">
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
           {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim.svg'
+        <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg'
           class='icon--medium btn tool-tip' />
       </el-tooltip>
     </div>
