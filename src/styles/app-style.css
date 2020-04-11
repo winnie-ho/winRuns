@@ -4,12 +4,11 @@
 
 body {
   font-family: 'Abel', 'Lato', sans-serif;
-  color: #fff ;
-  background: #CDD6DD;
+  color: var(--palette-eerie-black) ;
+  background: var(--palette-white);
   font-weight: 300;
   margin: 0;
 }
-
 
 .row{
   display: flex;
@@ -59,7 +58,7 @@ h1, h2, h3, h4, h5, h6{
 .subheading {
   font-size: 14px;
   margin: 2px;
-  color: white;
+  color: var(--palette-white);
 }
 
 .date{
@@ -86,7 +85,7 @@ h1, h2, h3, h4, h5, h6{
 
 .el-form-item__label,
 .el-checkbox {
-  color: white;
+  color: var(--palette-white);
 }
 
 
@@ -107,54 +106,10 @@ h1, h2, h3, h4, h5, h6{
 /* ANCHOR TAGS */
 a {
   text-decoration: none;
-  color: #AEECEF;
-}
-
-a:hover{
-  color: #80DED9;
 }
 
 /* BUTTONS */
-.hover:hover {
-  color: #AEECEF;
-  cursor: pointer;
-}
 
-.back-button {
-  margin-top: 5px;
-  margin-left: 6px;
-}
-
-.button {
-  background-color: #AEECEF;
-  color: #3066BE;
-  border: none;
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px;
-}
-
-.button--primary {
-  width: 100px;
-  background-color: #3066BE;
-  color: #AEECEF;
-  border: 1px solid #AEECEF;
-}
-
-.button--secondary {
-  width: 100px;
-  background-color: #AEECEF;
-  border: 1px solid #AEECEF;
-  color: #3066BE;
-}
-
-button:disabled,
-button[disabled]{
-  border: 1px solid #3066BE;
-  background-color: #6D9DC5;
-  color: #3066BE;
-  pointer-events: none;
-}
 
 .btn{
   cursor: pointer;
@@ -162,17 +117,6 @@ button[disabled]{
 }
 
 .btn:hover{
-  transform: scale(1.1);
-}
-
-.nav-icon {
-  width: auto;
-  height: 30px;
-  margin: 0 5px;
-  padding-top: 5px;
-}
-
-.nav-icon:hover {
   transform: scale(1.1);
 }
 
@@ -188,7 +132,7 @@ button[disabled]{
 
 .el-collapse-item__header{
   background-color: transparent;
-  color: white;
+  color: var(--palette-white);
 }
 
 .el-collapse-item__wrap{
@@ -212,17 +156,13 @@ button[disabled]{
   padding: 20px;
 }
 
-.profile > h4, h6 {
-  margin: 10px;
-}
-
 .el-tooltip__popper{
   text-align: center;
-  color: #3066BE;
+  color: var(--palette-cerulean);
 }
 
 .sub-bar{
-  background: #3066BE;
+  background: var(--palette-cerulean);
   padding: 15px;
   display: flex;
   align-items: center;
