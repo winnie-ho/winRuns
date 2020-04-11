@@ -1,6 +1,3 @@
-#tri-stats-summary {
-}  
-
 .total-stat {
   text-align: center;
   animation-name: expandIn;
@@ -9,12 +6,12 @@
 }
 
 .total-stat__value {
-  font-size: 60px;
+  font-size: 5rem;
   margin-right: 10px;
 }
 
-.total-stat__substat h2 {
-  margin: 0px 5px;
+.total-stat__substat h1 {
+  margin: 5px;
 }  
 
 .stat-row {
