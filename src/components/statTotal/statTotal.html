@@ -8,17 +8,17 @@
   <div :class='{collapsed: !toggleYearDetailView, expanded: toggleYearDetailView}'
     :style='animationHeightStyleInstruction'>
     <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_distance.svg' />
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_distance--light.svg' />
       {{ renderDistance(statType && statType.distance, true) }}
     </div>
 
     <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_time.svg' />
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_time--light.svg' />
       {{ renderTime(statType && statType.moving_time, true) }}
     </div>
 
     <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation.svg' />
+      <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation--light.svg' />
       {{ renderElevation(statType && statType.elevation_gain, true) }}
     </div>
   </div>

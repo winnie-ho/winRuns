@@ -5,7 +5,7 @@
 body {
   font-family: 'Abel', 'Lato', sans-serif;
   color: var(--palette-eerie-black) ;
-  background: var(--palette-white);
+  background: var(--palette-flash);
   font-weight: 300;
   margin: 0;
 }

@@ -43,7 +43,7 @@
 }
 
 .icon__circle {
-  background-color: #3066BE;
+  background-color: var(--palette-cerulean);
   border-radius: 30%;
   padding: 10px;
   box-sizing: content-box;
