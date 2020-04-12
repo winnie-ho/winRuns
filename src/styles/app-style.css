@@ -162,7 +162,7 @@ a {
 }
 
 .sub-bar{
-  background: var(--palette-cerulean);
+  background: var(--palette-columbian);
   padding: 15px;
   display: flex;
   align-items: center;

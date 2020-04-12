@@ -22,7 +22,7 @@
 }
 
 .chart-bar {
-  border-bottom: #fff solid 6px;
+  border-bottom: var(--palette-white) solid 6px;
   display: flex;
   flex-direction: row;
   margin-left: 5px;
