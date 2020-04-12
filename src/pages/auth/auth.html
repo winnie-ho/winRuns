@@ -1,5 +1,5 @@
 <div id='auth' ref='auth'>
-  <nav-bar :pageTitle='pageTitle' :showNav='false'></nav-bar>
+  <nav-bar :showNav='false'></nav-bar>
 
   <el-button id="strava-button" @click="login" type='primary' v-show='!athlete.id'>
     <h3>CONNECT TO</h3>
@@ -7,12 +7,11 @@
   </el-button>
 
   <div class='col profile' v-show='athlete.id'>
-    <h4>You're connected!</h4>
+    <h3>You're connected!</h3>
     <router-link to="/home" exact>
       <img class='avatar-profile' :src='athlete.profile' />
     </router-link>
-    <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
-    <h6>{{ athlete.city }}, {{ athlete.state }}</h6>
-    <el-button plain icon='el-icon-menu' size='small' type='primary' @click="changePage('/home')">Home</el-button>
+    <h3>{{ athlete.firstname }} {{ athlete.lastname }}</h3>
+    <h5>{{ athlete.city }}, {{ athlete.state }}</h5>
   </div>
 </div>
