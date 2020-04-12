@@ -1,6 +1,6 @@
 .lap {
   background-color: transparent;
-  color: white;
+  color: var(--palette-eerie-black);
   position: relative;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
 }
 
 .selectedLap {
-  background-color: #3066BE;
+  background-color: var(--palette-cerulean);
 }
 
 .merge{
@@ -27,7 +27,7 @@
 }
 
 .merge:hover{
-  border: 1px solid #3066BE;
+  border: 1px solid var(--palette-smalt);
 }
 
 .lap-detail{
@@ -35,6 +35,15 @@
   padding: 10px;
   display: grid;
   grid: 20px/ 20% 20% 20% 20% 20%;
+}
+
+.button {
+  background-color: var(--palette-tea);
+  color: var(--palette-eerie-black);
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .merge-buttons{

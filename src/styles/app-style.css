@@ -132,7 +132,7 @@ a {
 
 .el-collapse-item__header{
   background-color: transparent;
-  color: var(--palette-white);
+  color: var(--palette-eerie-black);
 }
 
 .el-collapse-item__wrap{
