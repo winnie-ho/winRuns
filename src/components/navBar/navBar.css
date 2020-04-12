@@ -50,8 +50,8 @@
 }
 
 .burger-item:hover {
-  border-left: 3px solid var(--palette-eerie-black);
-  color: var(--palette-eerie-black);
+  border-left: 3px solid var(--palette-tea);
+  color: var(--palette-tea);
 }
 
 .close-icon {

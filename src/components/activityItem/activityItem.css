@@ -14,7 +14,7 @@
 .activity-box{
   padding: 10px;
   cursor: pointer;
-  border-bottom: 1px #fff solid;
+  border-bottom: 1px var(--palette-white) solid;
 
   animation-name: enterActivity;
   animation-duration: 1s;
@@ -23,8 +23,8 @@
 }
 
 .activity-box:hover{
-  background-color: #3066BE;
-  color: #AEECEF;
+  background-color: var(--palette-tea);
+  color: var(--palette-smalt);
 }
 
 .activity-box__detail{
@@ -32,12 +32,6 @@
   justify-content: flex-start;
   text-align: left;
   margin-left: 10px;
-}
-
-.activity-item-map {
-  border: red 1px solid;
-  height: 100px;
-  width: 300px;
 }
 
 .space{
