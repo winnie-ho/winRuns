@@ -211,4 +211,8 @@
   #pagesBar {
     visibility: hidden;
   }
+
+  #openNavBar {
+    box-shadow: none;
+  }
 }
