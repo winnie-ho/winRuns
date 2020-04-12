@@ -1,8 +1,8 @@
 <div id='navBar'>
-  <div id='openNavBar' class='row'>
+  <div id='openNavBar' :class='{ onAuthPage:onAuthPage }' class='row'>
     <router-link to="/home" exact class='home-button'>win runs</router-link>
 
-    <div id='page-title'>
+    <div id='page-title' v-show='!onAuthPage'>
       <h3>{{ pageTitle }}</h3>
     </div>
 

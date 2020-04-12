@@ -1,4 +1,5 @@
 #auth{
+  display: block;
   height: 100vh;
   font-size: 18px;
   background: var(--palette-flash);
@@ -27,16 +28,12 @@
   border-radius: 5px;
   font-family: "gill sans";
   font-size: 10px;
-  color: var(--palette-white);
-  background: var(--palette-cerulean);
+  color: var(--palette-cerulean);
+  background: var(--palette-columbian);
   z-index: 3;
 }
 
 #strava-button:hover{
   border: 1px solid var(--palette-white);;
   box-shadow: 5px 5px 10px var(--palette-cerulean);
-}
-
-.el-button{
-  margin-top: 20px;
 }

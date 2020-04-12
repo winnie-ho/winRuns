@@ -34,6 +34,9 @@ export default {
     athlete() {
       return this.$store.state.athlete;
     },
+    onAuthPage() {
+      return this.pageTitle === 'Auth';
+    },
   },
 };
 </script>

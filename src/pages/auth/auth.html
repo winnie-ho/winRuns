@@ -1,5 +1,5 @@
 <div id='auth' ref='auth'>
-  <nav-bar :showNav='false'></nav-bar>
+  <nav-bar pageTitle='Auth' :showNav='athlete.id'></nav-bar>
 
   <el-button id="strava-button" @click="login" type='primary' v-show='!athlete.id'>
     <h3>CONNECT TO</h3>
