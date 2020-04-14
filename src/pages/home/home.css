@@ -11,3 +11,10 @@
   margin: 20px;
   cursor: pointer;
 }
+
+/* responsive css */
+@media all and (max-width: 1000px) {
+  .week-stats {
+    justify-content: space-between;
+  }
+}
