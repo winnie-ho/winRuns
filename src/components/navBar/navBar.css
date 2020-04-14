@@ -199,6 +199,6 @@
   }
 
   #pagesBar {
-    visibility: hidden;
+    display: none;
   }
 }
