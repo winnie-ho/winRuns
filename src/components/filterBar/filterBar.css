@@ -20,5 +20,5 @@
 
 .selectedFilter {
   filter: opacity(100%);
-  border-bottom:solid 2px #AEECEF;
+  border-bottom:solid 2px var(--palette-cerulean);
 }
