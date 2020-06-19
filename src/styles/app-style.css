@@ -51,7 +51,11 @@ h1, h2, h3, h4, h5, h6{
   font-weight: 300;
 }
 
-.spacer {
+.spacer--small {
+  margin-right: 10px;
+}
+
+.spacer--medium {
   margin-right: 20px;
 }
 
@@ -113,7 +117,6 @@ a {
 
 .btn{
   cursor: pointer;
-  margin: 0.5rem;
 }
 
 .btn:hover{
@@ -166,6 +169,7 @@ a {
   padding: 15px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 /* responsive css  */
