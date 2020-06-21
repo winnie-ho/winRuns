@@ -8,14 +8,14 @@
       <div class='heading'>{{ activity.name }}</div>
       <div class='row data-metric'
         v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
-        <p class='spacer'>{{ renderDistance(activity.distance) }}</p>
-        <p class='spacer'>{{ renderTime(activity.moving_time) }}</p>
-        <p class='spacer'>{{ renderPace(activity.moving_time, activity.distance) }}</p>
+        <p class='spacer--medium'>{{ renderDistance(activity.distance) }}</p>
+        <p class='spacer--medium'>{{ renderTime(activity.moving_time) }}</p>
+        <p class='spacer--medium'>{{ renderPace(activity.moving_time, activity.distance) }}</p>
       </div>
       <div class='row data-metric' v-show="activity.type === 'Swim'">
-        <p class='spacer'>{{ renderSwimDistance(activity.distance) }}</p>
-        <p class='spacer'>{{ renderTime(activity.moving_time) }}</p>
-        <p class='spacer'>{{ renderSwimPace(activity.moving_time, activity.distance) }}</p>
+        <p class='spacer--medium'>{{ renderSwimDistance(activity.distance) }}</p>
+        <p class='spacer--medium'>{{ renderTime(activity.moving_time) }}</p>
+        <p class='spacer--medium'>{{ renderSwimPace(activity.moving_time, activity.distance) }}</p>
       </div>
     </div>
   </div>
