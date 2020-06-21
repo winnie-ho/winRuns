@@ -8,6 +8,7 @@ import changePage from '../../mixins/changePage';
 import googleMap from '../../components/googleMap/googleMap.vue';
 import lapItem from '../../components/lapItem/lapItem.vue';
 import activitySession from '../../components/activitySession/activitySession.vue';
+import activityDock from '../../components/activityDock/activityDock.vue';
 
 export default {
   name: 'viewActivity',
@@ -16,6 +17,7 @@ export default {
     googleMap,
     lapItem,
     activitySession,
+    activityDock,
   },
   mixins: [renderData, changePage],
   data() {
@@ -80,12 +82,6 @@ export default {
   computed: {
     activity() {
       return this.$store.state.activity;
-    },
-    comments() {
-      return this.$store.state.comments;
-    },
-    kudos() {
-      return this.$store.state.kudos;
     },
     photos() {
       return this.$store.state.photos;
