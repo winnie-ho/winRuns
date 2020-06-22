@@ -31,22 +31,6 @@
 
 
   <div class='component-container'>
-
-    <div class='description'>
-      <h4>{{ activity.description }}</h4>
-    </div>
-
-    <div id='photos-detail' show='photoCount> 0'>
-      <el-carousel indicator-position="outside" :autoplay='false'>
-        <el-carousel-item v-for="photo in photos" :key="photo.index">
-          <div class='col'>
-            <img class='photo' :src="photo.urls['1000']" />
-          </div>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-
-
     <!-- 
     <div id="laps-detail" class="col sb">
       <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
@@ -109,6 +93,20 @@
           {{ comment.text }}
         </h3>
       </div>
+    </div>
+
+    <div class='description'>
+      <h4>{{ activity.description }}</h4>
+    </div>
+
+    <div id='photos-detail' show='photoCount> 0'>
+      <el-carousel indicator-position="outside" :autoplay='false'>
+        <el-carousel-item v-for="photo in photos" :key="photo.index">
+          <div class='col'>
+            <img class='photo' :src="photo.urls['1000']" />
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
 
   </div>
