@@ -4,9 +4,14 @@
 <script>
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
+import lapItem from '../lapItem/lapItem.vue';
+
 
 export default {
   name: 'activityDock',
+  components: {
+    lapItem,
+  },
   mixins: [renderData, appData],
   props: ['activity'],
   data() {

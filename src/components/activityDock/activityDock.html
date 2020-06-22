@@ -66,13 +66,13 @@
       </div>
     </div> -->
 
-    <div v-show='toggleLaps'>
-      <div id="laps-detail">
-        <div class='col' v-for='lap in laps' :key='lap.index'>
-          <div class='lap'>
-            <h5>{{ lap }}</h5>
-          </div>
-        </div>
+    <div id="laps-detail" v-show='lapsCount && toggleLaps'>
+      <div class='col' v-for='lap in laps' :key='lap.index'>
+        <lap-item class="row sa lap" :lap='lap' :activity='activity' :lapMarkers='lapMarkers'
+          :sessionEfforts='sessionEfforts' :createSession='createSession' v-on:onMarkLapChange='setLapMarker($event)'
+          v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
+          v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
+        </lap-item>
       </div>
     </div>
 
