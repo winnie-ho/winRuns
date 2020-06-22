@@ -53,17 +53,6 @@
   background-color: transparent;
 }
 
-
-#photos-detail {
-  margin-top: 20px;
-}
-
-.photo{
-  width: auto;
-  height: 300px;
-}
-
-
 #lap-calc-result {
   width: 100vw;
   position: sticky;
