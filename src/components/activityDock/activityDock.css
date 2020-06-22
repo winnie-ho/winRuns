@@ -13,29 +13,33 @@
   box-shadow: 0px 10px 20px var(--palette-cerulean);
 }
 
-.dock_items{
+.dock-items{
   width: 100%;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
-.dock_item{
+.dock-item{
   display: flex;
   justify-content: center;
   width: 120px;
 }
 
-.dock_item:hover {
+.dock-item:hover {
   border-radius: 5px;
   background-color: var(--palette-tea);
   box-shadow: 0px 10px 20px var(--palette-cerulean);
 }
 
-.dock_item h1, h6 {
+.dock-item h1, h6 {
   margin: 0.5rem;
 }
 
 .selectedDockItem {
   border-bottom: 2px solid var(--palette-tea);
+}
+
+.dock-items-detail {
+  width: 100vw;
 }
 
 .description{
@@ -44,13 +48,9 @@
   align-items: center;
 }
 
-#photos-detail {
-  margin-top: 20px;
-}
-
 .photo{
   width: auto;
-  height: 300px;
+  height: 260px;
 }
 
 #kudos-detail{
