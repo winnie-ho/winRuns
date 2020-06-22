@@ -22,12 +22,11 @@
   display: flex;
   justify-content: center;
   width: 120px;
+  border-bottom: 2px solid var(--palette-columbian)
 }
 
 .dock-item:hover {
-  border-radius: 5px;
-  background-color: var(--palette-tea);
-  box-shadow: 0px 10px 20px var(--palette-cerulean);
+  border-bottom: 2px solid var(--palette-cerulean)
 }
 
 .dock-item h1, h6 {
@@ -59,6 +58,7 @@
   justify-content: center;
   grid-template-columns: 20% 20% 20% 20% 20%;
   color: var(--palette-eerie-black);
+  margin-top: 1rem;
 }
 
 .kudo {
