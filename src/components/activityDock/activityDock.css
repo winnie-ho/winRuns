@@ -74,9 +74,7 @@
 }
 
 #comments-detail{
-  margin: 10px 0;
   align-items: unset;
-  padding: 0 2rem;
   color: var(--palette-eerie-black);
   width: 100vw;
 }
