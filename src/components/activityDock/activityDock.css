@@ -26,14 +26,16 @@
 
 .dock_item:hover {
   border-radius: 5px;
-  color: var(--palette-tea);
-  background-color: var(--palette-cerulean);
+  background-color: var(--palette-tea);
   box-shadow: 0px 10px 20px var(--palette-cerulean);
-  border-bottom: 2px solid var(--palette-cerulean);
 }
 
 .dock_item h1, h6 {
   margin: 0.5rem;
+}
+
+.selectedDockItem {
+  border-bottom: 2px solid var(--palette-tea);
 }
 
 .description{
@@ -41,6 +43,15 @@
   padding: 0 30px;
   white-space: pre-wrap;
   align-items: center;
+}
+
+#photos-detail {
+  margin-top: 20px;
+}
+
+.photo{
+  width: auto;
+  height: 300px;
 }
 
 #kudos-detail{
@@ -71,9 +82,3 @@
   width: 100vw;
 }
 
-.selectedDetail {
-  /* border: 1px solid var(--palette-cerulean); */
-  /* box-shadow: 0px 10px 20px var(--palette-cerulean); */
-
-  border-bottom: 2px solid var(--palette-tea);
-}

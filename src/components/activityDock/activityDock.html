@@ -12,17 +12,17 @@
       class='icon--large icon' />
   </div>
   <div class='dock_items row sa'>
-    <div class='dock_item col' @click='setDockItem("laps")' :class='{ selectedDetail: toggleLaps }'>
+    <div class='dock_item col' @click='setDockItem("laps")' :class='{ selectedDockItem: toggleLaps }'>
       <h6>LAPS</h6>
       <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon--medium' />
       <h1>{{ laps && laps.length }}</h1>
     </div>
-    <div class='dock_item col' @click='setDockItem("kudos")' :class='{ selectedDetail: toggleKudos }'>
+    <div class='dock_item col' @click='setDockItem("kudos")' :class='{ selectedDockItem: toggleKudos }'>
       <h6>KUDOS</h6>
       <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon--medium' />
       <h1>{{ kudos && kudos.length }}</h1>
     </div>
-    <div class='dock_item col' @click='setDockItem("comments")' :class='{ selectedDetail: toggleComments }'>
+    <div class='dock_item col' @click='setDockItem("comments")' :class='{ selectedDockItem: toggleComments }'>
       <h6>COMMENTS</h6>
       <img src=' ../../../static/assets/svgs/icon_comment.svg' class='btn icon--medium' />
       <h1>{{ comments && comments.length }}</h1>
@@ -32,15 +32,19 @@
 
   <div class='component-container'>
 
-    <!-- <div show='photoCount> 0'>
-      <el-carousel indicator-position="outside" v-show='displayPhotos' :autoplay='false'>
+    <div class='description'>
+      <h4>{{ activity.description }}</h4>
+    </div>
+
+    <div id='photos-detail' show='photoCount> 0'>
+      <el-carousel indicator-position="outside" :autoplay='false'>
         <el-carousel-item v-for="photo in photos" :key="photo.index">
           <div class='col'>
             <img class='photo' :src="photo.urls['1000']" />
           </div>
         </el-carousel-item>
       </el-carousel>
-    </div> -->
+    </div>
 
 
     <!-- 
@@ -80,12 +84,11 @@
 
     <div v-show='toggleLaps'>
       <div id="laps-detail">
-        hello laps
-        <!-- <div class='col' v-for='lap in laps' :key='kudo.index'>
+        <div class='col' v-for='lap in laps' :key='lap.index'>
           <div class='lap'>
             <h5>{{ lap }}</h5>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
@@ -108,10 +111,5 @@
       </div>
     </div>
 
-
-  </div>
-
-  <div class='description'>
-    <h4>{{ activity.description }}</h4>
   </div>
 </div>

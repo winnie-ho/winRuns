@@ -35,7 +35,7 @@ export default {
           this.toggleComments = false;
           break;
         default:
-          this.toggleLaps = true;
+          this.toggleLaps = false;
           this.toggleKudos = false;
           this.toggleComments = false;
       }
@@ -50,6 +50,9 @@ export default {
     },
     laps() {
       return this.$store.state.activity.laps;
+    },
+    photos() {
+      return this.$store.state.photos;
     },
     lapsCount() {
       return (
