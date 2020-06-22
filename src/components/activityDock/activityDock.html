@@ -12,20 +12,20 @@
       class='icon--large icon' />
   </div>
   <div class='dock_items row sa'>
-    <div class='dock_item col' @click='setDockItem("laps")'>
+    <div class='dock_item col' @click='setDockItem("laps")' :class='{ selectedDetail: toggleLaps }'>
       <h6>LAPS</h6>
       <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon--medium' />
-      <h2>{{ laps && laps.length }}</h2>
+      <h1>{{ laps && laps.length }}</h1>
     </div>
-    <div class='dock_item col' @click='setDockItem("kudos")'>
+    <div class='dock_item col' @click='setDockItem("kudos")' :class='{ selectedDetail: toggleKudos }'>
       <h6>KUDOS</h6>
       <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon--medium' />
-      <h2>{{ kudos && kudos.length }}</h2>
+      <h1>{{ kudos && kudos.length }}</h1>
     </div>
-    <div class='dock_item col' @click='setDockItem("comments")'>
+    <div class='dock_item col' @click='setDockItem("comments")' :class='{ selectedDetail: toggleComments }'>
       <h6>COMMENTS</h6>
       <img src=' ../../../static/assets/svgs/icon_comment.svg' class='btn icon--medium' />
-      <h2>{{ comments && comments.length }}</h2>
+      <h1>{{ comments && comments.length }}</h1>
     </div>
   </div>
 
@@ -89,12 +89,10 @@
       </div>
     </div>
 
-    <div v-show='activity.kudos_count > 0 && toggleKudos'>
-      <div id="kudos-detail">
-        <div class='col' v-for='kudo in kudos' :key='kudo.index'>
-          <div class='kudo'>
-            <h5>{{ kudo.firstname }} {{ kudo.lastname }}</h5>
-          </div>
+    <div id="kudos-detail" v-show='activity.kudos_count > 0 && toggleKudos'>
+      <div class='col' v-for='kudo in kudos' :key='kudo.index'>
+        <div class='kudo'>
+          <h5>{{ kudo.firstname }} {{ kudo.lastname }}</h5>
         </div>
       </div>
     </div>

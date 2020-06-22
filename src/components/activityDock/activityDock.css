@@ -21,10 +21,19 @@
 .dock_item{
   display: flex;
   justify-content: center;
+  width: 120px;
 }
 
-.dock_item h2, h6 {
-  margin: 1rem;
+.dock_item:hover {
+  border-radius: 5px;
+  color: var(--palette-tea);
+  background-color: var(--palette-cerulean);
+  box-shadow: 0px 10px 20px var(--palette-cerulean);
+  border-bottom: 2px solid var(--palette-cerulean);
+}
+
+.dock_item h1, h6 {
+  margin: 0.5rem;
 }
 
 .description{
@@ -60,4 +69,11 @@
   padding: 0 2rem;
   color: var(--palette-eerie-black);
   width: 100vw;
+}
+
+.selectedDetail {
+  /* border: 1px solid var(--palette-cerulean); */
+  /* box-shadow: 0px 10px 20px var(--palette-cerulean); */
+
+  border-bottom: 2px solid var(--palette-tea);
 }
