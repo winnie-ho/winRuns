@@ -20,19 +20,19 @@ export default {
     setDockItem(item) {
       switch (item) {
         case 'laps':
-          this.toggleLaps = true;
+          this.toggleLaps = !this.toggleLaps;
           this.toggleKudos = false;
+          this.toggleComments = false;
+          break;
+        case 'kudos':
+          this.toggleLaps = false;
+          this.toggleKudos = !this.toggleKudos;
           this.toggleComments = false;
           break;
         case 'comments':
           this.toggleLaps = false;
           this.toggleKudos = false;
-          this.toggleComments = true;
-          break;
-        case 'kudos':
-          this.toggleLaps = false;
-          this.toggleKudos = true;
-          this.toggleComments = false;
+          this.toggleComments = !this.toggleComments;
           break;
         default:
           this.toggleLaps = false;
