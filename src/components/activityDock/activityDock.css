@@ -45,6 +45,7 @@
   width: 100%;
   white-space: pre-wrap;
   align-items: center;
+  margin: 0 1rem;
 }
 
 .photo{
@@ -77,5 +78,28 @@
   align-items: unset;
   color: var(--palette-eerie-black);
   width: 100vw;
+  margin: 0 1rem;
 }
 
+#laps-detail {
+  margin: 1rem;
+}
+.lap {
+  width: 100vw;
+}
+
+#lap-calc-result {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background-color: var(--palette-cerulean);
+  color: var(--palette-white);
+  margin: 10px 0;
+  z-index: 1;
+}
+
+.create-session{
+  padding-bottom: 15px;
+  width: 100%;
+  justify-content: flex-start !important;
+}

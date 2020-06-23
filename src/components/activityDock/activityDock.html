@@ -31,8 +31,8 @@
 
 
   <div class='dock-items-detail'>
-    <!-- 
-    <div id="laps-detail" class="col sb">
+
+    <div id="laps-detail" v-show='lapsCount && toggleLaps'>
       <div id='lap-calc-result' class='row sa' v-show='lapMarkers.length === 2 && !createSession'>
         <h2>{{ lapCountInCalc }}</h2>
         <h2 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
@@ -43,7 +43,7 @@
         <h2 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
           {{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
         <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
-        <img src='../../../static/assets/svgs/icon_cross.svg' class='icon' @click='clearLapMarkers()' />
+        <img src='../../../static/assets/svgs/icon_cross.svg' class='icon icon--small' @click='clearLapMarkers()' />
       </div>
 
       <div class='row create-session'>
@@ -57,16 +57,6 @@
         v-on:onCloseSession='toggleCreateSession'>
       </activity-session>
 
-      <div v-for='lap in laps' :key='lap.index'>
-        <lap-item class="row sa lap" :lap='lap' :activity='activity' :lapMarkers='lapMarkers'
-          :sessionEfforts='sessionEfforts' :createSession='createSession' v-on:onMarkLapChange='setLapMarker($event)'
-          v-on:onSessionMarkLapChange='setSessionLapMarker($event)'
-          v-on:onSessionMarkLapMerge='setSessionLapMergeMarker($event)'>
-        </lap-item>
-      </div>
-    </div> -->
-
-    <div id="laps-detail" v-show='lapsCount && toggleLaps'>
       <div class='col' v-for='lap in laps' :key='lap.index'>
         <lap-item class="row sa lap" :lap='lap' :activity='activity' :lapMarkers='lapMarkers'
           :sessionEfforts='sessionEfforts' :createSession='createSession' v-on:onMarkLapChange='setLapMarker($event)'

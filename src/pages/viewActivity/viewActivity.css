@@ -37,29 +37,3 @@
   align-content: center;
   align-self: center;
 }
-
-.create-session{
-  padding-bottom: 15px;
-  width: 100%;
-  justify-content: flex-start !important;
-}
-
-.lap {
-  width: 100vw;
-}
-
-#laps-detail{
-  margin: 10px;
-  background-color: transparent;
-}
-
-#lap-calc-result {
-  width: 100vw;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  background-color: var(--palette-cerulean);
-  color: var(--palette-white);
-  margin: 10px 0;
-  z-index: 1;
-}

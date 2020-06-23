@@ -5,12 +5,14 @@
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 import lapItem from '../lapItem/lapItem.vue';
+import activitySession from '../activitySession/activitySession.vue';
 
 
 export default {
   name: 'activityDock',
   components: {
     lapItem,
+    activitySession,
   },
   mixins: [renderData, appData],
   props: ['activity'],
@@ -19,6 +21,10 @@ export default {
       toggleLaps: false,
       toggleKudos: false,
       toggleComments: false,
+      lapMarkers: [],
+      sessionEfforts: [],
+      createSession: false,
+      sessionEffortsMergeMarkers: [],
     };
   },
   methods: {
@@ -45,6 +51,41 @@ export default {
           this.toggleComments = false;
       }
     },
+    setLapMarker(lap) {
+      this.lapMarkers.push(lap.lap_index - 1);
+      if (this.lapMarkers.length > 2) {
+        this.lapMarkers.shift();
+      }
+    },
+    setSessionLapMarker(lap) {
+      if (this.sessionEfforts.includes(lap)) {
+        const index = this.sessionEfforts.indexOf(lap);
+        if (index > -1) {
+          this.sessionEfforts.splice(index, 1);
+        }
+      } else {
+        this.sessionEfforts.push(lap);
+      }
+    },
+    setSessionLapMergeMarker(lap) {
+      if (this.sessionEffortsMergeMarkers.includes(lap)) {
+        const index = this.sessionEffortsMergeMarkers.indexOf(lap);
+        if (index > -1) {
+          this.sessionEffortsMergeMarkers.splice(index, 1);
+        }
+      } else {
+        this.sessionEffortsMergeMarkers.push(lap);
+      }
+    },
+    resetSessionEfforts() {
+      this.sessionEfforts = [];
+    },
+    clearLapMarkers() {
+      this.lapMarkers = [];
+    },
+    toggleCreateSession() {
+      this.createSession = !this.createSession;
+    },
   },
   computed: {
     comments() {
@@ -63,6 +104,35 @@ export default {
       return (
         this.$store.state.activity.laps && this.$store.state.activity.laps.length
       );
+    },
+    lapCountInCalc() {
+      if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;
+      return this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1;
+    },
+    sortedLapMarkers() {
+      return this.lapMarkers && this.lapMarkers.slice().sort((a, b) => a - b);
+    },
+    lapCalcTimeResult() {
+      let lapTimeCounter = 0;
+      for (
+        let i = this.sortedLapMarkers[0];
+        i < this.sortedLapMarkers[1] + 1;
+        i++
+      ) {
+        lapTimeCounter += this.laps[i].moving_time;
+      }
+      return this.sortedLapMarkers && lapTimeCounter;
+    },
+    lapCalcDistanceResult() {
+      let lapDistanceCounter = 0;
+      for (
+        let i = this.sortedLapMarkers[0];
+        i < this.sortedLapMarkers[1] + 1;
+        i++
+      ) {
+        lapDistanceCounter += this.laps[i].distance;
+      }
+      return this.sortedLapMarkers && lapDistanceCounter;
     },
   },
 };
