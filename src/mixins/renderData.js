@@ -82,6 +82,9 @@ export default {
       }
       return `${paceMinutes}:${paceSeconds}/100m`;
     },
+    renderSpeed(rawSpeed) {
+      return `${(rawSpeed / 1000 * 60 * 60).toFixed(2)} km/h`;
+    },
     renderDate(rawDate, format) {
       const convertedRawDate = new Date(rawDate);
       const today = new Date();

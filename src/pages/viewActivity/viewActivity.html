@@ -23,9 +23,13 @@
             <h6>TIME</h6>
             <h2 class='spacer--medium'>{{ renderTime(activity.moving_time) }}</h2>
           </div>
-          <div>
+          <div v-show="activity.type ==='Run'">
             <h6>PACE</h6>
             <h2 class='spacer--medium'>{{ renderPace(activity.moving_time, activity.distance) }}</h2>
+          </div>
+          <div v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
+            <h6>SPEED</h6>
+            <h2 class='spacer--medium'>{{ renderSpeed(activity.distance / activity.moving_time) }}</h2>
           </div>
         </div>
       </div>

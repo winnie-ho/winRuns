@@ -6,8 +6,10 @@
     </div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimDistance(lap.distance) }}</div>
     <div class='lap'>{{ renderTime(lap.moving_time) }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
+    <div class='lap' v-show="activity.type ==='Run'">
       {{ renderPace(lap.moving_time, lap.distance) }}</div>
+    <div class='lap' v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
+      {{ renderSpeed(lap.distance / lap.moving_time) }}</div>
     <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
     <div v-show='createSession' class='merge-buttons'>
       <button class='merge button' v-show='isMergeable && !merged' @click='mergeLap()'>⇡</button>

@@ -40,8 +40,11 @@
         </h2>
         <h2 v-show="activity.type === 'Swim'">{{ renderSwimDistance(lapCalcDistanceResult) }}</h2>
         <h2>{{ renderTime(lapCalcTimeResult) }}</h2>
-        <h2 v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
+        <h2 v-show="activity.type ==='Run'">
           {{ renderPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
+        <h2 v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
+          {{ renderSpeed(lapCalcDistanceResult/lapCalcTimeResult) }}
+        </h2>
         <h2 v-show="activity.type === 'Swim'">{{ renderSwimPace(lapCalcTimeResult, lapCalcDistanceResult)}}</h2>
         <img src='../../../static/assets/svgs/icon_cross.svg' class='icon icon--small' @click='clearLapMarkers()' />
       </div>

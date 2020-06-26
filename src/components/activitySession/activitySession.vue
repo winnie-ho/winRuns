@@ -65,6 +65,9 @@ export default {
 
         if (type === 'Swim') {
           sessionString = `${sessionString + index} - ${this.renderSwimDistance(effort.distance)}, ${this.renderTime(effort.moving_time)} (${this.renderSwimPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
+        }
+        if (type === 'Ride' || type === 'VirtualRide') {
+          sessionString = `${sessionString + index} - ${this.renderDistance(effort.distance)}, ${this.renderTime(effort.moving_time)} (${this.renderSpeed((effort.distance / effort.moving_time))}) ${rankMark}\n`;
         } else {
           sessionString = `${sessionString + index} - ${this.renderDistance(effort.distance)}, ${this.renderTime(effort.moving_time)} (${this.renderPace(effort.moving_time, effort.distance)}) ${rankMark}\n`;
         }
