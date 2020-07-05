@@ -108,7 +108,7 @@
   100% {
     width: 74px;
     background-color: var(--palette-cerulean);
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
