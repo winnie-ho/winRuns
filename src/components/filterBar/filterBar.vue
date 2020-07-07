@@ -5,6 +5,7 @@
 export default {
   name: 'filter-bar',
   components: {},
+  props: ['activities'],
   data() {
     return {
       toggleFilterSwim: true,
@@ -15,6 +16,7 @@ export default {
   },
   methods: {
     setFilter(activityType) {
+      // eslint-disable-next-line default-case
       switch (activityType) {
         case 'SWIM':
           this.toggleFilterSwim = !this.toggleFilterSwim;
@@ -33,6 +35,9 @@ export default {
           this.$emit('filterWorkoutChange', this.toggleFilterWorkout);
           break;
       }
+    },
+    showActivityFilter(activityType) {
+      return this.activities.filter(activity => activity.type === activityType).length !== 0;
     },
   },
 };

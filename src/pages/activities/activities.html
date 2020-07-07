@@ -10,7 +10,7 @@
   </div>
 
   <div class='sub-bar__expanded col'>
-    <filter-bar v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'
+    <filter-bar :activities='activitiesByMonth' v-show='showFilters' v-on:filterSwimChange='setSwimFilter($event)'
       v-on:filterRideChange='setRideFilter($event)' v-on:filterRunChange='setRunFilter($event)'
       v-on:filterWorkoutChange='setWorkoutFilter($event)'>
     </filter-bar>
