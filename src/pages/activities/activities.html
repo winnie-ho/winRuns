@@ -3,9 +3,9 @@
 
   <div class='sub-bar sub-bar__collapsed row'>
     <monthChanger v-on:onMonthChange='setMonth($event)'></monthChanger>
-    <img class='icon icon--medium tool-icon' :class='{ selectedButton: showFilters }'
+    <img class='icon icon--small tool-icon' :class='{ selectedButton: showFilters }'
       src='../../../static/assets/svgs/icon_filter.svg' @click='expandFilters()' />
-    <img class='icon icon--medium tool-icon' :class='{ selectedButton: showSearch }'
+    <img class='icon icon--small tool-icon' :class='{ selectedButton: showSearch }'
       src='../../../static/assets/svgs/icon_search.svg' @click='expandSearch()'>
   </div>
 
