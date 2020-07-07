@@ -37,6 +37,9 @@ export default {
     onAuthPage() {
       return this.pageTitle === 'Auth';
     },
+    burgerMenuHeightStyleInstruction() {
+      return `--burgerMenuHeightStyle: ${window.innerHeight}px`;
+    },
   },
 };
 </script>

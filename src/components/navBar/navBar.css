@@ -10,7 +10,6 @@
 }
 
 #burger-menu {
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,11 +27,12 @@
 }
 
 #burger-menu.expandedBurger {
-  height: 100%;
+  height: var(--burgerMenuHeightStyle);
   width: 100vw;
   opacity: 1;
   background-color: var(--palette-cerulean);
   transform: rotate(0deg);
+  position: fixed;
 }
 
 .profile{
