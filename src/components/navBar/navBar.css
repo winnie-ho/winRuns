@@ -173,6 +173,10 @@
 }
 
 /* 'open' toggle state */
+#burger.open span{
+  background: var(--palette-white);
+}
+
 #burger.open span:nth-child(1) {
   top: 10px;
   width: 0%;
