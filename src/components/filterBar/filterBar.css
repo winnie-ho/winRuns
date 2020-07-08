@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 15px;
+  padding: 0 15px;
   width: 100vw;
 
   animation-name: expandSubBar;
