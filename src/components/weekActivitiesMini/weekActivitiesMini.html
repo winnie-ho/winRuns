@@ -11,7 +11,8 @@
       <el-tooltip placement="top">
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
           {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities.png' class='icon btn'>
+        <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png'
+          class='icon btn'>
       </el-tooltip>
       <el-tooltip placement="top">
         <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
