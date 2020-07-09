@@ -4,29 +4,31 @@
     <year-changer v-on:onYearChange='setYear($event)'></year-changer>
   </div>
 
-  <div class='component-container'>
-    <div id='park-run-summary' class='row' v-show='parkRuns.length > 0'>
-      <div>
-        <h1>{{ parkRuns.length }} Park runs completed in {{ yearInView }}</h1>
-        <h2>{{ totalParkRunKudosInYear }}x 👍🏻</h2>
-        <h3>Fastest Park Run</h3>
-        <h4>
-          {{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date_local) }}
-        </h4>
-        <h2>
-          {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}
-          {{ renderTime(fastestParkRunOfYear && fastestParkRunOfYear.moving_time) }}
+  <div class='component-container container-colour--primary'>
+    <div id='park-run-summary' v-show='parkRuns.length > 0'>
+      <h1>{{ yearInView }} Park Runs</h1>
+      <h3>{{ parkRuns.length }} ran at {{ numberOfDifferentParkRuns.length }} different Park Run(s)</h3>
+      <div class='row'>
+        <h4 class='spacer--medium'>Average time: {{ renderTime(averageTime) }}</h4>
+        <h4 class='spacer--medium'>Average pace: {{ renderPace(averageTime, averageDistance) }}</h4>
+      </div>
+      <h3>Fastest of {{yearInView}}</h3>
+      <h3>{{ renderDate(fastestParkRunOfYear && fastestParkRunOfYear.start_date_local) }}
+        -
+        {{ fastestParkRunOfYear && fastestParkRunOfYear.name }}</h3>
+      <div class='row'>
+
+        <h3 class='spacer--medium'>
+          {{ renderTime(fastestParkRunOfYear && fastestParkRunOfYear.moving_time) }} </h3>
+        <h3 class='spacer--medium'>
           {{ renderPace(fastestParkRunOfYear && fastestParkRunOfYear.moving_time, fastestParkRunOfYear && fastestParkRunOfYear.distance) }}
-        </h2>
-        <h3>Average time: {{ renderTime(averageTime) }}</h3>
-        <h3>Average pace: {{ renderPace(averageTime, averageDistance) }}</h3>
-        {{ numberOfDifferentParkRuns.length }} different Park Run(s)
+        </h3>
       </div>
     </div>
     <div v-show='parkRuns.length > 0' id='pr-finish-time-chart'></div>
   </div>
 
-  <div class='component-container'>
+  <div class='component-container container-colour--secondary'>
     <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'
       :activityLocation='getParkRunLocation(parkRun)'>
     </activity-item>

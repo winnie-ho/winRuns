@@ -22,7 +22,7 @@ export default {
           text: 'Park Run Results',
           style: {
             fontSize: '10px',
-            color: 'white',
+            color: 'var(--palette-black)',
           },
         },
         tooltip: {
@@ -37,10 +37,10 @@ export default {
           {
             name: 'Time',
             data: dataArrayTime,
-            color: '#AEECEF',
+            color: 'var(--palette-cerulean)',
             style: {
               fontSize: '10px',
-              color: '#AEECEF',
+              color: 'var(--palette-black)',
             },
           },
         ],
@@ -50,13 +50,13 @@ export default {
             text: 'Date',
             style: {
               fontSize: '10px',
-              color: 'white',
+              color: 'var(--palette-black)',
             },
           },
           categories: dateFormatted,
           labels: {
             style: {
-              color: 'white',
+              color: 'var(--palette-black)',
             },
           },
           startOnTick: true,
@@ -68,16 +68,16 @@ export default {
           gridLineWidth: 0.1,
           title: {
             enabled: true,
-            text: 'Time (s)',
-            color: 'white',
+            text: 'Time (mm:ss)',
+            color: 'var(--palette-black)',
             style: {
               fontSize: '10px',
-              color: 'white',
+              color: 'var(--palette-black)',
             },
           },
           labels: {
             style: {
-              color: 'white',
+              color: 'var(--palette-black)',
             },
           },
           startOnTick: true,
@@ -85,7 +85,7 @@ export default {
           showLastLabel: true,
         },
         legend: {
-          itemStyle: { color: 'white' },
+          itemStyle: { color: 'var(--palette-black)' },
         },
       });
     },
@@ -107,7 +107,7 @@ export default {
           text: 'Park Run Results',
           style: {
             fontSize: '10px',
-            color: 'white',
+            color: 'var(--palette-black)',
           },
         },
         tooltip: {
@@ -122,10 +122,10 @@ export default {
           {
             name: 'Time',
             data: dataArrayTime,
-            color: '#AEECEF',
+            color: '#var(--palette-cerulean)',
             style: {
               fontSize: '10px',
-              color: '#AEECEF',
+              color: '#var(--palette-cerulean)',
             },
           },
         ],
@@ -135,13 +135,13 @@ export default {
             text: 'Date',
             style: {
               fontSize: '10px',
-              color: 'white',
+              color: 'var(--palette-cerulean)',
             },
           },
           categories: dateFormatted,
           labels: {
             style: {
-              color: 'white',
+              color: 'var(--palette-cerulean)',
             },
           },
           startOnTick: true,
@@ -154,15 +154,15 @@ export default {
           title: {
             enabled: true,
             text: 'Time (s)',
-            color: 'white',
+            color: 'var(--palette-cerulean)',
             style: {
               fontSize: '10px',
-              color: 'white',
+              color: 'var(--palette-cerulean)',
             },
           },
           labels: {
             style: {
-              color: 'white',
+              color: 'var(--palette-cerulean)',
             },
           },
           startOnTick: true,
@@ -170,7 +170,7 @@ export default {
           showLastLabel: true,
         },
         legend: {
-          itemStyle: { color: 'white' },
+          itemStyle: { color: 'var(--palette-cerulean)' },
         },
       });
     },
