@@ -1,0 +1,40 @@
+<div id='month-hr' class='component-container container-colour--secondary'>
+  <div id='heartrate-summary' class='row sb'>
+    <img class='icon--large' src='../../../static/assets/svgs/icon_heartrate.svg' />
+    <div class='col sb'>
+      <div>
+        Max HR
+        <i class="el-icon-sort-down" size='mini'></i>
+        {{ lowestMaxHR }}
+        <i class="el-icon-sort-up" size='mini'></i>
+        {{ highestMaxHR }}
+      </div>
+
+      <div>
+        Avg HR
+        <i class="el-icon-sort-down" size='mini'></i>
+        {{ lowestAvgHR }}
+        <i class="el-icon-sort-up" size='mini'></i>
+        {{ highestAvgHR }}
+      </div>
+    </div>
+  </div>
+
+  <div @click='displayMaxAvgHRChart=!displayMaxAvgHRChart'>
+    <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View HR chart'>
+      <span v-show='!displayMaxAvgHRChart'>
+        Show HR chart
+        <i class='el-icon-arrow-down btn' v-show='!displayMaxAvgHRChart'></i>
+      </span>
+    </el-tooltip>
+
+    <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide HR chart'>
+      <span v-show='displayMaxAvgHRChart'>
+        Hide HR chart
+        <i class='el-icon-arrow-up btn' v-show='displayMaxAvgHRChart'></i>
+      </span>
+    </el-tooltip>
+  </div>
+
+  <div id='max-avg-heartrate-chart' v-show='displayMaxAvgHRChart'></div>
+</div>
