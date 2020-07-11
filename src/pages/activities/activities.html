@@ -18,6 +18,8 @@
   </div>
 
   <month-stats :stats='stats' :activities='activitiesByMonth'></month-stats>
+  <month-h-r :activitiesInView='activitiesByMonth'></month-h-r>
+
   <div class='component-container container-colour--secondary'>
     <activity-item v-show='activitiesByMonth' v-for='activity in filteredActivities' :key='activity.index'
       :activity='activity'>

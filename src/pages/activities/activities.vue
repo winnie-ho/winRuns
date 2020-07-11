@@ -9,6 +9,7 @@ import searchBar from '../../components/searchBar/searchBar.vue';
 import filterBar from '../../components/filterBar/filterBar.vue';
 import monthChanger from '../../components/monthChanger/monthChanger.vue';
 import monthStats from '../../components/monthStats/monthStats.vue';
+import monthHR from '../../components/monthHR/monthHR.vue';
 
 export default {
   name: 'activities',
@@ -19,6 +20,7 @@ export default {
     filterBar,
     monthChanger,
     monthStats,
+    monthHR,
   },
   mixins: [renderData],
   data() {
