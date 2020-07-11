@@ -44,10 +44,7 @@ export default {
         },
         tooltip: {
           pointFormatter() {
-            const ser = this.series;
-            return `<span style="color:${ser.color}" >●</span> ${
-              ser.name}: <b>${
-              Highcharts.dateFormat('%H:%M:%S', this.y)}</b><br>`;
+            return `${this.y}`;
           },
         },
         plotOptions: {
