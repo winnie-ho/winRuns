@@ -35,4 +35,6 @@
 
 #filter-tools {
   z-index: 2;
+  position: absolute;
+  right: 12px;
 }
