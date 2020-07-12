@@ -12,4 +12,7 @@
   --palette-black: #000000;
   --palette-eerie-black: #171717;
   --palette-outer-space: #454545;
+
+  --palette-error: #FF595E;
+  --palette-warning: #FFCA3A;
 }
