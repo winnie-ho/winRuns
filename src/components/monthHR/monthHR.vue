@@ -48,6 +48,7 @@ export default {
         plotOptions: {
           scatter: {
             marker: {
+              symbol: 'circle',
               radius: 5,
               states: {
                 hover: {
@@ -62,19 +63,19 @@ export default {
           {
             name: 'Max HR',
             data: this.maxHRData,
-            color: 'red',
+            color: 'var(--palette-error)',
             style: {
               fontSize: '10px',
-              color: 'red',
+              color: 'var(--palette-error)',
             },
           },
           {
             name: 'Average HR',
             data: this.avgHRData,
-            color: 'orange',
+            color: 'var(--palette-warning)',
             style: {
               fontSize: '10px',
-              color: 'orange',
+              color: 'var(--palette-warning)',
             },
           },
         ],
