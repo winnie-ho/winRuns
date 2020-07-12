@@ -32,3 +32,7 @@
   filter: opacity(40%) blur(1px);
   box-sizing: content-box;
 }
+
+#filter-tools {
+  z-index: 2;
+}

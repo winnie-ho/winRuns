@@ -36,6 +36,7 @@ export default {
       monthInView: '',
       beforeDate: '',
       afterDate: '',
+      viewToolButtons: false,
     };
   },
   methods: {
@@ -105,6 +106,14 @@ export default {
       return this.filteredActivities
         .filter(activity => activity.type === activityType)
         .reduce((total, i) => total + i[statMetric], 0);
+    },
+    showToolButtons() {
+      this.viewToolButtons = !this.viewToolButtons;
+    },
+    hideToolButtons() {
+      this.viewToolButtons = false;
+      this.showFilters = false;
+      this.showSearch = false;
     },
   },
   computed: {
