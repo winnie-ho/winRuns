@@ -24,8 +24,6 @@ export default {
   methods: {
     createMaxAvgHRChart() {
       const container = document.querySelector('#max-avg-heartrate-chart');
-      const dataArrayMaxHR = this.sortedActivitiesInView.map((run) => (run.max_heartrate ? run.max_heartrate : 0));
-      const dataArrayAvgHR = this.sortedActivitiesInView.map((run) => (run.average_heartrate ? run.average_heartrate : 0));
       const dateFormatted = this.sortedActivitiesInView.map((run) => this.renderDate(run.start_date_local));
 
       return new Highcharts.Chart({
@@ -63,7 +61,7 @@ export default {
         series: [
           {
             name: 'Max HR',
-            data: dataArrayMaxHR,
+            data: this.maxHRData,
             color: 'red',
             style: {
               fontSize: '10px',
@@ -72,7 +70,7 @@ export default {
           },
           {
             name: 'Average HR',
-            data: dataArrayAvgHR,
+            data: this.avgHRData,
             color: 'orange',
             style: {
               fontSize: '10px',
@@ -130,17 +128,23 @@ export default {
     sortedActivitiesInView() {
       return this.activitiesInView.sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
-    highestAvgHR() {
-      return Math.max(...this.activitiesInView.map(activity => activity.average_heartrate));
+    maxHRData() {
+      return this.sortedActivitiesInView.map((activity) => (activity.max_heartrate ? activity.max_heartrate : 0));
     },
-    lowestAvgHR() {
-      return Math.min(...this.activitiesInView.map(activity => activity.average_heartrate));
+    avgHRData() {
+      return this.sortedActivitiesInView.map((activity) => (activity.average_heartrate ? activity.average_heartrate : 0));
     },
     highestMaxHR() {
-      return Math.max(...this.activitiesInView.map(activity => activity.max_heartrate));
+      return Math.max(...this.maxHRData);
     },
     lowestMaxHR() {
-      return Math.min(...this.activitiesInView.map(activity => activity.max_heartrate));
+      return Math.min(...this.maxHRData) === 0 ? Math.min(...this.maxHRData.filter(maxHR => maxHR > 0)) : Math.min(...this.maxHRData);
+    },
+    highestAvgHR() {
+      return Math.max(...this.avgHRData);
+    },
+    lowestAvgHR() {
+      return Math.min(...this.avgHRData) === 0 ? Math.min(...this.avgHRData.filter(avgHR => avgHR > 0)) : Math.min(...this.avgHRData);
     },
   },
 };

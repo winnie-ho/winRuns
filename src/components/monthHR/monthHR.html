@@ -2,7 +2,7 @@
   <div id='heartrate-summary' class='row sb'>
     <img class='icon--large' src='../../../static/assets/svgs/icon_heartrate.svg' />
     <div class='col sb'>
-      <div>
+      <div id='max-hr-low-high' v-show='lowestMaxHR || highestMaxHR'>
         Max HR
         <i class="el-icon-sort-down" size='mini'></i>
         {{ lowestMaxHR }}
@@ -10,7 +10,7 @@
         {{ highestMaxHR }}
       </div>
 
-      <div>
+      <div id='avg-hr-low-high' v-show='lowestAvgHR || highestAvgHR'>
         Avg HR
         <i class="el-icon-sort-down" size='mini'></i>
         {{ lowestAvgHR }}
