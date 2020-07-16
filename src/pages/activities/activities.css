@@ -35,6 +35,14 @@
 
 #filter-tools {
   z-index: 2;
+  display: flex;
+  justify-content: flex-end ;
+  }
+
+#filter-tools i {
+  margin: 5px;
+}
+
+#more-tools {
   position: absolute;
-  right: 12px;
 }

@@ -1,20 +1,16 @@
 <div id='activities'>
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
 
-  <div class='sub-bar sub-bar__collapsed row'>
+  <div class='sub-bar sub-bar__collapsed'>
     <monthChanger v-on:onMonthChange='setMonth($event)'></monthChanger>
+    <i id='more-tools' class="el-icon-more-outline" size='small' @click='showToolButtons' v-show='!viewToolButtons'></i>
+  </div>
 
-    <div id='filter-tools' class='btn'>
-      <i class="el-icon-more-outline" size='small' @click='showToolButtons' v-show='!viewToolButtons'></i>
-
-      <div v-show='viewToolButtons'>
-        <i class="el-icon-s-operation" size='small' :class='{ selectedButton: showFilters }'
-          @click='expandFilters()'></i>
-        <i class="el-icon-search" size='small' :class='{ selectedButton: showSearch }' @click='expandSearch()'></i>
-        <i class="el-icon-sort" size='small' @click='toggleSortOrder()'></i>
-        <i class="el-icon-close" @click='hideToolButtons' size='small'></i>
-      </div>
-    </div>
+  <div id='filter-tools' class='btn sub-bar' v-show='viewToolButtons'>
+    <i class="el-icon-s-operation" size='small' :class='{ selectedButton: showFilters }' @click='expandFilters()'></i>
+    <i class="el-icon-search" size='small' :class='{ selectedButton: showSearch }' @click='expandSearch()'></i>
+    <i class="el-icon-sort" size='small' @click='toggleSortOrder()'></i>
+    <i class="el-icon-close" @click='hideToolButtons' size='small'></i>
   </div>
 
   <div class='sub-bar__expanded col' v-show='viewToolButtons'>
