@@ -11,6 +11,7 @@
         <i class="el-icon-s-operation" size='small' :class='{ selectedButton: showFilters }'
           @click='expandFilters()'></i>
         <i class="el-icon-search" size='small' :class='{ selectedButton: showSearch }' @click='expandSearch()'></i>
+        <i class="el-icon-sort" size='small' @click='toggleSortOrder()'></i>
         <i class="el-icon-close" @click='hideToolButtons' size='small'></i>
       </div>
     </div>
@@ -28,7 +29,7 @@
   <month-h-r :activitiesInView='activitiesByMonth'></month-h-r>
 
   <div class='component-container container-colour--secondary'>
-    <activity-item v-show='activitiesByMonth' v-for='activity in filteredActivities' :key='activity.index'
+    <activity-item v-show='activitiesByMonth' v-for='activity in orderedFilteredActivities' :key='activity.index'
       :activity='activity'>
     </activity-item>
     <div v-show='activitiesByMonth.length === 0' class='col'>

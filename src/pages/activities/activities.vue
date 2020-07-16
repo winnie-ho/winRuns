@@ -37,6 +37,7 @@ export default {
       beforeDate: '',
       afterDate: '',
       viewToolButtons: false,
+      toggleSortChron: false,
     };
   },
   methods: {
@@ -115,6 +116,9 @@ export default {
       this.showFilters = false;
       this.showSearch = false;
     },
+    toggleSortOrder() {
+      this.toggleSortChron = !this.toggleSortChron;
+    },
   },
   computed: {
     activitiesByMonth() {
@@ -138,6 +142,9 @@ export default {
       }
 
       return [];
+    },
+    orderedFilteredActivities() {
+      return this.toggleSortChron ? this.filteredActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)) : this.filteredActivities.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
     },
     stats() {
       return this.filteredActivities && {
