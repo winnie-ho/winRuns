@@ -38,5 +38,10 @@ export default {
       return this.activitiesInWeek && dayActivities;
     },
   },
+  computed: {
+    HRZones() {
+      return this.$store.state.HRZones;
+    },
+  },
 };
 </script>

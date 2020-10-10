@@ -73,6 +73,13 @@ export const actions = {
       );
     }
   },
+  fetchWeatherForecast: (context) => {
+    if (context.state.position.lat && context.state.position.lng) {
+      Vue.http.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${context.state.position.lat}&lon=${context.state.position.lng}&appid=b7114aca731d927ad002d0a518f38dfe`).then(
+        (response) => context.commit('setWeatherForecast', response.data),
+      );
+    }
+  },
   setTimeOrderedParkRuns: (context, timeOrderedParkRuns) => context.commit('setTimeOrderedParkRuns', timeOrderedParkRuns),
   tokenExchange: (context, exchangeData) => {
     Vue.http.post('https://www.strava.com/oauth/token', exchangeData).then(
@@ -99,6 +106,11 @@ export const actions = {
       Vue.http.get(`https://www.strava.com/api/v3/activities/${kmSession.id}?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
         (response) => context.commit('setFullKmSessions', response.body),
       );
+    });
+  },
+  fetchHRZones: (context) => {
+    Vue.http.get('https://win-runs.firebaseio.com/heartrateZones.json').then((response) => {
+      context.commit('setHRZones', response.data);
     });
   },
   fetchEvents: (context) => {

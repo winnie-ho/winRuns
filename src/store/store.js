@@ -33,6 +33,7 @@ export const store = new Vuex.Store({
     stravaUpload: {},
     position: {},
     activitiesInPeriod: [],
+    HRZones: {},
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -60,6 +61,7 @@ export const store = new Vuex.Store({
     clearFullKmSessions: (state) => (state.fullKmSessions = []),
     setSessions: (state, payload) => (state.sessions = payload),
     setEvents: (state, payload) => (state.events = payload),
+    setHRZones: (state, payload) => (state.HRZones = payload),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
     setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload),

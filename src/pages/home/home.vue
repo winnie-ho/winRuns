@@ -35,6 +35,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('fetchStats');
+    this.$store.dispatch('fetchHRZones');
   },
   methods: {
     setToggleWeekView(event) {

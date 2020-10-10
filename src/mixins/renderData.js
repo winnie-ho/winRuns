@@ -108,6 +108,24 @@ export default {
     renderDateTime(rawDate) {
       return rawDate && rawDate.substr(11, 5);
     },
+    renderHRZone(avgHR, HRZones) {
+      switch (true) {
+        case avgHR < HRZones.z0:
+          return 'No Zone';
+        case HRZones.z0 < avgHR && avgHR < HRZones.z1:
+          return 'Zone 1';
+        case HRZones.z1 < avgHR && avgHR < HRZones.z2:
+          return 'Zone 2';
+        case HRZones.z2 < avgHR && avgHR < HRZones.z3:
+          return 'Zone 3';
+        case HRZones.z3 < avgHR && avgHR < HRZones.z4:
+          return 'Zone 4';
+        case avgHR > HRZones.z4:
+          return 'Zone 5';
+        default:
+          return '-';
+      }
+    },
     ordinalSuffixOf(num) {
       let digit = num;
       const j = num % 10;
