@@ -4,14 +4,12 @@
 <script src>
 import renderData from '../../mixins/renderData';
 import statTotal from '../statTotal/statTotal.vue';
-import triStatsSummary from '../triStatsSummary/triStatsSummary.vue';
 
 export default {
   name: 'triStatsBar',
   mixins: [renderData],
   components: {
     statTotal,
-    triStatsSummary,
   },
   props: ['activities'],
   methods: {
