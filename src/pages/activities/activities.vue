@@ -8,7 +8,7 @@ import activityItem from '../../components/activityItem/activityItem.vue';
 import searchBar from '../../components/searchBar/searchBar.vue';
 import filterBar from '../../components/filterBar/filterBar.vue';
 import monthChanger from '../../components/monthChanger/monthChanger.vue';
-import monthStats from '../../components/monthStats/monthStats.vue';
+import triStatsBar from '../../components/triStatsBar/triStatsBar.vue';
 import monthHR from '../../components/monthHR/monthHR.vue';
 
 export default {
@@ -19,7 +19,7 @@ export default {
     searchBar,
     filterBar,
     monthChanger,
-    monthStats,
+    triStatsBar,
     monthHR,
   },
   mixins: [renderData],
@@ -98,16 +98,6 @@ export default {
       this.fetchMonthActivities(timeMarkers);
       this.setMonthInView(timeMarkers);
     },
-    getStatCount(activityType) {
-      return this.filteredActivities.filter(
-        activity => activity.type === activityType,
-      ).length;
-    },
-    getStatValue(activityType, statMetric) {
-      return this.filteredActivities
-        .filter(activity => activity.type === activityType)
-        .reduce((total, i) => total + i[statMetric], 0);
-    },
     showToolButtons() {
       this.viewToolButtons = !this.viewToolButtons;
     },
@@ -145,31 +135,6 @@ export default {
     },
     orderedFilteredActivities() {
       return this.toggleSortChron ? this.filteredActivities.sort((a, b) => new Date(a.start_date) - new Date(b.start_date)) : this.filteredActivities.sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
-    },
-    stats() {
-      return this.filteredActivities && {
-        swim: {
-          count: this.getStatCount('Swim'),
-          distance: this.getStatValue('Swim', 'distance'),
-          elapsed_time: this.getStatValue('Swim', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Swim', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Swim', 'moving_time'),
-        },
-        ride: {
-          count: this.getStatCount('Ride'),
-          distance: this.getStatValue('Ride', 'distance'),
-          elapsed_time: this.getStatValue('Ride', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Ride', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Ride', 'moving_time'),
-        },
-        run: {
-          count: this.getStatCount('Run'),
-          distance: this.getStatValue('Run', 'distance'),
-          elapsed_time: this.getStatValue('Run', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Run', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Run', 'moving_time'),
-        },
-      };
     },
   },
 };

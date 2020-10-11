@@ -21,7 +21,7 @@
     <search-bar v-show='showSearch' v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
   </div>
 
-  <month-stats :stats='stats' :activities='activitiesByMonth'></month-stats>
+  <tri-stats-bar :activities='activitiesByMonth'></tri-stats-bar>
   <month-h-r :activitiesInView='activitiesByMonth'></month-h-r>
 
   <div class='component-container container-colour--secondary'>
