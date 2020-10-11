@@ -23,6 +23,9 @@
       <week-activities-mini v-on:toggleWeekViewChange='setToggleWeekView($event)' :activitiesInWeek='activitiesInWeek'>
       </week-activities-mini>
 
+      <tri-stats-bar :activities='activitiesInWeek'>
+      </tri-stats-bar>
+
       <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
         <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
           <span v-show='!toggleWeekView'>
