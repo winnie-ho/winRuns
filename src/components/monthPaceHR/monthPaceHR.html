@@ -23,14 +23,14 @@
   <div @click='displayMaxAvgHRChart=!displayMaxAvgHRChart'>
     <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View HR chart'>
       <span v-show='!displayMaxAvgHRChart'>
-        Show HR chart
+        Show Pace/HR chart
         <i class='el-icon-arrow-down btn' v-show='!displayMaxAvgHRChart'></i>
       </span>
     </el-tooltip>
 
     <el-tooltip placement="left" :hideAfter='toggleTipTimeout' content='Hide HR chart'>
       <span v-show='displayMaxAvgHRChart'>
-        Hide HR chart
+        Hide Pace/HR chart
         <i class='el-icon-arrow-up btn' v-show='displayMaxAvgHRChart'></i>
       </span>
     </el-tooltip>

@@ -9,7 +9,7 @@ import searchBar from '../../components/searchBar/searchBar.vue';
 import filterBar from '../../components/filterBar/filterBar.vue';
 import monthChanger from '../../components/monthChanger/monthChanger.vue';
 import triStatsBar from '../../components/triStatsBar/triStatsBar.vue';
-import monthHR from '../../components/monthHR/monthHR.vue';
+import monthPaceHR from '../../components/monthPaceHR/monthPaceHR.vue';
 
 export default {
   name: 'activities',
@@ -20,7 +20,7 @@ export default {
     filterBar,
     monthChanger,
     triStatsBar,
-    monthHR,
+    monthPaceHR,
   },
   mixins: [renderData],
   data() {

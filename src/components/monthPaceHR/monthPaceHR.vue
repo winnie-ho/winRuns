@@ -1,12 +1,12 @@
-<template src='./monthHR.html'></template>
-<style scoped src='./monthHR.css'></style>
+<template src='./monthPaceHR.html'></template>
+<style scoped src='./monthPaceHR.css'></style>
 
 <script src>
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 
 export default {
-  name: 'monthHR',
+  name: 'monthPaceHR',
   mixins: [renderData, appData],
   components: {
   },
@@ -34,16 +34,14 @@ export default {
           zoomType: 'xy',
         },
         title: {
-          text: 'Heartrate',
+          text: 'Average Pace and HR',
           style: {
             fontSize: '10px',
             color: 'var(--palette-white)',
           },
         },
         tooltip: {
-          pointFormatter() {
-            return `${this.y}`;
-          },
+          shared: true,
         },
         plotOptions: {
           scatter: {
@@ -61,22 +59,31 @@ export default {
         },
         series: [
           {
-            name: 'Max HR',
-            data: this.maxHRData,
-            color: 'var(--palette-error)',
+            name: 'Average HR',
+            type: 'column',
+            data: this.avgHRData,
+            color: 'var(--palette-smalt)',
             style: {
               fontSize: '10px',
-              color: 'var(--palette-error)',
+              color: 'var(--palette-smalt)',
+            },
+            tooltip: {
+              valueSuffix: ' bpm',
             },
           },
           {
-            name: 'Average HR',
-            data: this.avgHRData,
+            name: 'Average Pace',
+            type: 'spline',
+            data: this.avgPace,
             color: 'var(--palette-warning)',
             style: {
               fontSize: '10px',
               color: 'var(--palette-warning)',
             },
+            tooltip: {
+              valueSuffix: ' min/km',
+            },
+            yAxis: 1,
           },
         ],
         xAxis: {
@@ -98,27 +105,47 @@ export default {
           endOnTick: true,
           showLastLabel: true,
         },
-        yAxis: {
-          type: 'linear',
-          gridLineWidth: 0.1,
-          title: {
-            enabled: true,
-            text: 'HR (bpm)',
-            color: 'var(--palette-white)',
-            style: {
-              fontSize: '10px',
+        yAxis: [
+          {
+            type: 'linear',
+            title: {
+              enabled: true,
+              text: 'HR (bpm)',
               color: 'var(--palette-white)',
+              style: {
+                fontSize: '10px',
+                color: 'var(--palette-white)',
+              },
             },
+            labels: {
+              format: '{value} bpm',
+              style: {
+                color: 'var(--palette-white)',
+              },
+            },
+            opposite: true,
           },
-          labels: {
-            style: {
+          {
+            type: 'linear',
+            title: {
+              enabled: true,
+              text: 'Pace (min/km)',
               color: 'var(--palette-white)',
+              style: {
+                fontSize: '10px',
+                color: 'var(--palette-white)',
+              },
             },
+            labels: {
+              format: '{value} min/km',
+              style: {
+                color: 'var(--palette-white)',
+              },
+            },
+            min: 5,
+            tickInterval: 1,
           },
-          startOnTick: true,
-          endOnTick: true,
-          showLastLabel: true,
-        },
+        ],
         legend: {
           itemStyle: { color: 'var(--palette-white)' },
         },
@@ -134,6 +161,12 @@ export default {
     },
     avgHRData() {
       return this.sortedActivitiesInView.map((activity) => (activity.average_heartrate ? activity.average_heartrate : 0));
+    },
+    avgPace() {
+      return this.sortedActivitiesInView.map((activity) => {
+        const paceFraction = parseFloat((1000 / (activity.average_speed * 60)).toFixed(2));
+        return activity.average_speed ? paceFraction : 0;
+      });
     },
     highestMaxHR() {
       return Math.max(...this.maxHRData);

@@ -22,7 +22,8 @@
   </div>
 
   <tri-stats-bar :activities='activitiesByMonth'></tri-stats-bar>
-  <month-h-r :activitiesInView='activitiesByMonth'></month-h-r>
+  <month-pace-h-r :activitiesInView='orderedFilteredActivities'>
+  </month-pace-h-r>
 
   <div class='component-container container-colour--secondary'>
     <activity-item v-show='activitiesByMonth' v-for='activity in orderedFilteredActivities' :key='activity.index'
