@@ -60,7 +60,7 @@ export default {
         series: [
           {
             name: 'Average HR',
-            type: 'column',
+            type: 'spline',
             data: this.avgHRData,
             color: 'var(--palette-smalt)',
             style: {
@@ -118,7 +118,6 @@ export default {
               },
             },
             labels: {
-              format: '{value} bpm',
               style: {
                 color: 'var(--palette-white)',
               },
@@ -137,7 +136,6 @@ export default {
               },
             },
             labels: {
-              format: '{value} min/km',
               style: {
                 color: 'var(--palette-white)',
               },
