@@ -123,9 +123,12 @@ export default {
               },
             },
             opposite: true,
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true,
           },
           {
-            type: 'linear',
+            type: 'datetime',
             title: {
               enabled: true,
               text: 'Pace (min/km)',
@@ -140,8 +143,12 @@ export default {
                 color: 'var(--palette-white)',
               },
             },
-            min: 5,
-            tickInterval: 1,
+            min: 5 * 60 * 1000,
+            floor: 5 * 60 * 1000,
+            tickInterval: 30 * 1000,
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true,
           },
         ],
         legend: {
@@ -162,7 +169,7 @@ export default {
     },
     avgPace() {
       return this.sortedActivitiesInView.map((activity) => {
-        const paceFraction = parseFloat((1000 / (activity.average_speed * 60)).toFixed(2));
+        const paceFraction = (1000 / (activity.average_speed * 60)) * 60 * 1000;
         return activity.average_speed ? paceFraction : 0;
       });
     },
