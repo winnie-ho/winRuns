@@ -42,6 +42,14 @@ export default {
         },
         tooltip: {
           shared: true,
+          formatter: function () {
+            const date = new Date(this.points[0].y);
+            const mins = date.getMinutes();
+            let secs = date.getSeconds();
+            secs = (secs < 10 ? '0' : '') + secs;
+            const hrm = `${this.points[1].y}bpm`;
+            return `${mins}:${secs}min/km, ${hrm}`;
+          },
         },
         plotOptions: {
           scatter: {
@@ -59,19 +67,6 @@ export default {
         },
         series: [
           {
-            name: 'Average HR',
-            type: 'spline',
-            data: this.avgHRData,
-            color: 'var(--palette-smalt)',
-            style: {
-              fontSize: '10px',
-              color: 'var(--palette-smalt)',
-            },
-            tooltip: {
-              valueSuffix: ' bpm',
-            },
-          },
-          {
             name: 'Average Pace',
             type: 'spline',
             data: this.avgPace,
@@ -84,6 +79,20 @@ export default {
               valueSuffix: ' min/km',
             },
             yAxis: 1,
+          },
+          {
+            name: 'Average HR',
+            type: 'spline',
+            data: this.avgHRData,
+            color: 'var(--palette-smalt)',
+            style: {
+              fontSize: '10px',
+              color: 'var(--palette-smalt)',
+            },
+            tooltip: {
+              valueSuffix: ' bpm',
+            },
+            yAxis: 0,
           },
         ],
         xAxis: {
@@ -142,6 +151,7 @@ export default {
               style: {
                 color: 'var(--palette-white)',
               },
+              format: '{value:%M:%S}',
             },
             min: 5 * 60 * 1000,
             floor: 5 * 60 * 1000,
