@@ -133,6 +133,9 @@ export const actions = {
   updateEvent: (context, event) => Vue.http.put(`https://win-runs.firebaseio.com/events/${event.id}.json`, event).then(
     (data) => data.json(),
   ),
+  updateHRZones: (context, hrZones) => Vue.http.put('https://win-runs.firebaseio.com/heartrateZones.json', hrZones).then(
+    (data) => data.json(),
+  ),
   updateStravaActivity: (context, actionParameters) => {
     Vue.http.put(`https://www.strava.com/api/v3/activities/${actionParameters[0]}?access_token=${sessionStorage.userToken || context.state.userToken}`, actionParameters[1]).then(
       (response) => context.commit('setUpdateStravaActivityResponse', response),

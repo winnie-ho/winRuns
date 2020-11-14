@@ -3,11 +3,12 @@
 
 <script>
 import renderData from '../../mixins/renderData';
+import refresh from '../../mixins/refresh';
 
 export default {
   name: 'hrZonesForm',
   components: {},
-  mixins: [renderData],
+  mixins: [renderData, refresh],
   props: ['isEditing', 'HRZones'],
   data() {
     return {
@@ -24,11 +25,16 @@ export default {
   },
   methods: {
     updateHRZones() {
-      this.$store.dispatch('updateHRZones', {
-        ...this.form,
-      });
+      const payload = {
+        z1: parseInt(this.form.z1),
+        z2: parseInt(this.form.z2),
+        z3: parseInt(this.form.z3),
+        z4: parseInt(this.form.z4),
+        z5: parseInt(this.form.z5),
+      };
+      this.$store.dispatch('updateHRZones', payload);
       this.$emit('onCloseForm');
-      setTimeout(this.refreshHRZones, 500);
+      setTimeout(this.refreshHRZones, 100);
     },
     cancelHRZones() {
       this.$emit('onCloseForm');
