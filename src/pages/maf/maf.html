@@ -2,7 +2,7 @@
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
 
   <div class='sub-bar sub-bar__collapsed'>
-    <date-range-selector></date-range-selector>
+    <date-range-selector v-show='!showHRZonesForm'></date-range-selector>
     <i id='more-tools' class="el-icon-more-outline" size='small' @click='toggleToolButtons'
       v-show='!showToolButtons'></i>
   </div>
