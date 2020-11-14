@@ -19,16 +19,12 @@ export default {
   data() {
     return {
       pageTitle: 'MAF',
-      showToolButtons: false,
       showHRZonesForm: false,
     };
   },
   mounted() {
   },
   methods: {
-    toggleToolButtons() {
-      this.showToolButtons = !this.showToolButtons;
-    },
     editHRZones() {
       this.showHRZonesForm = !this.showHRZonesForm;
     },

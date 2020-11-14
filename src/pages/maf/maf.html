@@ -3,21 +3,32 @@
 
   <div class='sub-bar sub-bar__collapsed'>
     <date-range-selector v-show='!showHRZonesForm'></date-range-selector>
-    <i id='more-tools' class="el-icon-more-outline" size='small' @click='toggleToolButtons'
-      v-show='!showToolButtons'></i>
   </div>
 
-  <div id='hr-zones' class='btn sub-bar col' v-show='showToolButtons'>
-    <div v-show='!showHRZonesForm'>
-      <span>Z1: {{ HRZones.z1 }}</span>
-      <span>Z2: {{ HRZones.z2 }}</span>
-      <span>Z3: {{ HRZones.z3 }}</span>
-      <span>Z4: {{ HRZones.z4 }}</span>
-      <span>Z5: {{ HRZones.z5 }}</span>
+  <div id='hr-zones' class='btn sub-bar col'>
+    <div v-show='!showHRZonesForm' class='row'>
+      <div class='hr col'>
+        <h4>Z1</h4>
+        <h5>{{ HRZones.z1 }}</h5>
+      </div>
+      <div class='hr col'>
+        <h4>Z2</h4>
+        <h5>{{ HRZones.z2 }}</h5>
+      </div>
+      <div class='hr col'>
+        <h4>Z3</h4>
+        <h5>{{ HRZones.z3 }}</h5>
+      </div>
+      <div class='hr col'>
+        <h4>Z4</h4>
+        <h5>{{ HRZones.z4 }}</h5>
+      </div>
+      <div class='hr col'>
+        <h4>Z5</h4>
+        <h5>{{ HRZones.z5 }}</h5>
+      </div>
     </div>
-    <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm'
-      class='create-button--label'>
-      Set HR Zones
+    <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit'>
     </el-button>
     <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'
       @onCloseForm='closeHRZonesForm'>
