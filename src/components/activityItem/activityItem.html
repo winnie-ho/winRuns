@@ -40,6 +40,9 @@
       <div class='data-metric space' v-show="activity.type === 'Swim'">
         {{ renderSwimPace(activity.moving_time, activity.distance) }}
       </div>
+      <div class='data-metric space' v-show="activity.average_heartrate">
+        {{ activity.average_heartrate }}bpm
+      </div>
     </div>
   </div>
 </div>
