@@ -1,0 +1,22 @@
+#hr-zones{
+  display: flex;
+  justify-content: center;
+}
+
+.hr {
+  margin: 5px;
+  padding: 5px;
+  width: 45px;
+  border-radius: 3px;
+  background-color: var(--palette-cerulean);
+}
+
+.hr h5, h4 {
+  margin: 0px;
+  color: var(--palette-white);
+}
+
+.btn-edit{
+  position: absolute;
+  right: 10px;
+}

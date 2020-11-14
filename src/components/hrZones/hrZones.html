@@ -1,0 +1,29 @@
+<div id='hr-zones' class='btn sub-bar col'>
+  <div v-show='!showHRZonesForm' class='row'>
+    <div class='hr col'>
+      <h4>Z1</h4>
+      <h5>{{ HRZones.z1 }}</h5>
+    </div>
+    <div class='hr col'>
+      <h4>Z2</h4>
+      <h5>{{ HRZones.z2 }}</h5>
+    </div>
+    <div class='hr col'>
+      <h4>Z3</h4>
+      <h5>{{ HRZones.z3 }}</h5>
+    </div>
+    <div class='hr col'>
+      <h4>Z4</h4>
+      <h5>{{ HRZones.z4 }}</h5>
+    </div>
+    <div class='hr col'>
+      <h4>Z5</h4>
+      <h5>{{ HRZones.z5 }}</h5>
+    </div>
+  </div>
+  <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit'>
+  </el-button>
+  <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'
+    @onCloseForm='closeHRZonesForm'>
+  </hr-zones-form>
+</div>

@@ -4,7 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import dateRangeSelector from '../../components/dateRangeSelector/dateRangeSelector.vue';
-import hrZonesForm from '../../components/hrZonesForm/hrZonesForm.vue';
+import hrZones from '../../components/hrZones/hrZones.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
 
@@ -13,29 +13,19 @@ export default {
   components: {
     navBar,
     dateRangeSelector,
-    hrZonesForm,
+    hrZones,
   },
   mixins: [renderData, changePage],
   data() {
     return {
       pageTitle: 'MAF',
-      showHRZonesForm: false,
     };
   },
   mounted() {
   },
   methods: {
-    editHRZones() {
-      this.showHRZonesForm = !this.showHRZonesForm;
-    },
-    closeHRZonesForm() {
-      this.showHRZonesForm = false;
-    },
   },
   computed: {
-    HRZones() {
-      return this.$store.state.HRZones;
-    },
   },
 };
 </script>
