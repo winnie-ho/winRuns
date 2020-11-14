@@ -1,22 +1,23 @@
-<div id='hrZonesForm'>
-  <el-form :model="form" label-width="120px" label-position='top' size="mini">
-    <el-form-item label="Zone 1">
-      <el-input v-model="form.z1"></el-input>
-    </el-form-item>
-    <el-form-item label="Zone 2">
-      <el-input v-model="form.z2"></el-input>
-    </el-form-item>
-    <el-form-item label="Zone 3">
-      <el-input v-model="form.z3"></el-input>
-    </el-form-item>
-    <el-form-item label="Zone 4">
-      <el-input v-model="form.z4"></el-input>
-    </el-form-item>
-    <el-form-item label="Zone 5">
-      <el-input v-model="form.z5"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="updateHRZones">Update</el-button>
-    </el-form-item>
-  </el-form>
-</div>
+<el-form :model="form" label-width="120px" label-position='top' size="mini">
+  <el-form-item label="Zone 1">
+    <el-input v-model="form.z1"></el-input>
+  </el-form-item>
+  <el-form-item label="Zone 2">
+    <el-input v-model="form.z2"></el-input>
+  </el-form-item>
+  <el-form-item label="Zone 3">
+    <el-input v-model="form.z3"></el-input>
+  </el-form-item>
+  <el-form-item label="Zone 4">
+    <el-input v-model="form.z4"></el-input>
+  </el-form-item>
+  <el-form-item label="Zone 5">
+    <el-input v-model="form.z5"></el-input>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="secondary" @click="cancelHRZones">Cancel</el-button>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" @click="updateHRZones">Update</el-button>
+  </el-form-item>
+</el-form>

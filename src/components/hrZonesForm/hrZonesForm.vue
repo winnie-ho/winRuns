@@ -30,6 +30,9 @@ export default {
       this.$emit('onCloseForm');
       setTimeout(this.refreshHRZones, 500);
     },
+    cancelHRZones() {
+      this.$emit('onCloseForm');
+    },
   },
   computed: {
   },

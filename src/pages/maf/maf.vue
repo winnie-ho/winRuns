@@ -32,6 +32,9 @@ export default {
     editHRZones() {
       this.showHRZonesForm = !this.showHRZonesForm;
     },
+    closeHRZonesForm() {
+      this.showHRZonesForm = false;
+    },
   },
   computed: {
     HRZones() {

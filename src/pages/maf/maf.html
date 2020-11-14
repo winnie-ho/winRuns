@@ -15,11 +15,13 @@
       <span>Z4: {{ HRZones.z4 }}</span>
       <span>Z5: {{ HRZones.z5 }}</span>
     </div>
-    <el-button @click='editHRZones' icon="el-icon-plus" size='mini' v-show='!showHRZonesForm'
+    <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm'
       class='create-button--label'>
-      HR Zones
+      Set HR Zones
     </el-button>
-    <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'></hr-zones-form>
+    <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'
+      @onCloseForm='closeHRZonesForm'>
+    </hr-zones-form>
   </div>
 
 </div>
