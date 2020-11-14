@@ -40,7 +40,7 @@
 
   <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRChart && displayMaxAvgHRChart'
     @click='fullPageHRChart=!fullPageHRChart'></i>
-  <div id='max-avg-heartrate-chart' v-show='displayMaxAvgHRChart' :class='{fullpage:fullPageHRChart}'>
+  <div id='avg-heartrate-pace-chart' v-show='displayMaxAvgHRChart' :class='{fullpage:fullPageHRChart}'>
   </div>
   <i class='close-chart el-icon-close btn el-icon--medium' v-show='displayMaxAvgHRChart && fullPageHRChart'
     @click='fullPageHRChart=!fullPageHRChart'></i>
