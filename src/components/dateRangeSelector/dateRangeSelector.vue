@@ -2,7 +2,6 @@
 <style scoped src='./dateRangeSelector.css'></style>
 
 <script>
-import moment from 'moment';
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 
@@ -11,7 +10,7 @@ export default {
   mixins: [renderData, appData],
   data() {
     return {
-      selectedDateRange: '',
+      selectedDateRange: [new Date(), new Date()],
     };
   },
   watch: {
