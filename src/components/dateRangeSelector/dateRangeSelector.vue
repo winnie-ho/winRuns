@@ -14,6 +14,11 @@ export default {
       selectedDateRange: '',
     };
   },
+  watch: {
+    selectedDateRange() {
+      this.$emit('onDateRangeChange', this.selectedDateRange);
+    },
+  },
   methods: {
   },
   computed: {

@@ -2,8 +2,9 @@
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
 
   <div class='sub-bar sub-bar__collapsed'>
-    <date-range-selector></date-range-selector>
+    <date-range-selector v-on:onDateRangeChange='setDateRange($event)'></date-range-selector>
   </div>
 
   <hr-zones></hr-zones>
+  <div id='avg-heartrate-pace-chart'></div>
 </div>
