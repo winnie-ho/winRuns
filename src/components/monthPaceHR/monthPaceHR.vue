@@ -13,7 +13,7 @@ export default {
   },
   props: ['activitiesInView'],
   watch: {
-    sortedActivitiesInView: function() {
+    sortedActivitiesInView() {
       this.createAvgHRPaceChart(this.sortedActivitiesInView);
     },
   },

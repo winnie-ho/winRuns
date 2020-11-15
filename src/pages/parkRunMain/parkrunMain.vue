@@ -51,7 +51,7 @@ export default {
     this.$store.dispatch('fetchActivitiesInPeriod', options);
   },
   watch: {
-    parkRuns: function () {
+    parkRuns() {
       this.createParkRunFinishTimesChart(this.parkRuns);
     },
   },
