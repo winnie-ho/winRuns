@@ -16,10 +16,27 @@ export default {
   },
   watch: {
     selectedDateRange() {
-      this.$emit('onDateRangeChange', this.selectedDateRange);
+      const timeMarkers = {
+        before: this.getBeforeMarker(this.selectedDateRange[1]),
+        after: this.getAfterMarker(this.selectedDateRange[0]),
+      };
+      this.$emit('onDateRangeChange', timeMarkers);
     },
   },
   methods: {
+    getBeforeMarker(rawDate) {
+      return new Date(
+        rawDate.getFullYear(),
+        rawDate.getMonth(),
+        rawDate.getDate(),
+        23,
+        59,
+        59,
+      ).getTime() / 1000;
+    },
+    getAfterMarker(rawDate) {
+      return new Date(rawDate).getTime() / 1000;
+    },
   },
   computed: {
   },

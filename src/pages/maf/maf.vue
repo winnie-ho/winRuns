@@ -4,6 +4,7 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import dateRangeSelector from '../../components/dateRangeSelector/dateRangeSelector.vue';
+import activityItem from '../../components/activityItem/activityItem.vue';
 import hrZones from '../../components/hrZones/hrZones.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
@@ -14,13 +15,13 @@ export default {
   components: {
     navBar,
     dateRangeSelector,
+    activityItem,
     hrZones,
   },
   mixins: [renderData, changePage, avgHRPaceChart],
   data() {
     return {
       pageTitle: 'MAF',
-      dateRange: '',
     };
   },
   mounted() {
@@ -28,12 +29,21 @@ export default {
   watch: {
   },
   methods: {
-    setDateRange(dateRange) {
-      console.log('DATE RANGE', dateRange);
-      this.dateRange = dateRange;
+    setDateRange(timeMarkers) {
+      const options = {
+        before: timeMarkers.before,
+        after: timeMarkers.after,
+        activitiesPerPage: 200,
+        pageRequests: 1,
+      };
+
+      this.$store.dispatch('fetchActivitiesInPeriod', options);
     },
   },
   computed: {
+    activitiesInPeriod() {
+      return this.$store.state.activitiesInPeriod;
+    },
   },
 };
 </script>

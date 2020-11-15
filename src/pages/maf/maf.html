@@ -7,4 +7,15 @@
 
   <hr-zones></hr-zones>
   <div id='avg-heartrate-pace-chart'></div>
+
+  <div class='component-container container-colour--secondary'>
+    <activity-item v-show='activitiesInPeriod' v-for='activity in activitiesInPeriod' :key='activity.index'
+      :activity='activity'>
+    </activity-item>
+    <div v-show='activitiesInPeriod.length === 0' class='col'>
+      <i class='el-icon-loading'></i>
+      <h4>LOADING ACTIVITIES</h4>
+    </div>
+  </div>
+
 </div>
