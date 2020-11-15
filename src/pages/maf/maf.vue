@@ -9,6 +9,7 @@ import hrZones from '../../components/hrZones/hrZones.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
 import avgHRPaceChart from '../../mixins/avgHRPaceChart';
+import calculateData from '../../mixins/calculateData';
 
 export default {
   name: 'maf',
@@ -18,18 +19,18 @@ export default {
     activityItem,
     hrZones,
   },
-  mixins: [renderData, changePage, avgHRPaceChart],
+  mixins: [renderData, changePage, avgHRPaceChart, calculateData],
   data() {
     return {
       pageTitle: 'MAF',
     };
   },
   mounted() {
-    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod);
+    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
   },
   watch: {
     sortedActivitiesInPeriod() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod);
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
     },
   },
   methods: {
@@ -49,7 +50,13 @@ export default {
       return this.$store.state.activitiesInPeriod;
     },
     sortedActivitiesInPeriod() {
-      return this.activitiesInPeriod.slice().sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
+      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run').sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
+    },
+    avgHRData() {
+      return this.getAvgHRData(this.sortedActivitiesInPeriod);
+    },
+    avgPace() {
+      return this.getAvgPaceData(this.sortedActivitiesInPeriod);
     },
   },
 };

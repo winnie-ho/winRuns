@@ -4,8 +4,8 @@ export default {
     return {};
   },
   methods: {
-    createAvgHRPaceChart(sortedActivitiesInView) {
-      const container = document.querySelector('#avg-heartrate-pace-chart');
+    createAvgHRPaceChart(sortedActivitiesInView, chartId) {
+      const container = document.querySelector(`#${chartId}`);
       const dateFormatted = sortedActivitiesInView.map((run) => this.renderDate(run.start_date_local));
 
       return new Highcharts.Chart({

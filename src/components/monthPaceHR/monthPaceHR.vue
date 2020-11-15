@@ -5,16 +5,17 @@
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 import avgHRPaceChart from '../../mixins/avgHRPaceChart';
+import calculateData from '../../mixins/calculateData';
 
 export default {
   name: 'monthPaceHR',
-  mixins: [renderData, appData, avgHRPaceChart],
+  mixins: [renderData, appData, avgHRPaceChart, calculateData],
   components: {
   },
   props: ['activitiesInView'],
   watch: {
     sortedActivitiesInView() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInView);
+      this.createAvgHRPaceChart(this.sortedActivitiesInView, 'avg-heartrate-pace-chart');
     },
   },
   data() {
@@ -27,19 +28,16 @@ export default {
   },
   computed: {
     sortedActivitiesInView() {
-      return this.activitiesInView.sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
+      return this.activitiesInView.slice().sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
     maxHRData() {
       return this.sortedActivitiesInView.map((activity) => (activity.max_heartrate ? activity.max_heartrate : 0));
     },
     avgHRData() {
-      return this.sortedActivitiesInView.map((activity) => (activity.average_heartrate ? activity.average_heartrate : 0));
+      return this.getAvgHRData(this.sortedActivitiesInView);
     },
     avgPace() {
-      return this.sortedActivitiesInView.map((activity) => {
-        const paceFraction = (1000 / (activity.average_speed * 60)) * 60 * 1000;
-        return activity.average_speed ? paceFraction : 0;
-      });
+      return this.getAvgPaceData(this.sortedActivitiesInView);
     },
     highestMaxHR() {
       return Math.max(...this.maxHRData);
