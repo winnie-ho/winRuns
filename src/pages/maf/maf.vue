@@ -25,8 +25,12 @@ export default {
     };
   },
   mounted() {
+    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod);
   },
   watch: {
+    sortedActivitiesInPeriod() {
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod);
+    },
   },
   methods: {
     setDateRange(timeMarkers) {
@@ -43,6 +47,9 @@ export default {
   computed: {
     activitiesInPeriod() {
       return this.$store.state.activitiesInPeriod;
+    },
+    sortedActivitiesInPeriod() {
+      return this.activitiesInPeriod.slice().sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
   },
 };
