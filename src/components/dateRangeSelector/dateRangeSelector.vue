@@ -11,15 +11,16 @@ export default {
   data() {
     return {
       selectedDateRange: [new Date(), new Date()],
+      startDate: new Date(),
+      endDate: new Date(),
     };
   },
   watch: {
-    selectedDateRange() {
-      const timeMarkers = {
-        before: this.getBeforeMarker(this.selectedDateRange[1]),
-        after: this.getAfterMarker(this.selectedDateRange[0]),
-      };
-      this.$emit('onDateRangeChange', timeMarkers);
+    startDate() {
+      this.emitUpdatedDates();
+    },
+    endDate() {
+      this.emitUpdatedDates();
     },
   },
   methods: {
@@ -35,6 +36,13 @@ export default {
     },
     getAfterMarker(rawDate) {
       return new Date(rawDate).getTime() / 1000;
+    },
+    emitUpdatedDates() {
+      const timeMarkers = {
+        before: this.getBeforeMarker(this.endDate),
+        after: this.getAfterMarker(this.startDate),
+      };
+      this.$emit('onDateRangeChange', timeMarkers);
     },
   },
   computed: {

@@ -1,3 +1,11 @@
 #date-range-selector {
   margin: auto;
 }
+
+.el-date-editor.el-input, .el-date-editor.el-input__inner{
+  width: 150px;
+}
+
+.date-range-connector{
+  margin: 0 10px;
+}
