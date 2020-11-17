@@ -9,3 +9,8 @@
 .date-range-connector{
   margin: 0 10px;
 }
+
+.el-button{
+  position: absolute;
+  right: 10px;
+}

@@ -6,4 +6,8 @@
 
   <el-date-picker v-model="endDate" type="date" placeholder="End date" size='small' align='right'>
   </el-date-picker>
+
+  <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateForm'
+    class='btn-edit' circle type='secondary'>
+  </el-button>
 </div>

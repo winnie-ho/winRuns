@@ -21,7 +21,7 @@
       <h5>{{ HRZones.z5 }}</h5>
     </div>
   </div>
-  <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit'>
+  <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit' circle>
   </el-button>
   <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'
     @onCloseForm='closeHRZonesForm'>
