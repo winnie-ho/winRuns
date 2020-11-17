@@ -9,7 +9,7 @@ export default {
   name: 'hrZonesForm',
   components: {},
   mixins: [renderData, refresh],
-  props: ['isEditing', 'HRZones'],
+  props: ['HRZones'],
   data() {
     return {
       form: {

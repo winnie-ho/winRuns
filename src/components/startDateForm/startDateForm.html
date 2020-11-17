@@ -1,0 +1,10 @@
+<el-form :model="form" label-width="100px" label-position='left' size="mini">
+  <el-form-item label="Fixed start date">
+    <el-date-picker v-model="form.fixedStartDate" type="date" placeholder="Start date" size='small' align='center'>
+    </el-date-picker>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="secondary" size='mini' @click="cancelEditFixedStartDate">Cancel</el-button>
+    <el-button type="primary" size='mini' @click="updateFixedStartDate">Update</el-button>
+  </el-form-item>
+</el-form>

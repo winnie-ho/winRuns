@@ -34,6 +34,7 @@ export const store = new Vuex.Store({
     position: {},
     activitiesInPeriod: [],
     HRZones: {},
+    fixedStartDate: '',
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -62,6 +63,7 @@ export const store = new Vuex.Store({
     setSessions: (state, payload) => (state.sessions = payload),
     setEvents: (state, payload) => (state.events = payload),
     setHRZones: (state, payload) => (state.HRZones = payload),
+    setFixedStartDate: (state, payload) => (state.fixedStartDate = payload.fixedStartDate),
     setUpdateStravaActivityResponse: (state, payload) => (state.updateStravaActivityResponse = payload),
     setUploadStravaActivityResponse: (state, payload) => (state.uploadStravaActivityResponse = payload),
     setStravaUpload: (state, payload) => (state.stravaUploadResponse = payload),

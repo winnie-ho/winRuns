@@ -23,7 +23,6 @@
   </div>
   <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit' circle>
   </el-button>
-  <hr-zones-form v-show='showHRZonesForm' :isEditing='showHRZonesForm' :HRZones='HRZones'
-    @onCloseForm='closeHRZonesForm'>
+  <hr-zones-form v-show='showHRZonesForm' :HRZones='HRZones' @onCloseForm='closeHRZonesForm'>
   </hr-zones-form>
 </div>

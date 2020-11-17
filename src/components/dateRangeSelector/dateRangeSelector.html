@@ -1,13 +1,19 @@
-<div id='date-range-selector' class='row sa'>
-  <el-date-picker v-model="startDate" type="date" placeholder="Start date" size='small' align='left'>
-  </el-date-picker>
+<div id='date-range-selector'>
+  <div v-show='!showFixedStartDateFrom' class='row sa'>
+    <el-date-picker v-model="startDate" type="date" placeholder="Start date" size='small' align='left'>
+    </el-date-picker>
 
-  <div class='date-range-connector'>to</div>
+    <div class='date-range-connector'>to</div>
 
-  <el-date-picker v-model="endDate" type="date" placeholder="End date" size='small' align='right'>
-  </el-date-picker>
+    <el-date-picker v-model="endDate" type="date" placeholder="End date" size='small' align='right'>
+    </el-date-picker>
 
-  <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateForm'
-    class='btn-edit' circle type='secondary'>
-  </el-button>
+    <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateFrom'
+      class='btn-edit' circle type='secondary'>
+    </el-button>
+  </div>
+
+  <start-date-form v-show='showFixedStartDateFrom' @onCloseForm='closeFixedStartDateForm'
+    @onFixedStartDateUpdate='updateFixedStartDate($event)' :storedFixedStartDate='storedFixedStartDate'>
+  </start-date-form>
 </div>

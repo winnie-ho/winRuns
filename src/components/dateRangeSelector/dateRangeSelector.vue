@@ -4,15 +4,20 @@
 <script>
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
+import startDateForm from '../startDateForm/startDateForm.vue';
 
 export default {
   name: 'dateRangeSelector',
   mixins: [renderData, appData],
+  props: ['storedFixedStartDate'],
+  components: {
+    startDateForm,
+  },
   data() {
     return {
-      selectedDateRange: [new Date(), new Date()],
-      startDate: new Date(),
+      startDate: this.storedFixedStartDate,
       endDate: new Date(),
+      showFixedStartDateFrom: false,
     };
   },
   watch: {
@@ -23,7 +28,16 @@ export default {
       this.emitUpdatedDates();
     },
   },
+  mounted() {
+    this.emitUpdatedDates();
+  },
   methods: {
+    editFixedStartDate() {
+      this.showFixedStartDateFrom = !this.showFixedStartDateFrom;
+    },
+    closeFixedStartDateForm() {
+      this.showFixedStartDateFrom = false;
+    },
     getBeforeMarker(rawDate) {
       return new Date(
         rawDate.getFullYear(),
@@ -43,6 +57,10 @@ export default {
         after: this.getAfterMarker(this.startDate),
       };
       this.$emit('onDateRangeChange', timeMarkers);
+    },
+    updateFixedStartDate(updatedFixedStartDate) {
+      this.startDate = updatedFixedStartDate;
+      this.$emit('onFixedStartDateUpdate', updatedFixedStartDate);
     },
   },
   computed: {

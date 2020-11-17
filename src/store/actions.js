@@ -108,6 +108,11 @@ export const actions = {
       );
     });
   },
+  fetchFixedStartDate: (context) => {
+    Vue.http.get('https://win-runs.firebaseio.com/fixedStartDate.json').then((response) => {
+      context.commit('setFixedStartDate', response.data);
+    });
+  },
   fetchHRZones: (context) => {
     Vue.http.get('https://win-runs.firebaseio.com/heartrateZones.json').then((response) => {
       context.commit('setHRZones', response.data);
@@ -134,6 +139,9 @@ export const actions = {
     (data) => data.json(),
   ),
   updateHRZones: (context, hrZones) => Vue.http.put('https://win-runs.firebaseio.com/heartrateZones.json', hrZones).then(
+    (data) => data.json(),
+  ),
+  updateFixedStartDate: (context, fixedStartDate) => Vue.http.put('https://win-runs.firebaseio.com/fixedStartDate.json', fixedStartDate).then(
     (data) => data.json(),
   ),
   updateStravaActivity: (context, actionParameters) => {

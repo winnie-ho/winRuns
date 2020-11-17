@@ -2,11 +2,12 @@
   <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
 
   <div class='sub-bar sub-bar__collapsed'>
-    <date-range-selector v-on:onDateRangeChange='setDateRange($event)'></date-range-selector>
+    <date-range-selector v-on:onDateRangeChange='setDateRange($event)' :storedFixedStartDate='fixedStartDate'>
+    </date-range-selector>
   </div>
 
   <hr-zones></hr-zones>
-  <div id='avg-heartrate-pace-chart-in-date-range' class='component-container'></div>
+  <div id='avg-heartrate-pace-chart-in-date-range' class='component-container chart'></div>
 
   <div class='component-container container-colour--secondary'>
     <activity-item v-show='sortedActivitiesInPeriod' v-for='activity in sortedActivitiesInPeriod' :key='activity.index'

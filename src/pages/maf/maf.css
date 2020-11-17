@@ -4,6 +4,6 @@
   font-size: 16px;
 }
 
-#avg-heartrate-pace-chart-in-date-range{
+.chart{
   background: var(--palette-cerulean);
 }

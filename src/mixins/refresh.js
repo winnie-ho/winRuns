@@ -12,5 +12,9 @@ export default {
       await this.$store.dispatch('fetchHRZones');
       await this.$router.push('/maf/');
     },
+    async refreshFixedStartDate() {
+      await this.$store.dispatch('fetchFixedStartDate');
+      await this.$router.push('/maf/');
+    },
   },
 };
