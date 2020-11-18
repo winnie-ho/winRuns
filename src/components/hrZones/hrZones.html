@@ -21,8 +21,11 @@
       <h5>{{ HRZones.z5 }}</h5>
     </div>
   </div>
-  <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit' circle>
-  </el-button>
+  <el-tooltip content='Set HR Zones' placement="left">
+    <el-button @click='editHRZones' icon="el-icon-edit" size='mini' v-show='!showHRZonesForm' class='btn-edit' circle>
+    </el-button>
+  </el-tooltip>
+
   <hr-zones-form v-show='showHRZonesForm' :HRZones='HRZones' @onCloseForm='closeHRZonesForm'>
   </hr-zones-form>
 </div>

@@ -8,8 +8,11 @@
 
   <hr-zones></hr-zones>
 
-  <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRPaceChart'
-    @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
+  <el-tooltip content='Full screen' placement="left">
+    <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRPaceChart'
+      @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
+  </el-tooltip>
+
   <i class='close-chart el-icon-close btn el-icon--medium' v-show='fullPageHRPaceChart'
     @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
 

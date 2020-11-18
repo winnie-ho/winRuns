@@ -1,16 +1,21 @@
 <div id='date-range-selector'>
   <div v-show='!showFixedStartDateFrom' class='row sa'>
-    <el-date-picker v-model="startDate" type="date" placeholder="Start date" size='small' align='left'>
-    </el-date-picker>
+    <el-tooltip content='Set start date' placement="top">
+      <el-date-picker v-model="startDate" type="date" placeholder="Start date" size='small' align='left'>
+      </el-date-picker>
+    </el-tooltip>
 
     <div class='date-range-connector'>to</div>
+    <el-tooltip content='Set end date' placement="top">
+      <el-date-picker v-model="endDate" type="date" placeholder="End date" size='small' align='right'>
+      </el-date-picker>
+    </el-tooltip>
 
-    <el-date-picker v-model="endDate" type="date" placeholder="End date" size='small' align='right'>
-    </el-date-picker>
-
-    <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateFrom'
-      class='btn-edit' circle type='secondary'>
-    </el-button>
+    <el-tooltip content='Set fixed start date' placement="left">
+      <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateFrom'
+        class='btn-edit' circle type='secondary'>
+      </el-button>
+    </el-tooltip>
   </div>
 
   <start-date-form v-show='showFixedStartDateFrom' @onCloseForm='closeFixedStartDateForm'

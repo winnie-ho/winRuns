@@ -31,7 +31,8 @@
   z-index: 10001;
 }
 
-.expand-chart{
-  display: flex;
-  justify-content: flex-end;
+.expand-chart {
+  position: absolute;
+  right: 20px;
+  z-index: 2;
 }
