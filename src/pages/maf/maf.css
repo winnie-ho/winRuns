@@ -44,9 +44,9 @@
   color: var(--palette-white);
   display: flex;
   justify-content: flex-end;
-  position: absolute;
+  position: relative;
   right: 20px;
-  top: 260px;
+  top: 45px;
   cursor: pointer;
   z-index: 2;
 }
