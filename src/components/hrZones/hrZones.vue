@@ -2,7 +2,7 @@
 <style scoped src='./hrZones.css'></style>
 
 <script>
-import hrZonesForm from '../../components/hrZonesForm/hrZonesForm.vue';
+import hrZonesForm from '../hrZonesForm/hrZonesForm.vue';
 
 export default {
   name: 'hrZones',
