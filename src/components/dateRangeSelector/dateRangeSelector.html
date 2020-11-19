@@ -1,5 +1,5 @@
 <div id='date-range-selector'>
-  <div v-show='!showFixedStartDateFrom' class='row sa'>
+  <div v-show='!showFixedStartDateForm' class='row sa'>
     <el-tooltip content='Set start date' placement="top">
       <el-date-picker v-model="startDate" type="date" placeholder="Start date" size='small' align='left'>
       </el-date-picker>
@@ -12,13 +12,13 @@
     </el-tooltip>
 
     <el-tooltip content='Set fixed start date' placement="left">
-      <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateFrom'
+      <el-button @click='editFixedStartDate' icon="el-icon-edit" size='mini' v-show='!showFixedStartDateForm'
         class='btn-edit' circle type='secondary'>
       </el-button>
     </el-tooltip>
   </div>
 
-  <start-date-form v-show='showFixedStartDateFrom' @onCloseForm='closeFixedStartDateForm'
+  <start-date-form v-show='showFixedStartDateForm' @onCloseForm='closeFixedStartDateForm'
     @onFixedStartDateUpdate='updateFixedStartDate($event)' :storedFixedStartDate='storedFixedStartDate'>
   </start-date-form>
 </div>

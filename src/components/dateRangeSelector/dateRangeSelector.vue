@@ -17,7 +17,7 @@ export default {
     return {
       startDate: this.storedFixedStartDate,
       endDate: new Date(),
-      showFixedStartDateFrom: false,
+      showFixedStartDateForm: false,
     };
   },
   watch: {
@@ -33,10 +33,10 @@ export default {
   },
   methods: {
     editFixedStartDate() {
-      this.showFixedStartDateFrom = !this.showFixedStartDateFrom;
+      this.showFixedStartDateForm = !this.showFixedStartDateForm;
     },
     closeFixedStartDateForm() {
-      this.showFixedStartDateFrom = false;
+      this.showFixedStartDateForm = false;
     },
     getBeforeMarker(rawDate) {
       return new Date(
