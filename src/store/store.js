@@ -35,6 +35,7 @@ export const store = new Vuex.Store({
     activitiesInPeriod: [],
     HRZones: {},
     fixedStartDate: '',
+    runsToAnalyse: [],
   },
   mutations: {
     setAthlete: (state, payload) => (state.athlete = payload),
@@ -45,6 +46,7 @@ export const store = new Vuex.Store({
     setComments: (state, payload) => (state.comments = payload),
     setActivityStream: (state, payload) => (state.activityStream = payload),
     setParkRuns: (state, payload) => (state.parkRuns = payload),
+    setRunsToAnalyse: (state, payload) => (state.runsToAnalyse.push(payload)),
     setSelectedParkRun: (state, payload) => (state.selectedParkRun = payload),
     setPosition: (state, payload) => (
       state.position = {
@@ -58,6 +60,7 @@ export const store = new Vuex.Store({
     setUserToken: (state, payload) => (state.userToken = payload),
     setFullParkRuns: (state, payload) => (state.fullParkRuns.push(payload)),
     clearFullParkRuns: (state) => (state.fullParkRuns = []),
+    clearRunsToAnalyse: (state) => (state.runsToAnalyse = []),
     setFullKmSessions: (state, payload) => (state.fullKmSessions.push(payload)),
     clearFullKmSessions: (state) => (state.fullKmSessions = []),
     setSessions: (state, payload) => (state.sessions = payload),

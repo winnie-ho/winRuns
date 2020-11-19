@@ -92,6 +92,16 @@ export const actions = {
     );
   },
   setUserToken: (context, userToken) => context.commit('setUserToken', userToken),
+  fetchRunsToAnalyse: (context, runIdsToAnalyse) => {
+    context.commit('clearRunsToAnalyse');
+    runIdsToAnalyse.forEach((runId) => {
+      Vue.http.get(`https://www.strava.com/api/v3/activities/${runId}?access_token=${sessionStorage.userToken || context.state.userToken}`).then(
+        (response) => {
+          context.commit('setRunsToAnalyse', response.body);
+        },
+      );
+    });
+  },
   fetchFullParkRuns: (context) => {
     context.commit('clearFullParkRuns');
     context.getters.parkRuns.forEach((parkRun) => {
