@@ -1,48 +1,50 @@
-<div id='activity' class='activity-box row sb' @click='viewActivity(activity.id)'>
+<div id='activity' class='activity-box row' @click='viewActivity(activity.id)'>
   <div class='icon__circle'>
-    <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike--light.svg'
-      class='icon--large icon' />
-    <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike--light.svg'
-      class='icon--large icon' />
-    <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg'
-      class='icon--large icon' />
-    <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg'
-      class='icon--large icon' />
-    <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png'
-      class='icon--large icon' />
+    <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike--light.svg' class='icon' />
+    <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike--light.svg' class='icon' />
+    <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg' class='icon' />
+    <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg' class='icon' />
+    <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png' class='icon' />
   </div>
 
-  <div class='activity-box__detail'>
-    <div class='row sb'>
-      <span class='heading truncate'>{{ activity.name }}<span v-show='activityLocation'>- {{ activityLocation }}</span>
-      </span>
+  <div class='activity-box__data col sa'>
+    <div class='activity-box__header row sb'>
+      <div>
+        <span class='heading truncate'>{{ activity.name }}<span v-show='activityLocation'>-
+            {{ activityLocation }}</span>
+        </span>
+      </div>
       <div class='date'>
         {{ renderDate(activity.start_date_local) }}
       </div>
     </div>
-    <div class='row'>
-      <div class='data-metric space'
-        v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'|| activity.type === 'VirtualRide'">
-        {{ renderDistance(activity.distance) }}
-      </div>
-      <div class='data-metric space' v-show="activity.type === 'Swim'">
-        {{ renderSwimDistance(activity.distance) }}
-      </div>
-      <div class='data-metric space'>
-        {{ renderTime(activity.moving_time) }}
-      </div>
-      <div class='data-metric space' v-show="activity.type ==='Run' || activity.type === 'Workout'">
-        {{ renderPace(activity.moving_time, activity.distance) }}
-      </div>
-      <div class='data-metric space' v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
-        {{ renderSpeed(activity.average_speed) }}
-      </div>
-      <div class='data-metric space' v-show="activity.type === 'Swim'">
-        {{ renderSwimPace(activity.moving_time, activity.distance) }}
-      </div>
-      <div class='data-metric space' v-show="activity.average_heartrate">
-        {{ activity.average_heartrate }}bpm
-      </div>
-    </div>
+
+    <table class='activity-box__detail'>
+      <tr>
+        <td
+          v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'Workout'|| activity.type === 'VirtualRide'">
+          {{ renderDistance(activity.distance) }}
+        </td>
+        <td v-show="activity.type === 'Swim'">
+          {{ renderSwimDistance(activity.distance) }}
+        </td>
+        <td>
+          {{ renderTime(activity.moving_time) }}
+        </td>
+        <td v-show="activity.type ==='Run' || activity.type === 'Workout'">
+          {{ renderPace(activity.moving_time, activity.distance) }}
+        </td>
+        <td v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
+          {{ renderSpeed(activity.average_speed) }}
+        </td>
+        <td v-show="activity.type === 'Swim'">
+          {{ renderSwimPace(activity.moving_time, activity.distance) }}
+        </td>
+        <td v-show="activity.average_heartrate">
+          {{ activity.average_heartrate }}bpm
+        </td>
+      </tr>
+    </table>
   </div>
+
 </div>

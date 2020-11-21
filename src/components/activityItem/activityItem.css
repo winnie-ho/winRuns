@@ -15,11 +15,18 @@
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px var(--palette-white) solid;
+  width: 100%;
 
   animation-name: enterActivity;
   animation-duration: 1s;
   animation-direction: forward;
   transition: 0.5s;
+}
+
+.activity-box__data{
+  width: 100%;
+  margin-left: 10px;
+  align-items: flex-start;
 }
 
 .activity-box:hover{
@@ -28,12 +35,15 @@
 }
 
 .activity-box__detail{
-  width: 95%;
-  justify-content: flex-start;
   text-align: left;
-  margin-left: 10px;
 }
 
-.space{
-  margin-right: 30px;
+td{
+  width: 60px;
+  font-size: 14px;
+}
+
+.activity-box__header{
+  width: 100%;
+  margin-bottom: 10px;
 }
