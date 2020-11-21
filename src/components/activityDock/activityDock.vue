@@ -31,11 +31,11 @@ export default {
     };
   },
   mounted() {
-    this.createAvgHRPaceByRunChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+    this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
   },
   watch: {
     activity() {
-      this.createAvgHRPaceByRunChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+      this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
     },
   },
   methods: {

@@ -102,3 +102,50 @@
   width: 100%;
   justify-content: flex-start !important;
 }
+
+.chart{
+  background: var(--palette-cerulean);
+}
+
+.fullpage{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: var(--palette-cerulean);
+  right: -8px;
+  top: -8px;
+  border-radius: 0px;
+  z-index: 10000;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.exitFullpage{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+
+.close-chart{
+  color: var(--palette-white);
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10001;
+}
+
+.expand-chart{
+  color: var(--palette-white);
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 20px;
+  top: 45px;
+  cursor: pointer;
+  z-index: 2;
+}

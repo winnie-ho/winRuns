@@ -9,7 +9,6 @@ import hrZones from '../../components/hrZones/hrZones.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
 import avgHRPaceChart from '../../mixins/avgHRPaceChart';
-import avgHRPaceByRunChart from '../../mixins/avgHRPaceByRunChart';
 import calculateData from '../../mixins/calculateData';
 
 export default {
@@ -20,7 +19,7 @@ export default {
     activityItem,
     hrZones,
   },
-  mixins: [renderData, changePage, avgHRPaceChart, avgHRPaceByRunChart, calculateData],
+  mixins: [renderData, changePage, avgHRPaceChart, calculateData],
   data() {
     return {
       pageTitle: 'MAF',
@@ -28,14 +27,14 @@ export default {
     };
   },
   mounted() {
-    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
+    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
   },
   watch: {
     sortedActivitiesInPeriod() {
       this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
     },
     fixedStartDate() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
     },
   },
   methods: {
