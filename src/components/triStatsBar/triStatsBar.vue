@@ -11,7 +11,7 @@ export default {
   components: {
     statTotal,
   },
-  props: ['activities'],
+  props: ['activities', 'maxDistance'],
   methods: {
     statType(activityType) {
       switch (activityType) {

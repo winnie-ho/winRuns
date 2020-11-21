@@ -21,7 +21,7 @@
     <search-bar v-show='showSearch' v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
   </div>
 
-  <tri-stats-bar :activities='activitiesByMonth'></tri-stats-bar>
+  <tri-stats-bar :activities='activitiesByMonth' :maxDistance=400></tri-stats-bar>
   <month-pace-h-r :activitiesInView='orderedFilteredActivities'>
   </month-pace-h-r>
 

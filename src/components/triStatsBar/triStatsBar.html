@@ -3,19 +3,19 @@
     <div class='row month-stats__chart-bar'>
       <img class='icon--medium' src='../../../static/assets/svgs/icon_swim--light.svg' />
       <div class='month-stats__count'>{{ stats.swim.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/4000}%`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/1000/maxDistance*100}%`}'>
         {{ renderDistance(stats.swim.distance, true) }}</div>
     </div>
     <div class='row month-stats__chart-bar'>
       <img class='icon--medium' src='../../../static/assets/svgs/icon_bike--light.svg' />
       <div class='month-stats__count'>{{ stats.ride.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/4000}%`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/1000/maxDistance*100}%`}'>
         {{ renderDistance(stats.ride.distance, true) }}</div>
     </div>
     <div class='row month-stats__chart-bar'>
       <img class='icon--medium' src='../../../static/assets/svgs/icon_run--light.svg' />
       <div class='month-stats__count'>{{ stats.run.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/4000}%`}'>
+      <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/1000/maxDistance*100}%`}'>
         {{ renderDistance(stats.run.distance, true) }}</div>
     </div>
   </div>
