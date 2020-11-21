@@ -31,6 +31,10 @@
             <h6>SPEED</h6>
             <h2 class='spacer--medium'>{{ renderSpeed(activity.distance / activity.moving_time) }}</h2>
           </div>
+          <div v-show="activity.average_heartrate">
+            <h6>AVG HR</h6>
+            <h2 class='spacer--medium'>{{ activity.average_heartrate }}</h2>
+          </div>
         </div>
       </div>
     </div>
