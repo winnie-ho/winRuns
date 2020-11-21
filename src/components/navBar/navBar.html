@@ -15,12 +15,12 @@
         :path="'/activities'" :title='"Activities"'>
       </nav-bar-btn>
 
-      <nav-bar-btn v-show='athlete.id===3752965' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
-        :btnIcon='"../../../static/assets/svgs/icon_park_run_logo.svg"' :path="'/parkRunMain'" :title='"Park run"'>
-      </nav-bar-btn>
-
       <nav-bar-btn :pages='["/maf"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/maf"'
         :title='"MAF"'>
+      </nav-bar-btn>
+
+      <nav-bar-btn v-show='athlete.id===3752965' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
+        :btnIcon='"../../../static/assets/svgs/icon_park_run_logo.svg"' :path="'/parkRunMain'" :title='"Park run"'>
       </nav-bar-btn>
 
       <nav-bar-btn v-show='athlete.id===3752965' :pages='["/events"]'
@@ -60,11 +60,11 @@
     <router-link to="/activities" exact class='burger-item col'>
       ACTIVITIES
     </router-link>
-    <router-link to="/parkRunMain" exact class='burger-item col' v-show='athlete.id===3752965'>
-      PARK RUN
-    </router-link>
     <router-link to="/maf" exact class='burger-item col'>
       MAF
+    </router-link>
+    <router-link to="/parkRunMain" exact class='burger-item col' v-show='athlete.id===3752965'>
+      PARK RUN
     </router-link>
     <router-link to="/events" exact class='burger-item col' v-show='athlete.id===3752965'>
       EVENTS
