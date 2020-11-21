@@ -32,8 +32,7 @@ export default {
   },
   watch: {
     sortedActivitiesInPeriod() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
-      // this.createAvgHRPaceByRunChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-by-run');
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
     },
     fixedStartDate() {
       this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range');
@@ -56,12 +55,12 @@ export default {
       return this.$store.state.activitiesInPeriod;
     },
     sortedActivitiesInPeriod() {
-      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run').sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
+      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0).sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
     avgHRData() {
       return this.getAvgHRData(this.sortedActivitiesInPeriod);
     },
-    avgPace() {
+    avgPaceData() {
       return this.getAvgPaceData(this.sortedActivitiesInPeriod);
     },
     fixedStartDate() {
