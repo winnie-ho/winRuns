@@ -1,10 +1,15 @@
 <div id='activity' class='activity-box row' @click='viewActivity(activity.id)'>
-  <div class='icon__circle'>
-    <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike--light.svg' class='icon' />
-    <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike--light.svg' class='icon' />
-    <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg' class='icon' />
-    <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg' class='icon' />
-    <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png' class='icon' />
+  <div class=''>
+    <img v-show="activity.type === 'Ride'" src='../../../static/assets/svgs/icon_bike--light.svg'
+      class='icon icon--medium' />
+    <img v-show="activity.type === 'VirtualRide'" src='../../../static/assets/svgs/icon_bike--light.svg'
+      class='icon icon--medium' />
+    <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg'
+      class='icon icon--medium' />
+    <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg'
+      class='icon icon--medium' />
+    <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png'
+      class='icon icon--medium' />
   </div>
 
   <div class='activity-box__data col sa'>
