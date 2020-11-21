@@ -135,8 +135,6 @@ export default {
               },
               format: '{value:%M:%S}',
             },
-            min: 5 * 60 * 1000,
-            floor: 5 * 60 * 1000,
             tickInterval: 30 * 1000,
             startOnTick: true,
             endOnTick: true,
