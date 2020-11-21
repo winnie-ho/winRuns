@@ -92,7 +92,7 @@
       <h4>{{ activity.description }}</h4>
     </div>
 
-    <div id='photos-detail' v-show='photoCount > 0'>
+    <div id='photos-detail' v-show='hasPhotos'>
       <el-carousel indicator-position="outside" :autoplay='false'>
         <el-carousel-item v-for="photo in photos" :key="photo.index">
           <div class='col'>

@@ -111,8 +111,8 @@ export default {
     photos() {
       return this.$store.state.photos;
     },
-    photoCount() {
-      return this.$store.state.activity.photo_count;
+    hasPhotos() {
+      return this.photos.length > 0;
     },
     lapsCount() {
       return (
