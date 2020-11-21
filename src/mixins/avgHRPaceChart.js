@@ -95,6 +95,7 @@ export default {
           startOnTick: true,
           endOnTick: true,
           showLastLabel: true,
+          tickInterval: 5,
         },
         yAxis: [
           {
