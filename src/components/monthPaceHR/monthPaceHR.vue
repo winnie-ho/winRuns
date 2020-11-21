@@ -15,7 +15,7 @@ export default {
   props: ['activitiesInView'],
   watch: {
     sortedActivitiesInView() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInView, 'avg-heartrate-pace-chart');
+      this.createAvgHRPaceChart(this.sortedActivitiesInView, 'avg-heartrate-pace-chart', this.avgHRData, this.avgPaceData);
     },
   },
   data() {
@@ -36,7 +36,7 @@ export default {
     avgHRData() {
       return this.getAvgHRData(this.sortedActivitiesInView);
     },
-    avgPace() {
+    avgPaceData() {
       return this.getAvgPaceData(this.sortedActivitiesInView);
     },
     highestMaxHR() {

@@ -4,7 +4,7 @@ export default {
     return {};
   },
   methods: {
-    createAvgHRPaceChart(sortedActivitiesInView, chartId) {
+    createAvgHRPaceChart(sortedActivitiesInView, chartId, avgHRData, avgPaceData) {
       const container = document.querySelector(`#${chartId}`);
       const dateFormatted = sortedActivitiesInView.map((run) => this.renderDate(run.start_date_local));
 
@@ -51,7 +51,7 @@ export default {
           {
             name: 'Average Pace',
             type: 'spline',
-            data: this.avgPace,
+            data: avgPaceData,
             color: 'var(--palette-warning)',
             style: {
               fontSize: '10px',
@@ -65,7 +65,7 @@ export default {
           {
             name: 'Average HR',
             type: 'spline',
-            data: this.avgHRData,
+            data: avgHRData,
             color: 'var(--palette-smalt)',
             style: {
               fontSize: '10px',
