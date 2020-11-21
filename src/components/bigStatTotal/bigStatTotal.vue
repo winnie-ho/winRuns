@@ -12,6 +12,9 @@ export default {
     getTotalStat(activities, statToTotal) {
       return activities.reduce((total, activity) => total + activity[statToTotal], 0);
     },
+    totalNumberOfActivity(type) {
+      return this.activitiesInView.filter(activity => activity.type === type).length;
+    },
   },
   computed: {
     totalDistance() {

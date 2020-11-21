@@ -8,6 +8,13 @@
 
   <hr-zones></hr-zones>
 
+  <div class='row sa'>
+    <big-stat-total :activitiesInView='sortedActivitiesInPeriod' type='numberOfRuns'></big-stat-total>
+    <big-stat-total :activitiesInView='sortedActivitiesInPeriod' type='distance'></big-stat-total>
+    <big-stat-total :activitiesInView='sortedActivitiesInPeriod' type='time'></big-stat-total>
+    <big-stat-total :activitiesInView='sortedActivitiesInPeriod' type='elevation'></big-stat-total>
+  </div>
+
   <el-tooltip content='Full screen' placement="left">
     <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRPaceChart'
       @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>

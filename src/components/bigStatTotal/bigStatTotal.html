@@ -16,4 +16,22 @@
     <img class='icon--large' src='../../../static/assets/svgs/icon_elevation--dark.svg' />
     <h2>{{ totalElevation }}</h2>
   </div>
+
+  <div v-show='type === "numberOfRuns"' class='col'>
+    <h6>RUNS</h6>
+    <img class='icon--large' src='../../../static/assets/svgs/icon_run--dark.svg' />
+    <h2>{{ totalNumberOfActivity('Run') }}</h2>
+  </div>
+
+  <div v-show='type === "numberOfRides"' class='col'>
+    <h6>RIDES</h6>
+    <img class='icon--large' src='../../../static/assets/svgs/icon_bike--dark.svg' />
+    <h2>{{ totalNumberOfActivity('Ride') }}</h2>
+  </div>
+
+  <div v-show='type === "numberOfSwims"' class='col'>
+    <h6>SWIMS</h6>
+    <img class='icon--large' src='../../../static/assets/svgs/icon_swim--dark.svg' />
+    <h2>{{ totalNumberOfActivity('Swim') }}</h2>
+  </div>
 </div>
