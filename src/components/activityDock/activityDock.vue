@@ -6,6 +6,8 @@ import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 import lapItem from '../lapItem/lapItem.vue';
 import activitySession from '../activitySession/activitySession.vue';
+import avgHRPaceByRunChart from '../../mixins/avgHRPaceByRunChart';
+import calculateData from '../../mixins/calculateData';
 
 
 export default {
@@ -14,7 +16,7 @@ export default {
     lapItem,
     activitySession,
   },
-  mixins: [renderData, appData],
+  mixins: [renderData, appData, avgHRPaceByRunChart, calculateData],
   props: ['activity'],
   data() {
     return {
@@ -25,7 +27,16 @@ export default {
       sessionEfforts: [],
       createSession: false,
       sessionEffortsMergeMarkers: [],
+      fullPageHRPaceChart: false,
     };
+  },
+  mounted() {
+    this.createAvgHRPaceByRunChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+  },
+  watch: {
+    activity() {
+      this.createAvgHRPaceByRunChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+    },
   },
   methods: {
     setDockItem(item) {
@@ -100,6 +111,9 @@ export default {
     photos() {
       return this.$store.state.photos;
     },
+    photoCount() {
+      return this.$store.state.activity.photo_count;
+    },
     lapsCount() {
       return (
         this.$store.state.activity.laps && this.$store.state.activity.laps.length
@@ -133,6 +147,12 @@ export default {
         lapDistanceCounter += this.laps[i].distance;
       }
       return this.sortedLapMarkers && lapDistanceCounter;
+    },
+    avgHRDataByRun() {
+      return this.activity.laps ? this.getAvgHRData(this.activity.laps) : null;
+    },
+    avgPaceDataByRun() {
+      return this.activity.laps ? this.getAvgPaceData(this.activity.laps) : null;
     },
   },
 };

@@ -92,7 +92,7 @@
       <h4>{{ activity.description }}</h4>
     </div>
 
-    <div id='photos-detail' show='photoCount> 0'>
+    <div id='photos-detail' v-show='photoCount > 0'>
       <el-carousel indicator-position="outside" :autoplay='false'>
         <el-carousel-item v-for="photo in photos" :key="photo.index">
           <div class='col'>
@@ -101,6 +101,16 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+
+    <el-tooltip content='Full screen' placement="left">
+      <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRPaceChart'
+        @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
+    </el-tooltip>
+
+    <i class='close-chart el-icon-close btn el-icon--medium' v-show='fullPageHRPaceChart'
+      @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
+
+    <div id='avg-heartrate-pace-chart' class='component-container chart' :class='{fullpage:fullPageHRPaceChart}'></div>
 
   </div>
 </div>
