@@ -28,8 +28,8 @@
 
 
   <div class='component-container container-colour--secondary'>
-    <activity-item v-show='sortedActivitiesInPeriod' v-for='activity in sortedActivitiesInPeriod' :key='activity.index'
-      :activity='activity'>
+    <activity-item v-show='sortedActivitiesInPeriod' v-for='activity in reverseSortedActivitiesInPeriod'
+      :key='activity.index' :activity='activity'>
     </activity-item>
     <div v-show='activitiesInPeriod.length === 0' class='col'>
       <i class='el-icon-loading'></i>
