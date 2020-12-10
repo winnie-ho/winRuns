@@ -62,9 +62,13 @@ export default {
     },
     renderPace(rawTime, rawDistance) {
       const totalMinutes = (rawTime / 60).toFixed(2);
-      const paceMinutes = (Math.floor(totalMinutes / (rawDistance / 1000))).toFixed(0);
+      let paceMinutes = (Math.floor(totalMinutes / (rawDistance / 1000))).toFixed(0);
       const rawPaceSeconds = (((totalMinutes / (rawDistance / 1000)) - paceMinutes) * 60).toFixed(0);
       let paceSeconds = rawPaceSeconds;
+      if (paceSeconds === '60') {
+        paceSeconds = '00';
+        paceMinutes = (parseInt(paceMinutes) + 1).toString();
+      }
       if (rawPaceSeconds < 10) {
         paceSeconds = `0${rawPaceSeconds}`;
       }
