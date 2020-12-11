@@ -15,17 +15,17 @@
     <div class='dock-item col' @click='setDockItem("laps")' :class='{ selectedDockItem: toggleLaps }'>
       <h6>LAPS</h6>
       <img src='../../../static/assets/svgs/icon_laps.svg' class='btn icon--medium' />
-      <h1>{{ laps && laps.length }}</h1>
+      <h1>{{ laps ? laps.length : 0 }}</h1>
     </div>
     <div class='dock-item col' @click='setDockItem("kudos")' :class='{ selectedDockItem: toggleKudos }'>
       <h6>KUDOS</h6>
       <img src='../../../static/assets/svgs/icon_like.svg' class='btn icon--medium' />
-      <h1>{{ kudos && kudos.length }}</h1>
+      <h1>{{ kudos ? kudos.length : 0 }}</h1>
     </div>
     <div class='dock-item col' @click='setDockItem("comments")' :class='{ selectedDockItem: toggleComments }'>
       <h6>COMMENTS</h6>
       <img src=' ../../../static/assets/svgs/icon_comment.svg' class='btn icon--medium' />
-      <h1>{{ comments && comments.length }}</h1>
+      <h1>{{ comments ? comments.length : 0 }}</h1>
     </div>
   </div>
 
