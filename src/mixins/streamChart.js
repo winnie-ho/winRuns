@@ -101,6 +101,7 @@ export default {
           },
         ],
         xAxis: {
+          type: 'datetime',
           title: {
             enabled: true,
             text: 'Time',
@@ -109,11 +110,12 @@ export default {
               color: 'var(--palette-white)',
             },
           },
-          categories: '',
+          categories: streamTimeData,
           labels: {
             style: {
               color: 'var(--palette-white)',
             },
+            format: '{value:%H:%M:%S}',
           },
           startOnTick: true,
           endOnTick: true,

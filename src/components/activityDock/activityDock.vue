@@ -184,7 +184,7 @@ export default {
       return this.activityStream.time ? this.getMAFLimitData(this.activityStream.time.data) : [];
     },
     streamTimeData() {
-      return this.activityStream.time ? this.activityStream.time.data : [];
+      return this.activityStream.time ? this.activityStream.time.data.map(time => time * 1000) : [];
     },
     streamHRData() {
       return this.activityStream.heartrate ? this.activityStream.heartrate.data : [];
