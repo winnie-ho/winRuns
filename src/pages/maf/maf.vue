@@ -62,10 +62,10 @@ export default {
       return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0).sort((b, a) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
     avgHRData() {
-      return this.getAvgHRData(this.sortedActivitiesInPeriod);
+      return this.getActivitiesAvgHRData(this.sortedActivitiesInPeriod);
     },
     avgPaceData() {
-      return this.getAvgPaceData(this.sortedActivitiesInPeriod);
+      return this.getActivitiesAvgPaceData(this.sortedActivitiesInPeriod);
     },
     fixedStartDate() {
       return this.$store.state.fixedStartDate;

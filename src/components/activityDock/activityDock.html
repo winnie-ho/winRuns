@@ -102,6 +102,11 @@
       </el-carousel>
     </div>
 
+    <!-- <div id='z2-details'>
+      <h2>{{ percentTimeInZ2 }}</h2>
+      <h3>{{ renderTime(timeInZ2) }}</h3>
+    </div> -->
+
     <el-tooltip content='Full screen' placement="left">
       <i class='expand-chart el-icon-full-screen btn el-icon--medium' v-show='!fullPageHRPaceChart'
         @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
@@ -111,6 +116,7 @@
       @click='fullPageHRPaceChart=!fullPageHRPaceChart'></i>
 
     <div id='avg-heartrate-pace-chart' class='component-container chart' :class='{fullpage:fullPageHRPaceChart}'></div>
+    <div id='stream-chart' class='component-container chart' :class='{fullpage:fullStreamChart}'></div>
 
   </div>
 </div>

@@ -4,7 +4,7 @@ export default {
     return {};
   },
   methods: {
-    createAvgHRPaceByRunChart(chartId, MAFLimitData, avgHRDataByRun, avgPaceDataByRun) {
+    createStreamChart(chartId, MAFLimitData, streamTimeData, streamHRData, streamPaceData) {
       const container = document.querySelector(`#${chartId}`);
 
       return new Highcharts.Chart({
@@ -15,7 +15,7 @@ export default {
           zoomType: 'xy',
         },
         title: {
-          text: 'Average Pace and HR per km',
+          text: 'Activity Data',
           style: {
             fontSize: '10px',
             color: 'var(--palette-white)',
@@ -72,9 +72,9 @@ export default {
             },
           },
           {
-            name: 'Average Pace',
+            name: 'Pace',
             type: 'spline',
-            data: avgPaceDataByRun,
+            data: streamPaceData,
             color: 'var(--palette-warning)',
             style: {
               fontSize: '10px',
@@ -86,9 +86,9 @@ export default {
             yAxis: 1,
           },
           {
-            name: 'Average HR',
+            name: 'HR',
             type: 'spline',
-            data: avgHRDataByRun,
+            data: streamHRData,
             color: 'var(--palette-smalt)',
             style: {
               fontSize: '10px',
@@ -103,7 +103,7 @@ export default {
         xAxis: {
           title: {
             enabled: true,
-            text: 'Distance (km)',
+            text: 'Time',
             style: {
               fontSize: '10px',
               color: 'var(--palette-white)',
@@ -164,6 +164,7 @@ export default {
             startOnTick: true,
             endOnTick: true,
             showLastLabel: true,
+            max: 14 * 60 * 1000,
           },
         ],
         legend: {

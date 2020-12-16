@@ -34,10 +34,10 @@ export default {
       return this.sortedActivitiesInView.map((activity) => (activity.max_heartrate ? activity.max_heartrate : 0));
     },
     avgHRData() {
-      return this.getAvgHRData(this.sortedActivitiesInView);
+      return this.getActivitiesAvgHRData(this.sortedActivitiesInView);
     },
     avgPaceData() {
-      return this.getAvgPaceData(this.sortedActivitiesInView);
+      return this.getActivitiesAvgPaceData(this.sortedActivitiesInView);
     },
     highestMaxHR() {
       return Math.max(...this.maxHRData);

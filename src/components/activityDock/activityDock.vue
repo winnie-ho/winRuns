@@ -7,6 +7,7 @@ import appData from '../../mixins/appData';
 import lapItem from '../lapItem/lapItem.vue';
 import activitySession from '../activitySession/activitySession.vue';
 import avgHRPaceByRunChart from '../../mixins/avgHRPaceByRunChart';
+import streamChart from '../../mixins/streamChart';
 import calculateData from '../../mixins/calculateData';
 
 
@@ -16,8 +17,8 @@ export default {
     lapItem,
     activitySession,
   },
-  mixins: [renderData, appData, avgHRPaceByRunChart, calculateData],
-  props: ['activity'],
+  mixins: [renderData, appData, avgHRPaceByRunChart, streamChart, calculateData],
+  props: ['activity', 'percentTimeInZ2', 'timeInZ2'],
   data() {
     return {
       toggleLaps: false,
@@ -28,14 +29,19 @@ export default {
       createSession: false,
       sessionEffortsMergeMarkers: [],
       fullPageHRPaceChart: false,
+      fullStreamChart: false,
     };
   },
   mounted() {
-    this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+    this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgMAFLimitDataByRun, this.avgHRDataByRun, this.avgPaceDataByRun);
+    this.createStreamChart('stream-chart', this.streamMAFLimitData, this.streamTimeData, this.streamHRData, this.streamPaceData);
   },
   watch: {
     activity() {
-      this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgHRDataByRun, this.avgPaceDataByRun);
+      this.createAvgHRPaceByRunChart('avg-heartrate-pace-chart', this.avgMAFLimitDataByRun, this.avgHRDataByRun, this.avgPaceDataByRun);
+    },
+    activityStream() {
+      this.createStreamChart('stream-chart', this.streamMAFLimitData, this.streamTimeData, this.streamHRData, this.streamPaceData);
     },
   },
   methods: {
@@ -97,8 +103,22 @@ export default {
     toggleCreateSession() {
       this.createSession = !this.createSession;
     },
+    getMAFLimitData(dataPoints) {
+      if (!dataPoints) {
+        return [];
+      }
+      const dataPointCount = dataPoints.length;
+      const MAFLimitData = [];
+      for (let i = 0; i < dataPointCount; i++) {
+        MAFLimitData.push(this.HRZones.z2);
+      }
+      return MAFLimitData;
+    },
   },
   computed: {
+    HRZones() {
+      return this.$store.state.HRZones;
+    },
     comments() {
       return this.$store.state.comments;
     },
@@ -120,7 +140,7 @@ export default {
       );
     },
     lapCountInCalc() {
-      if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return;
+      if (!this.sortedLapMarkers || this.sortedLapMarkers.length < 2) return 0;
       return this.sortedLapMarkers[1] - this.sortedLapMarkers[0] + 1;
     },
     sortedLapMarkers() {
@@ -149,10 +169,28 @@ export default {
       return this.sortedLapMarkers && lapDistanceCounter;
     },
     avgHRDataByRun() {
-      return this.activity.laps ? this.getAvgHRData(this.activity.laps) : null;
+      return this.activity.laps ? this.getActivitiesAvgHRData(this.activity.laps) : null;
     },
     avgPaceDataByRun() {
-      return this.activity.laps ? this.getAvgPaceData(this.activity.laps) : null;
+      return this.activity.laps ? this.getActivitiesAvgPaceData(this.activity.laps) : null;
+    },
+    avgMAFLimitDataByRun() {
+      return this.activity.laps ? this.getMAFLimitData(this.activity.laps) : null;
+    },
+    activityStream() {
+      return this.$store.state.activityStream;
+    },
+    streamMAFLimitData() {
+      return this.activityStream.time ? this.getMAFLimitData(this.activityStream.time.data) : [];
+    },
+    streamTimeData() {
+      return this.activityStream.time ? this.activityStream.time.data : [];
+    },
+    streamHRData() {
+      return this.activityStream.heartrate ? this.activityStream.heartrate.data : [];
+    },
+    streamPaceData() {
+      return this.activityStream.velocity_smooth ? this.getPaceData(this.activityStream.velocity_smooth.data) : [];
     },
   },
 };

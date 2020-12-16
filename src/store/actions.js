@@ -52,7 +52,7 @@ export const actions = {
     );
   },
   fetchActivityStream: (context, activityId) => {
-    const keys = ['time', 'heartrate'];
+    const keys = ['time', 'moving', 'heartrate', 'velocity_smooth'];
     Vue.http.get(`https://www.strava.com/api/v3/activities/${activityId}/streams?keys=${keys}&key_by_type=true&access_token=${sessionStorage.userToken || context.state.userToken}`).then(
       (response) => context.commit('setActivityStream', response.data),
     );
