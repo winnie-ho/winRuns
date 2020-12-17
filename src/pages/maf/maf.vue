@@ -9,7 +9,7 @@ import hrZones from '../../components/hrZones/hrZones.vue';
 import bigStatTotal from '../../components/bigStatTotal/bigStatTotal.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
-import avgHRPaceChart from '../../mixins/avgHRPaceChart';
+import avgHRPaceChart from '../../mixins/charts/avgHRPaceChart';
 import calculateData from '../../mixins/calculateData';
 
 export default {

@@ -6,8 +6,8 @@ import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
 import lapItem from '../lapItem/lapItem.vue';
 import activitySession from '../activitySession/activitySession.vue';
-import avgHRPaceByRunChart from '../../mixins/avgHRPaceByRunChart';
-import streamChart from '../../mixins/streamChart';
+import avgHRPaceByRunChart from '../../mixins/charts/avgHRPaceByRunChart';
+import streamChart from '../../mixins/charts/streamChart';
 import calculateData from '../../mixins/calculateData';
 
 

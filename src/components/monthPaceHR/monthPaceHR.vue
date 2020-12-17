@@ -4,7 +4,7 @@
 <script src>
 import renderData from '../../mixins/renderData';
 import appData from '../../mixins/appData';
-import avgHRPaceChart from '../../mixins/avgHRPaceChart';
+import avgHRPaceChart from '../../mixins/charts/avgHRPaceChart';
 import calculateData from '../../mixins/calculateData';
 
 export default {

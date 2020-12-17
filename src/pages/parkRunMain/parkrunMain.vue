@@ -5,7 +5,7 @@
 import navBar from '../../components/navBar/navBar.vue';
 import renderData from '../../mixins/renderData';
 import parkRunDirectory from '../../mixins/parkRunDirectory';
-import parkRunCharts from '../../mixins/parkRunCharts';
+import parkRunCharts from '../../mixins/charts/parkRunCharts';
 import yearChanger from '../../components/yearChanger/yearChanger.vue';
 import activityItem from '../../components/activityItem/activityItem.vue';
 
