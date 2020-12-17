@@ -24,11 +24,11 @@ export default {
         tooltip: {
           shared: true,
           formatter() {
-            const date = new Date(this.points[0].y);
+            const date = new Date(this.points[1].y);
             const mins = date.getMinutes();
             let secs = date.getSeconds();
             secs = (secs < 10 ? '0' : '') + secs;
-            const hrm = `${this.points[1].y}bpm`;
+            const hrm = `${this.points[2].y}bpm`;
             return `${mins}:${secs}min/km, ${hrm}`;
           },
         },
