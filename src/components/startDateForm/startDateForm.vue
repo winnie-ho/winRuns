@@ -27,7 +27,7 @@ export default {
       this.$store.dispatch('updateFixedStartDate', payload);
       this.$emit('onCloseForm');
       this.$emit('onFixedStartDateUpdate', this.form.fixedStartDate);
-      setTimeout(this.refreshFixedStartDate, 100);
+      setTimeout(this.refreshFixedStartDate, 500);
     },
     cancelEditFixedStartDate() {
       this.$emit('onCloseForm');

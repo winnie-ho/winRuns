@@ -34,7 +34,7 @@ export default {
       };
       this.$store.dispatch('updateHRZones', payload);
       this.$emit('onCloseForm');
-      setTimeout(this.refreshHRZones, 100);
+      setTimeout(this.refreshHRZones, 500);
     },
     cancelHRZones() {
       this.$emit('onCloseForm');
