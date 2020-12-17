@@ -29,14 +29,14 @@ export default {
     };
   },
   mounted() {
-    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
+    this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.MAFLimitData, this.avgHRData, this.avgPaceData);
   },
   watch: {
     sortedActivitiesInPeriod() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.MAFLimitData, this.avgHRData, this.avgPaceData);
     },
     fixedStartDate() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.avgHRData, this.avgPaceData);
+      this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.MAFLimitData, this.avgHRData, this.avgPaceData);
     },
   },
   methods: {
@@ -52,6 +52,9 @@ export default {
     },
   },
   computed: {
+    HRZones() {
+      return this.$store.state.HRZones;
+    },
     activitiesInPeriod() {
       return this.$store.state.activitiesInPeriod;
     },
@@ -69,6 +72,9 @@ export default {
     },
     fixedStartDate() {
       return this.$store.state.fixedStartDate;
+    },
+    MAFLimitData() {
+      return this.getMAFLimitData(this.sortedActivitiesInPeriod, this.HRZones.z2);
     },
   },
 };

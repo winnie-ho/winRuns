@@ -155,5 +155,16 @@ export default {
     renderWindSpeed(rawWindSpeed) {
       return rawWindSpeed ? `${(2.2369362920544 * rawWindSpeed).toFixed(0)} mph` : null;
     },
+    getMAFLimitData(dataPoints, z2) {
+      if (!dataPoints) {
+        return [];
+      }
+      const dataPointCount = dataPoints.length;
+      const MAFLimitData = [];
+      for (let i = 0; i < dataPointCount; i++) {
+        MAFLimitData.push(z2);
+      }
+      return MAFLimitData;
+    },
   },
 };

@@ -103,17 +103,6 @@ export default {
     toggleCreateSession() {
       this.createSession = !this.createSession;
     },
-    getMAFLimitData(dataPoints) {
-      if (!dataPoints) {
-        return [];
-      }
-      const dataPointCount = dataPoints.length;
-      const MAFLimitData = [];
-      for (let i = 0; i < dataPointCount; i++) {
-        MAFLimitData.push(this.HRZones.z2);
-      }
-      return MAFLimitData;
-    },
   },
   computed: {
     HRZones() {
@@ -175,13 +164,13 @@ export default {
       return this.activity.laps ? this.getActivitiesAvgPaceData(this.activity.laps) : null;
     },
     avgMAFLimitDataByRun() {
-      return this.activity.laps ? this.getMAFLimitData(this.activity.laps) : null;
+      return this.activity.laps ? this.getMAFLimitData(this.activity.laps, this.HRZones.z2) : null;
     },
     activityStream() {
       return this.$store.state.activityStream;
     },
     streamMAFLimitData() {
-      return this.activityStream.time ? this.getMAFLimitData(this.activityStream.time.data) : [];
+      return this.activityStream.time ? this.getMAFLimitData(this.activityStream.time.data, this.HRZones.z2) : [];
     },
     streamTimeData() {
       return this.activityStream.time ? this.activityStream.time.data.map(time => time * 1000) : [];

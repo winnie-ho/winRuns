@@ -4,7 +4,7 @@ export default {
     return {};
   },
   methods: {
-    createAvgHRPaceChart(sortedActivitiesInView, chartId, avgHRData, avgPaceData) {
+    createAvgHRPaceChart(sortedActivitiesInView, chartId, MAFLimitData, avgHRData, avgPaceData) {
       const container = document.querySelector(`#${chartId}`);
       const dateFormatted = sortedActivitiesInView.map((run) => this.renderDate(run.start_date_local));
 
@@ -25,16 +25,21 @@ export default {
         tooltip: {
           shared: true,
           formatter() {
-            const date = new Date(this.points[0].y);
+            const date = new Date(this.points[1].y);
             const mins = date.getMinutes();
             let secs = date.getSeconds();
             secs = (secs < 10 ? '0' : '') + secs;
-            const hrm = `${this.points[1].y}bpm`;
+            const hrm = `${this.points[2].y}bpm`;
             return `${mins}:${secs}min/km, ${hrm}`;
           },
         },
         plotOptions: {
-          scatter: {
+          line: {
+            marker: {
+              enabled: false,
+            },
+          },
+          spline: {
             marker: {
               symbol: 'circle',
               radius: 5,
@@ -48,6 +53,25 @@ export default {
           },
         },
         series: [
+          {
+            name: 'MAF Limit',
+            type: 'line',
+            data: MAFLimitData,
+            color: 'var(--palette-error)',
+            style: {
+              fontSize: '10px',
+              color: 'var(--palette-error)',
+            },
+            tooltip: {
+              valueSuffix: ' bpm',
+            },
+            yAxis: 0,
+            plotOptions: {
+              marker: {
+                enabled: false,
+              },
+            },
+          },
           {
             name: 'Average Pace',
             type: 'spline',
