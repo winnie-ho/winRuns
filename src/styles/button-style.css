@@ -1,0 +1,12 @@
+.btn{
+  cursor: pointer;
+}
+
+.disable{
+  pointer-events: none;
+  filter: opacity(40%);
+}
+
+.el-date-editor.el-input {
+  margin: 0 20px;
+}

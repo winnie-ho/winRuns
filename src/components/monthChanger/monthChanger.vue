@@ -108,7 +108,7 @@ export default {
         'YYYY-MM',
       ).daysInMonth();
     },
-    forwardArrowDisable() {
+    disableForwardArrow() {
       return (
         this.monthInViewIndex === this.currentMonthIndex
         && this.yearInView === this.currentYear

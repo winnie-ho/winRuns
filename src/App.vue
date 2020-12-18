@@ -37,4 +37,5 @@ export default {
 @import "./styles/app-animation-style.css";
 @import "./styles/container-style.css";
 @import "./styles/colour-style.css";
+@import "./styles/button-style.css";
 </style>

@@ -111,14 +111,6 @@ a {
   text-decoration: none;
 }
 
-/* BUTTONS */
-
-
-.btn{
-  cursor: pointer;
-}
-
-
 .el-collapse{
   border-top: none;
   border-bottom: none;
@@ -166,11 +158,6 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-}
-
-.disable{
-  pointer-events: none;
-  filter: opacity(10%);
 }
 
 /* responsive css  */

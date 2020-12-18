@@ -1,14 +1,11 @@
 <div class='year-changer row sa'>
 
-  <div @click='changeYear(-1)' class='arrow' :class='{ disable: yearInView === 2011 }'>
-    <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
-
+  <el-button icon="el-icon-arrow-left" size='mini' circle @click='changeYear(-1)' :class='{ disable: yearInView === 2011 }'></el-button>
+  
   <el-date-picker v-model="rawTimeInView" type="year" placeholder="Year" :default-value='currentYear'
-    @change='setYearInView($event)' format='yyyy' size='small'>
+  @change='setYearInView($event)' format='yyyy' size='small'>
   </el-date-picker>
 
-  <div @click='changeYear(1)' class='arrow' :class='{ disable: yearInView >= currentYear }'>
-    <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
+  <el-button icon="el-icon-arrow-right" size='mini' circle @click='changeYear(1)' :class='{ disable: yearInView >= currentYear }'></el-button>
+
 </div>

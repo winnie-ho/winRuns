@@ -13,7 +13,7 @@ export default {
       weekInViewIndex: 0,
       dayHasActivities: false,
       toggleWeekView: true,
-      forwardArrowDisable: false,
+      disableForwardArrow: false,
       msInWeek: 7 * 24 * 60 * 60 * 1000,
     };
   },
@@ -33,14 +33,14 @@ export default {
     },
     weekInViewString() {
       if (this.weekInViewIndex <= 0) {
-        this.forwardArrowDisable = true;
+        this.disableForwardArrow = true;
         return 'THIS WEEK';
       }
       if (this.weekInViewIndex === 1) {
-        this.forwardArrowDisable = false;
+        this.disableForwardArrow = false;
         return 'LAST WEEK';
       }
-      this.forwardArrowDisable = false;
+      this.disableForwardArrow = false;
       const date = new Date(this.lastMonday - this.weekInViewIndex * this.msInWeek);
       return this.renderDate(date, 'long');
     },

@@ -1,18 +1,7 @@
-#week-changer {
+.week-changer {
   justify-content: center;
-  padding: 20px;
 }
 
-.arrow {
-  cursor: pointer;
-  margin: 0 10px;
-}
-
-.arrow img:hover {
-  filter: opacity(60%);
-}
-
-.arrow img {
-  height: 25px;
-  width: auto;
+.week-changer__target-in-view {
+  margin: 0px 20px;
 }

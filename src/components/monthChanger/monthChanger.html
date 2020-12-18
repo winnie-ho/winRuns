@@ -1,14 +1,9 @@
-<div id='month-changer' class='row sa'>
-
-  <div @click='changeMonth(-1)' class='arrow'>
-    <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
-
+<div class='month-changer row sa'>
+  <el-button icon="el-icon-arrow-left" size='mini' circle @click='changeMonth(-1)'></el-button>
+  
   <el-date-picker v-model="rawTimeInView" type="month" placeholder="Select month" :default-value='today'
-    @change='setMonthInView($event)' format='MMMM-yyyy' size='small' align='center'>
+  @change='setMonthInView($event)' format='MMMM-yyyy' size='small' align='center'>
   </el-date-picker>
 
-  <div @click='changeMonth(1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
-    <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
+  <el-button icon="el-icon-arrow-right" size='mini' circle @click='changeMonth(1)' :class ='{ disable: disableForwardArrow }'></el-button>
 </div>

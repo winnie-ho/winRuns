@@ -1,15 +1,9 @@
-<div id='week-changer' class='row sa'>
-
-  <div @click='changeWeek(1)' class='arrow'>
-    <img src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
-
-  <div class="heading" id="dateInView">
+<div class='week-changer row sa'>
+  <el-button icon="el-icon-arrow-left" size='mini' circle @click='changeWeek(1)'></el-button>
+  
+  <div class="week-changer__target-in-view">
     <h3>{{ weekInViewString() }}</h3>
   </div>
-
-  <div @click='changeWeek(-1)' class='arrow' :class='{ disable: forwardArrowDisable }'>
-    <img class='rotate-180' src='../../../static/assets/svgs/icon_arrow_circle.svg' />
-  </div>
-
+  
+  <el-button icon="el-icon-arrow-right" size='mini' circle @click='changeWeek(-1)' :class='{ disable: disableForwardArrow }'></el-button>
 </div>
