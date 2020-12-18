@@ -26,7 +26,7 @@
       <tri-stats-bar :activities='activitiesInWeek' :maxDistance=150>
       </tri-stats-bar>
 
-      <div class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
+      <div v-show='activitiesInWeek.length > 0' class='week-detail-btn' @click='toggleWeekView=!toggleWeekView'>
         <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View week'>
           <span v-show='!toggleWeekView'>
             Show detailed week
