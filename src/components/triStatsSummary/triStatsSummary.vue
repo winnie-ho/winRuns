@@ -3,14 +3,15 @@
 
 <script>
 import renderData from '../../mixins/renderData';
+import calculateData from '../../mixins/calculateData';
 
 export default {
   name: 'triStatsSummary',
+  mixins: [renderData, calculateData],
   props: ['activitiesInView', 'showDisciplineCount'],
   data() {
     return {};
   },
-  mixins: [renderData],
   methods: {
     countActivityType(type) {
       return this.activitiesInView.filter(activity => activity.type === type).length;

@@ -6,7 +6,7 @@
         <div slot="content" @click='viewActivity(activity.id)' class='btn'>
           {{ activity.name }}<br />{{ renderDistance(activity.distance) }}
         </div>
-        <img :src='activityTypeIcon(activity)' class='icon--medium'/>
+        <img :src='getActivityTypeIcon(activity.type, "light")' class='icon--medium'/>
       </el-tooltip>
     </div>
     <div class='day__title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>

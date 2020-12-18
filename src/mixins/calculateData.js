@@ -16,5 +16,23 @@ export default {
     getActivitiesAvgHRData(activities) {
       return activities.map((activity) => (activity.average_heartrate ? activity.average_heartrate : 0));
     },
+    getActivityTypeIcon(activityType, shade) {
+      const baseURL = '../../../static/assets'
+      const iconShade = shade === 'dark' ? 'dark' : 'light'
+      switch (activityType) {
+        case 'Swim':
+          return `${baseURL}/svgs/icon_swim--${iconShade}.svg`;
+          break;
+        case 'Ride' || 'VirtualRide':
+          return `${baseURL}/svgs/icon_bike--${iconShade}.svg`;
+          break;
+        case 'Run':
+          return `${baseURL}/svgs/icon_run--${iconShade}.svg`;
+          break;
+        case 'Workout':
+          return `${baseURL}/icon_activities--${iconShade}.png`;
+          break;
+      }
+    }
   },
 };
