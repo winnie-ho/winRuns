@@ -29,7 +29,7 @@
 
       <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete.profile'>
       </nav-bar-btn>
-      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/svgs/icon_profile_female.svg"' :path="'/'"
+      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/svgs/icon_profile_female--dark.svg"' :path="'/'"
         :title='"Sign In"' v-show='!athlete.profile'>
       </nav-bar-btn>
     </div>
@@ -47,11 +47,11 @@
     <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
       <img class='avatar-profile' :src='athlete.profile' />
       <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
-      <h6>{{ athlete.city }}, {{ athlete.state }}</h6>
+      <h6 v-show='athlete.city && athlete.state'>{{ athlete.city }}, {{ athlete.state }}</h6>
     </router-link>
 
     <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>
-      <img class='burger-icon' src='../../../static/assets/svgs/icon_profile_female.svg' />
+      <img class='burger-icon' src='../../../static/assets/svgs/icon_profile_female--light.svg' />
       LOGIN
     </router-link>
     <router-link to="/home" exact class='burger-item col'>
