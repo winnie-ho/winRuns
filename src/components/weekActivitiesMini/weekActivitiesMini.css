@@ -1,16 +1,15 @@
-#week-activities-mini {
+.week-activities-mini {
   justify-content: space-evenly;
   align-items: flex-end;
   bottom: 30%;
 }
 
-
-.day-container {
+.day {
   background-color: var(--palette-smalt) ;
   width: 45px;
 }
 
-.day-bar {
+.day__bar {
   animation: riseUp 1s backwards;
   background-color: var(--palette-cerulean);
   color: var(--palette-white);
@@ -23,16 +22,12 @@
   height: 35px;
 }
 
-.day-title {
+.day__title {
   color: var(--palette-white);
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px 0;
-}
-
-.activity-hover {
-  cursor: pointer;
 }
 
 @keyframes riseUp {

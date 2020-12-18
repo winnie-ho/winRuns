@@ -35,6 +35,23 @@ export default {
       this.toggleWeekView = !this.toggleWeekView;
       this.$emit('toggleWeekViewChange', this.toggleWeekView);
     },
+    activityTypeIcon(activity) {
+      const baseURL = '../../../static/assets'
+      switch (activity.type) {
+        case 'Swim':
+          return `${baseURL}/svgs/icon_swim--light.svg`;
+          break;
+        case 'Ride' || 'VirtualRide':
+          return `${baseURL}/svgs/icon_bike--light.svg`;
+          break;
+        case 'Run':
+          return `${baseURL}/svgs/icon_run--light.svg`;
+          break;
+        case 'Workout':
+          return `${baseURL}/icon_activities--light.png`;
+          break;
+      }
+    }
   },
 };
 </script>

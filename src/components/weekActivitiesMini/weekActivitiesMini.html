@@ -1,32 +1,14 @@
-<div id='week-activities-mini' class='row sb'>
-  <div class='day-container' v-for='day in dayLookUp' :key='day.index'>
-    <div class='day-bar' v-for='activity in dayActivities(day)' :key='activity.index'
+<div class='week-activities-mini row sb'>
+  <div class='day' v-for='day in dayLookUp' :key='day.index'>
+    <div class='day__bar' v-for='activity in dayActivities(day)' :key='activity.index'
       @click='viewActivity(activity.id)'>
       <el-tooltip placement="top">
-        <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
-          {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'"
-          src='../../../static/assets/svgs/icon_bike--light.svg' class='icon--medium btn'>
-      </el-tooltip>
-      <el-tooltip placement="top">
-        <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
-          {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Workout'" src='../../../static/assets/icon_activities--light.png'
-          class='icon btn'>
-      </el-tooltip>
-      <el-tooltip placement="top">
-        <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
-          {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Run'" src='../../../static/assets/svgs/icon_run--light.svg'
-          class='icon--medium tool-tip' />
-      </el-tooltip>
-      <el-tooltip placement="top">
-        <div slot="content" @click='viewActivity(activity.id)' class='activity-hover'>
-          {{ activity.name }}<br />{{ renderDistance(activity.distance) }}</div>
-        <img v-show="activity.type === 'Swim'" src='../../../static/assets/svgs/icon_swim--light.svg'
-          class='icon--medium tool-tip' />
+        <div slot="content" @click='viewActivity(activity.id)' class='btn'>
+          {{ activity.name }}<br />{{ renderDistance(activity.distance) }}
+        </div>
+        <img :src='activityTypeIcon(activity)' class='icon--medium'/>
       </el-tooltip>
     </div>
-    <div class='day-title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
+    <div class='day__title'>{{ (day.substr(0, 1)).toUpperCase() }}</div>
   </div>
 </div>
