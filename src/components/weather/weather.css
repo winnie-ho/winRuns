@@ -1,4 +1,4 @@
-.wind-circle{
+.weather__wind-circle{
   border: white solid 1.2px;
   border-radius: 50%;
   height: 4rem;
@@ -9,13 +9,13 @@
   position: relative;
 }
 
-.wind-arrow {
+.weather__wind-arrow {
   position: absolute;
   left: 1.2rem;
   top: -1.3rem;
 }
 
-.wind-direction {
+.weather__wind-direction {
   transform-origin: 0.75rem 3.25rem;
 
   animation-name: rotateTo;
@@ -24,7 +24,7 @@
   animation-delay: 1s;
 }
 
-.weather-item {
+.weather__item {
   align-content: center;
   justify-content: space-around;
   align-items: center;
@@ -35,7 +35,7 @@
   animation-timing-function: ease-in;
 }
 
-.temperature {
+.weather__temperature {
   margin-bottom: 35px;
 }
 
@@ -51,11 +51,11 @@
 
 /* responsive css  */
 @media all and (max-width: 1000px) {
-  .weather-item{
+  .weather__weather-item{
     margin: 0px;
   }
 
-  .temperature {
+  .weather__temperature {
     margin-bottom: 1.5rem;
   }
 }

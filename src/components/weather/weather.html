@@ -1,24 +1,22 @@
-<div id='weather' class='component-container container-colour--secondary' v-if='weather'>
-
+<div class='component-container container-colour--secondary' v-if='weather'>
   <div class='container-title'>Weather in {{ locationName }}</div>
-  <div class='col-to-row weather-item'>
-    <div class='row'>
-      <i v-show="description === 'Rain'" class="el-icon--xxlarge el-icon-heavy-rain icon-space-right"></i>
-      <i v-show="description === 'Clear'" class="el-icon--xxlarge el-icon-sunny icon-space-right"></i>
-      <i v-show="description === 'Clouds'" class="el-icon--xxlarge el-icon-cloudy icon-space-right"></i>
-      <i v-show="description === 'Thunderstorm'" class="el-icon--xxlarge el-icon-lightning icon-space-right"></i>
-      <i v-show="description === 'Drizzle'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
-      <i v-show="description === 'Mist'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
-      <i v-show="description === 'Snow'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
-      <i v-show="description === null" class="el-icon--xxlarge el-icon-cloudy-and-sunny icon-space-right"></i>
-    </div>
-    <h1 class='temperature'>{{ renderDegTemp(temp) }}</h1>
+    <div class='col-to-row weather__item'>
+      <div class='row'>
+        <i v-show="description === 'Rain'" class="el-icon--xxlarge el-icon-heavy-rain icon-space-right"></i>
+        <i v-show="description === 'Clear'" class="el-icon--xxlarge el-icon-sunny icon-space-right"></i>
+        <i v-show="description === 'Clouds'" class="el-icon--xxlarge el-icon-cloudy icon-space-right"></i>
+        <i v-show="description === 'Thunderstorm'" class="el-icon--xxlarge el-icon-lightning icon-space-right"></i>
+        <i v-show="description === 'Drizzle'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
+        <i v-show="description === 'Mist'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
+        <i v-show="description === 'Snow'" class="el-icon--xxlarge el-icon-light-rain icon-space-right"></i>
+        <i v-show="description === null" class="el-icon--xxlarge el-icon-cloudy-and-sunny icon-space-right"></i>
+      </div>
+      <h1 class='weather__temperature'>{{ renderDegTemp(temp) }}</h1>
 
-    <div class='wind-circle'>
-      <h2>{{ windSpeed }}</h2>
-      <i class="el-icon--medium el-icon-top wind-arrow wind-direction" :style='windDegreesStyle'></i>
+      <div class='weather__wind-circle'>
+        <h2>{{ windSpeed }}</h2>
+        <i class="el-icon--medium el-icon-top weather__wind-arrow weather__wind-direction" :style='windDegreesStyle'></i>
+      </div>
     </div>
   </div>
-
-</div>
 </div>
