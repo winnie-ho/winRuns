@@ -168,6 +168,11 @@ a {
   position: relative;
 }
 
+.disable{
+  pointer-events: none;
+  filter: opacity(10%);
+}
+
 /* responsive css  */
 @media all and (max-width: 700px) {
   .heading, .date, .data-metric {

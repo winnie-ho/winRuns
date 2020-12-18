@@ -18,11 +18,6 @@
   width: auto;
 }
 
-.disable{
-  pointer-events: none;
-  filter: opacity(10%);
-}
-
 .el-date-editor.el-input {
   width: 170px;
 }
