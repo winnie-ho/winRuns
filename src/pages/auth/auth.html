@@ -12,6 +12,6 @@
       <img class='avatar-profile' :src='athlete.profile' />
     </router-link>
     <h3>{{ athlete.firstname }} {{ athlete.lastname }}</h3>
-    <h5>{{ athlete.city }}, {{ athlete.state }}</h5>
+    <h5 v-show='athlete.city && athlete.state'>{{ athlete.city }}, {{ athlete.state }}</h5>
   </div>
 </div>
