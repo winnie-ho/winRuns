@@ -38,6 +38,7 @@ export default {
       afterDate: '',
       viewToolButtons: false,
       toggleSortChron: false,
+      hasFetchedActivities: false,
     };
   },
   methods: {
@@ -88,14 +89,13 @@ export default {
         const month = this.monthLookUp[
           new Date(new Date(0).setUTCSeconds(timeMarkers.before)).getMonth()
         ]
-          .toUpperCase()
-          .substr(0, 3);
-
         this.monthInView = month;
       }
     },
     setMonth(timeMarkers) {
+      this.hasFetchedActivities = false;
       this.fetchMonthActivities(timeMarkers);
+      setTimeout(()=>this.hasFetchedActivities = true, 1000);
       this.setMonthInView(timeMarkers);
     },
     showToolButtons() {

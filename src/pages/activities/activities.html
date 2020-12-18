@@ -21,17 +21,26 @@
     <search-bar v-show='showSearch' v-on:searchWordChange='filterWithSearchWord($event)'></search-bar>
   </div>
 
-  <tri-stats-bar :activities='activitiesByMonth' :maxDistance=400></tri-stats-bar>
-  <month-pace-h-r :activitiesInView='orderedFilteredActivities'>
-  </month-pace-h-r>
-
-  <div class='component-container container-colour--secondary'>
-    <activity-item v-show='activitiesByMonth' v-for='activity in orderedFilteredActivities' :key='activity.index'
-      :activity='activity'>
-    </activity-item>
-    <div v-show='activitiesByMonth.length === 0' class='col'>
+  <div v-show='activitiesByMonth.length > 0'>
+    <tri-stats-bar :activities='activitiesByMonth' :maxDistance=400></tri-stats-bar>
+    <month-pace-h-r :activitiesInView='orderedFilteredActivities'>
+    </month-pace-h-r>
+  
+    <div class='component-container container-colour--secondary'>
+      <activity-item v-show='activitiesByMonth' v-for='activity in orderedFilteredActivities' :key='activity.index'
+        :activity='activity'>
+      </activity-item>
+    </div>
+  </div>
+  
+  <div id='no-activities'>
+    <div v-show='activitiesByMonth.length === 0 && !hasFetchedActivities' class='col'>
       <i class='el-icon-loading'></i>
       <h4>LOADING ACTIVITIES</h4>
+    </div>
+    <div v-show='activitiesByMonth.length === 0 && hasFetchedActivities'>
+      <i class='el-icon-warning-outline'></i>
+      <h3>No activities found in {{ monthInView }}</h3>
     </div>
   </div>
 </div>

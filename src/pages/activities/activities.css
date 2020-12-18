@@ -46,3 +46,9 @@
 #more-tools {
   position: absolute;
 }
+
+#no-activities {
+  margin: auto;
+  text-align: center;
+  padding: 100px;
+}
