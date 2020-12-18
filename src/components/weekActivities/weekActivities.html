@@ -1,4 +1,4 @@
-<div id='week-activities'
+<div class='week-activities'
   :class='{collapsed: (!toggleWeekView || activitiesInWeek.length === 0), expanded: toggleWeekView}'
   :style='animationHeightStyleInstruction'>
   <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
@@ -9,24 +9,14 @@
       <div class='row data-metric'>
         <p class='spacer--medium'>{{ renderDistance(activity.distance) }}</p>
         <p class='spacer--medium'>{{ renderTime(activity.moving_time) }}</p>
-        <p class='spacer--medium' v-show="activity.type ==='Run'">
-          {{ renderPace(activity.moving_time, activity.distance) }}</p>
-        <p class='spacer--medium' v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
-          {{ renderSpeed(activity.distance / activity.moving_time) }}</p>
+        <p class='spacer--medium' v-show=" activity.type === 'Swim'">{{ renderSwimDistance(activity.distance) }}</p>
+        <p class='spacer--medium' v-show=" activity.type === 'Swim'">{{ renderSwimPace(activity.moving_time, activity.distance) }}</p>
+        <p class='spacer--medium' v-show="activity.type === 'Run'">{{ renderPace(activity.moving_time, activity.distance) }}</p>
+        <p class='spacer--medium' v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">{{ renderSpeed(activity.distance / activity.moving_time) }}</p>
         <p class='spacer--medium' v-show="activity.average_heartrate">{{ activity.average_heartrate }}bpm</p>
-        <p class='spacer--medium' v-show=" activity.average_heartrate">
-          {{ renderHRZone(activity.average_heartrate, HRZones) }}
-        </p>
+        <p class='spacer--medium' v-show=" activity.average_heartrate">{{ renderHRZone(activity.average_heartrate, HRZones) }}</p>
       </div>
-      <div class='row data-metric' v-show=" activity.type==='Swim'">
-        <p class='spacer--medium'>{{ renderSwimDistance(activity.distance) }}</p>
-        <p class='spacer--medium'>{{ renderTime(activity.moving_time) }}</p>
-        <p class='spacer--medium'>{{ renderSwimPace(activity.moving_time, activity.distance) }}</p>
-        <p class='spacer--medium' v-show=" activity.average_heartrate">{{ activity.average_heartrate }}bpm</p>
-        <p class='spacer--medium' v-show=" activity.average_heartrate">
-          zone {{ renderHRZone(activity.average_heartrate, HRZones) }}
-        </p>
-      </div>
+
     </div>
   </div>
 </div>
