@@ -1,9 +1,9 @@
 <div class='week-activities'
   :class='{collapsed: (!toggleWeekView || activitiesInWeek.length === 0), expanded: toggleWeekView}'
   :style='animationHeightStyleInstruction'>
-  <div class='day-bar' v-for='day in dayLookUp' :key='day.index'>
-    <div class='day-title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
-    <div class='day' :class='{ active: dayHasActivities }' v-for='activity in dayActivities(day)' :key='activity.index'
+  <div class='day' v-for='day in dayLookUp' :key='day.index'>
+    <div class='day__title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
+    <div class='day__bar' :class='{ active: dayHasActivities }' v-for='activity in dayActivities(day)' :key='activity.index'
       @click='viewActivity(activity.id)'>
       <div class='heading'>{{ activity.name }}</div>
       <div class='row data-metric'>

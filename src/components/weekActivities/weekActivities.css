@@ -11,15 +11,15 @@
   border-top-right-radius: 3px;
 }  
 
-.day-bar {
-  background-color: transparent;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  height: 75px;
+.day {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  background-color: transparent;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  height: 75px;
   overflow-x: scroll;
   overflow-y: hidden;
   align-content: center;
@@ -27,8 +27,8 @@
   cursor: pointer;
 }
 
-.day-title {
-  display: flex;
+.day__title {
+  display:flex;
   background-color: var(--palette-smalt);
   color: var(--palette-white);
   padding: 10px;
@@ -41,8 +41,7 @@
   border-top-left-radius: 3px;
 }
 
-.day{
-  display: flex;
+.day__bar{
   color: var(--palette-white);
   background: var(--palette-cerulean);
   height: 100%;
