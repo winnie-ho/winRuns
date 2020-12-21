@@ -1,12 +1,12 @@
-<template src='./statBar.html'></template>
-<style scoped src='./statbar.css'></style>
+<template src='./yearStats.html'></template>
+<style scoped src='./yearStats.css'></style>
 
 <script src>
 import statTotal from '../statTotal/statTotal.vue';
 import appData from '../../mixins/appData';
 
 export default {
-  name: 'statBar',
+  name: 'yearStats',
   components: {
     statTotal,
   },
