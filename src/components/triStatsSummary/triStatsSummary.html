@@ -1,21 +1,17 @@
-<div class='col'>
-  <div class="stat-row col">
-    <div class='row total-stat'>
-      <div class='total-stat__value'>{{ totalActivitiesCount }}</div>
-      <div v-show='showDisciplineCount' class='col'>
-        <div class='row total-stat__substat'>
-          <img class='icon--large' :src='getActivityTypeIcon("Swim", "dark")' />
-          <h1>{{ countActivityType('Swim') }}</h1>
-        </div>
-        <div class='row total-stat__substat'>
-          <img class='icon--large' :src='getActivityTypeIcon("Ride", "dark")' />
-          <h1>{{ countActivityType('Ride') }}</h1>
-        </div>
-        <div class='row total-stat__substat'>
-          <img class='icon--large' :src='getActivityTypeIcon("Run", "dark")' />
-          <h1>{{ countActivityType('Run') }}</h1>
-        </div>
-      </div>
+<div class='row stat-summary'>
+  <div class='stat-summary__total'>{{ totalActivitiesCount }}</div>
+  <div v-show='showDisciplineCount' class='col'>
+    <div class='row stat-summary__subtotal'>
+      <img class='icon--large' :src='getActivityTypeIcon("Swim", "dark")' />
+      <h1>{{ countActivityType('Swim') }}</h1>
+    </div>
+    <div class='row stat-summary__subtotal'>
+      <img class='icon--large' :src='getActivityTypeIcon("Ride", "dark")' />
+      <h1>{{ countActivityType('Ride') }}</h1>
+    </div>
+    <div class='row stat-summary__subtotal'>
+      <img class='icon--large' :src='getActivityTypeIcon("Run", "dark")' />
+      <h1>{{ countActivityType('Run') }}</h1>
     </div>
   </div>
 </div>

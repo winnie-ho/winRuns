@@ -1,23 +1,14 @@
-.total-stat {
-  text-align: center;
+.stat-summary {
   animation-name: expandIn;
   animation-duration: 1s;
   animation-timing-function: ease-in;
 }
 
-.total-stat__value {
+.stat-summary__total {
   font-size: 5rem;
   margin-right: 10px;
 }
 
-.total-stat__substat h1 {
+.stat-summary__subtotal h1 {
   margin: 5px;
-}  
-
-.stat-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  margin: 10px 0;
 }
