@@ -1,17 +1,15 @@
-.month-stats__count {
+.tri-stats__count {
   justify-content: center;
   display: flex;
   width: 40px;
   font-size: 24px;
 }
 
-.month-stats__chart-bar {
-  margin: 1px;
+.tri-stats__discipline {
+  margin: 5px;
 }
 
-.chart-bar {
+.tri-stats__chart-bar {
   border-bottom: var(--palette-white) solid 6px;
-  display: flex;
-  flex-direction: row;
   margin-left: 5px;
 }
