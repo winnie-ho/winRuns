@@ -25,25 +25,6 @@
   }
 }
 
-/* EXPAND PANELS / COLLAPSE PANELS */
-.anim-expand-in {
-  animation-name: expandIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
-}
-
-.expanded {
-  animation-name: expandDown;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
-.collapsed {
-  animation-name: closeUp;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
 @keyframes expandDown {
   0% {
     height: 0px;
@@ -64,4 +45,24 @@
     height: 0px;
     opacity: 0;
   }
+}
+
+
+/* ANIMATION CLASSES */
+.animExpandIn {
+  animation-name: expandIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+
+.animExpanded {
+  animation-name: expandDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.animCollapsed {
+  animation-name: closeUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }

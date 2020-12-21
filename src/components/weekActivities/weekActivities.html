@@ -1,5 +1,5 @@
 <div class='week-activities'
-  :class='{collapsed: (!toggleWeekView || activitiesInWeek.length === 0), expanded: toggleWeekView}'
+  :class='{animCollapsed: (!toggleWeekView || activitiesInWeek.length === 0), animExpanded: toggleWeekView}'
   :style='animationHeightStyleInstruction'>
   <div class='day' v-for='day in dayLookUp' :key='day.index'>
     <div class='day__title'>{{ (day.substr(0, 3)).toUpperCase() }}</div>
