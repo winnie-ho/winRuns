@@ -1,26 +1,24 @@
 <div class='col'>
-  <div class='stat-total row'>
-    <img class='icon--large' :src='imgPath' />
+  <div class='row'>
+    <img class='icon--large' :src='getActivityTypeIcon(type,"light")'/>
     <h1>{{ statType && statType.count }}</h1>
   </div>
 
-
   <div :class='{animCollapsed: !toggleYearDetailView, animExpanded: toggleYearDetailView}'
     :style='animationHeightStyleInstruction'>
-    <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_distance--light.svg' />
+    <div class='stat-total--metric col'>
+      <img class='icon--medium' src='../../../static/assets/svgs/icon_distance--light.svg' />
       {{ renderDistance(statType && statType.distance, true) }}
     </div>
-
-    <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_time--light.svg' />
-      {{ renderTime(statType && statType.moving_time, true) }}
-    </div>
-
-    <div class='col'>
-      <img class='icon--stat' src='../../../static/assets/svgs/icon_elevation--light.svg' />
+    
+    <div class='stat-total--metric col'>
+        <img class='icon--medium' src='../../../static/assets/svgs/icon_time--light.svg' />
+        {{ renderTime(statType && statType.moving_time, true) }}
+      </div>
+      
+    <div class='stat-total--metric col'>
+      <img class='icon--medium' src='../../../static/assets/svgs/icon_elevation--light.svg' />
       {{ renderElevation(statType && statType.elevation_gain, true) }}
     </div>
   </div>
-
 </div>

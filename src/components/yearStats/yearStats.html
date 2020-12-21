@@ -2,11 +2,6 @@
   <div class='container-title'>
     {{ currentYear }} Totals
   </div>
-  <div class='col-to-row'>
-    <stat-total type='run' :statType='stats.run' :toggleYearDetailView='toggleYearDetailView'></stat-total>
-    <stat-total type='ride' :statType='stats.ride' :toggleYearDetailView='toggleYearDetailView'></stat-total>
-    <stat-total type='swim' :statType='stats.swim' :toggleYearDetailView='toggleYearDetailView'></stat-total>
-  </div>
   <div class='year-stats__detail-toggle' @click='toggleYearDetailView=!toggleYearDetailView'>
     <el-tooltip placement="right" :hideAfter='toggleTipTimeout' content='View year detail'>
       <span v-show='!toggleYearDetailView'>
@@ -21,5 +16,10 @@
         <i class='el-icon-arrow-up btn' v-show='toggleYearDetailView'></i>
       </span>
     </el-tooltip>
+  </div>
+  <div class='col-to-row'>
+    <stat-total type='Run' :statType='stats.run' :toggleYearDetailView='toggleYearDetailView'></stat-total>
+    <stat-total type='Ride' :statType='stats.ride' :toggleYearDetailView='toggleYearDetailView'></stat-total>
+    <stat-total type='Swim' :statType='stats.swim' :toggleYearDetailView='toggleYearDetailView'></stat-total>
   </div>
 </div>

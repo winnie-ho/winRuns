@@ -1,16 +1,11 @@
-.stat-total{
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  width: 75px;
+.stat-total--metric {
+  padding: 10px;
 }
 
-.icon--stat{
-  width: auto;
-  height: 25px;
-  margin: 5px;
+.icon--medium {
+  margin-bottom: 5px;
 }
 
-
-
-
+.icon--large, h1 {
+  margin-left: 5px;
+}

@@ -3,10 +3,11 @@
 
 <script src>
 import renderData from '../../mixins/renderData';
+import calculateData from '../../mixins/calculateData';
 
 export default {
   name: 'statTotal',
-  mixins: [renderData],
+  mixins: [renderData, calculateData],
   props: {
     type: {
       type: String,
@@ -27,19 +28,8 @@ export default {
   },
   data() {
     return {
-      animationHeightStyleInstruction: '--animationHeightStyle: 170px;',
+      animationHeightStyleInstruction: '--animationHeightStyle: 220px;',
     };
-  },
-  computed: {
-    title() {
-      return `${this.type}s`.toUpperCase();
-    },
-    imgPath() {
-      if (this.type === 'ride') {
-        return '../../../static/assets/svgs/icon_bike--light.svg';
-      }
-      return `../../../static/assets/svgs/icon_${this.type}--light.svg`;
-    },
   },
 };
 </script>
