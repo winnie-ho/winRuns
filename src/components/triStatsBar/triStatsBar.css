@@ -1,15 +1,3 @@
-#month-stats__chart-box{
-  margin-left: 5px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  width: 100%;
-
-  animation-name: expandIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
-}
-
 .month-stats__count {
   justify-content: center;
   display: flex;

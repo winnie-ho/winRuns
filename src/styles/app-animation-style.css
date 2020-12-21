@@ -26,6 +26,11 @@
 }
 
 /* EXPAND PANELS / COLLAPSE PANELS */
+.anim-expand-in {
+  animation-name: expandIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
 
 .expanded {
   animation-name: expandDown;

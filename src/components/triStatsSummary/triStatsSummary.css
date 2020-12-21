@@ -1,9 +1,3 @@
-.stat-summary {
-  animation-name: expandIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
-}
-
 .stat-summary__total {
   font-size: 5rem;
   margin-right: 10px;

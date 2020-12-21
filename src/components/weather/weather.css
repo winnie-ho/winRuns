@@ -29,10 +29,6 @@
   justify-content: space-around;
   align-items: center;
   margin: 10px;
-
-  animation-name: expandIn;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
 }
 
 .weather__temperature {

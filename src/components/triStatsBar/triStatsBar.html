@@ -1,22 +1,20 @@
-<div id='month-stats' class='row component-container container-colour--secondary'>
-  <div id='month-stats__chart-box'>
-    <div class='row month-stats__chart-bar'>
-      <img class='icon--medium' src='../../../static/assets/svgs/icon_swim--light.svg' />
-      <div class='month-stats__count'>{{ stats.swim.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/1000/maxDistance*100}%`}'>
-        {{ renderDistance(stats.swim.distance, true) }}</div>
-    </div>
-    <div class='row month-stats__chart-bar'>
-      <img class='icon--medium' src='../../../static/assets/svgs/icon_bike--light.svg' />
-      <div class='month-stats__count'>{{ stats.ride.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/1000/maxDistance*100}%`}'>
-        {{ renderDistance(stats.ride.distance, true) }}</div>
-    </div>
-    <div class='row month-stats__chart-bar'>
-      <img class='icon--medium' src='../../../static/assets/svgs/icon_run--light.svg' />
-      <div class='month-stats__count'>{{ stats.run.count }}</div>
-      <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/1000/maxDistance*100}%`}'>
-        {{ renderDistance(stats.run.distance, true) }}</div>
-    </div>
+<div class='component-container container-colour--secondary anim-expand-in'>
+  <div class='row month-stats__chart-bar'>
+    <img class='icon--medium' :src='getActivityTypeIcon("Swim", "light")' />
+    <div class='month-stats__count'>{{ stats.swim.count }}</div>
+    <div class='chart-bar' v-bind:style='{width:`${stats.swim.distance/1000/maxDistance*100}%`}'>
+      {{ renderDistance(stats.swim.distance, true) }}</div>
+  </div>
+  <div class='row month-stats__chart-bar'>
+    <img class='icon--medium' :src='getActivityTypeIcon("Ride", "light")' />
+    <div class='month-stats__count'>{{ stats.ride.count }}</div>
+    <div class='chart-bar' v-bind:style='{width:`${stats.ride.distance/1000/maxDistance*100}%`}'>
+      {{ renderDistance(stats.ride.distance, true) }}</div>
+  </div>
+  <div class='row month-stats__chart-bar'>
+    <img class='icon--medium' :src='getActivityTypeIcon("Run", "light")' />
+    <div class='month-stats__count'>{{ stats.run.count }}</div>
+    <div class='chart-bar' v-bind:style='{width:`${stats.run.distance/1000/maxDistance*100}%`}'>
+      {{ renderDistance(stats.run.distance, true) }}</div>
   </div>
 </div>

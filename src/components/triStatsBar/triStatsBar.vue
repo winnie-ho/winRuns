@@ -3,11 +3,12 @@
 
 <script src>
 import renderData from '../../mixins/renderData';
+import calculateData from '../../mixins/calculateData';
 import statTotal from '../statTotal/statTotal.vue';
 
 export default {
   name: 'triStatsBar',
-  mixins: [renderData],
+  mixins: [renderData, calculateData],
   components: {
     statTotal,
   },
