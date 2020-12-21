@@ -14,18 +14,6 @@ export default {
   },
   props: ['activities', 'maxDistance'],
   methods: {
-    statType(activityType) {
-      switch (activityType) {
-        case 'run':
-          return this.stats.run;
-        case 'ride':
-          return this.stats.ride;
-        case 'swim':
-          return this.stats.swim;
-        default:
-          return {};
-      }
-    },
     getStatCount(activityType) {
       return this.activities.filter(
         activity => activity.type === activityType,
@@ -48,23 +36,14 @@ export default {
         swim: {
           count: this.getStatCount('Swim'),
           distance: this.getStatValue('Swim', 'distance'),
-          elapsed_time: this.getStatValue('Swim', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Swim', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Swim', 'moving_time'),
         },
         ride: {
           count: this.getStatCount('Ride'),
           distance: this.getStatValue('Ride', 'distance'),
-          elapsed_time: this.getStatValue('Ride', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Ride', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Ride', 'moving_time'),
         },
         run: {
           count: this.getStatCount('Run'),
           distance: this.getStatValue('Run', 'distance'),
-          elapsed_time: this.getStatValue('Run', 'elapsed_time'),
-          elevation_gain: this.getStatValue('Run', 'total_elevation_gain'),
-          moving_time: this.getStatValue('Run', 'moving_time'),
         },
       };
     },
