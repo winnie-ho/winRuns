@@ -4,7 +4,6 @@
 <script>
 import navBar from '../../components/navBar/navBar.vue';
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
-import toggleSwitch from '../../components/toggleSwitch/toggleSwitch.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
 
@@ -13,7 +12,6 @@ export default {
   components: {
     navBar,
     parkRunSubBar,
-    toggleSwitch,
   },
   mixins: [renderData, changePage],
   data() {
