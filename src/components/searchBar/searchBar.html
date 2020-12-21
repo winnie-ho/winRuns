@@ -1,5 +1,5 @@
-<div id='search-bar'>
-  <input id='search-input' v-model='searchWord' placeholder="search" v-on:input='setWordSearch' type='text'>
-  <img id='search-clear' class='icon icon--small' src="../../../static/assets/svgs/icon_cross.svg"
+<div class='search-bar'>
+  <input id='search-bar__input' v-model='searchWord' placeholder="search" v-on:input='setWordSearch' type='text'>
+  <img class='search-bar__clear icon icon--small' src="../../../static/assets/svgs/icon_cross.svg"
     @click='resetSearch()' />
 </div>

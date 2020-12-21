@@ -15,7 +15,7 @@ export default {
       this.$emit('searchWordChange', this.searchWord);
     },
     resetSearch() {
-      document.getElementById('search-input').value = '';
+      document.getElementById('search-bar__input').value = '';
       this.$emit('searchWordChange', '');
     },
   },
