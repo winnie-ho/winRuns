@@ -1,0 +1,122 @@
+.burger__menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  top: 0px;  
+  right: 0px;
+  z-index: 9;
+  
+  transition: all 0.5s ease;
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  transform: scale(2) rotate3d(1, 1, 1, 45deg) perspective(5px);
+}
+
+.burger__menu.expandedBurger {
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  background-color: var(--palette-cerulean);
+  transform: rotate(0deg);
+}
+
+.burger__menu-item {
+  margin: 15px;
+  align-items: center;
+ 
+  color: var(--palette-white);
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.burger__menu-item:hover {
+  border-left: 3px solid var(--palette-tea);
+  color: var(--palette-tea);
+}
+
+@keyframes titleSettle {
+  0% {
+    width: 0px;
+    background-color: transparent;
+    opacity: 0;
+  }
+  100% {
+    width: 74px;
+    background-color: var(--palette-cerulean);
+    opacity: 1;
+  }
+}
+
+/* Burger animation */
+.burger {
+  position: fixed;
+  top: 26px;
+  right: 15px;
+  z-index: 10000;
+  width: 30px;
+  height: 20px;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.burger span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--palette-cerulean);
+  border-radius: 2px;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-child(1) {
+  top: 0px;
+}
+
+.burger span:nth-child(2),
+.burger span:nth-child(3) {
+  top: 10px;
+}
+
+.burger span:nth-child(4) {
+  top: 20px;
+}
+
+/* 'open' toggle state */
+.burger.open span{
+  background: var(--palette-white);
+}
+
+.burger.open span:nth-child(1) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+
+.burger.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.burger.open span:nth-child(4) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}
+
+
+/* responsive css  */
+@media all and (max-width: 1000px) {
+  .burger {
+    visibility: visible;
+  }
+}

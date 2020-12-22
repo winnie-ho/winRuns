@@ -1,0 +1,10 @@
+<div class='cap'>
+  <router-link to="/home" exact class='home-button'>win runs</router-link>
+
+  <div class='page-title' v-show='!onAuthPage'>
+    <h3>{{ pageTitle }}</h3>
+  </div>
+
+  <nav-bar :onAuthPage='onAuthPage' :showNav='showNav' :athlete='athlete' :isElevatedProfile='isElevatedProfile'></nav-bar>
+  <nav-menu :showNav='showNav' :athlete='athlete' :isElevatedProfile='isElevatedProfile'></nav-menu>
+</div>

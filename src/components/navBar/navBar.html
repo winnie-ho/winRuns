@@ -1,73 +1,28 @@
-<div id='navBar'>
-  <div id='openNavBar' :class='{ onAuthPage:onAuthPage }' class='row'>
-    <router-link to="/home" exact class='home-button'>win runs</router-link>
+<div v-show='showNav' class='row nav-bar' :class='{ onAuthPage:onAuthPage }'>
+  <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/svgs/icon_home.svg"' :path="'/home'"
+    :title='"Home"'>
+  </nav-bar-btn>
 
-    <div id='page-title' v-show='!onAuthPage'>
-      <h3>{{ pageTitle }}</h3>
-    </div>
+  <nav-bar-btn :pages='["/activities"]' :btnIcon='"../../../static/assets/icon_activities--dark.png"'
+    :path="'/activities'" :title='"Activities"'>
+  </nav-bar-btn>
 
-    <div id='pagesBar' v-show='showNav' class='row'>
-      <nav-bar-btn :pages='["/home"]' :btnIcon='"../../../static/assets/svgs/icon_home.svg"' :path="'/home'"
-        :title='"Home"'>
-      </nav-bar-btn>
+  <nav-bar-btn :pages='["/maf"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/maf"'
+    :title='"MAF"'>
+  </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/activities"]' :btnIcon='"../../../static/assets/icon_activities--dark.png"'
-        :path="'/activities'" :title='"Activities"'>
-      </nav-bar-btn>
+  <nav-bar-btn v-show='isElevatedProfile' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
+    :btnIcon='"../../../static/assets/svgs/icon_park_run_logo.svg"' :path="'/parkRunMain'" :title='"Park run"'>
+  </nav-bar-btn>
 
-      <nav-bar-btn :pages='["/maf"]' :btnIcon='"../../../static/assets/icon_kilometer.png"' :path='"/maf"'
-        :title='"MAF"'>
-      </nav-bar-btn>
+  <nav-bar-btn v-show='isElevatedProfile' :pages='["/events"]'
+    :btnIcon='"../../../static/assets/svgs/icon_events.svg"' :path='"/events"' :title='"events"'>
+  </nav-bar-btn>
 
-      <nav-bar-btn v-show='athlete.id===3752965' :pages='[ "/parkRun", "/parkRunActivities", "/parkRunSplits" ]'
-        :btnIcon='"../../../static/assets/svgs/icon_park_run_logo.svg"' :path="'/parkRunMain'" :title='"Park run"'>
-      </nav-bar-btn>
+  <nav-bar-btn :pages='["/"]' :btnIcon='athlete && athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete && athlete.profile'>
+  </nav-bar-btn>
 
-      <nav-bar-btn v-show='athlete.id===3752965' :pages='["/events"]'
-        :btnIcon='"../../../static/assets/svgs/icon_events.svg"' :path='"/events"' :title='"events"'>
-      </nav-bar-btn>
-
-      <nav-bar-btn :pages='["/"]' :btnIcon='athlete.profile' :path="'/'" :title='"Profile"' v-show='athlete.profile'>
-      </nav-bar-btn>
-      <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/svgs/icon_profile_female--dark.svg"' :path="'/'"
-        :title='"Sign In"' v-show='!athlete.profile'>
-      </nav-bar-btn>
-    </div>
-  </div>
-
-  <div id="burger" v-show='showNav' :class='{open: expandBurger}' @click='handleBurgerMenu'>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <div id='burger-menu' :class='{expandedBurger: expandBurger}' :style='burgerMenuHeightStyleInstruction'>
-
-    <router-link to="/" exact class='burger-item col profile' v-show='athlete.id'>
-      <img class='avatar-profile' :src='athlete.profile' />
-      <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
-      <h6 v-show='athlete.city && athlete.state'>{{ athlete.city }}, {{ athlete.state }}</h6>
-    </router-link>
-
-    <router-link to="/" exact class='burger-item col' v-show='!athlete.id'>
-      <img class='burger-icon' src='../../../static/assets/svgs/icon_profile_female--light.svg' />
-      LOGIN
-    </router-link>
-    <router-link to="/home" exact class='burger-item col'>
-      HOME
-    </router-link>
-    <router-link to="/activities" exact class='burger-item col'>
-      ACTIVITIES
-    </router-link>
-    <router-link to="/maf" exact class='burger-item col'>
-      MAF
-    </router-link>
-    <router-link to="/parkRunMain" exact class='burger-item col' v-show='athlete.id===3752965'>
-      PARK RUN
-    </router-link>
-    <router-link to="/events" exact class='burger-item col' v-show='athlete.id===3752965'>
-      EVENTS
-    </router-link>
-  </div>
+  <nav-bar-btn :pages='["/"]' :btnIcon='"../../../static/assets/svgs/icon_profile_female--dark.svg"' :path="'/'"
+    :title='"Sign In"' v-show='!athlete'>
+  </nav-bar-btn>
 </div>

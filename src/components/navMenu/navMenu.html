@@ -1,0 +1,36 @@
+<div>
+  <div class="burger" v-show='showNav' :class='{open: expandBurger}' @click='handleBurgerMenu'>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class='burger__menu col' :class='{expandedBurger: expandBurger}'>
+    <router-link to="/" exact class='burger__menu-item btn' v-show='athlete.id'>
+      <img class='avatar-profile' :src='athlete.profile'/>
+      <h4>{{ athlete.firstname }} {{ athlete.lastname }}</h4>
+      <h6 v-show='athlete.city && athlete.state'>{{ athlete.city }}, {{ athlete.state }}</h6>
+    </router-link>
+
+    <router-link to="/" exact class='burger__menu-item' v-show='!athlete.id'>
+      <img class='icon icon--medium' src='../../../static/assets/svgs/icon_profile_female--light.svg' />
+      LOGIN
+    </router-link>
+    <router-link to="/home" exact class='burger__menu-item'>
+      HOME
+    </router-link>
+    <router-link to="/activities" exact class='burger__menu-item'>
+      ACTIVITIES
+    </router-link>
+    <router-link to="/maf" exact class='burger__menu-item'>
+      MAF
+    </router-link>
+    <router-link to="/parkRunMain" exact class='burger__menu-item' v-show='isElevatedProfile'>
+      PARK RUN
+    </router-link>
+    <router-link to="/events" exact class='burger__menu-item' v-show='isElevatedProfile'>
+      EVENTS
+    </router-link>
+  </div>
+</div>

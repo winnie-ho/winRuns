@@ -134,19 +134,6 @@ a {
   overflow: hidden;
 }
 
-.profile{
-  text-decoration: none;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  height: auto;
-  cursor: pointer;
-  margin-top: 10%;
-  padding: 20px;
-}
-
 .el-tooltip__popper{
   text-align: center;
   color: var(--palette-cerulean);

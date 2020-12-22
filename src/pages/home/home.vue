@@ -2,7 +2,7 @@
 <style scoped src='./home.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import weekActivities from '../../components/weekActivities/weekActivities.vue';
 import weekActivitiesMini from '../../components/weekActivitiesMini/weekActivitiesMini.vue';
 import weekChanger from '../../components/weekChanger/weekChanger.vue';
@@ -17,7 +17,7 @@ import appData from '../../mixins/appData';
 export default {
   name: 'home',
   components: {
-    navBar,
+    cap,
     yearStats,
     bigStatTotal,
     weekActivities,

@@ -6,7 +6,7 @@
     <img src="../../../static/assets/icon_strava.png" class='icon strava' />
   </el-button>
 
-  <div class='col profile' v-show='athlete.id'>
+  <div class='col' v-show='athlete.id'>
     <h3>You're connected!</h3>
     <router-link to="/home" exact>
       <img class='avatar-profile' :src='athlete.profile' />

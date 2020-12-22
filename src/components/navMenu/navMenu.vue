@@ -1,11 +1,11 @@
-<template src='./navBar.html'></template>
-<style scoped src='./navBar.css'></style>
+<template src='./navMenu.html'></template>
+<style scoped src='./navMenu.css'></style>
 
 <script src>
 import navBarBtn from '../navBarBtn/navBarBtn.vue';
 
 export default {
-  name: 'navBar',
+  name: 'navMenu',
   components: {
     navBarBtn,
   },
@@ -15,24 +15,28 @@ export default {
     };
   },
   props: {
-    showNav: {
-      type: Boolean,
+    pageTitle: {
+      type: String,
       required: false,
     },
-    onAuthPage: {
+    showNav: {
       type: Boolean,
       required: false,
     },
     isElevatedProfile: {
       type: Boolean,
-      required: false,
+      required: true,
     },
     athlete: {
       type: Object,
-      required: false,
+      required: true,
     }
   },
   methods: {
+    handleBurgerMenu() {
+      this.expandBurger = !this.expandBurger;
+      this.$emit('onBurgerMenu', false);
+    },
   },
   computed: {
   },
