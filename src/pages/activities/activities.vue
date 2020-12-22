@@ -2,7 +2,7 @@
 <style scoped src='./activities.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import renderData from '../../mixins/renderData';
 import activityItem from '../../components/activityItem/activityItem.vue';
 import searchBar from '../../components/searchBar/searchBar.vue';
@@ -14,7 +14,7 @@ import monthPaceHR from '../../components/monthPaceHR/monthPaceHR.vue';
 export default {
   name: 'activities',
   components: {
-    navBar,
+    cap,
     activityItem,
     searchBar,
     filterBar,
