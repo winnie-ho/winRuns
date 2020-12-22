@@ -2,7 +2,7 @@
 <style scoped src='./viewActivity.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
 import googleMap from '../../components/googleMap/googleMap.vue';
@@ -11,7 +11,7 @@ import activityDock from '../../components/activityDock/activityDock.vue';
 export default {
   name: 'viewActivity',
   components: {
-    navBar,
+    cap,
     googleMap,
     activityDock,
   },

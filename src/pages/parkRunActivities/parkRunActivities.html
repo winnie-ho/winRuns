@@ -1,6 +1,6 @@
 <div id='parkRunActivities'>
   <div class='header'>
-    <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+    <cap :pageTitle='pageTitle' showNav></cap>
     <park-run-sub-bar></park-run-sub-bar>
   </div>
   <activity-item v-for='parkRun in parkRuns' :key='parkRun.index' :activity='parkRun'></activity-item>

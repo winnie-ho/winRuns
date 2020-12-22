@@ -1,5 +1,5 @@
 <div id='events'>
-  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+  <cap :pageTitle='pageTitle' showNav></cap>
   <div class='sub-bar row'>
     <span v-show='!showForm' class='events-summary'>Events<h2>{{ events.length }}</h2></span>
     <span v-show='!showForm' class='events-summary'>Races<h2>{{ numberOfRaces }}</h2></span>

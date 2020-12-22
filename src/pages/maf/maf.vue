@@ -2,7 +2,7 @@
 <style scoped src='./maf.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import dateRangeSelector from '../../components/dateRangeSelector/dateRangeSelector.vue';
 import activityItem from '../../components/activityItem/activityItem.vue';
 import hrZones from '../../components/hrZones/hrZones.vue';
@@ -15,7 +15,7 @@ import calculateData from '../../mixins/calculateData';
 export default {
   name: 'maf',
   components: {
-    navBar,
+    cap,
     dateRangeSelector,
     activityItem,
     hrZones,

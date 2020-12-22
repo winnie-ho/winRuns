@@ -3,7 +3,7 @@
 
 <script>
 import moment from 'moment';
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import renderData from '../../mixins/renderData';
 import searchBar from '../../components/searchBar/searchBar.vue';
 import filterBar from '../../components/filterBar/filterBar.vue';
@@ -13,7 +13,7 @@ import eventForm from '../../components/eventForm/eventForm.vue';
 export default {
   name: 'events',
   components: {
-    navBar,
+    cap,
     searchBar,
     filterBar,
     eventItem,

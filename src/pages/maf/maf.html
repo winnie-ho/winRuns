@@ -1,5 +1,5 @@
 <div id='maf'>
-  <nav-bar :pageTitle='pageTitle' :showNav='true'></nav-bar>
+  <cap :pageTitle='pageTitle' showNav></cap>
 
   <div class='sub-bar sub-bar__collapsed'>
     <date-range-selector v-on:onDateRangeChange='setDateRange($event)' :storedFixedStartDate='fixedStartDate'>

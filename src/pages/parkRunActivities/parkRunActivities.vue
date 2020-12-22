@@ -2,7 +2,7 @@
 <style scoped src='./parkRunActivities.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
 import activityItem from '../../components/activityItem/activityItem.vue';
 import renderData from '../../mixins/renderData';
@@ -10,7 +10,7 @@ import renderData from '../../mixins/renderData';
 export default {
   name: 'parkRunActivities',
   components: {
-    navBar,
+    cap,
     activityItem,
     parkRunSubBar,
   },

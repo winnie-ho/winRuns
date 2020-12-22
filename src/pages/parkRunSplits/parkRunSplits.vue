@@ -2,7 +2,7 @@
 <style scoped src='./parkRunSplits.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import parkRunSubBar from '../../components/parkRunSubBar/parkRunSubBar.vue';
 import renderData from '../../mixins/renderData';
 import changePage from '../../mixins/changePage';
@@ -10,7 +10,7 @@ import changePage from '../../mixins/changePage';
 export default {
   name: 'parkRunSplits',
   components: {
-    navBar,
+    cap,
     parkRunSubBar,
   },
   mixins: [renderData, changePage],
