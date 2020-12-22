@@ -4,6 +4,10 @@
   margin-bottom: 20px;
 }
 
+.onAuthPage {
+  box-shadow: none !important;
+}
+
 .home-button {
   font-family: 'Major Mono Display';
   color: var(--palette-white);

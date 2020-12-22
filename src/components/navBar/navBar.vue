@@ -19,10 +19,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    onAuthPage: {
-      type: Boolean,
-      required: false,
-    },
     isElevatedProfile: {
       type: Boolean,
       required: false,

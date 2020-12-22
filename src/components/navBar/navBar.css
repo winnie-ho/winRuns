@@ -3,10 +3,6 @@
   float: right;
 }
 
-.onAuthPage {
-  box-shadow: none !important;
-}
-
 /* responsive css  */
 @media all and (max-width: 1000px) {
   .nav-bar {

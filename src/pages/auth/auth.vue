@@ -2,7 +2,7 @@
 <style scoped src='./auth.css'></style>
 
 <script>
-import navBar from '../../components/navBar/navBar.vue';
+import cap from '../../components/cap/cap.vue';
 import renderData from '../../mixins/renderData';
 import { store } from '../../store/store';
 import changePage from '../../mixins/changePage';
@@ -10,7 +10,7 @@ import changePage from '../../mixins/changePage';
 export default {
   name: 'auth',
   components: {
-    navBar,
+    cap,
   },
   mixins: [renderData, changePage],
   data() {
