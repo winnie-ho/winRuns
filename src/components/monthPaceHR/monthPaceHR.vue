@@ -15,7 +15,7 @@ export default {
   props: ['activitiesInView'],
   watch: {
     sortedActivitiesInView() {
-      this.createAvgHRPaceChart(this.sortedActivitiesInView, 'avg-heartrate-pace-chart', this.avgHRData, this.avgPaceData);
+      this.createAvgHRPaceChart(this.sortedActivitiesInView, 'avg-heartrate-pace-chart', this.MAFLimitData, this.avgHRData, this.avgPaceData);
     },
   },
   data() {
@@ -27,6 +27,9 @@ export default {
   methods: {
   },
   computed: {
+    HRZones() {
+      return this.$store.state.HRZones;
+    },
     sortedActivitiesInView() {
       return this.activitiesInView.slice().sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
@@ -50,6 +53,9 @@ export default {
     },
     lowestAvgHR() {
       return Math.min(...this.avgHRData) === 0 ? Math.min(...this.avgHRData.filter(avgHR => avgHR > 0)) : Math.min(...this.avgHRData);
+    },
+    MAFLimitData() {
+      return this.getMAFLimitData(this.sortedActivitiesInView, this.HRZones.z2);
     },
   },
 };
