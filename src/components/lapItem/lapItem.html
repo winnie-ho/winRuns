@@ -1,19 +1,17 @@
-<div class='lap' :class='{ selectedLap: isSelectedLap }'>
-  <div @click='markLap()' class='row sa lap-detail'>
-    <div class='lap'>{{ lap.lap_index }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">
-      {{ renderDistance(lap.distance) }}
-    </div>
-    <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimDistance(lap.distance) }}</div>
-    <div class='lap'>{{ renderTime(lap.moving_time) }}</div>
-    <div class='lap' v-show="activity.type ==='Run'">
-      {{ renderPace(lap.moving_time, lap.distance) }}</div>
-    <div class='lap' v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">
-      {{ renderSpeed(lap.distance / lap.moving_time) }}</div>
-    <div class='lap' v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
-    <div v-show='createSession' class='merge-buttons'>
-      <button class='merge button' v-show='isMergeable && !merged' @click='mergeLap()'>⇡</button>
-      <button class='merge button' v-show='isMergeable && merged' @click='mergeLap()'>↓</button>
-    </div>
+<div @click='markLap()' class='row sa lap' :class='{ selectedLap: isSelectedLap }'>
+  <div>{{ lap.lap_index }}</div>
+
+  <div v-show="activity.type === 'Ride' || activity.type ==='Run' || activity.type === 'VirtualRide'">{{ renderDistance(lap.distance) }}</div>
+  <div v-show="activity.type === 'Swim'">{{ renderSwimDistance(lap.distance) }}</div>
+
+  <div>{{ renderTime(lap.moving_time) }}</div>
+
+  <div v-show="activity.type ==='Run'">{{ renderPace(lap.moving_time, lap.distance) }}</div>
+  <div v-show="activity.type === 'Ride' || activity.type === 'VirtualRide'">{{ renderSpeed(lap.distance / lap.moving_time) }}</div>
+  <div v-show="activity.type === 'Swim'">{{ renderSwimPace(lap.moving_time, lap.distance) }}</div>
+
+  <div v-show='createSession'>
+    <el-button size='mini' type='secondary' icon='el-icon-upload2' v-show='isMergeable && !merged' @click='mergeLap()'></el-button>
+    <el-button size='mini' type='secondary' icon='el-icon-download' v-show='isMergeable && merged' @click='mergeLap()'></el-button>
   </div>
 </div>

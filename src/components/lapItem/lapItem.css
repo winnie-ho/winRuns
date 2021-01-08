@@ -1,56 +1,12 @@
-.lap {
-  background-color: transparent;
-  color: var(--palette-eerie-black);
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-#laps{
-  margin: 10px 0;
-}
-
-#lap-calc-result {
-  width: 100%;
-  height: auto;
-  text-align: center;
-}
-
 .selectedLap {
   background-color: var(--palette-cerulean);
+  color: var(--palette-white);
 }
 
-.merge{
-  position: relative;
-  padding: 0px 2px;
-  cursor: pointer;
-}
-
-.merge:hover{
-  border: 1px solid var(--palette-smalt);
-}
-
-.lap-detail{
+.lap{
   width: 100%;
   padding: 10px;
   display: grid;
-  grid: 20px/ 20% 20% 20% 20% 20%;
-}
-
-.button {
-  background-color: var(--palette-tea);
-  color: var(--palette-eerie-black);
-  border: none;
-  border-radius: 3px;
-  padding: 5px;
-  margin: 5px;
-}
-
-.merge-buttons{
   text-align: center;
-}
-
-.merge-buttons > button {
-  width: 30px;
-  height: 20px;
+  grid: 20px/ 20% 20% 20% 20% 20%;
 }
