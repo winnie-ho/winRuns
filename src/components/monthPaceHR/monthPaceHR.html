@@ -1,8 +1,8 @@
-<div id='month-hr' class='component-container container-colour--secondary'>
-  <div id='heartrate-summary' class='row sb'>
+<div class='component-container container-colour--secondary'>
+  <div class='row sb'>
     <img class='icon--large' src='../../../static/assets/svgs/icon_heartrate.svg' />
-    <div id='max-avg-hr' class='col sb'>
-      <div id='max-hr-low-high' v-show='lowestMaxHR || highestMaxHR'>
+    <div class='col sb month-hr__summary'>
+      <div v-show='lowestMaxHR || highestMaxHR'>
         Max HR
         <i class="el-icon-sort-down" size='mini'></i>
         {{ lowestMaxHR }}
@@ -10,7 +10,7 @@
         {{ highestMaxHR }}
       </div>
 
-      <div id='avg-hr-low-high' v-show='lowestAvgHR || highestAvgHR'>
+      <div v-show='lowestAvgHR || highestAvgHR'>
         Avg HR
         <i class="el-icon-sort-down" size='mini'></i>
         {{ lowestAvgHR }}
