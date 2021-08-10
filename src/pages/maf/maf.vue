@@ -32,7 +32,7 @@ export default {
     this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.MAFLimitData, this.avgHRData, this.avgPaceData);
   },
   watch: {
-    sortedActivitiesInPeriod() {
+    activitiesInPeriod() {
       this.createAvgHRPaceChart(this.sortedActivitiesInPeriod, 'avg-heartrate-pace-chart-in-date-range', this.MAFLimitData, this.avgHRData, this.avgPaceData);
     },
     fixedStartDate() {
@@ -59,10 +59,10 @@ export default {
       return this.$store.state.activitiesInPeriod;
     },
     sortedActivitiesInPeriod() {
-      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0).sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
+      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0 && activity.average_heartrate < this.HRZones.z2 + 5).sort((a, b) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
     reverseSortedActivitiesInPeriod() {
-      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0).sort((b, a) => new Date(a.start_date_local) - new Date(b.start_date_local));
+      return this.activitiesInPeriod.slice().filter(activity => activity.type === 'Run' && activity.workout_type === 0 && activity.average_heartrate < this.HRZones.z2 + 5).sort((b, a) => new Date(a.start_date_local) - new Date(b.start_date_local));
     },
     avgHRData() {
       return this.getActivitiesAvgHRData(this.sortedActivitiesInPeriod);
