@@ -30,7 +30,7 @@ export default {
             let secs = date.getSeconds();
             secs = (secs < 10 ? '0' : '') + secs;
             const hrm = `${this.points[2].y}bpm`;
-            return `${mins}:${secs}min/km, ${hrm}`;
+            return `${mins}:${secs}min/km, ${hrm} - ${this.points[1].key}`;
           },
         },
         plotOptions: {
