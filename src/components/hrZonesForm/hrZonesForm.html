@@ -1,4 +1,4 @@
-<el-form :model="form" label-width="100px" label-position='left' size="mini">
+<el-form :model="form" label-width="200px" label-position='right' size="mini">
   <el-form-item label="Zone 1">
     <el-input v-model="form.z1"></el-input>
   </el-form-item>
@@ -13,6 +13,9 @@
   </el-form-item>
   <el-form-item label="Zone 5">
     <el-input v-model="form.z5"></el-input>
+  </el-form-item>
+  <el-form-item label="Average heartrate to set graph to">
+    <el-input v-model="form.graphHRFilter"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="secondary" @click="cancelHRZones">Cancel</el-button>

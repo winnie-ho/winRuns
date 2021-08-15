@@ -4,9 +4,10 @@
 }
 
 .hr {
-  margin: 5px;
+  margin: 2px;
   padding: 5px;
   width: 45px;
+  height: 50px;
   border-radius: 3px;
   background-color: var(--palette-cerulean);
 }
@@ -14,6 +15,10 @@
 .hr h5, h4 {
   margin: 0px;
   color: var(--palette-white);
+}
+
+.graph-hr-filter {
+  width: 90px;
 }
 
 .btn-edit{

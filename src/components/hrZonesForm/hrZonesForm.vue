@@ -18,6 +18,7 @@ export default {
         z3: this.HRZones.z3,
         z4: this.HRZones.z4,
         z5: this.HRZones.z5,
+        graphHRFilter: this.HRZones.graphHRFilter,
       },
     };
   },
@@ -31,6 +32,7 @@ export default {
         z3: parseInt(this.form.z3),
         z4: parseInt(this.form.z4),
         z5: parseInt(this.form.z5),
+        graphHRFilter: parseInt(this.form.graphHRFilter),
       };
       this.$store.dispatch('updateHRZones', payload);
       this.$emit('onCloseForm');
