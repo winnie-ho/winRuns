@@ -2,10 +2,12 @@
   box-shadow: 0px 5px 10px var(--palette-columbian);
   height: 70px;
   margin-bottom: 20px;
+  width: 100vw;
 }
 
 .onAuthPage {
   box-shadow: none !important;
+  margin-bottom: -70px;
 }
 
 .home-button {
