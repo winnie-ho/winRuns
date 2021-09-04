@@ -121,7 +121,7 @@ export default {
           endOnTick: true,
           showLastLabel: true,
           min: 0,
-          tickInterval: 1,
+          tickInterval: 100,
         },
         yAxis: [
           {
