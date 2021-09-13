@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueResource from 'vue-resource';
-import parkRunDirectory from '../mixins/parkRunDirectory';
+import { parkRunDirectory } from '../mixins/parkRunDirectory';
 import { actions } from './actions';
 
 Vue.use(Vuex);
@@ -102,7 +102,7 @@ export const store = new Vuex.Store({
       const finalRuns = [];
       runsOnCorrectDayInTimeFrame.forEach(run => {
         parkRunDirectory.forEach(parkRunLocation => {
-          if (run.start_latitude && run.start_latitude.toFixed(2) == parkRunLocation.startCoords[0] && run.start_longitude && run.start_longitude.toFixed(2) == parkRunLocation.startCoords[1]) {
+          if (run.start_latitude && run.start_latitude.toFixed(2) === parkRunLocation.startCoords[0] && run.start_longitude && run.start_longitude.toFixed(2) === parkRunLocation.startCoords[1]) {
             finalRuns.push(run);
           }
           // else {
